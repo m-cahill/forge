@@ -7,7 +7,7 @@
 | **Milestone** | M05 |
 | **Title** | Controlled Public Baseline Reproduction Planning and Compute Path |
 | **Branch** | `forge/M05-control-repro-planning` |
-| **Status** | closed (PR #6 green; merge pending owner permission) |
+| **Status** | merged to `main` (`34169d0`) |
 | **Precondition** | M04 merged to `main`; post-merge CI green; owner authorized M05 kickoff |
 | **Primary goal** | Executable, auditable plan for a future public control reproduction attempt — **no training, inference, Kaggle submission, or reproduction claims** |
 

@@ -4,10 +4,11 @@
 **Phase:** Lane A — public control reproduction (planning guardrail)  
 **Milestone:** M05 — Controlled Public Baseline Reproduction Planning and Compute Path  
 **Timeframe:** 2026-06-04  
-**Status:** Closed — PR [#6](https://github.com/m-cahill/forge/pull/6) open; CI **green** (not merged)  
-**Branch:** `forge/M05-control-repro-planning`  
-**PR head:** `4864f08aff49941d2ba61e02d82b966fdff755d9`  
-**PR CI:** [26982659564](https://github.com/m-cahill/forge/actions/runs/26982659564) **green**  
+**Status:** Closed — PR [#6](https://github.com/m-cahill/forge/pull/6) **merged** to `main` (`34169d0`) 2026-06-04T22:25:51Z  
+**Branch:** `forge/M05-control-repro-planning` (deleted after merge)  
+**PR head:** `508f9ac080098b1f35adc58bad14c45eee46ded7`  
+**PR CI:** [26982740620](https://github.com/m-cahill/forge/actions/runs/26982740620) **green**  
+**Post-merge CI:** [26983281413](https://github.com/m-cahill/forge/actions/runs/26983281413) **green**  
 **Baseline:** M04 merged `f54afd0`
 
 ---
@@ -124,6 +125,6 @@ No HIGH defects blocking M05 closeout.
 | PR CI green | Yes — 26982659564 |
 | Summary + audit + run1 | Yes |
 | Non-claims preserved | Yes |
-| Merge to `main` | **Pending owner permission** |
+| Merge to `main` | Yes — `34169d0` (2026-06-04T22:25:51Z) |
 
 **Next recommendation:** Owner records Submit UI zip constraints; authorizes M06 kickoff and training with manifest gates.
