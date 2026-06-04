@@ -57,6 +57,18 @@ class ReproductionPlanStatus(str, Enum):
     REJECTED = "rejected"
 
 
+class SchemaInspectionStatus(str, Enum):
+    """External baseline schema inspection gate status."""
+
+    COMPLETE = "complete"
+    INCOMPLETE = "incomplete"
+    BLOCKED_OWNER_AUTHORIZATION_REQUIRED = "blocked_owner_authorization_required"
+    WAIVED = "waived"
+
+
+DATA_SOURCE_OBJECT_KEYS = frozenset({"name", "sha256", "row_count", "notes_path"})
+
+
 def _is_non_empty_string(value: Any) -> bool:
     return isinstance(value, str) and bool(value.strip())
 
@@ -152,10 +164,30 @@ def validate_reproduction_plan(data: dict[str, Any]) -> list[str]:
     ):
         errors.append("required_credentials must be a list of non-empty strings")
 
-    for list_key in ("data_sources", "expected_artifacts", "blockers"):
+    for list_key in ("expected_artifacts", "blockers"):
         value = data.get(list_key)
         if not isinstance(value, list) or not all(_is_non_empty_string(item) for item in value):
             errors.append(f"{list_key} must be a list of non-empty strings")
+
+    data_sources = data.get("data_sources")
+    if not isinstance(data_sources, list):
+        errors.append("data_sources must be a list")
+    else:
+        errors.extend(_validate_data_sources(data_sources))
+
+    schema_status_raw = data.get("schema_inspection_status")
+    if schema_status_raw is not None:
+        try:
+            SchemaInspectionStatus(schema_status_raw)
+        except ValueError:
+            errors.append(
+                "schema_inspection_status must be one of: "
+                f"{', '.join(s.value for s in SchemaInspectionStatus)}"
+            )
+
+    credentials_ready = data.get("credentials_ready")
+    if credentials_ready is not None and not isinstance(credentials_ready, bool):
+        errors.append("credentials_ready must be a boolean when present")
 
     non_claims = data.get("non_claims")
     if not isinstance(non_claims, list) or not all(
@@ -171,6 +203,59 @@ def validate_reproduction_plan(data: dict[str, Any]) -> list[str]:
 
     errors.extend(_validate_copying_policy(data))
     errors.extend(_validate_authorization_rules(data, status))
+    return errors
+
+
+def _validate_data_sources(data_sources: list[Any]) -> list[str]:
+    errors: list[str] = []
+    for idx, item in enumerate(data_sources):
+        if _is_non_empty_string(item):
+            continue
+        if not isinstance(item, dict):
+            errors.append(f"data_sources[{idx}] must be a string or object")
+            continue
+        missing = sorted(DATA_SOURCE_OBJECT_KEYS - set(item.keys()))
+        if missing:
+            errors.append(f"data_sources[{idx}] missing keys: {', '.join(missing)}")
+            continue
+        if not _is_non_empty_string(item.get("name")):
+            errors.append(f"data_sources[{idx}].name must be a non-empty string")
+        if not _is_non_empty_string(item.get("sha256")):
+            errors.append(f"data_sources[{idx}].sha256 must be a non-empty string")
+        if not _is_non_empty_string(item.get("notes_path")):
+            errors.append(f"data_sources[{idx}].notes_path must be a non-empty string")
+        row_count = item.get("row_count")
+        if not isinstance(row_count, int) or row_count < 0:
+            errors.append(f"data_sources[{idx}].row_count must be a non-negative integer")
+    return errors
+
+
+def _validate_ready_for_training_gates(data: dict[str, Any]) -> list[str]:
+    errors: list[str] = []
+    schema_status_raw = data.get("schema_inspection_status")
+    schema_waiver = data.get("schema_inspection_waiver")
+    if isinstance(schema_waiver, bool) and schema_waiver:
+        return errors
+
+    if schema_status_raw is None:
+        errors.append(
+            "status ready_for_training requires schema_inspection_status or "
+            "schema_inspection_waiver true"
+        )
+    elif schema_status_raw != SchemaInspectionStatus.COMPLETE.value:
+        errors.append(
+            "status ready_for_training requires schema_inspection_status complete "
+            "or schema_inspection_waiver true"
+        )
+
+    credentials_ready = data.get("credentials_ready")
+    credentials_waived = data.get("credentials_waived")
+    if credentials_waived is True:
+        return errors
+    if credentials_ready is not True:
+        errors.append(
+            "status ready_for_training requires credentials_ready true or credentials_waived true"
+        )
     return errors
 
 
@@ -222,6 +307,7 @@ def _validate_authorization_rules(
             errors.append("status ready_for_training requires compute_path")
         if not _is_non_empty_string(data.get("owner_training_authorization")):
             errors.append("status ready_for_training requires owner_training_authorization")
+        errors.extend(_validate_ready_for_training_gates(data))
 
     requires_creds = data.get("requires_external_credentials")
     required_credentials = data.get("required_credentials")

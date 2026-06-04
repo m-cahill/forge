@@ -6,13 +6,13 @@ Solver-guided, artifact-first LoRA engineering for `NVIDIA-Nemotron-3-Nano-30B`:
 
 ## Current milestone
 
-**M06** — Controlled public baseline reproduction execution gate (stub; see `docs/milestones/M06/M06_plan.md`).
+**M06** — Controlled public baseline reproduction execution gate on branch `forge/M06-control-repro-execution-gate` (see `docs/milestones/M06/M06_plan.md`).
 
-M00–M05 merged to `main` (`34169d0`). M05 added reproduction planning + manifest validator — **no training, inference, submission, or reproduced baseline**.
+M00–M05 merged to `main` (`34169d0`). M06 adds schema inspection derived notes + schema-gate reproduction manifest — **no training, inference, submission, or reproduced baseline**.
 
 ```bash
 python scripts/validate_reproduction_plan.py \
-  docs/milestones/M05/evidence/reproduction_plan/public_control_repro_plan.preflight.json
+  docs/milestones/M06/evidence/reproduction_gate/public_control_repro_plan.schema_gate.json
 ```
 
 ## Synthetic dataset (M03)

@@ -3,6 +3,8 @@
 from __future__ import annotations
 
 import copy
+import json
+from pathlib import Path
 
 import pytest
 
@@ -11,6 +13,12 @@ from forge_nemotron.baselines.reproduction_plan import (
     parse_reproduction_plan_json,
     reproduction_plan_to_json,
     validate_reproduction_plan,
+)
+
+SCHEMA_GATE_PATH = (
+    Path(__file__).resolve().parents[2]
+    / "docs/milestones/M06/evidence/reproduction_gate"
+    / "public_control_repro_plan.schema_gate.json"
 )
 
 
@@ -69,6 +77,8 @@ class TestReadyForTraining:
         plan["training_authorized"] = True
         plan["owner_training_authorization"] = "owner-2026-06-04-m06"
         plan["compute_path"] = "modal_tinker"
+        plan["schema_inspection_status"] = "complete"
+        plan["credentials_ready"] = True
         assert validate_reproduction_plan(plan) == []
 
 
@@ -77,3 +87,45 @@ class TestSerialization:
         text = reproduction_plan_to_json(preflight_plan)
         loaded = parse_reproduction_plan_json(text)
         assert validate_reproduction_plan(loaded) == []
+
+
+class TestSchemaGateManifest:
+    def test_schema_gate_plan_file_valid(self) -> None:
+        data = json.loads(SCHEMA_GATE_PATH.read_text(encoding="utf-8"))
+        assert validate_reproduction_plan(data) == []
+        assert data["schema_inspection_status"] == "complete"
+        assert data["training_authorized"] is False
+        assert data["kaggle_submission_authorized"] is False
+        assert data["copying_policy"] == "no_code_copy"
+        assert isinstance(data["data_sources"], list)
+        assert all(isinstance(item, dict) for item in data["data_sources"])
+
+    def test_blocked_schema_inspection_plan_valid(self, preflight_plan: dict) -> None:
+        plan = copy.deepcopy(preflight_plan)
+        plan["plan_id"] = "public_control_repro_plan_schema_gate_blocked"
+        plan["schema_inspection_status"] = "blocked_owner_authorization_required"
+        plan["data_sources"] = []
+        plan["blockers"] = ["schema_inspection_not_authorized"]
+        assert validate_reproduction_plan(plan) == []
+
+    def test_ready_for_training_requires_schema_and_credentials(self, preflight_plan: dict) -> None:
+        plan = copy.deepcopy(preflight_plan)
+        plan["status"] = "ready_for_training"
+        plan["training_authorized"] = True
+        plan["owner_training_authorization"] = "owner-m07-gate"
+        plan["compute_path"] = "modal_tinker"
+        errors = validate_reproduction_plan(plan)
+        assert any("schema_inspection" in e for e in errors)
+        assert any("credentials_ready" in e for e in errors)
+
+    def test_ready_for_training_valid_with_schema_and_credentials(
+        self, preflight_plan: dict
+    ) -> None:
+        plan = copy.deepcopy(preflight_plan)
+        plan["status"] = "ready_for_training"
+        plan["training_authorized"] = True
+        plan["owner_training_authorization"] = "owner-m07-gate"
+        plan["compute_path"] = "modal_tinker"
+        plan["schema_inspection_status"] = "complete"
+        plan["credentials_ready"] = True
+        assert validate_reproduction_plan(plan) == []

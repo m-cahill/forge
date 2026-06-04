@@ -1,9 +1,10 @@
 # FORGE — Ultimate Truth
 
 **Project:** FORGE — Kaggle NVIDIA Nemotron Model Reasoning Challenge  
-**Last updated:** 2026-06-04 (M05 merged to `main`; post-merge CI green)  
-**Status:** M00–M05 **merged** to `main`; **next:** M06 execution gate stub (not started)  
+**Last updated:** 2026-06-04 (M06 in progress on `forge/M06-control-repro-execution-gate`)  
+**Status:** M00–M05 **merged** to `main`; **M06** execution gate **in progress** (PR pending)  
 **Main SHA:** `34169d062971ac5f754b2e71e5d10c1711c0f612` (M05 squash merge via PR [#6](https://github.com/m-cahill/forge/pull/6))  
+**M06 branch:** `forge/M06-control-repro-execution-gate` — Gate B authorized; Gate C **not** authorized  
 **M05 PR head (pre-merge):** `508f9ac080098b1f35adc58bad14c45eee46ded7` · PR CI [26982740620](https://github.com/m-cahill/forge/actions/runs/26982740620) **green**  
 **Post-merge CI on `main`:** [26983281413](https://github.com/m-cahill/forge/actions/runs/26983281413) **green** (push on `34169d0`)
 
@@ -103,8 +104,8 @@ FORGE is a solver-guided, artifact-first, audit-governed LoRA competition system
 | M03 | Solver and synthetic trace factory | `forge/M03-solver-factory` → `main` | **merged** (`fe2a7dd`) | **green** — post-merge [26976448338](https://github.com/m-cahill/forge/actions/runs/26976448338) | 4.7/5 | [M03_summary](milestones/M03/M03_summary.md) |
 | M04 | Public control adapter reproduction preflight | `forge/M04-control-preflight` → `main` | **merged** (`f54afd0`) | **green** — post-merge [26979013700](https://github.com/m-cahill/forge/actions/runs/26979013700) | 4.6/5 | [M04_summary](milestones/M04/M04_summary.md) |
 | M05 | Controlled public baseline reproduction planning | `forge/M05-control-repro-planning` → `main` | **merged** (`34169d0`) | **green** — post-merge [26983281413](https://github.com/m-cahill/forge/actions/runs/26983281413) | 4.6/5 | [M05_summary](milestones/M05/M05_summary.md) |
-| M06 | Controlled public baseline reproduction execution gate | — | **next** — stub | — | — | [M06_plan](milestones/M06/M06_plan.md) (stub) |
-| M07 | Final documentation and eligibility | — | not started | — | — | — |
+| M06 | Controlled public baseline reproduction execution gate | `forge/M06-control-repro-execution-gate` | **in progress** | PR pending | — | [M06_plan](milestones/M06/M06_plan.md) |
+| M07 | Controlled public baseline training authorization gate | — | **next** — stub | — | — | [M07_plan](milestones/M07/M07_plan.md) (stub) |
 | M08 | Final submission lock | — | not started | — | — | — |
 
 ---
