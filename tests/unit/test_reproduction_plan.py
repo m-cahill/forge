@@ -20,6 +20,11 @@ SCHEMA_GATE_PATH = (
     / "docs/milestones/M06/evidence/reproduction_gate"
     / "public_control_repro_plan.schema_gate.json"
 )
+TRAINING_BLOCKED_PATH = (
+    Path(__file__).resolve().parents[2]
+    / "docs/milestones/M07/evidence/training_gate"
+    / "public_control_repro_plan.training_blocked.json"
+)
 
 
 @pytest.fixture
@@ -129,3 +134,38 @@ class TestSchemaGateManifest:
         plan["schema_inspection_status"] = "complete"
         plan["credentials_ready"] = True
         assert validate_reproduction_plan(plan) == []
+
+    def test_ready_for_training_requires_compute_path(self, preflight_plan: dict) -> None:
+        plan = copy.deepcopy(preflight_plan)
+        plan["status"] = "ready_for_training"
+        plan["training_authorized"] = True
+        plan["owner_training_authorization"] = "owner-m07-gate"
+        plan["schema_inspection_status"] = "complete"
+        plan["credentials_ready"] = True
+        plan["compute_path"] = ""
+        errors = validate_reproduction_plan(plan)
+        assert any("compute_path" in e for e in errors)
+
+    def test_ready_for_training_schema_waiver_allows_incomplete(
+        self, preflight_plan: dict
+    ) -> None:
+        plan = copy.deepcopy(preflight_plan)
+        plan["status"] = "ready_for_training"
+        plan["training_authorized"] = True
+        plan["owner_training_authorization"] = "owner-m07-gate"
+        plan["compute_path"] = "modal_tinker"
+        plan["credentials_ready"] = True
+        plan["schema_inspection_waiver"] = True
+        assert validate_reproduction_plan(plan) == []
+
+
+class TestTrainingGateManifest:
+    def test_training_blocked_manifest_file_valid(self) -> None:
+        data = json.loads(TRAINING_BLOCKED_PATH.read_text(encoding="utf-8"))
+        assert validate_reproduction_plan(data) == []
+        assert data["plan_id"] == "public_control_repro_plan_training_gate_v1"
+        assert data["training_authorized"] is False
+        assert data["ready_for_training"] is False
+        assert data["status"] != "ready_for_training"
+        assert data["schema_inspection_status"] == "complete"
+        assert "training_not_authorized" in data["blockers"]
