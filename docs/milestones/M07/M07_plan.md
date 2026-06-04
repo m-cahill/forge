@@ -316,7 +316,7 @@ Update:
 
 - [x] `M07_next_decision.md`
 - [x] `docs/forge.md` in-progress record
-- [ ] Commit Phase E.
+- [x] Commit Phase E.
 - [ ] Closeout: summary, audit, run1 (owner permission)
 
 ---
