@@ -7,7 +7,7 @@
 | **Milestone** | M02 |
 | **Title** | Exact Local Evaluation and Artifact Discipline |
 | **Branch** | `forge/M02-local-eval` |
-| **Status** | **active** — implementation complete; PR pending |
+| **Status** | **closed** — PR [#3](https://github.com/m-cahill/forge/pull/3) CI green; merge pending |
 | **Precondition** | M01 merged to `main`; post-merge CI green; owner authorized kickoff 2026-06-04 |
 | **Primary goal** | Make every future candidate locally scoreable, hashable, comparable, and auditable before spending Kaggle submissions |
 
@@ -103,17 +103,17 @@ By the end of M02, FORGE should be able to:
 
 ## 6. Acceptance criteria
 
-- [ ] Branch `forge/M02-local-eval` from green `main`
-- [ ] Expanded `M02_plan.md` and `M02_toolcalls.md`
-- [ ] `docs/forge.md` marks M02 active
-- [ ] Evaluation records and scorer exist
-- [ ] CLI produces JSON, CSV, failures JSONL, manifest, `input_hashes.json`
-- [ ] Per-category reporting and failure report
-- [ ] Hashing utilities and manifest builder tested
-- [ ] Fixture data and holdout manifest
-- [ ] Tiny fixture eval smoke succeeds
-- [ ] CI green on PR
-- [ ] No Kaggle submit / score / training / inference claims
+- [x] Branch `forge/M02-local-eval` from green `main`
+- [x] Expanded `M02_plan.md` and `M02_toolcalls.md`
+- [x] `docs/forge.md` marks M02 active → closeout
+- [x] Evaluation records and scorer exist
+- [x] CLI produces JSON, CSV, failures JSONL, manifest, `input_hashes.json`
+- [x] Per-category reporting and failure report
+- [x] Hashing utilities and manifest builder tested
+- [x] Fixture data and holdout manifest
+- [x] Tiny fixture eval smoke succeeds (0.75 fixture/local only)
+- [x] CI green on PR — [26973038855](https://github.com/m-cahill/forge/actions/runs/26973038855)
+- [x] No Kaggle submit / score / training / inference claims
 
 ---
 

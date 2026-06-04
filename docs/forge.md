@@ -1,10 +1,10 @@
 # FORGE — Ultimate Truth
 
 **Project:** FORGE — Kaggle NVIDIA Nemotron Model Reasoning Challenge  
-**Last updated:** 2026-06-04 (M02 active — local eval implementation)  
-**Status:** M00 and M01 **merged** to `main`; **active milestone:** M02 on `forge/M02-local-eval`  
-**Main SHA (pre-M02 branch):** `ce9dc7f` (M01 Kaggle intake finalize) · M01 merge `d59d97b` via PR [#2](https://github.com/m-cahill/forge/pull/2)  
-**M01 PR head (pre-merge):** `94d29f289dee778b45e2ec8da707112a75e86bdf` · final PR CI [26935090190](https://github.com/m-cahill/forge/actions/runs/26935090190)
+**Last updated:** 2026-06-04 (M02 closed — PR [#3](https://github.com/m-cahill/forge/pull/3) CI green; merge pending)  
+**Status:** M00 and M01 **merged** to `main`; M02 **closed** on `forge/M02-local-eval` (not merged); **next:** M03 planning  
+**Main SHA:** `ce9dc7f` (includes M01 Kaggle intake) · M01 merge `d59d97b` via PR [#2](https://github.com/m-cahill/forge/pull/2)  
+**M02 PR head:** `c8dc65b` · PR CI [26973038855](https://github.com/m-cahill/forge/actions/runs/26973038855) **green**
 
 ---
 
@@ -98,8 +98,8 @@ FORGE is a solver-guided, artifact-first, audit-governed LoRA competition system
 | --------- | ----- | ------ | ------ | -- | ----------- | ------- |
 | M00 | Anchor and competition intake | `forge/M00-anchor-intake` → `main` | **merged** (`27d0fed`) | not configured; local verify pass | 4.0/5 | [M00_summary](milestones/M00/M00_summary.md) |
 | M01 | Public control reproduction foundation | `forge/M01-control-baseline` → `main` | **merged** (`d59d97b`) | **green** — post-merge [26935381116](https://github.com/m-cahill/forge/actions/runs/26935381116) | 4.5/5 | [M01_summary](milestones/M01/M01_summary.md) |
-| M02 | Exact local evaluation and artifact discipline | `forge/M02-local-eval` | **active** | pending PR | — | [M02_plan](milestones/M02/M02_plan.md) |
-| M03 | Solver and synthetic trace factory | — | not started | — | — | — |
+| M02 | Exact local evaluation and artifact discipline | `forge/M02-local-eval` → `main` | **closed** (PR [#3](https://github.com/m-cahill/forge/pull/3) open) | **green** — [26973038855](https://github.com/m-cahill/forge/actions/runs/26973038855) | 4.6/5 | [M02_summary](milestones/M02/M02_summary.md) |
+| M03 | Solver and synthetic trace factory | — | **next** — stub only | — | — | [M03_plan](milestones/M03/M03_plan.md) (stub) |
 | M04 | Adapter sweep | — | not started | — | — | — |
 | M05 | Merge and compression lab | — | not started | — | — | — |
 | M06 | Final documentation and eligibility | — | not started | — | — | — |
@@ -119,7 +119,7 @@ FORGE is a solver-guided, artifact-first, audit-governed LoRA competition system
 
 | Run ID | Date | Config Hash | Dataset Hash | Adapter Hash | Local Score | Category Scores | Notes |
 | ------ | ---- | ----------- | ------------ | ------------ | ----------- | --------------- | ----- |
-| m02_fixture_eval | 2026-06-04 | — | `c7ff8ec…` (examples) | — | 0.75 (6/8 mixed preds) | see evidence CSV | Fixture smoke; local only; [evidence](milestones/M02/evidence/fixture_eval/) |
+| m02_fixture_eval | 2026-06-04 | — | `c7ff8ec140feabcee037ddb16b279d68ac1704998d7e34e3d8290d7dd8162219` | — | **0.75** (6/8; fixture only) | [evidence CSV](milestones/M02/evidence/fixture_eval/local_eval_by_category.csv) | **Not** a Kaggle/public score; hand-authored fixture; [evidence](milestones/M02/evidence/fixture_eval/) |
 
 ---
 
@@ -189,7 +189,8 @@ A candidate may advance only when all applicable gates are satisfied:
 | Risk | Impact | Mitigation | Owner | Target | Exit Criteria | Status |
 | ---- | ------ | ---------- | ----- | ------ | ------------- | ------ |
 | Invalid submission package | Wastes submissions | Package validator before every upload | — | M01 | Validator implemented and passes | **resolved** — validator implemented |
-| Public leaderboard overfit | Poor private score | Hard holdouts + anti-forgetting gates | — | M02+ | Per-category gates enforced | open |
+| Public leaderboard overfit | Poor private score | Hard holdouts + anti-forgetting gates | — | M02+ | Per-category gates enforced | open — local per-category reporting exists (M02); production holdouts TBD |
+| Fixture score mistaken for leaderboard | Wrong promotion decisions | Label evidence + forge Run Ledger | — | M02 | Fixture 0.75 explicitly not public score | **mitigated** — M02 evidence README + audit GOV-003 |
 | Documentation ineligibility | Prize loss | Public notebook/write-up in M06 | — | M06 | Notebook and write-up public | open |
 | Daily submission limit unknown | Poor slot allocation | Owner verifies Submit UI | Owner | Pre-M01 submit | BQ-001 closed; value in §1 Competition Snapshot | **resolved** — 5/day (2026-06-04) |
 | Rules/team not verified | Eligibility failure | Owner verifies competition enrollment | Owner | Pre-M01 submit | BQ-003 closed; evidence row filled | **resolved** — 2026-06-04 |
@@ -295,34 +296,41 @@ Kaggle **submission is not authorized** without a validated package, local eval,
 
 ### Next recommendation
 
-1. **Owner:** Record any `submission.zip` constraints from Submit UI.  
-2. **Cursor:** Complete M02 local eval + artifact discipline on `forge/M02-local-eval`; open PR to `main`.  
-3. **Defer:** Public baseline training until M02 eval discipline is in place and merged.
+1. **Owner:** Merge PR [#3](https://github.com/m-cahill/forge/pull/3) when ready; record Submit UI `submission.zip` constraints.  
+2. **Cursor (when authorized):** Expand M03 plan; implement solver/trace factory on new branch after M02 merge.  
+3. **Defer:** Kaggle submission until validated package + local eval on real candidates + owner go-ahead.
 
 ---
 
-## M02 Active Record
+## M02 Closeout Record
 
-**Branch:** `forge/M02-local-eval`  
-**Authorized:** 2026-06-04 (owner kickoff with locked answers)  
-**Scope:** Local evaluation CLI, per-category reports, run manifests, artifact hashing, fixture holdout, committed tiny evidence.
+**Branch:** `forge/M02-local-eval` (not merged)  
+**PR:** [#3](https://github.com/m-cahill/forge/pull/3) — **open**; CI **green**  
+**PR head:** `c8dc65be9a930b8b4f11ec0d5dfc56464cf47167`  
+**PR CI:** [26973038855](https://github.com/m-cahill/forge/actions/runs/26973038855) (Python 3.10–3.12)  
+**Local verification:** 106 pytest; ruff/mypy/compileall pass; fixture CLI smoke 6/8 = **0.75 (fixture only)**
 
-**Deliverables:**
+**Artifacts:** [M02_summary](milestones/M02/M02_summary.md) · [M02_audit](milestones/M02/M02_audit.md) (4.6/5) · [M02_run1](milestones/M02/M02_run1.md) · [fixture evidence](milestones/M02/evidence/fixture_eval/)
+
+### M02 deliverables
 
 | Deliverable | Status |
 | ----------- | ------ |
-| `src/forge_nemotron/eval/` records + scorer | Met |
-| `src/forge_nemotron/artifacts/hashing.py` | Met |
-| `src/forge_nemotron/reports/run_manifest.py` | Met |
-| `scripts/eval_predictions.py` | Met |
-| Fixture JSONL + `data/manifests/m02_fixture_holdouts.json` | Met |
-| Committed evidence `docs/milestones/M02/evidence/fixture_eval/` | Met |
-| `metric_version` | `boxed_v1@forge_nemotron-0.1.0` |
-| Unit tests (eval + hashing + manifest) | Met — see branch CI |
+| Eval records + `score_examples()` | Met |
+| `scripts/eval_predictions.py` + module CLI | Met |
+| Per-category CSV + failures JSONL + `input_hashes.json` | Met |
+| Artifact hashing utilities | Met |
+| Run manifest builder | Met |
+| Fixture JSONL + holdout manifest | Met |
+| `m02_fixture_holdout` register row | Met — evaluation-only |
+| Committed fixture evidence | Met — **not** leaderboard score |
+| Kaggle submission / score / training / reproduction | **Not claimed** |
 
-**Non-claims (M02):** no Kaggle submission, public/private score, training, inference, reproduced baseline, Kaggle-ready adapter, holdout used for training.
+### Fixture score disclaimer
 
-**Artifact discipline:** `artifacts/runs/` gitignored; small evidence under `docs/milestones/M02/evidence/fixture_eval/`. Extra predictions warn by default; `--strict-extra-predictions` for strict mode.
+The Run Ledger value **0.75** is from `predictions_mixed.jsonl` against hand-authored fixture examples only. It is **not** a public score, private score, or model-inferred result.
+
+**Non-claims (M02):** no Kaggle submission, public/private score, training, inference, reproduced baseline, Kaggle-ready adapter, fixture holdout used for training.
 
 ---
 
@@ -348,3 +356,4 @@ Kaggle **submission is not authorized** without a validated package, local eval,
 | 2026-06-04 | M01 | Rules/team eligibility verified | BQ-003 closed; Submit UI accessible; team name not recorded |
 | 2026-06-04 | M01 | Deadlines owner-reconfirmed | BQ-002 closed; entry Jun 8; final Jun 15 23:59 UTC |
 | 2026-06-04 | M02 | M02 kickoff authorized | Local eval only; fixture holdout active-fixture; warn on extra preds |
+| 2026-06-04 | M02 | M02 closed; PR #3 CI green | Local eval layer; fixture 0.75 not public score; audit 4.6/5 |

@@ -13,3 +13,4 @@ Record notable Cursor/tool actions for M02 (exact local evaluation and artifact 
 | 2026-06-04T19:10:00Z | Cursor | Phases B–D implement | eval/, artifacts/, reports/, CLI, fixtures, unit tests |
 | 2026-06-04T19:15:00Z | Cursor | Phase E evidence | `eval_predictions.py` smoke → `docs/milestones/M02/evidence/fixture_eval/`; pytest/ruff/mypy pass |
 | 2026-06-04T20:00:00Z | Cursor | PR/CI gate | pre-push hygiene; local verify; push branch; open PR; monitor CI; closeout if green |
+| 2026-06-04T19:05:00Z | Cursor | PR #3 CI green | run [26973038855](https://github.com/m-cahill/forge/actions/runs/26973038855); M02_run1/summary/audit; M03 stub; closeout commit |
