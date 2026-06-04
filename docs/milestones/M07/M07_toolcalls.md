@@ -19,3 +19,4 @@ Record notable Cursor/tool actions for M07 (controlled public baseline training 
 | 2026-06-05T00:30:00Z | Cursor | validate_reproduction_plan + pytest reproduction_plan | training_blocked manifest OK |
 | 2026-06-05T00:31:00Z | Cursor | Phase B/C/D commits | gate docs, manifest, training draft |
 | 2026-06-05T00:32:00Z | Cursor | Phase E commit pending | forge.md, README, M07_plan |
+| 2026-06-05T01:00:00Z | Cursor | PR closeout — git status, local verify, push, gh pr | `forge/M07-training-authorization-gate` |
