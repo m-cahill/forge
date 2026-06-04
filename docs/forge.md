@@ -2,9 +2,9 @@
 
 **Project:** FORGE — Kaggle NVIDIA Nemotron Model Reasoning Challenge  
 **Last updated:** 2026-06-04  
-**Status:** M00 **merged** to `main`; M01 **closed** on `forge/M01-control-baseline` — PR [#2](https://github.com/m-cahill/forge/pull/2) **CI green**; merge pending express permission  
-**Main SHA:** `27d0fed5b62cd3dbef95f8ba32afc6ef4e96d408`  
-**M01 PR head SHA:** `4890fff53fd8b0232c6ee1bd7c461d29618dc87c` (closeout) · implementation `a901b3b`
+**Status:** M00 and M01 **merged** to `main`; **active milestone:** M02 planning (not started)  
+**Main SHA:** `d59d97b91252f9236e374292bbba8f9027edcbc1` (M01 squash merge via PR [#2](https://github.com/m-cahill/forge/pull/2))  
+**M01 PR head (pre-merge):** `94d29f289dee778b45e2ec8da707112a75e86bdf` · final PR CI [26935090190](https://github.com/m-cahill/forge/actions/runs/26935090190)
 
 ---
 
@@ -97,8 +97,8 @@ FORGE is a solver-guided, artifact-first, audit-governed LoRA competition system
 | Milestone | Title | Branch | Status | CI | Audit Score | Summary |
 | --------- | ----- | ------ | ------ | -- | ----------- | ------- |
 | M00 | Anchor and competition intake | `forge/M00-anchor-intake` → `main` | **merged** (`27d0fed`) | not configured; local verify pass | 4.0/5 | [M00_summary](milestones/M00/M00_summary.md) |
-| M01 | Public control reproduction foundation | `forge/M01-control-baseline` | **closed** (PR #2) | **green** — [26935049071](https://github.com/m-cahill/forge/actions/runs/26935049071) (PR head) | 4.5/5 | [M01_summary](milestones/M01/M01_summary.md) |
-| M02 | Exact local evaluation | `forge/M02-local-eval` (planned) | not started | — | — | [M02_plan](milestones/M02/M02_plan.md) |
+| M01 | Public control reproduction foundation | `forge/M01-control-baseline` → `main` | **merged** (`d59d97b`) | **green** — post-merge [26935381116](https://github.com/m-cahill/forge/actions/runs/26935381116) | 4.5/5 | [M01_summary](milestones/M01/M01_summary.md) |
+| M02 | Exact local evaluation and artifact discipline | `forge/M02-local-eval` (planned) | **next** — not started | — | — | [M02_plan](milestones/M02/M02_plan.md) (stub) |
 | M03 | Solver and synthetic trace factory | — | not started | — | — | — |
 | M04 | Adapter sweep | — | not started | — | — | — |
 | M05 | Merge and compression lab | — | not started | — | — | — |
@@ -230,11 +230,14 @@ A candidate may advance only when all applicable gates are satisfied:
 
 ## M01 Closeout Record
 
-**Branch:** `forge/M01-control-baseline`  
-**PR:** [#2](https://github.com/m-cahill/forge/pull/2) — open; **not merged** (awaiting express permission)  
-**Implementation commit:** `a901b3bdd793734fd3a07e13566e709d1e7536d3`  
-**CI:** **Green** on PR head `4890fff` — run [26935049071](https://github.com/m-cahill/forge/actions/runs/26935049071) (implementation run [26934972365](https://github.com/m-cahill/forge/actions/runs/26934972365) on `a901b3b`)  
-**Local verification:** 91 pytest passed; ruff/mypy/compileall pass; `forge_nemotron` 0.1.0
+**Branch:** `forge/M01-control-baseline` (merged)  
+**PR:** [#2](https://github.com/m-cahill/forge/pull/2) — **merged** 2026-06-04 (squash)  
+**Squash merge commit on `main`:** `d59d97b91252f9236e374292bbba8f9027edcbc1`  
+**PR head at merge:** `94d29f289dee778b45e2ec8da707112a75e86bdf`  
+**Implementation commit (on branch):** `a901b3bdd793734fd3a07e13566e709d1e7536d3`  
+**PR CI (final head):** **Green** — [26935090190](https://github.com/m-cahill/forge/actions/runs/26935090190)  
+**Post-merge CI on `main`:** **Green** — [26935381116](https://github.com/m-cahill/forge/actions/runs/26935381116) on `d59d97b` (push; Python 3.10–3.12)  
+**Local verification (pre-merge):** 91 pytest passed; ruff/mypy/compileall pass; `forge_nemotron` 0.1.0
 
 **Artifacts:** [M01_summary](milestones/M01/M01_summary.md) · [M01_audit](milestones/M01/M01_audit.md) (4.5/5) · [M01_run1](milestones/M01/M01_run1.md)
 
@@ -259,7 +262,10 @@ Do not submit to Kaggle until these are recorded with evidence.
 
 ### Next recommendation
 
-Merge PR #2 with permission → seed M02 local eval on `forge/M02-local-eval`.
+1. **Owner:** Complete BQ-001, BQ-003, deadline reconfirm, and Submit UI zip constraints; update `docs/kaggle/kaggle_setup_evidence.md`.  
+2. **Owner:** Reupload/run `notebooks/forge_m01_kaggle_debug_probe.ipynb` on Kaggle (interactive probe only; no submission).  
+3. **Cursor (when authorized):** Expand M02 plan and implement on `forge/M02-local-eval` — local eval CLI, manifests, golden metric tests, artifact hashing.  
+4. **Defer:** Public baseline training/reproduction until M02 eval discipline is in place.
 
 ---
 
@@ -280,3 +286,4 @@ Merge PR #2 with permission → seed M02 local eval on `forge/M02-local-eval`.
 | 2026-06-04 | M01 | Implementation complete | pyproject.toml, boxed metric, package validator, CI workflow, baseline intake, debug notebook |
 | 2026-06-04 | M01 | PR #2 opened; CI green | Run 26934972365; 91 tests; audit 4.5/5 |
 | 2026-06-04 | M01 | M01 closed (not merged) | Summary/audit/run1; M02 stub seeded |
+| 2026-06-04 | M01 | PR #2 squash-merged to `main` | `d59d97b`; post-merge CI 26935381116 green |
