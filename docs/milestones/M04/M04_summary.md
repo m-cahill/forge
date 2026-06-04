@@ -124,6 +124,6 @@ No HIGH defects blocking M04 closeout.
 | PR CI green | Yes — 26977971068 |
 | Summary + audit + run1 | Yes |
 | Non-claims preserved | Yes |
-| Merge to `main` | **Pending owner permission** |
+| Merge to `main` | Yes — `f54afd0` (2026-06-04T20:54:54Z) |
 
-**Next recommendation:** Merge PR #5 with permission; owner records Submit UI zip constraints; authorize M05 planning kickoff (no training without explicit go-ahead).
+**Next recommendation:** Owner records Submit UI zip constraints; authorize M05 planning kickoff (no training without explicit go-ahead).
