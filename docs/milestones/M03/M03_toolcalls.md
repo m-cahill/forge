@@ -13,3 +13,4 @@ Record notable Cursor/tool actions for M03 (solver and synthetic trace factory).
 | 2026-06-04T20:20:00Z | Cursor | Phases B–F implementation | solvers, generators, data, scripts, tests, evidence |
 | 2026-06-04T20:35:00Z | Cursor | Evidence smoke | make_dataset + eval_predictions; 50/50 factory self-check |
 | 2026-06-04T21:00:00Z | Cursor | PR + closeout | hygiene, local verify, push, gh pr, CI monitor, summary/audit/run1 |
+| 2026-06-04T20:05:00Z | Cursor | PR #4 merged | squash `fe2a7dd`; post-merge CI [26976448338](https://github.com/m-cahill/forge/actions/runs/26976448338) green |

@@ -7,7 +7,7 @@
 | **Milestone** | M03 |
 | **Title** | Solver and Synthetic Trace Factory |
 | **Branch** | `forge/M03-solver-factory` |
-| **Status** | **closed** (PR [#4](https://github.com/m-cahill/forge/pull/4) CI green; not merged) |
+| **Status** | **merged** to `main` (`fe2a7dd`) via PR [#4](https://github.com/m-cahill/forge/pull/4) |
 | **Precondition** | M02 merged to `main`; post-merge CI green; owner authorized M03 kickoff |
 | **Primary goal** | First small, deterministic, solver-verified synthetic trace factory |
 

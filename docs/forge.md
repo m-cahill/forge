@@ -1,12 +1,11 @@
 # FORGE — Ultimate Truth
 
 **Project:** FORGE — Kaggle NVIDIA Nemotron Model Reasoning Challenge  
-**Last updated:** 2026-06-04 (M03 closed on branch; PR [#4](https://github.com/m-cahill/forge/pull/4) CI green, not merged)  
-**Status:** M00–M02 **merged** to `main`; **M03 closed** on `forge/M03-solver-factory` — PR [#4](https://github.com/m-cahill/forge/pull/4) awaiting merge permission  
-**Main SHA:** `e78dc975c278c73edffb4b920cf72a067c781420` (M02 squash merge via PR [#3](https://github.com/m-cahill/forge/pull/3))  
-**M03 PR head:** `7c297ab` (closeout) · PR CI [26975819754](https://github.com/m-cahill/forge/actions/runs/26975819754) **green** (implementation head `1c7dde2`, run [26975703019](https://github.com/m-cahill/forge/actions/runs/26975703019))  
-**M02 PR head (pre-merge):** `cfd39707116a218d2b44920c28479fec701be12b` · PR CI [26973225572](https://github.com/m-cahill/forge/actions/runs/26973225572) **green**  
-**Post-merge CI on `main`:** [26973864069](https://github.com/m-cahill/forge/actions/runs/26973864069) **green** (push on `e78dc97`)
+**Last updated:** 2026-06-04 (M03 merged to `main`; post-merge CI green)  
+**Status:** M00–M03 **merged** to `main`; **next:** M04 preflight (stub only)  
+**Main SHA:** `fe2a7dd2e38f158503a49bb81d9ff4a3573601e6` (M03 squash merge via PR [#4](https://github.com/m-cahill/forge/pull/4))  
+**M03 PR head (pre-merge):** `ac661166a4c3b1be63df7a6aaa0d905208baaa79` · PR CI [26975853847](https://github.com/m-cahill/forge/actions/runs/26975853847) **green**  
+**Post-merge CI on `main`:** [26976448338](https://github.com/m-cahill/forge/actions/runs/26976448338) **green** (push on `fe2a7dd`)
 
 ---
 
@@ -101,7 +100,7 @@ FORGE is a solver-guided, artifact-first, audit-governed LoRA competition system
 | M00 | Anchor and competition intake | `forge/M00-anchor-intake` → `main` | **merged** (`27d0fed`) | not configured; local verify pass | 4.0/5 | [M00_summary](milestones/M00/M00_summary.md) |
 | M01 | Public control reproduction foundation | `forge/M01-control-baseline` → `main` | **merged** (`d59d97b`) | **green** — post-merge [26935381116](https://github.com/m-cahill/forge/actions/runs/26935381116) | 4.5/5 | [M01_summary](milestones/M01/M01_summary.md) |
 | M02 | Exact local evaluation and artifact discipline | `forge/M02-local-eval` → `main` | **merged** (`e78dc97`) | **green** — post-merge [26973864069](https://github.com/m-cahill/forge/actions/runs/26973864069) | 4.6/5 | [M02_summary](milestones/M02/M02_summary.md) |
-| M03 | Solver and synthetic trace factory | `forge/M03-solver-factory` | **closed** (PR [#4](https://github.com/m-cahill/forge/pull/4) CI green) | **green** — [26975703019](https://github.com/m-cahill/forge/actions/runs/26975703019) | 4.7/5 | [M03_summary](milestones/M03/M03_summary.md) |
+| M03 | Solver and synthetic trace factory | `forge/M03-solver-factory` → `main` | **merged** (`fe2a7dd`) | **green** — post-merge [26976448338](https://github.com/m-cahill/forge/actions/runs/26976448338) | 4.7/5 | [M03_summary](milestones/M03/M03_summary.md) |
 | M04 | Public control adapter reproduction preflight | — | **next** — stub | — | — | [M04_plan](milestones/M04/M04_plan.md) (stub) |
 | M05 | Merge and compression lab | — | not started | — | — | — |
 | M06 | Final documentation and eligibility | — | not started | — | — | — |
@@ -300,9 +299,8 @@ Kaggle **submission is not authorized** without a validated package, local eval,
 ### Next recommendation
 
 1. **Owner:** Record Submit UI `submission.zip` constraints.  
-2. **Owner:** Merge PR [#4](https://github.com/m-cahill/forge/pull/4) when ready (M03 CI green on `1c7dde2`).
-3. **Cursor (when authorized):** Expand M04 preflight plan on new branch; no training without explicit go-ahead.  
-4. **Defer:** Kaggle submission until validated package + local eval on real candidates + owner go-ahead.
+2. **Cursor (when authorized):** Expand M04 preflight plan on new branch; no training without explicit go-ahead.  
+3. **Defer:** Kaggle submission until validated package + local eval on real candidates + owner go-ahead.
 
 ---
 
@@ -342,12 +340,13 @@ The Run Ledger value **0.75** is from `predictions_mixed.jsonl` against hand-aut
 
 ## M03 Closeout Record
 
-**Branch:** `forge/M03-solver-factory` (not merged)  
-**PR:** [#4](https://github.com/m-cahill/forge/pull/4) — **open**; CI green  
-**PR head:** `1c7dde268faa55a42ebba0d9f202531e99509334`  
-**PR CI:** [26975703019](https://github.com/m-cahill/forge/actions/runs/26975703019) **green** (Python 3.10–3.12)  
-**Implementation commits:** `e6de36f`, `ef8e758`, `1c7dde2`  
-**Local verification:** 127 pytest; ruff/mypy/compileall pass; `make_dataset` + eval self-check pass
+**Branch:** `forge/M03-solver-factory` (merged)  
+**PR:** [#4](https://github.com/m-cahill/forge/pull/4) — **merged** 2026-06-04T20:04:51Z (squash)  
+**Squash merge commit on `main`:** `fe2a7dd2e38f158503a49bb81d9ff4a3573601e6`  
+**PR head (pre-merge):** `ac661166a4c3b1be63df7a6aaa0d905208baaa79`  
+**PR CI (final head):** [26975853847](https://github.com/m-cahill/forge/actions/runs/26975853847) **green**  
+**Post-merge CI on `main`:** [26976448338](https://github.com/m-cahill/forge/actions/runs/26976448338) **green** (Python 3.10–3.12)  
+**Local verification:** 127 pytest; ruff/mypy/compileall pass; `make_dataset` + synthetic factory self-check 50/50
 
 **Artifacts:** [M03_summary](milestones/M03/M03_summary.md) · [M03_audit](milestones/M03/M03_audit.md) (4.7/5) · [M03_run1](milestones/M03/M03_run1.md) · [synthetic smoke evidence](milestones/M03/evidence/synthetic_smoke/)
 
@@ -396,3 +395,4 @@ Run Ledger **1.0** for `m03_synthetic_smoke_eval` is **synthetic factory self-ch
 | 2026-06-04 | M02 | PR #3 squash-merged to `main` | `e78dc97`; post-merge CI 26973864069 green |
 | 2026-06-04 | M03 | Solver factory on branch; PR #4 CI green | Structured solvers; writer owns boxing; 50 smoke examples; audit 4.7/5 |
 | 2026-06-04 | M03 | M04 stub: control reproduction preflight | Defer full adapter sweep until baseline mapping |
+| 2026-06-04 | M03 | PR #4 squash-merged to `main` | `fe2a7dd`; post-merge CI 26976448338 green |

@@ -6,9 +6,9 @@ Solver-guided, artifact-first LoRA engineering for `NVIDIA-Nemotron-3-Nano-30B`:
 
 ## Current milestone
 
-**M03** — Solver and synthetic trace factory (**closed**; PR [#4](https://github.com/m-cahill/forge/pull/4) CI green, not merged).
+**M04** — Public control adapter reproduction preflight (planned; stub only).
 
-M00–M02 are merged to `main`. M03 delivered the verified synthetic trace factory. **Next:** M04 public control reproduction preflight. No Kaggle submission, public score, model training, or reproduced control baseline yet.
+M00–M03 are merged to `main` (`fe2a7dd`). M03 delivered the verified synthetic trace factory. No Kaggle submission, public score, model training, or reproduced control baseline yet.
 
 ## Synthetic dataset (M03)
 

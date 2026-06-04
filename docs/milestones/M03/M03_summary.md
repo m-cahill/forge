@@ -4,10 +4,11 @@
 **Phase:** Lane B — solver-guided synthetic data (factory proof)  
 **Milestone:** M03 — Solver and Synthetic Trace Factory  
 **Timeframe:** 2026-06-04  
-**Status:** Closed (implementation + PR CI green) — PR [#4](https://github.com/m-cahill/forge/pull/4) **not merged** (awaiting permission)  
-**Branch:** `forge/M03-solver-factory`  
-**PR head:** `1c7dde268faa55a42ebba0d9f202531e99509334`  
-**PR CI:** [26975703019](https://github.com/m-cahill/forge/actions/runs/26975703019) **green**  
+**Status:** Closed — PR [#4](https://github.com/m-cahill/forge/pull/4) **merged** to `main` (`fe2a7dd`)  
+**Branch:** `forge/M03-solver-factory` (merged)  
+**PR head (pre-merge):** `ac661166a4c3b1be63df7a6aaa0d905208baaa79`  
+**Squash merge on `main`:** `fe2a7dd2e38f158503a49bb81d9ff4a3573601e6`  
+**Post-merge CI:** [26976448338](https://github.com/m-cahill/forge/actions/runs/26976448338) **green**  
 **Baseline:** M02 merged `e78dc97`
 
 ---
@@ -132,6 +133,6 @@ No HIGH defects blocking M03 closeout.
 | PR CI green | Yes — 26975703019 |
 | Summary + audit + run1 | Yes |
 | Non-claims preserved | Yes |
-| Merged to `main` | **No** — awaiting permission |
+| Merged to `main` | Yes — `fe2a7dd` (2026-06-04T20:04:51Z) |
 
-**Next recommendation:** Merge PR #4 with permission; owner records Submit UI zip constraints; begin M04 preflight (no training without authorization).
+**Next recommendation:** Owner records Submit UI zip constraints; authorize M04 preflight planning on new branch (no training without authorization).
