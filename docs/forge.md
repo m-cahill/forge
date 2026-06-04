@@ -293,14 +293,15 @@ Evidence: [`docs/kaggle/kaggle_setup_evidence.md`](kaggle/kaggle_setup_evidence.
 - **BQ-001:** **Resolved** — 5 submissions per day
 - **BQ-003:** **Resolved** — rules accepted; team joined; Submit UI accessible
 - **BQ-002:** **Resolved** — entry Jun 8, 2026; final Jun 15, 2026 11:59 PM UTC (owner live page)
-- **Submit UI zip constraints:** **Open** — not yet recorded
+- **Submit UI zip constraints:** **OPEN** — owner-action / not recorded (M04 preserved)
+- **Kaggle API submission support:** **TBD**
 
 Kaggle **submission is not authorized** without a validated package, local eval, and explicit owner go-ahead. Eligibility ≠ submission readiness.
 
 ### Next recommendation
 
-1. **Owner:** Record Submit UI `submission.zip` constraints.  
-2. **Cursor (when authorized):** Expand M04 preflight plan on new branch; no training without explicit go-ahead.  
+1. **Owner:** Record Submit UI `submission.zip` constraints (**OPEN** — owner-action).  
+2. **Cursor:** Complete M04 on `forge/M04-control-preflight`; open PR when green CI.  
 3. **Defer:** Kaggle submission until validated package + local eval on real candidates + owner go-ahead.
 
 ---
@@ -367,6 +368,39 @@ The Run Ledger value **0.75** is from `predictions_mixed.jsonl` against hand-aut
 Run Ledger **1.0** for `m03_synthetic_smoke_eval` is **synthetic factory self-check accuracy** only. It is **not** a public score, private score, or model-inferred result.
 
 **Non-claims (M03):** no Kaggle submission, public/private score, training, inference, reproduced baseline, Kaggle-ready adapter; smoke data is not hidden/private benchmark evidence.
+
+---
+
+## M04 Active Record (implementation)
+
+**Branch:** `forge/M04-control-preflight`  
+**Status:** implementation in progress (preflight only)
+
+### M04 deliverables (target)
+
+| Deliverable | Status |
+| ----------- | ------ |
+| Public control preflight dossier | In progress — `docs/milestones/M04/public_control_preflight.md` |
+| Baseline format mapping | In progress — `docs/milestones/M04/baseline_format_mapping.md` |
+| Adapter candidate manifest contract | In progress — `src/forge_nemotron/adapters/` |
+| Promotion preflight gates | In progress — `candidate_promotion_preflight_gates.md` |
+| Mock preflight manifest evidence | In progress — `evidence/control_preflight/` |
+| `validate_candidate_manifest.py` | In progress |
+| M04 next decision | In progress — `M04_next_decision.md` |
+| Submit UI zip constraints | **OPEN** — not guessed |
+| Training / submission / reproduction | **Not claimed** |
+
+### Mock candidate disclaimer
+
+`control_candidate_manifest.preflight.json` is **preflight schema evidence only**. It is **not** an adapter, package, or Kaggle-ready candidate.
+
+### Adapter Candidate Board (unchanged)
+
+No real control candidate. Mock manifest does not populate the board.
+
+**Non-claims (M04):** no Kaggle submission, public/private score, training, inference, reproduced baseline, Kaggle-ready adapter, real adapter package, vendored baseline code.
+
+**Next recommendation (draft):** See `docs/milestones/M04/M04_next_decision.md` — controlled public baseline reproduction planning for M05 after M04 merge.
 
 ---
 

@@ -1,7 +1,7 @@
 # Kaggle Setup Evidence — FORGE
 
 **Authority:** Subordinate to [`docs/forge.md`](../forge.md).  
-**Last updated:** 2026-06-04 (BQ-002 deadlines; debug probe scope)
+**Last updated:** 2026-06-04 (M04: Submit UI zip constraints remain OPEN)
 
 Record every Kaggle verification attempt. Do not claim scores, submission success, or package validity without a row here (or linked milestone evidence).
 
@@ -16,7 +16,7 @@ Record every Kaggle verification attempt. Do not claim scores, submission succes
 | Rules accepted / team joined | **Yes** | Authenticated competition page / Rules or Submit UI | 2026-06-04 | Owner |
 | Submit UI accessible | **Yes** | Authenticated Submit UI | 2026-06-04 | Owner |
 | Team name | not recorded | Submit UI / team page | 2026-06-04 | Owner |
-| Additional Submit UI notes | not recorded | Submit UI (warnings, zip constraints) | — | Pending |
+| Additional Submit UI notes | **OPEN — not recorded** | Submit UI (warnings, zip constraints) | — | Owner-action (M04 preserved) |
 | Base model | NVIDIA-Nemotron-3-Nano-30B | Overview | 2026-06-03 | Cursor |
 | Submission artifact | `submission.zip` (LoRA + `adapter_config.json`) | Overview | 2026-06-03 | Cursor |
 | LoRA rank limit | ≤ 32 | Overview | 2026-06-03 | Cursor |
