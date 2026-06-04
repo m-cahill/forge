@@ -20,3 +20,6 @@ Last action before resume: check most recent entry below.
 | 2026-06-04T21:45:00Z | write | Phase D: validate CLI + mock evidence | `scripts/`, `docs/milestones/M05/evidence/` | done |
 | 2026-06-04T21:50:00Z | pytest/ruff/mypy | Verify reproduction plan contract | `tests/unit/test_reproduction_plan.py` | done |
 | 2026-06-04T21:55:00Z | write | Phase E: M05_next_decision, forge.md | governance | done |
+| 2026-06-04T22:09:00Z | git/gh | Push branch; open PR #6 | `forge/M05-control-repro-planning` | done |
+| 2026-06-04T22:09:30Z | gh | PR CI green | run [26982564940](https://github.com/m-cahill/forge/actions/runs/26982564940) | done |
+| 2026-06-04T22:15:00Z | write | Closeout: summary, audit, run1, M06 stub | `docs/milestones/M05/`, `M06/` | done |

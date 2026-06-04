@@ -6,9 +6,9 @@ Solver-guided, artifact-first LoRA engineering for `NVIDIA-Nemotron-3-Nano-30B`:
 
 ## Current milestone
 
-**M05** — Controlled public baseline reproduction planning (**implementation on branch** `forge/M05-control-repro-planning`; see `docs/milestones/M05/M05_plan.md`).
+**M05** — Controlled public baseline reproduction planning (**closed** on branch; PR [#6](https://github.com/m-cahill/forge/pull/6) CI green — merge pending).
 
-M00–M04 merged to `main` (`f54afd0`). M05 adds reproduction plan docs + manifest validator — **no training, inference, submission, or reproduced baseline**.
+M00–M04 merged to `main` (`f54afd0`). **Next:** M06 execution gate stub — see `docs/milestones/M06/M06_plan.md`. M05 — **no training, inference, submission, or reproduced baseline**.
 
 ```bash
 python scripts/validate_reproduction_plan.py \

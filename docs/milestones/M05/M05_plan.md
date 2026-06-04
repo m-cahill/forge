@@ -7,7 +7,7 @@
 | **Milestone** | M05 |
 | **Title** | Controlled Public Baseline Reproduction Planning and Compute Path |
 | **Branch** | `forge/M05-control-repro-planning` |
-| **Status** | active |
+| **Status** | closed (PR #6 green; merge pending owner permission) |
 | **Precondition** | M04 merged to `main`; post-merge CI green; owner authorized M05 kickoff |
 | **Primary goal** | Executable, auditable plan for a future public control reproduction attempt — **no training, inference, Kaggle submission, or reproduction claims** |
 
@@ -133,16 +133,16 @@ M04 confirmed `tonghuikang/nemotron` has no observed root license file, large pu
 
 ## 7. Acceptance criteria
 
-- [ ] Branch `forge/M05-control-repro-planning` from green `main`
-- [ ] All §5 deliverables exist
-- [ ] Reproduction plan validator tests pass
-- [ ] CLI validates mock plan; exits nonzero on invalid
-- [ ] Mock evidence labeled preflight-only
-- [ ] Submit UI constraints recorded as OPEN or explicitly deferred
-- [ ] CI green on PR
-- [ ] No training, inference, submission, reproduction, or score claims
-- [ ] No baseline code/data copied into FORGE
-- [ ] No real adapter/package created
+- [x] Branch `forge/M05-control-repro-planning` from green `main`
+- [x] All §5 deliverables exist
+- [x] Reproduction plan validator tests pass
+- [x] CLI validates mock plan; exits nonzero on invalid (unit tests)
+- [x] Mock evidence labeled preflight-only
+- [x] Submit UI constraints recorded as OPEN or explicitly deferred
+- [x] CI green on PR — [26982564940](https://github.com/m-cahill/forge/actions/runs/26982564940)
+- [x] No training, inference, submission, reproduction, or score claims
+- [x] No baseline code/data copied into FORGE
+- [x] No real adapter/package created
 
 ---
 
