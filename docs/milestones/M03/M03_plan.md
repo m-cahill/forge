@@ -7,7 +7,7 @@
 | **Milestone** | M03 |
 | **Title** | Solver and Synthetic Trace Factory |
 | **Branch** | `forge/M03-solver-factory` |
-| **Status** | **active** |
+| **Status** | **closed** (PR [#4](https://github.com/m-cahill/forge/pull/4) CI green; not merged) |
 | **Precondition** | M02 merged to `main`; post-merge CI green; owner authorized M03 kickoff |
 | **Primary goal** | First small, deterministic, solver-verified synthetic trace factory |
 
@@ -114,15 +114,15 @@ Success metric: every generated example is deterministic, verified, manifest-rec
 
 ## 8. Acceptance criteria
 
-- [ ] Branch `forge/M03-solver-factory` from green `main`
-- [ ] Solver base protocol; arithmetic + string (3 transforms) + formatting stress
-- [ ] Writer rejects unverified, missing boxed, duplicate IDs
-- [ ] Dataset manifest with SHA256 and category counts
-- [ ] `make_dataset.py` deterministic for fixed seed
-- [ ] Local eval smoke 100% synthetic factory self-check
-- [ ] Evidence committed with non-claim README
-- [ ] Dataset Ledger + Run Ledger updated in `docs/forge.md`
-- [ ] Tests + CI green; no training/submission/score claims
+- [x] Branch `forge/M03-solver-factory` from green `main`
+- [x] Solver base protocol; arithmetic + string (3 transforms) + formatting stress
+- [x] Writer rejects unverified, missing boxed, duplicate IDs
+- [x] Dataset manifest with SHA256 and category counts
+- [x] `make_dataset.py` deterministic for fixed seed
+- [x] Local eval smoke 100% synthetic factory self-check
+- [x] Evidence committed with non-claim README
+- [x] Dataset Ledger + Run Ledger updated in `docs/forge.md`
+- [x] Tests + CI green; no training/submission/score claims
 
 ---
 
