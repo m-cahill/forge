@@ -1,0 +1,4 @@
+category,total,correct,accuracy
+arithmetic_numeric,20,20,1.000000
+formatting_stress,10,10,1.000000
+string_symbol_transform,20,20,1.000000

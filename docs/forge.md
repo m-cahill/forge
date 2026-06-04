@@ -122,6 +122,7 @@ FORGE is a solver-guided, artifact-first, audit-governed LoRA competition system
 | Run ID | Date | Config Hash | Dataset Hash | Adapter Hash | Local Score | Category Scores | Notes |
 | ------ | ---- | ----------- | ------------ | ------------ | ----------- | --------------- | ----- |
 | m02_fixture_eval | 2026-06-04 | — | `c7ff8ec140feabcee037ddb16b279d68ac1704998d7e34e3d8290d7dd8162219` | — | **0.75** (6/8; fixture only) | [evidence CSV](milestones/M02/evidence/fixture_eval/local_eval_by_category.csv) | **Not** a Kaggle/public score; hand-authored fixture; [evidence](milestones/M02/evidence/fixture_eval/) |
+| m03_synthetic_smoke_eval | 2026-06-04 | — | `d177d827b3ba1c066c754f875a0a162f780cbb4dc43be7c004fa18093e4b21df` | — | **1.0** (50/50; synthetic factory self-check) | [evidence CSV](milestones/M03/evidence/synthetic_smoke/local_eval_by_category.csv) | **Not** a model or leaderboard score; [evidence](milestones/M03/evidence/synthetic_smoke/) |
 
 ---
 
@@ -129,7 +130,7 @@ FORGE is a solver-guided, artifact-first, audit-governed LoRA competition system
 
 | Dataset Version | Source | Category Counts | Verification Rate | Holdout Check | Notes |
 | --------------- | ------ | --------------- | ----------------- | ------------- | ----- |
-| — | — | — | — | — | No datasets yet |
+| m03_synthetic_smoke_v1 | m03_synthetic (solver-verified) | arithmetic 20, string 20, formatting 10 | 100% verified | not production holdout | SHA256 `d177d827b3ba1c066c754f875a0a162f780cbb4dc43be7c004fa18093e4b21df`; [evidence](milestones/M03/evidence/synthetic_smoke/); **not for training** unless reclassified |
 
 ---
 
