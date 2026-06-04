@@ -1,9 +1,9 @@
 # FORGE — Ultimate Truth
 
 **Project:** FORGE — Kaggle NVIDIA Nemotron Model Reasoning Challenge  
-**Last updated:** 2026-06-04 (BQ-001–003 closed; BQ-002 owner-confirmed deadlines)  
-**Status:** M00 and M01 **merged** to `main`; **active milestone:** M02 planning (not started)  
-**Main SHA:** `d59d97b91252f9236e374292bbba8f9027edcbc1` (M01 squash merge via PR [#2](https://github.com/m-cahill/forge/pull/2))  
+**Last updated:** 2026-06-04 (M02 active — local eval implementation)  
+**Status:** M00 and M01 **merged** to `main`; **active milestone:** M02 on `forge/M02-local-eval`  
+**Main SHA (pre-M02 branch):** `ce9dc7f` (M01 Kaggle intake finalize) · M01 merge `d59d97b` via PR [#2](https://github.com/m-cahill/forge/pull/2)  
 **M01 PR head (pre-merge):** `94d29f289dee778b45e2ec8da707112a75e86bdf` · final PR CI [26935090190](https://github.com/m-cahill/forge/actions/runs/26935090190)
 
 ---
@@ -98,7 +98,7 @@ FORGE is a solver-guided, artifact-first, audit-governed LoRA competition system
 | --------- | ----- | ------ | ------ | -- | ----------- | ------- |
 | M00 | Anchor and competition intake | `forge/M00-anchor-intake` → `main` | **merged** (`27d0fed`) | not configured; local verify pass | 4.0/5 | [M00_summary](milestones/M00/M00_summary.md) |
 | M01 | Public control reproduction foundation | `forge/M01-control-baseline` → `main` | **merged** (`d59d97b`) | **green** — post-merge [26935381116](https://github.com/m-cahill/forge/actions/runs/26935381116) | 4.5/5 | [M01_summary](milestones/M01/M01_summary.md) |
-| M02 | Exact local evaluation and artifact discipline | `forge/M02-local-eval` (planned) | **next** — not started | — | — | [M02_plan](milestones/M02/M02_plan.md) (stub) |
+| M02 | Exact local evaluation and artifact discipline | `forge/M02-local-eval` | **active** | pending PR | — | [M02_plan](milestones/M02/M02_plan.md) |
 | M03 | Solver and synthetic trace factory | — | not started | — | — | — |
 | M04 | Adapter sweep | — | not started | — | — | — |
 | M05 | Merge and compression lab | — | not started | — | — | — |
@@ -119,7 +119,7 @@ FORGE is a solver-guided, artifact-first, audit-governed LoRA competition system
 
 | Run ID | Date | Config Hash | Dataset Hash | Adapter Hash | Local Score | Category Scores | Notes |
 | ------ | ---- | ----------- | ------------ | ------------ | ----------- | --------------- | ----- |
-| — | — | — | — | — | — | — | No runs yet |
+| m02_fixture_eval | 2026-06-04 | — | `c7ff8ec…` (examples) | — | 0.75 (6/8 mixed preds) | see evidence CSV | Fixture smoke; local only; [evidence](milestones/M02/evidence/fixture_eval/) |
 
 ---
 
@@ -139,6 +139,7 @@ FORGE is a solver-guided, artifact-first, audit-governed LoRA competition system
 | synthetic_balanced_holdout | Broad synthetic regression | TBD | TBD | TBD | planned | Must not enter training |
 | hard_category_holdout | Private-style hard categories | TBD | TBD | TBD | planned | Must not enter training |
 | formatting_edge_holdout | `\boxed{}` / extractor stress | TBD | TBD | TBD | planned | Must not enter training |
+| m02_fixture_holdout | Local eval smoke / fixture validation | `tests/fixtures/eval` | 8 examples | `c7ff8ec140feabcee037ddb16b279d68ac1704998d7e34e3d8290d7dd8162219` | **active-fixture** | Evaluation-only; never train; not leaderboard data |
 
 ---
 
@@ -295,8 +296,33 @@ Kaggle **submission is not authorized** without a validated package, local eval,
 ### Next recommendation
 
 1. **Owner:** Record any `submission.zip` constraints from Submit UI.  
-2. **Cursor (when authorized):** Expand M02 plan and implement on `forge/M02-local-eval`.  
-3. **Defer:** Public baseline training until M02 eval discipline is in place.
+2. **Cursor:** Complete M02 local eval + artifact discipline on `forge/M02-local-eval`; open PR to `main`.  
+3. **Defer:** Public baseline training until M02 eval discipline is in place and merged.
+
+---
+
+## M02 Active Record
+
+**Branch:** `forge/M02-local-eval`  
+**Authorized:** 2026-06-04 (owner kickoff with locked answers)  
+**Scope:** Local evaluation CLI, per-category reports, run manifests, artifact hashing, fixture holdout, committed tiny evidence.
+
+**Deliverables:**
+
+| Deliverable | Status |
+| ----------- | ------ |
+| `src/forge_nemotron/eval/` records + scorer | Met |
+| `src/forge_nemotron/artifacts/hashing.py` | Met |
+| `src/forge_nemotron/reports/run_manifest.py` | Met |
+| `scripts/eval_predictions.py` | Met |
+| Fixture JSONL + `data/manifests/m02_fixture_holdouts.json` | Met |
+| Committed evidence `docs/milestones/M02/evidence/fixture_eval/` | Met |
+| `metric_version` | `boxed_v1@forge_nemotron-0.1.0` |
+| Unit tests (eval + hashing + manifest) | Met — see branch CI |
+
+**Non-claims (M02):** no Kaggle submission, public/private score, training, inference, reproduced baseline, Kaggle-ready adapter, holdout used for training.
+
+**Artifact discipline:** `artifacts/runs/` gitignored; small evidence under `docs/milestones/M02/evidence/fixture_eval/`. Extra predictions warn by default; `--strict-extra-predictions` for strict mode.
 
 ---
 
@@ -321,3 +347,4 @@ Kaggle **submission is not authorized** without a validated package, local eval,
 | 2026-06-04 | M01 | Kaggle interactive debug probe | BQ-001 closed (5/day); probe SHA256 recorded; env-only (no submission.zip) |
 | 2026-06-04 | M01 | Rules/team eligibility verified | BQ-003 closed; Submit UI accessible; team name not recorded |
 | 2026-06-04 | M01 | Deadlines owner-reconfirmed | BQ-002 closed; entry Jun 8; final Jun 15 23:59 UTC |
+| 2026-06-04 | M02 | M02 kickoff authorized | Local eval only; fixture holdout active-fixture; warn on extra preds |

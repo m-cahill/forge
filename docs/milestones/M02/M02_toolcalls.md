@@ -9,3 +9,6 @@ Record notable Cursor/tool actions for M02 (exact local evaluation and artifact 
 | Time UTC | Actor | Action | Evidence / Notes |
 | -------- | ----- | ------ | ---------------- |
 | 2026-06-04T06:32:00Z | Cursor | M02 stub seeded | At M01 closeout; plan/toolcalls initialized |
+| 2026-06-04T19:00:00Z | Cursor | Phase A kickoff | git status; commit M01 Kaggle intake on main; branch `forge/M02-local-eval`; expand M02 plan; update forge.md + README |
+| 2026-06-04T19:10:00Z | Cursor | Phases B–D implement | eval/, artifacts/, reports/, CLI, fixtures, unit tests |
+| 2026-06-04T19:15:00Z | Cursor | Phase E evidence | `eval_predictions.py` smoke → `docs/milestones/M02/evidence/fixture_eval/`; pytest/ruff/mypy pass |
