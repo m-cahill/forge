@@ -1,0 +1,25 @@
+{
+  "adapter_path": null,
+  "adapter_rank": 32,
+  "adapter_sha256": null,
+  "base_model": "NVIDIA-Nemotron-3-Nano-30B",
+  "candidate_family": "control_public_repro",
+  "candidate_id": "control_public_repro_preflight",
+  "created_at_utc": "2026-06-04T00:00:00+00:00",
+  "dataset_manifest_sha256": null,
+  "local_eval_run_id": null,
+  "local_score": null,
+  "local_score_by_category": {},
+  "non_claims": [
+    "not_trained",
+    "not_submitted",
+    "not_kaggle_validated",
+    "not_public_baseline_reproduction"
+  ],
+  "notes": "M04 mock preflight manifest for schema and gate validation only.",
+  "package_path": null,
+  "package_sha256": null,
+  "package_validator_version": "structural_v1",
+  "status": "preflight",
+  "training_config_sha256": null
+}

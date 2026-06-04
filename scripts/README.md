@@ -9,6 +9,7 @@ CLI entry points for dataset generation, training, evaluation, packaging, and su
 | `validate_submission.py` | Structural LoRA `submission.zip` validation (M01) |
 | `eval_predictions.py` | Local prediction scoring vs JSONL examples (M02) |
 | `make_dataset.py` | Verified synthetic dataset + manifest generation (M03) |
+| `validate_candidate_manifest.py` | Adapter candidate manifest JSON validation (M04) |
 
 ### Local evaluation (M02)
 
@@ -47,6 +48,15 @@ python scripts/make_dataset.py \
 Optional: `--eval-examples` and `--eval-predictions` for local factory self-check JSONL.
 
 Evidence copy: `docs/milestones/M03/evidence/synthetic_smoke/`
+
+### Candidate manifest (M04)
+
+```bash
+python scripts/validate_candidate_manifest.py \
+  docs/milestones/M04/evidence/control_preflight/control_candidate_manifest.preflight.json
+```
+
+Mock evidence: `docs/milestones/M04/evidence/control_preflight/` (preflight only — not an adapter).
 
 ## Planned
 

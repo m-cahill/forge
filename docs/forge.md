@@ -1,9 +1,10 @@
 # FORGE — Ultimate Truth
 
 **Project:** FORGE — Kaggle NVIDIA Nemotron Model Reasoning Challenge  
-**Last updated:** 2026-06-04 (M03 merged to `main`; post-merge CI green)  
-**Status:** M00–M03 **merged** to `main`; **next:** M04 preflight (stub only)  
+**Last updated:** 2026-06-04 (M04 closed on branch; PR [#5](https://github.com/m-cahill/forge/pull/5) CI green)  
+**Status:** M00–M03 **merged** to `main`; **M04 closed** on `forge/M04-control-preflight` — merge pending owner permission  
 **Main SHA:** `fe2a7dd2e38f158503a49bb81d9ff4a3573601e6` (M03 squash merge via PR [#4](https://github.com/m-cahill/forge/pull/4))  
+**M04 PR head:** `26861ffbbb526ad313bdd299e26c1de1b7d5d7e8` · PR CI [26977971068](https://github.com/m-cahill/forge/actions/runs/26977971068) **green**  
 **M03 PR head (pre-merge):** `ac661166a4c3b1be63df7a6aaa0d905208baaa79` · PR CI [26975853847](https://github.com/m-cahill/forge/actions/runs/26975853847) **green**  
 **Post-merge CI on `main`:** [26976448338](https://github.com/m-cahill/forge/actions/runs/26976448338) **green** (push on `fe2a7dd`)
 
@@ -101,8 +102,8 @@ FORGE is a solver-guided, artifact-first, audit-governed LoRA competition system
 | M01 | Public control reproduction foundation | `forge/M01-control-baseline` → `main` | **merged** (`d59d97b`) | **green** — post-merge [26935381116](https://github.com/m-cahill/forge/actions/runs/26935381116) | 4.5/5 | [M01_summary](milestones/M01/M01_summary.md) |
 | M02 | Exact local evaluation and artifact discipline | `forge/M02-local-eval` → `main` | **merged** (`e78dc97`) | **green** — post-merge [26973864069](https://github.com/m-cahill/forge/actions/runs/26973864069) | 4.6/5 | [M02_summary](milestones/M02/M02_summary.md) |
 | M03 | Solver and synthetic trace factory | `forge/M03-solver-factory` → `main` | **merged** (`fe2a7dd`) | **green** — post-merge [26976448338](https://github.com/m-cahill/forge/actions/runs/26976448338) | 4.7/5 | [M03_summary](milestones/M03/M03_summary.md) |
-| M04 | Public control adapter reproduction preflight | — | **next** — stub | — | — | [M04_plan](milestones/M04/M04_plan.md) (stub) |
-| M05 | Merge and compression lab | — | not started | — | — | — |
+| M04 | Public control adapter reproduction preflight | `forge/M04-control-preflight` → `main` | **closed** (PR [#5](https://github.com/m-cahill/forge/pull/5)) | **green** — [26977971068](https://github.com/m-cahill/forge/actions/runs/26977971068) | 4.6/5 | [M04_summary](milestones/M04/M04_summary.md) |
+| M05 | Controlled public baseline reproduction planning | — | **next** — stub | — | — | [M05_plan](milestones/M05/M05_plan.md) (stub) |
 | M06 | Final documentation and eligibility | — | not started | — | — | — |
 | M07 | Final submission lock | — | not started | — | — | — |
 
@@ -292,14 +293,15 @@ Evidence: [`docs/kaggle/kaggle_setup_evidence.md`](kaggle/kaggle_setup_evidence.
 - **BQ-001:** **Resolved** — 5 submissions per day
 - **BQ-003:** **Resolved** — rules accepted; team joined; Submit UI accessible
 - **BQ-002:** **Resolved** — entry Jun 8, 2026; final Jun 15, 2026 11:59 PM UTC (owner live page)
-- **Submit UI zip constraints:** **Open** — not yet recorded
+- **Submit UI zip constraints:** **OPEN** — owner-action / not recorded (M04 preserved)
+- **Kaggle API submission support:** **TBD**
 
 Kaggle **submission is not authorized** without a validated package, local eval, and explicit owner go-ahead. Eligibility ≠ submission readiness.
 
 ### Next recommendation
 
-1. **Owner:** Record Submit UI `submission.zip` constraints.  
-2. **Cursor (when authorized):** Expand M04 preflight plan on new branch; no training without explicit go-ahead.  
+1. **Owner:** Record Submit UI `submission.zip` constraints (**OPEN** — owner-action).  
+2. **Cursor:** Complete M04 on `forge/M04-control-preflight`; open PR when green CI.  
 3. **Defer:** Kaggle submission until validated package + local eval on real candidates + owner go-ahead.
 
 ---
@@ -369,6 +371,45 @@ Run Ledger **1.0** for `m03_synthetic_smoke_eval` is **synthetic factory self-ch
 
 ---
 
+## M04 Closeout Record
+
+**Branch:** `forge/M04-control-preflight` (not merged)  
+**PR:** [#5](https://github.com/m-cahill/forge/pull/5) — open  
+**PR head:** `26861ffbbb526ad313bdd299e26c1de1b7d5d7e8`  
+**Implementation commits:** `c33e627`, `b1fd36a`, `dea0f6f`, `ace83b1`, `26861ff`  
+**PR CI (head):** **Green** — [26977971068](https://github.com/m-cahill/forge/actions/runs/26977971068) (Python 3.10–3.12)  
+**Local verification:** 138 pytest; ruff/mypy/compileall pass; mock manifest CLI pass
+
+**Artifacts:** [M04_summary](milestones/M04/M04_summary.md) · [M04_audit](milestones/M04/M04_audit.md) (4.6/5) · [M04_run1](milestones/M04/M04_run1.md)
+
+### M04 deliverables
+
+| Deliverable | Status |
+| ----------- | ------ |
+| Public control preflight dossier | Met |
+| Baseline format mapping | Met |
+| Adapter candidate manifest contract | Met — 11 tests |
+| Promotion preflight gates | Met |
+| Mock preflight evidence | Met — validates |
+| `validate_candidate_manifest.py` | Met |
+| M04 next decision | Met — M05 planning recommended |
+| Submit UI zip constraints | **OPEN** — owner-action (not guessed) |
+| Kaggle submission / score / training / reproduction | **Not claimed** |
+
+### Mock candidate disclaimer
+
+`docs/milestones/M04/evidence/control_preflight/control_candidate_manifest.preflight.json` is **preflight-only**. Not an adapter, package, or Kaggle-ready candidate. Adapter Candidate Board unchanged (no real control).
+
+**Non-claims (M04):** no Kaggle submission, public/private score, training, inference, reproduced baseline, Kaggle-ready adapter, real adapter package, vendored/copied baseline code.
+
+### Next recommendation
+
+1. **Owner:** Merge PR #5 when ready; record Submit UI zip constraints.  
+2. **Owner:** Authorize M05 planning kickoff per [M04_next_decision](milestones/M04/M04_next_decision.md).  
+3. **Defer:** Training, Kaggle submission, baseline reproduction claims until explicit milestone authorization.
+
+---
+
 ## Appendix: Material Decisions
 
 | Date | Milestone | Decision | Rationale |
@@ -396,3 +437,4 @@ Run Ledger **1.0** for `m03_synthetic_smoke_eval` is **synthetic factory self-ch
 | 2026-06-04 | M03 | Solver factory on branch; PR #4 CI green | Structured solvers; writer owns boxing; 50 smoke examples; audit 4.7/5 |
 | 2026-06-04 | M03 | M04 stub: control reproduction preflight | Defer full adapter sweep until baseline mapping |
 | 2026-06-04 | M03 | PR #4 squash-merged to `main` | `fe2a7dd`; post-merge CI 26976448338 green |
+| 2026-06-04 | M04 | Public control preflight on branch; PR #5 CI green | Mapping + candidate manifest; no baseline copy; audit 4.6/5 |
