@@ -1,12 +1,13 @@
 # FORGE — Ultimate Truth
 
 **Project:** FORGE — Kaggle NVIDIA Nemotron Model Reasoning Challenge  
-**Last updated:** 2026-06-04 (M06 merged to `main`; post-merge CI green)  
-**Status:** M00–M06 **merged** to `main`; **next:** M07 training authorization gate (stub only)  
+**Last updated:** 2026-06-05 (M07 active on `forge/M07-training-authorization-gate`)  
+**Status:** M00–M06 **merged** to `main`; **M07 active** — training authorization gate (Path A blocked)  
 **Main SHA:** `a7de356d8597c7386b30cf8ba1912c02c0894cf7` (M06 squash merge via PR [#7](https://github.com/m-cahill/forge/pull/7))  
 **M06 PR head (pre-merge):** `354f630` · PR CI [26985581070](https://github.com/m-cahill/forge/actions/runs/26985581070) **green**  
 **Post-merge CI on `main`:** [26985969954](https://github.com/m-cahill/forge/actions/runs/26985969954) **green** (push on `a7de356`)  
-**M06 authorization:** Gate B complete; Gate C **not** authorized (training deferred to M07)
+**M06 authorization:** Gate B complete; Gate C **not** authorized (training deferred to M07)  
+**M07 authorization:** `M07_TRAINING_AUTHORIZED = no` — kickoff authorized; training **not** authorized
 
 ---
 
@@ -105,8 +106,8 @@ FORGE is a solver-guided, artifact-first, audit-governed LoRA competition system
 | M04 | Public control adapter reproduction preflight | `forge/M04-control-preflight` → `main` | **merged** (`f54afd0`) | **green** — post-merge [26979013700](https://github.com/m-cahill/forge/actions/runs/26979013700) | 4.6/5 | [M04_summary](milestones/M04/M04_summary.md) |
 | M05 | Controlled public baseline reproduction planning | `forge/M05-control-repro-planning` → `main` | **merged** (`34169d0`) | **green** — post-merge [26983281413](https://github.com/m-cahill/forge/actions/runs/26983281413) | 4.6/5 | [M05_summary](milestones/M05/M05_summary.md) |
 | M06 | Controlled public baseline reproduction execution gate | `forge/M06-control-repro-execution-gate` → `main` | **merged** (`a7de356`) | **green** — post-merge [26985969954](https://github.com/m-cahill/forge/actions/runs/26985969954) | 4.6/5 | [M06_summary](milestones/M06/M06_summary.md) |
-| M07 | Controlled public baseline training authorization gate | — | **next** — stub | — | — | [M07_plan](milestones/M07/M07_plan.md) (stub) |
-| M08 | Final submission lock | — | not started | — | — | — |
+| M07 | Controlled public baseline training authorization gate | `forge/M07-training-authorization-gate` | **active** — Path A blocked | — | — | [M07_plan](milestones/M07/M07_plan.md) |
+| M08 | TBD per M07 next decision | — | not started | — | — | — |
 
 ---
 
