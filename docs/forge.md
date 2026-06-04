@@ -1,7 +1,7 @@
 # FORGE — Ultimate Truth
 
 **Project:** FORGE — Kaggle NVIDIA Nemotron Model Reasoning Challenge  
-**Last updated:** 2026-06-04 (BQ-001 and BQ-003 closed; Kaggle intake evidence)  
+**Last updated:** 2026-06-04 (BQ-001–003 closed; BQ-002 owner-confirmed deadlines)  
 **Status:** M00 and M01 **merged** to `main`; **active milestone:** M02 planning (not started)  
 **Main SHA:** `d59d97b91252f9236e374292bbba8f9027edcbc1` (M01 squash merge via PR [#2](https://github.com/m-cahill/forge/pull/2))  
 **M01 PR head (pre-merge):** `94d29f289dee778b45e2ec8da707112a75e86bdf` · final PR CI [26935090190](https://github.com/m-cahill/forge/actions/runs/26935090190)
@@ -34,8 +34,8 @@ No milestone may close unless:
 | Output format | Final answer in `\boxed{...}` | Kaggle Overview | 2026-06-03 |
 | Inference | Deterministic (vLLM, fixed parameters) | Kaggle Overview | 2026-06-03 |
 | Prize eligibility | Public Kaggle notebook + solution write-up required | Kaggle Rules | 2026-06-03 |
-| Entry deadline | **June 8, 2026** | Kaggle public page (owner reconfirm on site) | 2026-06-03 |
-| Final deadline | **June 15, 2026, 11:59 PM UTC** | Kaggle public page (owner reconfirm on site) | 2026-06-03 |
+| Entry / team merger deadline | **June 8, 2026** | Owner — live Kaggle competition page (logged in) | 2026-06-04 |
+| Final submission deadline | **June 15, 2026, 11:59 PM UTC** | Owner — live Kaggle competition page (logged in) | 2026-06-04 |
 | Daily submission limit | **5 per day** (0/5 used at probe) | Kaggle Submit UI + M01 debug probe | 2026-06-04 |
 | Rules accepted / team joined | **Yes** (Submit UI accessible) | Owner — authenticated competition/Rules UI | 2026-06-04 |
 
@@ -57,7 +57,7 @@ FORGE is a solver-guided, artifact-first, audit-governed LoRA competition system
 | ID | Question | Why It Matters | Owner | Target | Status |
 | -- | -------- | -------------- | ----- | ------ | ------ |
 | BQ-001 | What is the live daily submission limit? | Controls submission budget | Owner | Pre-M01 submit | **resolved** — 5 per day (Submit UI `0/5 used`; probe 2026-06-04) |
-| BQ-002 | What are the exact entry and final deadlines? | Prevents eligibility failure | Cursor | M00 | **partial** — public dates recorded; owner reconfirm on site |
+| BQ-002 | What are the exact entry and final deadlines? | Prevents eligibility failure | Owner | M00 | **resolved** — entry Jun 8; final Jun 15 23:59 UTC (owner live page 2026-06-04) |
 | BQ-003 | Has the team accepted rules / joined competition? | Required before submission | Owner | Pre-M01 submit | **resolved** — yes; Submit UI accessible (owner 2026-06-04) |
 | BQ-004 | What public baseline/control repo will M01 reproduce first? | Determines M01 scope | Cursor | M01 | **resolved (recommendation)** — `tonghuikang/nemotron`; see § M01 Recommendation |
 
@@ -263,6 +263,10 @@ A candidate may advance only when all applicable gates are satisfied:
 **Base model paths:** not attached — `nemotron-3-nano-30b-a3b-bf16`, `nvidia-nemotron-3-nano-30b-a3b-bf16` not visible  
 **Debug artifact:** `/kaggle/working/tmp/forge_debug/probe_test.txt` (83 B; SHA256 `a8f624087fe0520a0c0c97f914e54f4e7b6478f750b85d5f9d8e971c6e360a8c`)
 
+**Expected outputs:** diagnostics only (e.g. `/kaggle/working/tmp/forge_debug/probe_test.txt`).  
+**Does not create:** `/kaggle/working/submission.zip` — that path is for a future submission notebook, not this probe.  
+**Not a probe failure:** missing `submission.zip` after this run is **by design**.
+
 **Non-claims:** no submission, no score, no package validity, no model inference, no submission readiness.
 
 Evidence: [`docs/kaggle/kaggle_setup_evidence.md`](kaggle/kaggle_setup_evidence.md)
@@ -283,14 +287,14 @@ Evidence: [`docs/kaggle/kaggle_setup_evidence.md`](kaggle/kaggle_setup_evidence.
 
 - **BQ-001:** **Resolved** — 5 submissions per day
 - **BQ-003:** **Resolved** — rules accepted; team joined; Submit UI accessible
-- **BQ-002:** **Partial** — reconfirm entry/final deadlines on live site
+- **BQ-002:** **Resolved** — entry Jun 8, 2026; final Jun 15, 2026 11:59 PM UTC (owner live page)
 - **Submit UI zip constraints:** **Open** — not yet recorded
 
 Kaggle **submission is not authorized** without a validated package, local eval, and explicit owner go-ahead. Eligibility ≠ submission readiness.
 
 ### Next recommendation
 
-1. **Owner:** Reconfirm deadlines (BQ-002); record any `submission.zip` constraints from Submit UI.  
+1. **Owner:** Record any `submission.zip` constraints from Submit UI.  
 2. **Cursor (when authorized):** Expand M02 plan and implement on `forge/M02-local-eval`.  
 3. **Defer:** Public baseline training until M02 eval discipline is in place.
 
@@ -314,5 +318,6 @@ Kaggle **submission is not authorized** without a validated package, local eval,
 | 2026-06-04 | M01 | PR #2 opened; CI green | Run 26934972365; 91 tests; audit 4.5/5 |
 | 2026-06-04 | M01 | M01 closed (not merged) | Summary/audit/run1; M02 stub seeded |
 | 2026-06-04 | M01 | PR #2 squash-merged to `main` | `d59d97b`; post-merge CI 26935381116 green |
-| 2026-06-04 | M01 | Kaggle interactive debug probe | BQ-001 closed (5/day); probe SHA256 recorded; BQ-003 still open |
+| 2026-06-04 | M01 | Kaggle interactive debug probe | BQ-001 closed (5/day); probe SHA256 recorded; env-only (no submission.zip) |
 | 2026-06-04 | M01 | Rules/team eligibility verified | BQ-003 closed; Submit UI accessible; team name not recorded |
+| 2026-06-04 | M01 | Deadlines owner-reconfirmed | BQ-002 closed; entry Jun 8; final Jun 15 23:59 UTC |

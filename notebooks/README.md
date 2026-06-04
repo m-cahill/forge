@@ -6,7 +6,7 @@ Kaggle and local notebooks for FORGE.
 
 | Notebook | Purpose | Status |
 | -------- | ------- | ------ |
-| `forge_m01_kaggle_debug_probe.ipynb` | Environment debug/probe only | M01 |
+| `forge_m01_kaggle_debug_probe.ipynb` | Environment debug/probe only (does **not** create `submission.zip`) | M01 |
 
 ## Policy
 
@@ -20,4 +20,4 @@ Kaggle and local notebooks for FORGE.
 
 ## Status
 
-No scored Kaggle submission or public score exists yet (M01).
+No scored Kaggle submission or public score exists yet (M01). The M01 debug probe intentionally does not write `/kaggle/working/submission.zip`; missing that file after a probe run is not a failure.
