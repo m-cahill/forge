@@ -1,0 +1,8 @@
+{"example_id": "ex_arith_01", "prompt": "What is 6*7?", "expected": "42", "category": "arithmetic_numeric", "source": "fixture", "split": "fixture"}
+{"example_id": "ex_string_01", "prompt": "Name the answer.", "expected": "hello", "category": "string_exact", "source": "fixture", "split": "fixture"}
+{"example_id": "ex_format_01", "prompt": "Box with spaces.", "expected": "answer", "category": "formatting_edge", "source": "fixture", "split": "fixture"}
+{"example_id": "ex_multi_01", "prompt": "Multiple boxes.", "expected": "99", "category": "multiple_boxed", "source": "fixture", "split": "fixture"}
+{"example_id": "ex_nobox_01", "prompt": "No box.", "expected": "7", "category": "no_boxed", "source": "fixture", "split": "fixture"}
+{"example_id": "ex_numeric_tol_01", "prompt": "Pi approx.", "expected": "3.1416", "category": "arithmetic_numeric", "source": "fixture", "split": "fixture"}
+{"example_id": "ex_cat_reg_01", "prompt": "Regression check.", "expected": "ok", "category": "category_regression", "source": "fixture", "split": "fixture"}
+{"example_id": "ex_missing_pred_01", "prompt": "Will be missing in some preds.", "expected": "0", "category": "string_exact", "source": "fixture", "split": "fixture"}

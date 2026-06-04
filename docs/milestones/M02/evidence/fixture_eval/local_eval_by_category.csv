@@ -1,0 +1,7 @@
+category,total,correct,accuracy
+arithmetic_numeric,2,2,1.000000
+category_regression,1,1,1.000000
+formatting_edge,1,1,1.000000
+multiple_boxed,1,1,1.000000
+no_boxed,1,0,0.000000
+string_exact,2,1,0.500000

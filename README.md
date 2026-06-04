@@ -6,9 +6,25 @@ Solver-guided, artifact-first LoRA engineering for `NVIDIA-Nemotron-3-Nano-30B`:
 
 ## Current milestone
 
-**M00** — Anchor, competition intake, and Kaggle submission bible (`forge/M00-anchor-intake`).
+**M02** — Exact local evaluation and artifact discipline (`forge/M02-local-eval`).
 
-No Kaggle submission, public score, or reproduced control adapter yet.
+M00 and M01 are merged to `main`. M02 is **local-eval only**: fixture scoring, run manifests, and input hashes. No Kaggle submission, public score, model training, or reproduced control baseline yet.
+
+## Local evaluation (M02)
+
+```bash
+python scripts/eval_predictions.py \
+  --examples tests/fixtures/eval/examples.jsonl \
+  --predictions tests/fixtures/eval/predictions_mixed.jsonl \
+  --out artifacts/runs/m02_fixture_eval/local_eval.json \
+  --by-category artifacts/runs/m02_fixture_eval/local_eval_by_category.csv \
+  --failures artifacts/runs/m02_fixture_eval/examples_failed.jsonl \
+  --manifest artifacts/runs/m02_fixture_eval/run_manifest.json \
+  --run-id m02_fixture_eval \
+  --candidate-id fixture_candidate
+```
+
+Outputs under `artifacts/runs/` are gitignored; committed fixture evidence lives under `docs/milestones/M02/evidence/fixture_eval/`.
 
 ## Source of truth
 
@@ -33,9 +49,9 @@ configs/          Training, data, merge, eval configs
 data/             Raw, external, generated data + manifests
 docs/             Governance, Kaggle runbooks, milestones
 notebooks/        Kaggle/local notebooks
-scripts/          CLI wrappers (M01+)
-src/forge_nemotron/  metric, solvers, generators, training, packaging, eval
-tests/            unit, integration, e2e
+scripts/          CLI wrappers (eval, validate submission, …)
+src/forge_nemotron/  metric, eval, artifacts, reports, packaging, …
+tests/            unit, integration, e2e, fixtures/eval
 artifacts/runs/   Run manifests and eval outputs (large files gitignored)
 submissions/      Candidate zips and evidence (contents gitignored)
 ```

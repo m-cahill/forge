@@ -1,0 +1,8 @@
+{"example_id": "ex_arith_01", "completion": "Therefore \\boxed{42}", "candidate_id": "fixture_candidate"}
+{"example_id": "ex_string_01", "completion": "Result: \\boxed{hello}", "candidate_id": "fixture_candidate"}
+{"example_id": "ex_format_01", "completion": "  \\boxed{  answer  }  ", "candidate_id": "fixture_candidate"}
+{"example_id": "ex_multi_01", "completion": "Wrong \\boxed{1} but final \\boxed{99}", "candidate_id": "fixture_candidate"}
+{"example_id": "ex_nobox_01", "completion": "Final \\boxed{7}", "candidate_id": "fixture_candidate"}
+{"example_id": "ex_numeric_tol_01", "completion": "Pi is \\boxed{3.14159}", "candidate_id": "fixture_candidate"}
+{"example_id": "ex_cat_reg_01", "completion": "\\boxed{ok}", "candidate_id": "fixture_candidate"}
+{"example_id": "ex_missing_pred_01", "completion": "\\boxed{0}", "candidate_id": "fixture_candidate"}

@@ -1,0 +1,2 @@
+{"category": "no_boxed", "error_type": "no_boxed", "example_id": "ex_nobox_01", "expected": "7", "matched": false, "predicted": null}
+{"category": "string_exact", "error_type": "wrong_answer", "example_id": "ex_string_01", "expected": "hello", "matched": false, "predicted": "world"}
