@@ -406,8 +406,42 @@ Run Ledger **1.0** for `m03_synthetic_smoke_eval` is **synthetic factory self-ch
 ### Next recommendation
 
 1. **Owner:** Record Submit UI `submission.zip` constraints (**OPEN**).  
-2. **Owner:** Authorize M05 planning kickoff per [M04_next_decision](milestones/M04/M04_next_decision.md) — no M05 implementation without explicit go-ahead.  
+2. **Cursor:** M05 implementation on `forge/M05-control-repro-planning` (authorized).  
 3. **Defer:** Training, Kaggle submission, baseline reproduction claims until explicit milestone authorization.
+
+---
+
+## M05 Active Record (implementation)
+
+**Branch:** `forge/M05-control-repro-planning`  
+**Status:** Implementation complete on branch (pending PR / closeout)  
+**Objective:** Controlled public baseline reproduction planning — no training, inference, submission, or reproduction claims
+
+### M05 deliverables
+
+| Deliverable | Status |
+| ----------- | ------ |
+| `control_reproduction_plan.md` | Met |
+| `compute_path_decision.md` | Met — local_5090 preflight; Modal/Tinker future training |
+| `baseline_acquisition_policy.md` | Met |
+| `corpus_schema_inspection_plan.md` | Met — future Cursor workflow |
+| `external_schema_notes_template.md` | Met |
+| `training_config_capture_template.md` | Met |
+| `reproduction_plan.py` + tests | Met |
+| `validate_reproduction_plan.py` | Met |
+| Mock reproduction plan evidence | Met — preflight only |
+| `M05_next_decision.md` | Met — M06 execution gate recommended |
+| Submit UI zip constraints | **OPEN** — owner-action (not guessed) |
+
+### M05 non-claims
+
+No Kaggle submission, public/private score, training, inference, reproduced baseline, Kaggle-ready adapter, real adapter package, vendored baseline code/data, or training authorization.
+
+### Next recommendation
+
+1. **Owner:** Record Submit UI zip constraints (**OPEN**).  
+2. **Owner:** Authorize M06 kickoff per [M05_next_decision](milestones/M05/M05_next_decision.md).  
+3. **Defer:** Training and submission until M06 owner authorization and manifest gates satisfied.
 
 ---
 
@@ -440,3 +474,5 @@ Run Ledger **1.0** for `m03_synthetic_smoke_eval` is **synthetic factory self-ch
 | 2026-06-04 | M03 | PR #4 squash-merged to `main` | `fe2a7dd`; post-merge CI 26976448338 green |
 | 2026-06-04 | M04 | Public control preflight on branch; PR #5 CI green | Mapping + candidate manifest; no baseline copy; audit 4.6/5 |
 | 2026-06-04 | M04 | PR #5 squash-merged to `main` | `f54afd0`; post-merge CI 26979013700 green |
+| 2026-06-04 | M05 | M05 kickoff authorized | Branch `forge/M05-control-repro-planning`; planning + reproduction plan contract |
+| 2026-06-04 | M05 | Compute path locked | local_5090 preflight; Modal/Tinker future training (not authorized in M05) |
