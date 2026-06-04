@@ -1,0 +1,50 @@
+{"candidate_id": "m03_generated_traces", "completion": "Reasoning:\n18 + 6 = 24.\n\nFinal answer: \\boxed{24}", "example_id": "m03_arithmetic_numeric_000001"}
+{"candidate_id": "m03_generated_traces", "completion": "Reasoning:\n18 / 6 = 3.\n\nFinal answer: \\boxed{3}", "example_id": "m03_arithmetic_numeric_000002"}
+{"candidate_id": "m03_generated_traces", "completion": "Reasoning:\n25 + 35 = 60.\n\nFinal answer: \\boxed{60}", "example_id": "m03_arithmetic_numeric_000003"}
+{"candidate_id": "m03_generated_traces", "completion": "Reasoning:\n11 + 11 = 22.\n22 * 2 = 44.\n\nFinal answer: \\boxed{44}", "example_id": "m03_arithmetic_numeric_000004"}
+{"candidate_id": "m03_generated_traces", "completion": "Reasoning:\n27 - 22 = 5.\n\nFinal answer: \\boxed{5}", "example_id": "m03_arithmetic_numeric_000005"}
+{"candidate_id": "m03_generated_traces", "completion": "Reasoning:\n11 + 8 = 19.\n19 * 4 = 76.\n\nFinal answer: \\boxed{76}", "example_id": "m03_arithmetic_numeric_000006"}
+{"candidate_id": "m03_generated_traces", "completion": "Reasoning:\n28 + 50 = 78.\n\nFinal answer: \\boxed{78}", "example_id": "m03_arithmetic_numeric_000007"}
+{"candidate_id": "m03_generated_traces", "completion": "Reasoning:\n39 + 25 = 64.\n\nFinal answer: \\boxed{64}", "example_id": "m03_arithmetic_numeric_000008"}
+{"candidate_id": "m03_generated_traces", "completion": "Reasoning:\n1 + 21 = 22.\n\nFinal answer: \\boxed{22}", "example_id": "m03_arithmetic_numeric_000009"}
+{"candidate_id": "m03_generated_traces", "completion": "Reasoning:\n6 / 3 = 2.\n\nFinal answer: \\boxed{2}", "example_id": "m03_arithmetic_numeric_000010"}
+{"candidate_id": "m03_generated_traces", "completion": "Reasoning:\n43 + 10 = 53.\n\nFinal answer: \\boxed{53}", "example_id": "m03_arithmetic_numeric_000011"}
+{"candidate_id": "m03_generated_traces", "completion": "Reasoning:\n19 - 12 = 7.\n\nFinal answer: \\boxed{7}", "example_id": "m03_arithmetic_numeric_000012"}
+{"candidate_id": "m03_generated_traces", "completion": "Reasoning:\n99 / 11 = 9.\n\nFinal answer: \\boxed{9}", "example_id": "m03_arithmetic_numeric_000013"}
+{"candidate_id": "m03_generated_traces", "completion": "Reasoning:\n9 * 2 = 18.\n\nFinal answer: \\boxed{18}", "example_id": "m03_arithmetic_numeric_000014"}
+{"candidate_id": "m03_generated_traces", "completion": "Reasoning:\n7 * 10 = 70.\n\nFinal answer: \\boxed{70}", "example_id": "m03_arithmetic_numeric_000015"}
+{"candidate_id": "m03_generated_traces", "completion": "Reasoning:\n55 / 5 = 11.\n\nFinal answer: \\boxed{11}", "example_id": "m03_arithmetic_numeric_000016"}
+{"candidate_id": "m03_generated_traces", "completion": "Reasoning:\n19 + 11 = 30.\n30 * 2 = 60.\n\nFinal answer: \\boxed{60}", "example_id": "m03_arithmetic_numeric_000017"}
+{"candidate_id": "m03_generated_traces", "completion": "Reasoning:\n120 / 12 = 10.\n\nFinal answer: \\boxed{10}", "example_id": "m03_arithmetic_numeric_000018"}
+{"candidate_id": "m03_generated_traces", "completion": "Reasoning:\n120 / 12 = 10.\n\nFinal answer: \\boxed{10}", "example_id": "m03_arithmetic_numeric_000019"}
+{"candidate_id": "m03_generated_traces", "completion": "Reasoning:\n16 + 17 = 33.\n33 * 8 = 264.\n\nFinal answer: \\boxed{264}", "example_id": "m03_arithmetic_numeric_000020"}
+{"candidate_id": "m03_generated_traces", "completion": "Reasoning:\nA draft value might be 11, but we verify below.\n66 / 6 = 11.\n\nFinal answer: \\boxed{11}", "example_id": "m03_formatting_stress_000001"}
+{"candidate_id": "m03_generated_traces", "completion": "Reasoning:\nIntermediate \\boxed{wrong}.\nP maps to R.\nQ maps to P.\nR maps to Q.\nAnother \\boxed{also_wrong}.\n\nFinal answer: \\boxed{RPQ}", "example_id": "m03_formatting_stress_000002"}
+{"candidate_id": "m03_generated_traces", "completion": "Reasoning:\n17 + 13 = 30.\n30 * 4 = 120.\n(The final value has surrounding spaces in the prompt only.)\n\nFinal answer: \\boxed{120}", "example_id": "m03_formatting_stress_000003"}
+{"candidate_id": "m03_generated_traces", "completion": "Reasoning:\n60 / 5 = 12.\n\nFinal answer: \\boxed{12}", "example_id": "m03_formatting_stress_000004"}
+{"candidate_id": "m03_generated_traces", "completion": "Reasoning:\n59 - 22 = 37.\n\nFinal answer: \\boxed{37}", "example_id": "m03_formatting_stress_000005"}
+{"candidate_id": "m03_generated_traces", "completion": "Reasoning:\nA draft value might be 51, but we verify below.\n36 + 15 = 51.\n\nFinal answer: \\boxed{51}", "example_id": "m03_formatting_stress_000006"}
+{"candidate_id": "m03_generated_traces", "completion": "Reasoning:\nIntermediate \\boxed{wrong}.\nA maps to C.\nB maps to A.\nC maps to B.\nAnother \\boxed{also_wrong}.\n\nFinal answer: \\boxed{CAB}", "example_id": "m03_formatting_stress_000007"}
+{"candidate_id": "m03_generated_traces", "completion": "Reasoning:\nP maps to R.\nQ maps to P.\nR maps to Q.\n(The final value has surrounding spaces in the prompt only.)\n\nFinal answer: \\boxed{RPQ}", "example_id": "m03_formatting_stress_000008"}
+{"candidate_id": "m03_generated_traces", "completion": "Reasoning:\n89 - 25 = 64.\n\nFinal answer: \\boxed{64}", "example_id": "m03_formatting_stress_000009"}
+{"candidate_id": "m03_generated_traces", "completion": "Reasoning:\n83 - 35 = 48.\n\nFinal answer: \\boxed{48}", "example_id": "m03_formatting_stress_000010"}
+{"candidate_id": "m03_generated_traces", "completion": "Reasoning:\nRotate right by 1: EQR.\n\nFinal answer: \\boxed{EQR}", "example_id": "m03_string_symbol_transform_000001"}
+{"candidate_id": "m03_generated_traces", "completion": "Reasoning:\nRotate right by 5: QPEUQH.\n\nFinal answer: \\boxed{QPEUQH}", "example_id": "m03_string_symbol_transform_000002"}
+{"candidate_id": "m03_generated_traces", "completion": "Reasoning:\nReverse the string character by character to get COYHKK.\n\nFinal answer: \\boxed{COYHKK}", "example_id": "m03_string_symbol_transform_000003"}
+{"candidate_id": "m03_generated_traces", "completion": "Reasoning:\nRotate left by 1: XOGE.\n\nFinal answer: \\boxed{XOGE}", "example_id": "m03_string_symbol_transform_000004"}
+{"candidate_id": "m03_generated_traces", "completion": "Reasoning:\nReverse the string character by character to get EWQFEV.\n\nFinal answer: \\boxed{EWQFEV}", "example_id": "m03_string_symbol_transform_000005"}
+{"candidate_id": "m03_generated_traces", "completion": "Reasoning:\nRotate left by 2: HIV.\n\nFinal answer: \\boxed{HIV}", "example_id": "m03_string_symbol_transform_000006"}
+{"candidate_id": "m03_generated_traces", "completion": "Reasoning:\nReverse the string character by character to get ROIKG.\n\nFinal answer: \\boxed{ROIKG}", "example_id": "m03_string_symbol_transform_000007"}
+{"candidate_id": "m03_generated_traces", "completion": "Reasoning:\nRotate right by 2: MIR.\n\nFinal answer: \\boxed{MIR}", "example_id": "m03_string_symbol_transform_000008"}
+{"candidate_id": "m03_generated_traces", "completion": "Reasoning:\nReverse the string character by character to get PYMU.\n\nFinal answer: \\boxed{PYMU}", "example_id": "m03_string_symbol_transform_000009"}
+{"candidate_id": "m03_generated_traces", "completion": "Reasoning:\nReverse the string character by character to get KKU.\n\nFinal answer: \\boxed{KKU}", "example_id": "m03_string_symbol_transform_000010"}
+{"candidate_id": "m03_generated_traces", "completion": "Reasoning:\nRotate left by 2: GEVJHF.\n\nFinal answer: \\boxed{GEVJHF}", "example_id": "m03_string_symbol_transform_000011"}
+{"candidate_id": "m03_generated_traces", "completion": "Reasoning:\nRotate left by 1: YXOTL.\n\nFinal answer: \\boxed{YXOTL}", "example_id": "m03_string_symbol_transform_000012"}
+{"candidate_id": "m03_generated_traces", "completion": "Reasoning:\nRotate left by 2: SQZSB.\n\nFinal answer: \\boxed{SQZSB}", "example_id": "m03_string_symbol_transform_000013"}
+{"candidate_id": "m03_generated_traces", "completion": "Reasoning:\nA maps to C.\nB maps to A.\nC maps to B.\n\nFinal answer: \\boxed{CAB}", "example_id": "m03_string_symbol_transform_000014"}
+{"candidate_id": "m03_generated_traces", "completion": "Reasoning:\nRotate left by 2: OND.\n\nFinal answer: \\boxed{OND}", "example_id": "m03_string_symbol_transform_000015"}
+{"candidate_id": "m03_generated_traces", "completion": "Reasoning:\nP maps to R.\nQ maps to P.\nR maps to Q.\n\nFinal answer: \\boxed{RPQ}", "example_id": "m03_string_symbol_transform_000016"}
+{"candidate_id": "m03_generated_traces", "completion": "Reasoning:\nRotate right by 4: GPZGNJ.\n\nFinal answer: \\boxed{GPZGNJ}", "example_id": "m03_string_symbol_transform_000017"}
+{"candidate_id": "m03_generated_traces", "completion": "Reasoning:\nRotate left by 2: JOKTI.\n\nFinal answer: \\boxed{JOKTI}", "example_id": "m03_string_symbol_transform_000018"}
+{"candidate_id": "m03_generated_traces", "completion": "Reasoning:\nRotate right by 2: HBS.\n\nFinal answer: \\boxed{HBS}", "example_id": "m03_string_symbol_transform_000019"}
+{"candidate_id": "m03_generated_traces", "completion": "Reasoning:\nReverse the string character by character to get TYZVZV.\n\nFinal answer: \\boxed{TYZVZV}", "example_id": "m03_string_symbol_transform_000020"}

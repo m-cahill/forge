@@ -6,9 +6,24 @@ Solver-guided, artifact-first LoRA engineering for `NVIDIA-Nemotron-3-Nano-30B`:
 
 ## Current milestone
 
-**M03** — Solver and synthetic trace factory (planned; stub only).
+**M03** — Solver and synthetic trace factory (**closed**; PR [#4](https://github.com/m-cahill/forge/pull/4) CI green, not merged).
 
-M00, M01, and M02 are merged to `main`. M02 added local eval CLI, run manifests, and fixture scoring. No Kaggle submission, public score, model training, or reproduced control baseline yet.
+M00–M02 are merged to `main`. M03 delivered the verified synthetic trace factory. **Next:** M04 public control reproduction preflight. No Kaggle submission, public score, model training, or reproduced control baseline yet.
+
+## Synthetic dataset (M03)
+
+```bash
+python scripts/make_dataset.py \
+  --dataset-id m03_synthetic_smoke_v1 \
+  --seed 123 \
+  --count-arithmetic 20 \
+  --count-string 20 \
+  --count-formatting 10 \
+  --out data/generated/m03_synthetic_smoke_v1/examples.jsonl \
+  --manifest data/manifests/m03_synthetic_smoke_v1.json
+```
+
+Committed smoke evidence: `docs/milestones/M03/evidence/synthetic_smoke/` (synthetic factory self-check only).
 
 ## Local evaluation (M02)
 

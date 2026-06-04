@@ -8,6 +8,7 @@ CLI entry points for dataset generation, training, evaluation, packaging, and su
 | ------ | ------- |
 | `validate_submission.py` | Structural LoRA `submission.zip` validation (M01) |
 | `eval_predictions.py` | Local prediction scoring vs JSONL examples (M02) |
+| `make_dataset.py` | Verified synthetic dataset + manifest generation (M03) |
 
 ### Local evaluation (M02)
 
@@ -30,9 +31,25 @@ Options:
 
 Module equivalent: `python -m forge_nemotron.eval.scorer --help`
 
+### Synthetic dataset (M03)
+
+```bash
+python scripts/make_dataset.py \
+  --dataset-id m03_synthetic_smoke_v1 \
+  --seed 123 \
+  --count-arithmetic 20 \
+  --count-string 20 \
+  --count-formatting 10 \
+  --out data/generated/m03_synthetic_smoke_v1/examples.jsonl \
+  --manifest data/manifests/m03_synthetic_smoke_v1.json
+```
+
+Optional: `--eval-examples` and `--eval-predictions` for local factory self-check JSONL.
+
+Evidence copy: `docs/milestones/M03/evidence/synthetic_smoke/`
+
 ## Planned
 
-- `make_dataset.py`
 - `train_sft.py`
 - `package_adapter.py`
 - `merge_adapters.py`

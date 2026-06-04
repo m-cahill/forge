@@ -1,9 +1,10 @@
 # FORGE — Ultimate Truth
 
 **Project:** FORGE — Kaggle NVIDIA Nemotron Model Reasoning Challenge  
-**Last updated:** 2026-06-04 (M02 merged to `main`; post-merge CI green)  
-**Status:** M00, M01, and M02 **merged** to `main`; **next:** M03 planning (stub only)  
+**Last updated:** 2026-06-04 (M03 closed on branch; PR [#4](https://github.com/m-cahill/forge/pull/4) CI green, not merged)  
+**Status:** M00–M02 **merged** to `main`; **M03 closed** on `forge/M03-solver-factory` — PR [#4](https://github.com/m-cahill/forge/pull/4) awaiting merge permission  
 **Main SHA:** `e78dc975c278c73edffb4b920cf72a067c781420` (M02 squash merge via PR [#3](https://github.com/m-cahill/forge/pull/3))  
+**M03 PR head:** `7c297ab` (closeout) · PR CI [26975819754](https://github.com/m-cahill/forge/actions/runs/26975819754) **green** (implementation head `1c7dde2`, run [26975703019](https://github.com/m-cahill/forge/actions/runs/26975703019))  
 **M02 PR head (pre-merge):** `cfd39707116a218d2b44920c28479fec701be12b` · PR CI [26973225572](https://github.com/m-cahill/forge/actions/runs/26973225572) **green**  
 **Post-merge CI on `main`:** [26973864069](https://github.com/m-cahill/forge/actions/runs/26973864069) **green** (push on `e78dc97`)
 
@@ -100,8 +101,8 @@ FORGE is a solver-guided, artifact-first, audit-governed LoRA competition system
 | M00 | Anchor and competition intake | `forge/M00-anchor-intake` → `main` | **merged** (`27d0fed`) | not configured; local verify pass | 4.0/5 | [M00_summary](milestones/M00/M00_summary.md) |
 | M01 | Public control reproduction foundation | `forge/M01-control-baseline` → `main` | **merged** (`d59d97b`) | **green** — post-merge [26935381116](https://github.com/m-cahill/forge/actions/runs/26935381116) | 4.5/5 | [M01_summary](milestones/M01/M01_summary.md) |
 | M02 | Exact local evaluation and artifact discipline | `forge/M02-local-eval` → `main` | **merged** (`e78dc97`) | **green** — post-merge [26973864069](https://github.com/m-cahill/forge/actions/runs/26973864069) | 4.6/5 | [M02_summary](milestones/M02/M02_summary.md) |
-| M03 | Solver and synthetic trace factory | — | **next** — stub only | — | — | [M03_plan](milestones/M03/M03_plan.md) (stub) |
-| M04 | Adapter sweep | — | not started | — | — | — |
+| M03 | Solver and synthetic trace factory | `forge/M03-solver-factory` | **closed** (PR [#4](https://github.com/m-cahill/forge/pull/4) CI green) | **green** — [26975703019](https://github.com/m-cahill/forge/actions/runs/26975703019) | 4.7/5 | [M03_summary](milestones/M03/M03_summary.md) |
+| M04 | Public control adapter reproduction preflight | — | **next** — stub | — | — | [M04_plan](milestones/M04/M04_plan.md) (stub) |
 | M05 | Merge and compression lab | — | not started | — | — | — |
 | M06 | Final documentation and eligibility | — | not started | — | — | — |
 | M07 | Final submission lock | — | not started | — | — | — |
@@ -121,6 +122,7 @@ FORGE is a solver-guided, artifact-first, audit-governed LoRA competition system
 | Run ID | Date | Config Hash | Dataset Hash | Adapter Hash | Local Score | Category Scores | Notes |
 | ------ | ---- | ----------- | ------------ | ------------ | ----------- | --------------- | ----- |
 | m02_fixture_eval | 2026-06-04 | — | `c7ff8ec140feabcee037ddb16b279d68ac1704998d7e34e3d8290d7dd8162219` | — | **0.75** (6/8; fixture only) | [evidence CSV](milestones/M02/evidence/fixture_eval/local_eval_by_category.csv) | **Not** a Kaggle/public score; hand-authored fixture; [evidence](milestones/M02/evidence/fixture_eval/) |
+| m03_synthetic_smoke_eval | 2026-06-04 | — | `d177d827b3ba1c066c754f875a0a162f780cbb4dc43be7c004fa18093e4b21df` | — | **1.0** (50/50; synthetic factory self-check) | [evidence CSV](milestones/M03/evidence/synthetic_smoke/local_eval_by_category.csv) | **Not** a model or leaderboard score; [evidence](milestones/M03/evidence/synthetic_smoke/) |
 
 ---
 
@@ -128,7 +130,7 @@ FORGE is a solver-guided, artifact-first, audit-governed LoRA competition system
 
 | Dataset Version | Source | Category Counts | Verification Rate | Holdout Check | Notes |
 | --------------- | ------ | --------------- | ----------------- | ------------- | ----- |
-| — | — | — | — | — | No datasets yet |
+| m03_synthetic_smoke_v1 | m03_synthetic (solver-verified) | arithmetic 20, string 20, formatting 10 | 100% verified | not production holdout | SHA256 `d177d827b3ba1c066c754f875a0a162f780cbb4dc43be7c004fa18093e4b21df`; [evidence](milestones/M03/evidence/synthetic_smoke/); **not for training** unless reclassified |
 
 ---
 
@@ -298,8 +300,9 @@ Kaggle **submission is not authorized** without a validated package, local eval,
 ### Next recommendation
 
 1. **Owner:** Record Submit UI `submission.zip` constraints.  
-2. **Cursor (when authorized):** Expand M03 plan; implement solver/trace factory on new branch.  
-3. **Defer:** Kaggle submission until validated package + local eval on real candidates + owner go-ahead.
+2. **Owner:** Merge PR [#4](https://github.com/m-cahill/forge/pull/4) when ready (M03 CI green on `1c7dde2`).
+3. **Cursor (when authorized):** Expand M04 preflight plan on new branch; no training without explicit go-ahead.  
+4. **Defer:** Kaggle submission until validated package + local eval on real candidates + owner go-ahead.
 
 ---
 
@@ -337,6 +340,36 @@ The Run Ledger value **0.75** is from `predictions_mixed.jsonl` against hand-aut
 
 ---
 
+## M03 Closeout Record
+
+**Branch:** `forge/M03-solver-factory` (not merged)  
+**PR:** [#4](https://github.com/m-cahill/forge/pull/4) — **open**; CI green  
+**PR head:** `1c7dde268faa55a42ebba0d9f202531e99509334`  
+**PR CI:** [26975703019](https://github.com/m-cahill/forge/actions/runs/26975703019) **green** (Python 3.10–3.12)  
+**Implementation commits:** `e6de36f`, `ef8e758`, `1c7dde2`  
+**Local verification:** 127 pytest; ruff/mypy/compileall pass; `make_dataset` + eval self-check pass
+
+**Artifacts:** [M03_summary](milestones/M03/M03_summary.md) · [M03_audit](milestones/M03/M03_audit.md) (4.7/5) · [M03_run1](milestones/M03/M03_run1.md) · [synthetic smoke evidence](milestones/M03/evidence/synthetic_smoke/)
+
+### M03 deliverables
+
+| Deliverable | Status |
+| ----------- | ------ |
+| Solver protocol + arithmetic + string (3 transforms) + formatting stress | Met |
+| Synthetic writer + rejection rules + writer-owned `\boxed{}` | Met |
+| Dataset manifest + `scripts/make_dataset.py` | Met |
+| Smoke dataset `m03_synthetic_smoke_v1` (50 examples, seed 123) | Met |
+| Synthetic factory self-check 50/50 | Met — **not** model/LB score |
+| Kaggle submission / score / training / reproduction | **Not claimed** |
+
+### Synthetic self-check disclaimer
+
+Run Ledger **1.0** for `m03_synthetic_smoke_eval` is **synthetic factory self-check accuracy** only. It is **not** a public score, private score, or model-inferred result.
+
+**Non-claims (M03):** no Kaggle submission, public/private score, training, inference, reproduced baseline, Kaggle-ready adapter; smoke data is not hidden/private benchmark evidence.
+
+---
+
 ## Appendix: Material Decisions
 
 | Date | Milestone | Decision | Rationale |
@@ -361,3 +394,5 @@ The Run Ledger value **0.75** is from `predictions_mixed.jsonl` against hand-aut
 | 2026-06-04 | M02 | M02 kickoff authorized | Local eval only; fixture holdout active-fixture; warn on extra preds |
 | 2026-06-04 | M02 | M02 closed; PR #3 CI green | Local eval layer; fixture 0.75 not public score; audit 4.6/5 |
 | 2026-06-04 | M02 | PR #3 squash-merged to `main` | `e78dc97`; post-merge CI 26973864069 green |
+| 2026-06-04 | M03 | Solver factory on branch; PR #4 CI green | Structured solvers; writer owns boxing; 50 smoke examples; audit 4.7/5 |
+| 2026-06-04 | M03 | M04 stub: control reproduction preflight | Defer full adapter sweep until baseline mapping |
