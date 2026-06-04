@@ -1,7 +1,7 @@
 # FORGE — Ultimate Truth
 
 **Project:** FORGE — Kaggle NVIDIA Nemotron Model Reasoning Challenge  
-**Last updated:** 2026-06-04  
+**Last updated:** 2026-06-04 (Kaggle probe evidence; BQ-001 closed)  
 **Status:** M00 and M01 **merged** to `main`; **active milestone:** M02 planning (not started)  
 **Main SHA:** `d59d97b91252f9236e374292bbba8f9027edcbc1` (M01 squash merge via PR [#2](https://github.com/m-cahill/forge/pull/2))  
 **M01 PR head (pre-merge):** `94d29f289dee778b45e2ec8da707112a75e86bdf` · final PR CI [26935090190](https://github.com/m-cahill/forge/actions/runs/26935090190)
@@ -36,7 +36,7 @@ No milestone may close unless:
 | Prize eligibility | Public Kaggle notebook + solution write-up required | Kaggle Rules | 2026-06-03 |
 | Entry deadline | **June 8, 2026** | Kaggle public page (owner reconfirm on site) | 2026-06-03 |
 | Final deadline | **June 15, 2026, 11:59 PM UTC** | Kaggle public page (owner reconfirm on site) | 2026-06-03 |
-| Daily submission limit | **OWNER ACTION** — do not guess | Authenticated Kaggle Submit UI | — |
+| Daily submission limit | **5 per day** (0/5 used at probe) | Kaggle Submit UI + M01 debug probe | 2026-06-04 |
 | Rules accepted | **OWNER ACTION** — do not guess | Authenticated account/team status | — |
 
 ---
@@ -56,7 +56,7 @@ FORGE is a solver-guided, artifact-first, audit-governed LoRA competition system
 
 | ID | Question | Why It Matters | Owner | Target | Status |
 | -- | -------- | -------------- | ----- | ------ | ------ |
-| BQ-001 | What is the live daily submission limit? | Controls submission budget | Owner | Pre-M01 submit | **owner-action** — authenticated Submit UI |
+| BQ-001 | What is the live daily submission limit? | Controls submission budget | Owner | Pre-M01 submit | **resolved** — 5 per day (Submit UI `0/5 used`; probe 2026-06-04) |
 | BQ-002 | What are the exact entry and final deadlines? | Prevents eligibility failure | Cursor | M00 | **partial** — public dates recorded; owner reconfirm on site |
 | BQ-003 | Has the team accepted rules / joined competition? | Required before submission | Owner | Pre-M01 submit | **owner-action** — authenticated status |
 | BQ-004 | What public baseline/control repo will M01 reproduce first? | Determines M01 scope | Cursor | M01 | **resolved (recommendation)** — `tonghuikang/nemotron`; see § M01 Recommendation |
@@ -190,9 +190,9 @@ A candidate may advance only when all applicable gates are satisfied:
 | Invalid submission package | Wastes submissions | Package validator before every upload | — | M01 | Validator implemented and passes | **resolved** — validator implemented |
 | Public leaderboard overfit | Poor private score | Hard holdouts + anti-forgetting gates | — | M02+ | Per-category gates enforced | open |
 | Documentation ineligibility | Prize loss | Public notebook/write-up in M06 | — | M06 | Notebook and write-up public | open |
-| Daily submission limit unknown | Poor slot allocation | Owner verifies Submit UI | Owner | Pre-M01 submit | BQ-001 closed; value in §1 Competition Snapshot | **owner-action** |
+| Daily submission limit unknown | Poor slot allocation | Owner verifies Submit UI | Owner | Pre-M01 submit | BQ-001 closed; value in §1 Competition Snapshot | **resolved** — 5/day (2026-06-04) |
 | Rules/team not verified | Eligibility failure | Owner verifies competition enrollment | Owner | Pre-M01 submit | BQ-003 closed; evidence row filled | **owner-action** |
-| Authenticated Kaggle facts unavailable to Cursor | Guessed limits / wrong intake | Owner-action blockers only | Owner | Pre-M01 submit | DEF-001, DEF-002 closed | open |
+| Authenticated Kaggle facts unavailable to Cursor | Guessed limits / wrong intake | Owner-action blockers only | Owner | Pre-M01 submit | DEF-001 closed; DEF-002 open | **partial** — DEF-001 closed |
 | Hard-category misidentification | Training time wasted | Control error analysis | — | M01/M02 | Error taxonomy exists | open |
 | Catastrophic forgetting | Score regression | Anti-forgetting gates | — | M04+ | Control categories preserved | open |
 | Data leakage / rule violation | Disqualification | Provenance + holdout checks | — | M02+ | Contamination check pass | open |
@@ -218,7 +218,7 @@ A candidate may advance only when all applicable gates are satisfied:
 | Environment ID | Hardware | OS | Python/CUDA | Purpose | Status | Notes |
 | -------------- | -------- | -- | ----------- | ------- | ------ | ----- |
 | local_5090 | RTX 5090 Blackwell | TBD | TBD | Local eval, QLoRA tests, generation | available | Verify CUDA stack |
-| kaggle_notebook | Kaggle GPU/Notebook | TBD | TBD | Public notebook eligibility | planned | Must remain reproducible |
+| kaggle_notebook | Kaggle Notebook (CPU at probe) | Linux 6.6 / Py3.12 | torch 2.10+cpu; no CUDA | M01 debug probe | probed 2026-06-04 | Interactive; no GPU; ~19.5 GB free; see kaggle_setup_evidence |
 
 ---
 
@@ -250,22 +250,35 @@ A candidate may advance only when all applicable gates are satisfied:
 | Boxed-answer metric + tests | Met — 61 tests |
 | Package validator + tests | Met — 27 tests; rank >32 rejected |
 | Public baseline intake | Met — no reproduction claim |
-| Kaggle debug notebook | Met — repo only |
+| Kaggle debug notebook | Met — repo + **interactive probe run** (2026-06-04) |
 | Kaggle submission / score / reproduction | **Not claimed** |
 
-### Owner-action blockers (unchanged)
+### M01 Kaggle interactive probe (2026-06-04)
 
-- **BQ-001:** Daily submission limit — authenticated Submit UI
-- **BQ-003:** Rules/team status — authenticated account
+**Notebook:** `notebooks/forge_m01_kaggle_debug_probe.ipynb` (repo-first; run on Kaggle Interactive)  
+**Mode:** Interactive · **Is Kaggle:** true · **Submissions used:** 0/5 → **limit 5/day**  
+**Environment:** Python 3.12.13; Linux `6.6.122+`; CWD `/kaggle/working`; `/kaggle/input` has `competitions`  
+**Disk:** ~19.5 GB free on `/kaggle/working` · **GPU:** none (`nvidia-smi` not found)  
+**Torch:** 2.10.0+cpu · **CUDA:** false  
+**Base model paths:** not attached — `nemotron-3-nano-30b-a3b-bf16`, `nvidia-nemotron-3-nano-30b-a3b-bf16` not visible  
+**Debug artifact:** `/kaggle/working/tmp/forge_debug/probe_test.txt` (83 B; SHA256 `a8f624087fe0520a0c0c97f914e54f4e7b6478f750b85d5f9d8e971c6e360a8c`)
 
-Do not submit to Kaggle until these are recorded with evidence.
+**Non-claims:** no submission, no score, no package validity, no model inference, no submission readiness.
+
+Evidence: [`docs/kaggle/kaggle_setup_evidence.md`](kaggle/kaggle_setup_evidence.md)
+
+### Owner-action blockers
+
+- **BQ-001:** **Resolved** — 5 submissions per day (owner Submit UI + probe)
+- **BQ-003:** **Open** — rules accepted / team joined not yet recorded
+
+Do not submit to Kaggle until BQ-003 is resolved with evidence.
 
 ### Next recommendation
 
-1. **Owner:** Complete BQ-001, BQ-003, deadline reconfirm, and Submit UI zip constraints; update `docs/kaggle/kaggle_setup_evidence.md`.  
-2. **Owner:** Reupload/run `notebooks/forge_m01_kaggle_debug_probe.ipynb` on Kaggle (interactive probe only; no submission).  
-3. **Cursor (when authorized):** Expand M02 plan and implement on `forge/M02-local-eval` — local eval CLI, manifests, golden metric tests, artifact hashing.  
-4. **Defer:** Public baseline training/reproduction until M02 eval discipline is in place.
+1. **Owner:** Record BQ-003 (rules/team), reconfirm deadlines, Submit UI zip constraints.  
+2. **Cursor (when authorized):** Expand M02 plan and implement on `forge/M02-local-eval`.  
+3. **Defer:** Public baseline training until M02 eval discipline is in place; GPU notebook runs for training TBD.
 
 ---
 
@@ -287,3 +300,4 @@ Do not submit to Kaggle until these are recorded with evidence.
 | 2026-06-04 | M01 | PR #2 opened; CI green | Run 26934972365; 91 tests; audit 4.5/5 |
 | 2026-06-04 | M01 | M01 closed (not merged) | Summary/audit/run1; M02 stub seeded |
 | 2026-06-04 | M01 | PR #2 squash-merged to `main` | `d59d97b`; post-merge CI 26935381116 green |
+| 2026-06-04 | M01 | Kaggle interactive debug probe | BQ-001 closed (5/day); probe SHA256 recorded; BQ-003 still open |
