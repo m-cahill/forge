@@ -1,9 +1,9 @@
 # FORGE — Ultimate Truth
 
 **Project:** FORGE — Kaggle NVIDIA Nemotron Model Reasoning Challenge  
-**Last updated:** 2026-06-03  
-**Status:** M00 — Anchor and competition intake (in progress)  
-**Branch:** `forge/M00-anchor-intake`
+**Last updated:** 2026-06-04  
+**Status:** M00 complete — awaiting merge (`forge/M00-anchor-intake`)  
+**Active milestone:** M01 not started (authorized after M00 merge or explicit instruction)
 
 ---
 
@@ -55,29 +55,37 @@ FORGE is a solver-guided, artifact-first, audit-governed LoRA competition system
 
 | ID | Question | Why It Matters | Owner | Target | Status |
 | -- | -------- | -------------- | ----- | ------ | ------ |
-| BQ-001 | What is the live daily submission limit? | Controls submission budget | Owner | M00 | **owner-action** — authenticated Submit UI |
+| BQ-001 | What is the live daily submission limit? | Controls submission budget | Owner | Pre-M01 submit | **owner-action** — authenticated Submit UI |
 | BQ-002 | What are the exact entry and final deadlines? | Prevents eligibility failure | Cursor | M00 | **partial** — public dates recorded; owner reconfirm on site |
-| BQ-003 | Has the team accepted rules / joined competition? | Required before submission | Owner | M00 | **owner-action** — authenticated status |
-| BQ-004 | What public baseline/control repo will M01 reproduce first? | Determines M01 scope | Cursor | M01 | **resolved (recommendation)** — see § M01 Recommendation |
+| BQ-003 | Has the team accepted rules / joined competition? | Required before submission | Owner | Pre-M01 submit | **owner-action** — authenticated status |
+| BQ-004 | What public baseline/control repo will M01 reproduce first? | Determines M01 scope | Cursor | M01 | **resolved (recommendation)** — `tonghuikang/nemotron`; see § M01 Recommendation |
 
 ---
 
-## 4. Active Milestone Exit Criteria — M00
+## 4. M00 Closeout Record
 
-M00 may close only when:
+**Branch:** `forge/M00-anchor-intake`  
+**Implementation tip SHA:** `f61e5cb` (pre-closeout); closeout commit adds summary/audit  
+**CI:** Not configured — no GitHub Actions workflows; **not** green CI  
+**Local verification (M00):** `python -m compileall src` pass; `PYTHONPATH=src` → `import forge_nemotron` pass; `pytest` — no tests configured
 
-- [x] `docs/FORGE_ANCHOR.md` exists in canonical location (`docs/`).
-- [x] `docs/forge.md` is current (M00 implementation pass).
-- [ ] Live Kaggle daily submission limit is recorded (**owner-action**).
-- [x] Entry deadline and final deadline are recorded (public dates; owner reconfirm).
-- [ ] Rules/team entry status is verified (**owner-action**).
-- [x] Repo scaffold exists.
-- [x] `docs/milestones/M00/M00_plan.md` exists.
-- [ ] `docs/milestones/M00/M00_summary.md` exists (closeout).
-- [ ] `docs/milestones/M00/M00_audit.md` exists (closeout).
-- [x] M01 recommendation is recorded (below).
-- [x] `docs/kaggle_submission_bible.md` exists (FORGE-specific).
-- [x] `docs/kaggle/kaggle_setup_runbook.md`, `kaggle_setup_evidence.md`, `notebook_debug_standard.md` exist.
+### M00 exit criteria
+
+| Criterion | Status |
+| --------- | ------ |
+| `docs/FORGE_ANCHOR.md` at `docs/` | Met |
+| `docs/forge.md` current | Met |
+| Kaggle bible + runbooks | Met |
+| Public entry/final deadlines | Met (owner reconfirm recommended) |
+| Daily submission limit | **Deferred** — owner-action (DEF-001) |
+| Rules/team status | **Deferred** — owner-action (DEF-002) |
+| Repo scaffold | Met |
+| `M00_plan.md`, `M00_toolcalls.md` | Met |
+| `M00_summary.md`, `M00_audit.md` | Met |
+| M01 recommendation | Met |
+| No false submission/score/training claims | Met |
+
+**Artifacts:** [`docs/milestones/M00/M00_summary.md`](milestones/M00/M00_summary.md) · [`docs/milestones/M00/M00_audit.md`](milestones/M00/M00_audit.md) (audit score **4.0/5**)
 
 ---
 
@@ -85,7 +93,7 @@ M00 may close only when:
 
 | Milestone | Title | Branch | Status | CI | Audit Score | Summary |
 | --------- | ----- | ------ | ------ | -- | ----------- | ------- |
-| M00 | Anchor and competition intake | `forge/M00-anchor-intake` | in progress | local verify only | — | — |
+| M00 | Anchor and competition intake | `forge/M00-anchor-intake` | **complete — awaiting merge** | not configured; local verify pass | 4.0/5 | [M00_summary](milestones/M00/M00_summary.md) |
 | M01 | Public control reproduction | `forge/M01-control-baseline` (planned) | not started | — | — | — |
 | M02 | Exact local evaluation | — | not started | — | — | — |
 | M03 | Solver and synthetic trace factory | — | not started | — | — | — |
@@ -174,17 +182,19 @@ A candidate may advance only when all applicable gates are satisfied:
 
 ## 12. Risk and Deferral Register
 
-| Risk | Impact | Mitigation | Owner | Target Milestone | Exit Criteria | Status |
-| ---- | ------ | ---------- | ----- | ---------------- | ------------- | ------ |
+| Risk | Impact | Mitigation | Owner | Target | Exit Criteria | Status |
+| ---- | ------ | ---------- | ----- | ------ | ------------- | ------ |
 | Invalid submission package | Wastes submissions | Package validator before every upload | — | M01 | Validator implemented and passes | open |
 | Public leaderboard overfit | Poor private score | Hard holdouts + anti-forgetting gates | — | M02+ | Per-category gates enforced | open |
 | Documentation ineligibility | Prize loss | Public notebook/write-up in M06 | — | M06 | Notebook and write-up public | open |
-| Daily submission limit unknown | Poor slot allocation | Verify in Kaggle Submit UI | Owner | M00 | Limit recorded in Competition Snapshot | **owner-action** |
-| Hard-category misidentification | Training time wasted | Control error analysis before major data generation | — | M01/M02 | Error taxonomy exists | open |
-| Catastrophic forgetting | Public/local score regression | Per-category anti-forgetting gates | — | M04+ | Control categories preserved | open |
-| Data leakage / rule violation | Disqualification risk | Provenance + holdout checks | — | M02+ | Dataset manifest and contamination check pass | open |
-| Unreproducible notebook | Prize eligibility risk | Notebook cites exact hashes and instructions | — | M06 | Public notebook reruns or documents limits | open |
-| Authenticated Kaggle facts unavailable to Cursor | Wrong intake or guessed limits | Owner-action blockers in evidence docs | Owner | M00 | BQ-001, BQ-003 filled from live UI | open |
+| Daily submission limit unknown | Poor slot allocation | Owner verifies Submit UI | Owner | Pre-M01 submit | BQ-001 closed; value in §1 Competition Snapshot | **owner-action** |
+| Rules/team not verified | Eligibility failure | Owner verifies competition enrollment | Owner | Pre-M01 submit | BQ-003 closed; evidence row filled | **owner-action** |
+| Authenticated Kaggle facts unavailable to Cursor | Guessed limits / wrong intake | Owner-action blockers only | Owner | Pre-M01 submit | DEF-001, DEF-002 closed | open |
+| Hard-category misidentification | Training time wasted | Control error analysis | — | M01/M02 | Error taxonomy exists | open |
+| Catastrophic forgetting | Score regression | Anti-forgetting gates | — | M04+ | Control categories preserved | open |
+| Data leakage / rule violation | Disqualification | Provenance + holdout checks | — | M02+ | Contamination check pass | open |
+| Unreproducible notebook | Prize risk | Notebook cites hashes | — | M06 | Public notebook documented | open |
+| No CI workflow | Regressions undetected | Add CI in M01+ | — | M01+ | Green workflow on PR (DEF-005) | open |
 
 ---
 
@@ -219,9 +229,11 @@ A candidate may advance only when all applicable gates are satisfied:
 
 M01 should inspect and attempt to reproduce or wrap the public Progress Prize control baseline from [tonghuikang/nemotron](https://github.com/tonghuikang/nemotron), beginning with boxed-answer metric extraction and package validation before any Kaggle submission.
 
-This is a **recommended control target**, not a reproduced baseline. The repo identifies itself as the Progress Prize winning submission and exposes training flow entry points (`reasoning.py`, `augmentation.py`, `corpus.py`, `train_sft.py`, `upload_adapter.py`).
+This is a **recommended control target**, not a reproduced baseline.
 
-Stub plan: `docs/milestones/M01/M01_plan.md`.
+**Do not start M01 implementation until M00 is merged or explicitly authorized.**
+
+Stub: `docs/milestones/M01/M01_plan.md` · Branch: `forge/M01-control-baseline`
 
 ---
 
@@ -229,8 +241,10 @@ Stub plan: `docs/milestones/M01/M01_plan.md`.
 
 | Date | Milestone | Decision | Rationale |
 | ---- | --------- | -------- | --------- |
-| 2026-06-03 | M00 | Initialize FORGE project | Late entry but sufficient time for final prize attempt |
-| 2026-06-03 | M00 | Canonical anchor at `docs/FORGE_ANCHOR.md` | Single doctrine copy; no repo-root duplicate |
-| 2026-06-03 | M00 | Public deadlines recorded from Kaggle public sources | Entry Jun 8, 2026; final Jun 15, 2026 23:59 UTC; owner reconfirm |
-| 2026-06-03 | M00 | M01 control baseline recommendation | `tonghuikang/nemotron` Progress Prize repo |
-| 2026-06-03 | M00 | Notebook workflow | Repo edit → commit → Kaggle reupload; no default Kaggle-site edits |
+| 2026-06-03 | M00 | Initialize FORGE project | Late entry; final prize attempt |
+| 2026-06-03 | M00 | Canonical anchor at `docs/FORGE_ANCHOR.md` | Single doctrine copy |
+| 2026-06-03 | M00 | Public deadlines from Kaggle public sources | Entry Jun 8; final Jun 15 23:59 UTC |
+| 2026-06-03 | M00 | M01 baseline recommendation | `tonghuikang/nemotron` |
+| 2026-06-03 | M00 | Notebook workflow repo-first | Commit in repo → reupload Kaggle |
+| 2026-06-04 | M00 | M00 closed with owner-action deferrals | BQ-001/BQ-003 not guessed; audit 4.0/5 |
+| 2026-06-04 | M00 | CI deferred | No `.github/workflows`; local verify only |

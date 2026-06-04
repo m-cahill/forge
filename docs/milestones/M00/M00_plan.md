@@ -6,8 +6,8 @@
 **Title:** Anchor, competition intake, and Kaggle submission bible  
 **Branch:** `forge/M00-anchor-intake`  
 **Primary owner:** Cursor  
-**Status:** in progress  
-**Target posture:** Local verification documented; CI deferred to M01+ unless configured.
+**Status:** closed — awaiting merge (2026-06-04)  
+**Target posture:** Local verification documented; CI deferred to M01+.
 
 ---
 
@@ -96,7 +96,7 @@ Per `docs/FORGE_ANCHOR.md` §8: `configs/`, `data/`, `src/forge_nemotron/`, `tes
 - [ ] Rules/team status verified (**owner-action**)
 - [x] Repo scaffold exists
 - [x] `M00_plan.md`, `M00_toolcalls.md` exist
-- [ ] `M00_summary.md`, `M00_audit.md` (closeout only)
+- [x] `M00_summary.md`, `M00_audit.md` (closeout)
 - [x] M01 recommendation recorded
 - [x] No false Kaggle submission/score claims
 
