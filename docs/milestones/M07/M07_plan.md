@@ -7,7 +7,7 @@
 | **Milestone** | M07 |
 | **Title** | Controlled Public Baseline Training Authorization Gate |
 | **Branch** | `forge/M07-training-authorization-gate` |
-| **Status** | **active** — Phase A+ in progress |
+| **Status** | **closed on branch** — PR [#8](https://github.com/m-cahill/forge/pull/8) CI green; merge pending |
 | **Precondition** | M06 merged to `main`, post-merge CI green, owner authorized M07 kickoff |
 | **Gate C** | `M07_TRAINING_AUTHORIZED = no` (Path A — blocked manifest) |
 
@@ -317,7 +317,7 @@ Update:
 - [x] `M07_next_decision.md`
 - [x] `docs/forge.md` in-progress record
 - [x] Commit Phase E.
-- [ ] Closeout: summary, audit, run1 (owner permission)
+- [x] Closeout: summary, audit, run1
 
 ---
 
@@ -325,28 +325,28 @@ Update:
 
 M07 is complete only when:
 
-- [ ] Branch `forge/M07-training-authorization-gate` exists from current green `main`.
-- [ ] `docs/milestones/M07/M07_plan.md` is expanded.
-- [ ] `docs/milestones/M07/M07_toolcalls.md` exists.
-- [ ] `docs/forge.md` marks M07 active during implementation and is updated at closeout.
-- [ ] Training authorization gate doc exists.
-- [ ] Schema readiness decision exists.
-- [ ] Compute/credential gate exists.
-- [ ] Submit UI constraint gate exists.
-- [ ] Training-gate reproduction manifest exists and validates.
-- [ ] Evidence README labels training state clearly.
-- [ ] Training config draft exists.
-- [ ] Dry-run command plan exists and is not executed.
-- [ ] M07 next-decision document exists.
-- [ ] Submit UI zip constraints are either recorded or explicitly left open.
-- [ ] CI is green on PR.
-- [ ] No Kaggle submission is attempted.
-- [ ] No public/private score is claimed.
-- [ ] No training is performed unless explicitly authorized.
-- [ ] No model inference is performed unless explicitly authorized.
-- [ ] No public baseline reproduction is claimed.
-- [ ] No baseline code/data is copied into FORGE.
-- [ ] No real adapter/package is created unless explicitly authorized.
+- [x] Branch `forge/M07-training-authorization-gate` exists from current green `main`.
+- [x] `docs/milestones/M07/M07_plan.md` is expanded.
+- [x] `docs/milestones/M07/M07_toolcalls.md` exists.
+- [x] `docs/forge.md` marks M07 active during implementation and is updated at closeout.
+- [x] Training authorization gate doc exists.
+- [x] Schema readiness decision exists.
+- [x] Compute/credential gate exists.
+- [x] Submit UI constraint gate exists.
+- [x] Training-gate reproduction manifest exists and validates.
+- [x] Evidence README labels training state clearly.
+- [x] Training config draft exists.
+- [x] Dry-run command plan exists and is not executed.
+- [x] M07 next-decision document exists.
+- [x] Submit UI zip constraints are either recorded or explicitly left open.
+- [x] CI is green on PR — [26986703969](https://github.com/m-cahill/forge/actions/runs/26986703969).
+- [x] No Kaggle submission is attempted.
+- [x] No public/private score is claimed.
+- [x] No training is performed unless explicitly authorized.
+- [x] No model inference is performed unless explicitly authorized.
+- [x] No public baseline reproduction is claimed.
+- [x] No baseline code/data is copied into FORGE.
+- [x] No real adapter/package is created unless explicitly authorized.
 
 ---
 
