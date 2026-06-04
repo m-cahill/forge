@@ -1,9 +1,10 @@
 # FORGE — Ultimate Truth
 
 **Project:** FORGE — Kaggle NVIDIA Nemotron Model Reasoning Challenge  
-**Last updated:** 2026-06-04 (M02 merged to `main`; post-merge CI green)  
-**Status:** M00, M01, and M02 **merged** to `main`; **next:** M03 planning (stub only)  
+**Last updated:** 2026-06-04 (M03 active on `forge/M03-solver-factory`)  
+**Status:** M00–M02 **merged** to `main`; **M03 active** — solver and synthetic trace factory  
 **Main SHA:** `e78dc975c278c73edffb4b920cf72a067c781420` (M02 squash merge via PR [#3](https://github.com/m-cahill/forge/pull/3))  
+**M03 branch:** `forge/M03-solver-factory` (in progress)  
 **M02 PR head (pre-merge):** `cfd39707116a218d2b44920c28479fec701be12b` · PR CI [26973225572](https://github.com/m-cahill/forge/actions/runs/26973225572) **green**  
 **Post-merge CI on `main`:** [26973864069](https://github.com/m-cahill/forge/actions/runs/26973864069) **green** (push on `e78dc97`)
 
@@ -100,7 +101,7 @@ FORGE is a solver-guided, artifact-first, audit-governed LoRA competition system
 | M00 | Anchor and competition intake | `forge/M00-anchor-intake` → `main` | **merged** (`27d0fed`) | not configured; local verify pass | 4.0/5 | [M00_summary](milestones/M00/M00_summary.md) |
 | M01 | Public control reproduction foundation | `forge/M01-control-baseline` → `main` | **merged** (`d59d97b`) | **green** — post-merge [26935381116](https://github.com/m-cahill/forge/actions/runs/26935381116) | 4.5/5 | [M01_summary](milestones/M01/M01_summary.md) |
 | M02 | Exact local evaluation and artifact discipline | `forge/M02-local-eval` → `main` | **merged** (`e78dc97`) | **green** — post-merge [26973864069](https://github.com/m-cahill/forge/actions/runs/26973864069) | 4.6/5 | [M02_summary](milestones/M02/M02_summary.md) |
-| M03 | Solver and synthetic trace factory | — | **next** — stub only | — | — | [M03_plan](milestones/M03/M03_plan.md) (stub) |
+| M03 | Solver and synthetic trace factory | `forge/M03-solver-factory` | **active** | pending | — | [M03_plan](milestones/M03/M03_plan.md) |
 | M04 | Adapter sweep | — | not started | — | — | — |
 | M05 | Merge and compression lab | — | not started | — | — | — |
 | M06 | Final documentation and eligibility | — | not started | — | — | — |
@@ -298,7 +299,7 @@ Kaggle **submission is not authorized** without a validated package, local eval,
 ### Next recommendation
 
 1. **Owner:** Record Submit UI `submission.zip` constraints.  
-2. **Cursor (when authorized):** Expand M03 plan; implement solver/trace factory on new branch.  
+2. **Cursor (M03):** Implement solver/trace factory on `forge/M03-solver-factory` (authorized).  
 3. **Defer:** Kaggle submission until validated package + local eval on real candidates + owner go-ahead.
 
 ---
