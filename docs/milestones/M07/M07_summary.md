@@ -6,8 +6,8 @@
 **Timeframe:** 2026-06-05  
 **Status:** Closed on branch — PR [#8](https://github.com/m-cahill/forge/pull/8) open; merge pending owner permission  
 **Branch:** `forge/M07-training-authorization-gate`  
-**PR head:** `ce1d258` (implementation through `410638a`; closeout commit TBD on push)  
-**PR CI:** [26986703969](https://github.com/m-cahill/forge/actions/runs/26986703969) **green**  
+**PR head:** `1ec70eb`  
+**PR CI:** [26986736831](https://github.com/m-cahill/forge/actions/runs/26986736831) **green** (final); [26986703969](https://github.com/m-cahill/forge/actions/runs/26986703969) (initial)  
 **Baseline:** M06 merged `a7de356`
 
 ---

@@ -14,9 +14,11 @@
 | Run ID | [26986703969](https://github.com/m-cahill/forge/actions/runs/26986703969) |
 | Trigger | `pull_request` |
 | Branch | `forge/M07-training-authorization-gate` |
-| Commit SHA (PR head) | `ce1d258` |
+| Commit SHA (PR head at analysis) | `ce1d258` |
+| Final PR head (closeout) | `1ec70eb` |
 | PR | [#8](https://github.com/m-cahill/forge/pull/8) |
 | Overall conclusion | **success** |
+| Final CI run (closeout push) | [26986736831](https://github.com/m-cahill/forge/actions/runs/26986736831) **success** |
 
 ---
 

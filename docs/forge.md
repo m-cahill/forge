@@ -4,7 +4,7 @@
 **Last updated:** 2026-06-05 (M07 closed on branch; PR [#8](https://github.com/m-cahill/forge/pull/8) open)  
 **Status:** M00–M06 **merged** to `main`; **M07 closed on branch** — PR CI green; merge pending permission  
 **Main SHA:** `a7de356d8597c7386b30cf8ba1912c02c0894cf7` (M06 squash merge via PR [#7](https://github.com/m-cahill/forge/pull/7))  
-**M07 PR head:** `ce1d258` · PR CI [26986703969](https://github.com/m-cahill/forge/actions/runs/26986703969) **green**  
+**M07 PR head:** `1ec70eb` · PR CI [26986736831](https://github.com/m-cahill/forge/actions/runs/26986736831) **green** (closeout); prior [26986703969](https://github.com/m-cahill/forge/actions/runs/26986703969)  
 **M06 post-merge CI:** [26985969954](https://github.com/m-cahill/forge/actions/runs/26985969954) **green**  
 **M07 authorization:** `M07_TRAINING_AUTHORIZED = no` — training **blocked**; gate docs **GO**  
 **Next:** M08 compute/credential readiness (stub); merge PR #8 when authorized
@@ -511,8 +511,8 @@ Run Ledger **1.0** for `m03_synthetic_smoke_eval` is **synthetic factory self-ch
 
 **Branch:** `forge/M07-training-authorization-gate`  
 **PR:** [#8](https://github.com/m-cahill/forge/pull/8) — **open** (merge pending owner permission)  
-**PR head:** `ce1d258` (pre-closeout); closeout commit on push  
-**PR CI:** [26986703969](https://github.com/m-cahill/forge/actions/runs/26986703969) **green** (Python 3.10–3.12)  
+**PR head:** `1ec70eb`  
+**PR CI:** [26986736831](https://github.com/m-cahill/forge/actions/runs/26986736831) **green** (Python 3.10–3.12); initial [26986703969](https://github.com/m-cahill/forge/actions/runs/26986703969)  
 **Path:** A — `M07_TRAINING_AUTHORIZED = no`  
 **Local verification:** 154 pytest; ruff/mypy/compileall pass; training_blocked manifest validates
 
