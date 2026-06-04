@@ -65,9 +65,11 @@ FORGE is a solver-guided, artifact-first, audit-governed LoRA competition system
 ## 4. M00 Closeout Record
 
 **Branch:** `forge/M00-anchor-intake`  
-**Implementation tip SHA:** `f61e5cb` (pre-closeout); closeout commit adds summary/audit  
-**CI:** Not configured — no GitHub Actions workflows; **not** green CI  
-**Local verification (M00):** `python -m compileall src` pass; `PYTHONPATH=src` → `import forge_nemotron` pass; `pytest` — no tests configured
+**Closeout SHA:** `c3d72ab`  
+**PR:** [#1](https://github.com/m-cahill/forge/pull/1) — open, awaiting owner merge approval  
+**PR head SHA:** `c3d72abc66643d96725d9a68ed71b31a00569eed`  
+**CI:** Not configured — no GitHub Actions workflows; **no PR checks ran**  
+**Local verification (M00):** `python -m compileall src` pass; `PYTHONPATH=src` → `import forge_nemotron` pass; `pytest` — exit 5, 0 tests collected
 
 ### M00 exit criteria
 
