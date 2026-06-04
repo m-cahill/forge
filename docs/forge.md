@@ -4,7 +4,7 @@
 **Last updated:** 2026-06-04  
 **Status:** M00 **merged** to `main`; M01 **closed** on `forge/M01-control-baseline` — PR [#2](https://github.com/m-cahill/forge/pull/2) **CI green**; merge pending express permission  
 **Main SHA:** `27d0fed5b62cd3dbef95f8ba32afc6ef4e96d408`  
-**M01 head SHA:** `a901b3bdd793734fd3a07e13566e709d1e7536d3`
+**M01 PR head SHA:** `4890fff53fd8b0232c6ee1bd7c461d29618dc87c` (closeout) · implementation `a901b3b`
 
 ---
 
@@ -97,7 +97,7 @@ FORGE is a solver-guided, artifact-first, audit-governed LoRA competition system
 | Milestone | Title | Branch | Status | CI | Audit Score | Summary |
 | --------- | ----- | ------ | ------ | -- | ----------- | ------- |
 | M00 | Anchor and competition intake | `forge/M00-anchor-intake` → `main` | **merged** (`27d0fed`) | not configured; local verify pass | 4.0/5 | [M00_summary](milestones/M00/M00_summary.md) |
-| M01 | Public control reproduction foundation | `forge/M01-control-baseline` | **closed** (PR #2) | **green** — run [26934972365](https://github.com/m-cahill/forge/actions/runs/26934972365) | 4.5/5 | [M01_summary](milestones/M01/M01_summary.md) |
+| M01 | Public control reproduction foundation | `forge/M01-control-baseline` | **closed** (PR #2) | **green** — [26935049071](https://github.com/m-cahill/forge/actions/runs/26935049071) (PR head) | 4.5/5 | [M01_summary](milestones/M01/M01_summary.md) |
 | M02 | Exact local evaluation | `forge/M02-local-eval` (planned) | not started | — | — | [M02_plan](milestones/M02/M02_plan.md) |
 | M03 | Solver and synthetic trace factory | — | not started | — | — | — |
 | M04 | Adapter sweep | — | not started | — | — | — |
@@ -197,7 +197,7 @@ A candidate may advance only when all applicable gates are satisfied:
 | Catastrophic forgetting | Score regression | Anti-forgetting gates | — | M04+ | Control categories preserved | open |
 | Data leakage / rule violation | Disqualification | Provenance + holdout checks | — | M02+ | Contamination check pass | open |
 | Unreproducible notebook | Prize risk | Notebook cites hashes | — | M06 | Public notebook documented | open |
-| No CI workflow | Regressions undetected | Add CI in M01+ | — | M01+ | Green workflow on PR (DEF-005) | **resolved** — PR #2 run 26934972365 green |
+| No CI workflow | Regressions undetected | Add CI in M01+ | — | M01+ | Green workflow on PR (DEF-005) | **resolved** — PR #2 run 26935049071 green on head |
 
 ---
 
@@ -233,7 +233,7 @@ A candidate may advance only when all applicable gates are satisfied:
 **Branch:** `forge/M01-control-baseline`  
 **PR:** [#2](https://github.com/m-cahill/forge/pull/2) — open; **not merged** (awaiting express permission)  
 **Implementation commit:** `a901b3bdd793734fd3a07e13566e709d1e7536d3`  
-**CI:** **Green** on PR head — workflow run [26934972365](https://github.com/m-cahill/forge/actions/runs/26934972365) (Python 3.10, 3.11, 3.12; ruff, mypy, pytest)  
+**CI:** **Green** on PR head `4890fff` — run [26935049071](https://github.com/m-cahill/forge/actions/runs/26935049071) (implementation run [26934972365](https://github.com/m-cahill/forge/actions/runs/26934972365) on `a901b3b`)  
 **Local verification:** 91 pytest passed; ruff/mypy/compileall pass; `forge_nemotron` 0.1.0
 
 **Artifacts:** [M01_summary](milestones/M01/M01_summary.md) · [M01_audit](milestones/M01/M01_audit.md) (4.5/5) · [M01_run1](milestones/M01/M01_run1.md)
