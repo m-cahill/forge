@@ -24,3 +24,7 @@ Record notable Cursor/tool actions for M01 (control baseline preflight and valid
 | 2026-06-04T06:22:00Z | Cursor | Phase F | Created forge_m01_kaggle_debug_probe.ipynb, updated notebooks/README.md |
 | 2026-06-04T06:25:00Z | Cursor | Phase G | Final verification, all checks pass (91 tests, ruff, mypy, compileall) |
 | 2026-06-04T06:30:00Z | Cursor | M01 commit/PR | Pre-commit hygiene, re-verify, commit, push, PR, CI monitor, closeout |
+| 2026-06-04T06:28:00Z | Cursor | Commit a901b3b | feat(forge): M01 metric and package validation foundation |
+| 2026-06-04T06:28:00Z | Cursor | PR #2 opened | https://github.com/m-cahill/forge/pull/2 |
+| 2026-06-04T06:29:00Z | Cursor | CI green | Run 26934972365; 3.10/3.11/3.12 matrix pass |
+| 2026-06-04T06:32:00Z | Cursor | M01 closeout | summary, audit, run1; M02 stub; forge.md updated |

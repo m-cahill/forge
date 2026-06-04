@@ -5,7 +5,7 @@
 **Milestone:** M01  
 **Title:** Public Control Reproduction Foundation  
 **Branch:** `forge/M01-control-baseline`  
-**Status:** in-progress (authorized 2026-06-04)  
+**Status:** **closed** — PR [#2](https://github.com/m-cahill/forge/pull/2); CI green; awaiting merge permission  
 **Precondition:** M00 is merged to `main` (commit `27d0fed5b62cd3dbef95f8ba32afc6ef4e96d408`)  
 **Primary goal:** Build the local metric, package validation, baseline-intake, and CI foundation required before any public control adapter submission.
 **CI Strategy:** Option A — minimal CI in M01 (owner authorized)
@@ -683,27 +683,27 @@ Do not close M01 until docs are updated and verification evidence is recorded.
 
 M01 is complete only when:
 
-- [ ] `forge/M01-control-baseline` branch exists from an authorized base.
-- [ ] `docs/milestones/M01/M01_plan.md` is expanded.
-- [ ] `docs/milestones/M01/M01_toolcalls.md` exists.
-- [ ] `pyproject.toml` exists.
-- [ ] `pip install -e .` works.
-- [ ] Importing `forge_nemotron` works without `PYTHONPATH`.
-- [ ] Minimal CI workflow exists.
-- [ ] `pytest` collects and runs nonzero tests.
-- [ ] Boxed-answer metric helpers exist.
-- [ ] Metric unit tests pass.
-- [ ] Structural `submission.zip` validator exists.
-- [ ] Validator unit tests pass, including rank >32 rejection.
-- [ ] Public baseline intake doc exists.
-- [ ] Baseline intake makes no reproduction claim.
-- [ ] Baseline intake documents license/copying posture.
-- [ ] Kaggle debug/probe notebook exists in repo.
-- [ ] Notebook follows debug standard and has no scored-submission claim.
-- [ ] `docs/forge.md` is updated.
-- [ ] No Kaggle submission is attempted unless separately authorized.
-- [ ] No public score is claimed.
-- [ ] Owner-action Kaggle blockers remain explicit unless resolved with evidence.
+- [x] `forge/M01-control-baseline` branch exists from an authorized base.
+- [x] `docs/milestones/M01/M01_plan.md` is expanded.
+- [x] `docs/milestones/M01/M01_toolcalls.md` exists.
+- [x] `pyproject.toml` exists.
+- [x] `pip install -e .` works.
+- [x] Importing `forge_nemotron` works without `PYTHONPATH`.
+- [x] Minimal CI workflow exists.
+- [x] `pytest` collects and runs nonzero tests (91).
+- [x] Boxed-answer metric helpers exist.
+- [x] Metric unit tests pass.
+- [x] Structural `submission.zip` validator exists.
+- [x] Validator unit tests pass, including rank >32 rejection.
+- [x] Public baseline intake doc exists.
+- [x] Baseline intake makes no reproduction claim.
+- [x] Baseline intake documents license/copying posture.
+- [x] Kaggle debug/probe notebook exists in repo.
+- [x] Notebook follows debug standard and has no scored-submission claim.
+- [x] `docs/forge.md` is updated.
+- [x] No Kaggle submission is attempted unless separately authorized.
+- [x] No public score is claimed.
+- [x] Owner-action Kaggle blockers remain explicit unless resolved with evidence (BQ-001, BQ-003 open).
 
 ---
 
