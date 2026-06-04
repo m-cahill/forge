@@ -4,7 +4,7 @@
 **Phase:** Lane A — public control reproduction (preflight only)  
 **Milestone:** M04 — Public Control Adapter Reproduction Preflight  
 **Timeframe:** 2026-06-04  
-**Status:** Closed — PR [#5](https://github.com/m-cahill/forge/pull/5) open; CI green on head `26861ff`  
+**Status:** Closed — PR [#5](https://github.com/m-cahill/forge/pull/5) **merged** to `main` (`f54afd0`) 2026-06-04T20:54:54Z  
 **Branch:** `forge/M04-control-preflight`  
 **PR head:** `26861ffbbb526ad313bdd299e26c1de1b7d5d7e8`  
 **PR CI:** [26977971068](https://github.com/m-cahill/forge/actions/runs/26977971068) **green**  

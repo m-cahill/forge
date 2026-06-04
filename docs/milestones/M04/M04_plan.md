@@ -7,7 +7,7 @@
 | **Milestone** | M04 |
 | **Title** | Public Control Adapter Reproduction Preflight |
 | **Branch** | `forge/M04-control-preflight` |
-| **Status** | **closed** — PR [#5](https://github.com/m-cahill/forge/pull/5); CI green; merge pending permission |
+| **Status** | **merged** — PR [#5](https://github.com/m-cahill/forge/pull/5) squash to `main` (`f54afd0`); post-merge CI [26979013700](https://github.com/m-cahill/forge/actions/runs/26979013700) green |
 | **Precondition** | M03 merged to `main`, post-merge CI green, owner authorized M04 kickoff |
 | **Primary goal** | Prepare FORGE to reproduce or wrap the public control baseline safely, without training or submitting yet |
 

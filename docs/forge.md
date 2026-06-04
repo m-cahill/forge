@@ -1,12 +1,11 @@
 # FORGE — Ultimate Truth
 
 **Project:** FORGE — Kaggle NVIDIA Nemotron Model Reasoning Challenge  
-**Last updated:** 2026-06-04 (M04 closed on branch; PR [#5](https://github.com/m-cahill/forge/pull/5) CI green)  
-**Status:** M00–M03 **merged** to `main`; **M04 closed** on `forge/M04-control-preflight` — merge pending owner permission  
-**Main SHA:** `fe2a7dd2e38f158503a49bb81d9ff4a3573601e6` (M03 squash merge via PR [#4](https://github.com/m-cahill/forge/pull/4))  
-**M04 PR head:** `26861ffbbb526ad313bdd299e26c1de1b7d5d7e8` · PR CI [26977971068](https://github.com/m-cahill/forge/actions/runs/26977971068) **green**  
-**M03 PR head (pre-merge):** `ac661166a4c3b1be63df7a6aaa0d905208baaa79` · PR CI [26975853847](https://github.com/m-cahill/forge/actions/runs/26975853847) **green**  
-**Post-merge CI on `main`:** [26976448338](https://github.com/m-cahill/forge/actions/runs/26976448338) **green** (push on `fe2a7dd`)
+**Last updated:** 2026-06-04 (M04 merged to `main`; post-merge CI green)  
+**Status:** M00–M04 **merged** to `main`; **next:** M05 planning stub (not started)  
+**Main SHA:** `f54afd0c6f01c8a8d033e2d79ac3dac512224afd` (M04 squash merge via PR [#5](https://github.com/m-cahill/forge/pull/5))  
+**M04 PR head (pre-merge):** `e7d8429708cb5328d9f1897781ef1976e2f7d672` · PR CI [26978191986](https://github.com/m-cahill/forge/actions/runs/26978191986) **green**  
+**Post-merge CI on `main`:** [26979013700](https://github.com/m-cahill/forge/actions/runs/26979013700) **green** (push on `f54afd0`)
 
 ---
 
@@ -102,7 +101,7 @@ FORGE is a solver-guided, artifact-first, audit-governed LoRA competition system
 | M01 | Public control reproduction foundation | `forge/M01-control-baseline` → `main` | **merged** (`d59d97b`) | **green** — post-merge [26935381116](https://github.com/m-cahill/forge/actions/runs/26935381116) | 4.5/5 | [M01_summary](milestones/M01/M01_summary.md) |
 | M02 | Exact local evaluation and artifact discipline | `forge/M02-local-eval` → `main` | **merged** (`e78dc97`) | **green** — post-merge [26973864069](https://github.com/m-cahill/forge/actions/runs/26973864069) | 4.6/5 | [M02_summary](milestones/M02/M02_summary.md) |
 | M03 | Solver and synthetic trace factory | `forge/M03-solver-factory` → `main` | **merged** (`fe2a7dd`) | **green** — post-merge [26976448338](https://github.com/m-cahill/forge/actions/runs/26976448338) | 4.7/5 | [M03_summary](milestones/M03/M03_summary.md) |
-| M04 | Public control adapter reproduction preflight | `forge/M04-control-preflight` → `main` | **closed** (PR [#5](https://github.com/m-cahill/forge/pull/5)) | **green** — [26977971068](https://github.com/m-cahill/forge/actions/runs/26977971068) | 4.6/5 | [M04_summary](milestones/M04/M04_summary.md) |
+| M04 | Public control adapter reproduction preflight | `forge/M04-control-preflight` → `main` | **merged** (`f54afd0`) | **green** — post-merge [26979013700](https://github.com/m-cahill/forge/actions/runs/26979013700) | 4.6/5 | [M04_summary](milestones/M04/M04_summary.md) |
 | M05 | Controlled public baseline reproduction planning | — | **next** — stub | — | — | [M05_plan](milestones/M05/M05_plan.md) (stub) |
 | M06 | Final documentation and eligibility | — | not started | — | — | — |
 | M07 | Final submission lock | — | not started | — | — | — |
@@ -373,12 +372,13 @@ Run Ledger **1.0** for `m03_synthetic_smoke_eval` is **synthetic factory self-ch
 
 ## M04 Closeout Record
 
-**Branch:** `forge/M04-control-preflight` (not merged)  
-**PR:** [#5](https://github.com/m-cahill/forge/pull/5) — open  
-**PR head:** `26861ffbbb526ad313bdd299e26c1de1b7d5d7e8`  
-**Implementation commits:** `c33e627`, `b1fd36a`, `dea0f6f`, `ace83b1`, `26861ff`  
-**PR CI (head):** **Green** — [26977971068](https://github.com/m-cahill/forge/actions/runs/26977971068) (Python 3.10–3.12)  
-**Local verification:** 138 pytest; ruff/mypy/compileall pass; mock manifest CLI pass
+**Branch:** `forge/M04-control-preflight` (merged)  
+**PR:** [#5](https://github.com/m-cahill/forge/pull/5) — **merged** 2026-06-04T20:54:54Z (squash)  
+**Squash merge commit on `main`:** `f54afd0c6f01c8a8d033e2d79ac3dac512224afd`  
+**PR head (pre-merge):** `e7d8429708cb5328d9f1897781ef1976e2f7d672`  
+**PR CI (final head):** [26978191986](https://github.com/m-cahill/forge/actions/runs/26978191986) **green**  
+**Post-merge CI on `main`:** [26979013700](https://github.com/m-cahill/forge/actions/runs/26979013700) **green** (Python 3.10–3.12)  
+**Local verification:** 138 pytest; ruff/mypy/compileall pass; mock manifest `control_public_repro_preflight` validates (preflight only — not adapter/package)
 
 **Artifacts:** [M04_summary](milestones/M04/M04_summary.md) · [M04_audit](milestones/M04/M04_audit.md) (4.6/5) · [M04_run1](milestones/M04/M04_run1.md)
 
@@ -404,8 +404,8 @@ Run Ledger **1.0** for `m03_synthetic_smoke_eval` is **synthetic factory self-ch
 
 ### Next recommendation
 
-1. **Owner:** Merge PR #5 when ready; record Submit UI zip constraints.  
-2. **Owner:** Authorize M05 planning kickoff per [M04_next_decision](milestones/M04/M04_next_decision.md).  
+1. **Owner:** Record Submit UI `submission.zip` constraints (**OPEN**).  
+2. **Owner:** Authorize M05 planning kickoff per [M04_next_decision](milestones/M04/M04_next_decision.md) — no M05 implementation without explicit go-ahead.  
 3. **Defer:** Training, Kaggle submission, baseline reproduction claims until explicit milestone authorization.
 
 ---
@@ -438,3 +438,4 @@ Run Ledger **1.0** for `m03_synthetic_smoke_eval` is **synthetic factory self-ch
 | 2026-06-04 | M03 | M04 stub: control reproduction preflight | Defer full adapter sweep until baseline mapping |
 | 2026-06-04 | M03 | PR #4 squash-merged to `main` | `fe2a7dd`; post-merge CI 26976448338 green |
 | 2026-06-04 | M04 | Public control preflight on branch; PR #5 CI green | Mapping + candidate manifest; no baseline copy; audit 4.6/5 |
+| 2026-06-04 | M04 | PR #5 squash-merged to `main` | `f54afd0`; post-merge CI 26979013700 green |

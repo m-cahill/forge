@@ -8,7 +8,7 @@ Solver-guided, artifact-first LoRA engineering for `NVIDIA-Nemotron-3-Nano-30B`:
 
 **M05** — Controlled public baseline reproduction planning (stub; see `docs/milestones/M05/M05_plan.md`).
 
-M00–M04: M04 preflight closed on PR [#5](https://github.com/m-cahill/forge/pull/5) (`forge/M04-control-preflight`). Candidate manifest + mock preflight evidence added — **no training, submission, or reproduced baseline**. Merge pending owner permission.
+M00–M04 merged to `main` (`f54afd0`). M04 added candidate manifest + mock preflight evidence — **no training, submission, or reproduced baseline**. Mock manifest is preflight-only, not an adapter.
 
 ## Synthetic dataset (M03)
 
