@@ -106,7 +106,7 @@ FORGE is a solver-guided, artifact-first, audit-governed LoRA competition system
 | M04 | Public control adapter reproduction preflight | `forge/M04-control-preflight` → `main` | **merged** (`f54afd0`) | **green** — post-merge [26979013700](https://github.com/m-cahill/forge/actions/runs/26979013700) | 4.6/5 | [M04_summary](milestones/M04/M04_summary.md) |
 | M05 | Controlled public baseline reproduction planning | `forge/M05-control-repro-planning` → `main` | **merged** (`34169d0`) | **green** — post-merge [26983281413](https://github.com/m-cahill/forge/actions/runs/26983281413) | 4.6/5 | [M05_summary](milestones/M05/M05_summary.md) |
 | M06 | Controlled public baseline reproduction execution gate | `forge/M06-control-repro-execution-gate` → `main` | **merged** (`a7de356`) | **green** — post-merge [26985969954](https://github.com/m-cahill/forge/actions/runs/26985969954) | 4.6/5 | [M06_summary](milestones/M06/M06_summary.md) |
-| M07 | Controlled public baseline training authorization gate | `forge/M07-training-authorization-gate` | **active** — Path A blocked | — | — | [M07_plan](milestones/M07/M07_plan.md) |
+| M07 | Controlled public baseline training authorization gate | `forge/M07-training-authorization-gate` | **active** — implementation complete; closeout pending | — | — | [M07_plan](milestones/M07/M07_plan.md) |
 | M08 | TBD per M07 next decision | — | not started | — | — | — |
 
 ---
@@ -504,6 +504,41 @@ Run Ledger **1.0** for `m03_synthetic_smoke_eval` is **synthetic factory self-ch
 2. **Owner:** Authorize M07 training gate (`training_authorized` + `owner_training_authorization` + `credentials_ready` + compute path) before any SFT/inference.  
 3. **Cursor:** Expand M07 plan when owner authorizes kickoff — **do not** start M07 without explicit permission.  
 4. **Defer:** Training, Kaggle submission, baseline reproduction claims until M07 Gate C satisfied.
+
+---
+
+## M07 In Progress (training authorization gate)
+
+**Branch:** `forge/M07-training-authorization-gate`  
+**Path:** A — `M07_TRAINING_AUTHORIZED = no`  
+**Training-gate manifest:** [`public_control_repro_plan.training_blocked.json`](milestones/M07/evidence/training_gate/public_control_repro_plan.training_blocked.json) — validates; `training_authorized: false`, `ready_for_training: false`
+
+### M07 deliverables (implementation)
+
+| Deliverable | Status |
+| ----------- | ------ |
+| Training authorization gate doc | Met |
+| Baseline schema readiness decision | Met — SQ-CORPUS-001 open |
+| Compute/credential gate | Met — TBD fields preserved |
+| Submit UI constraint gate | Met — OPEN preserved |
+| Training blocked manifest + evidence README | Met |
+| Reproduction plan tests (+3) | Met |
+| Training config draft | Met — not executed |
+| Dry-run command plan | Met — not executed |
+| M07 next decision → M08 compute/credential closure | Met |
+| Training / inference / submission / reproduction | **Not claimed** |
+
+### M07 open blockers (unchanged)
+
+- Submit UI zip constraints: **OPEN**
+- Kaggle API submission: **TBD**
+- Modal/Tinker credentials: **TBD**
+- local_5090 CUDA/VRAM: **TBD**
+- Gate C training authorization: **not provided**
+
+**Non-claims (M07):** no training, inference, Kaggle submission, public/private score, reproduced baseline, Kaggle-ready adapter, real adapter package, copied baseline code/data, committed credentials.
+
+**Next:** M07 closeout (summary/audit/run1) + PR when owner authorizes; M08 seed per `M07_next_decision.md`.
 
 ---
 

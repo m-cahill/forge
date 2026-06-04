@@ -146,9 +146,7 @@ class TestSchemaGateManifest:
         errors = validate_reproduction_plan(plan)
         assert any("compute_path" in e for e in errors)
 
-    def test_ready_for_training_schema_waiver_allows_incomplete(
-        self, preflight_plan: dict
-    ) -> None:
+    def test_ready_for_training_schema_waiver_allows_incomplete(self, preflight_plan: dict) -> None:
         plan = copy.deepcopy(preflight_plan)
         plan["status"] = "ready_for_training"
         plan["training_authorized"] = True

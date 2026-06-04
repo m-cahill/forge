@@ -288,31 +288,36 @@ Update:
 - [x] Create/update `M07_toolcalls.md`.
 - [x] Update `docs/forge.md` — M07 active.
 - [x] Update README current milestone.
-- [ ] Commit Phase A.
+- [x] Commit Phase A.
 
 ### Phase B — Gate documents
 
-- `training_authorization_gate.md`
-- `baseline_schema_readiness_decision.md`
-- `compute_credential_gate.md`
-- `submit_ui_constraint_gate.md`
+- [x] `training_authorization_gate.md`
+- [x] `baseline_schema_readiness_decision.md`
+- [x] `compute_credential_gate.md`
+- [x] `submit_ui_constraint_gate.md`
+- [x] Commit Phase B.
 
 ### Phase C — Reproduction plan training-gate manifest
 
-- `public_control_repro_plan.training_blocked.json`
-- evidence README
-- validator tests if needed
-- validate manifest
+- [x] `public_control_repro_plan.training_blocked.json`
+- [x] evidence README
+- [x] validator tests
+- [x] validate manifest
+- [x] Commit Phase C.
 
 ### Phase D — Training config draft and dry-run command plan
 
-- `training_config_draft.md`
-- `dry_run_command_plan.md`
+- [x] `training_config_draft.md`
+- [x] `dry_run_command_plan.md`
+- [x] Commit Phase D.
 
 ### Phase E — Next decision and governance updates
 
-- `M07_next_decision.md`
-- `docs/forge.md` closeout fields when complete
+- [x] `M07_next_decision.md`
+- [x] `docs/forge.md` in-progress record
+- [ ] Commit Phase E.
+- [ ] Closeout: summary, audit, run1 (owner permission)
 
 ---
 
