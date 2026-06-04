@@ -11,10 +11,12 @@
 | Field | Value |
 | ----- | ----- |
 | Workflow name | CI |
-| Run ID | [26975703019](https://github.com/m-cahill/forge/actions/runs/26975703019) |
+| Run ID (implementation) | [26975703019](https://github.com/m-cahill/forge/actions/runs/26975703019) |
+| Run ID (closeout / final) | [26975819754](https://github.com/m-cahill/forge/actions/runs/26975819754) |
 | Trigger | `pull_request` |
 | Branch | `forge/M03-solver-factory` |
-| Commit SHA (PR head) | `1c7dde268faa55a42ebba0d9f202531e99509334` |
+| Commit SHA (implementation) | `1c7dde268faa55a42ebba0d9f202531e99509334` |
+| Commit SHA (PR head, final) | `7c297ab` |
 | PR | [#4](https://github.com/m-cahill/forge/pull/4) |
 | Event time (UTC) | 2026-06-04T19:50:55Z → ~2026-06-04T19:51:18Z |
 | Overall conclusion | **success** |
@@ -81,7 +83,7 @@ Each job runs: checkout, setup-python, editable install, Ruff lint/format, MyPy,
 | Did CI prove M03’s stated gates? | **Yes** |
 | Is green trustworthy? | **Yes** — all matrix jobs pass on PR head |
 | Blocking issues? | **None** |
-| Merge recommendation | PR #4 is **CI-green** on head `1c7dde2` (run 26975703019); merge only with express owner permission |
+| Merge recommendation | PR #4 is **CI-green** on head `7c297ab` (run 26975819754); merge only with express owner permission |
 
 ---
 

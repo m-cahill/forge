@@ -4,7 +4,7 @@
 **Last updated:** 2026-06-04 (M03 closed on branch; PR [#4](https://github.com/m-cahill/forge/pull/4) CI green, not merged)  
 **Status:** M00–M02 **merged** to `main`; **M03 closed** on `forge/M03-solver-factory` — PR [#4](https://github.com/m-cahill/forge/pull/4) awaiting merge permission  
 **Main SHA:** `e78dc975c278c73edffb4b920cf72a067c781420` (M02 squash merge via PR [#3](https://github.com/m-cahill/forge/pull/3))  
-**M03 PR head:** `1c7dde268faa55a42ebba0d9f202531e99509334` · PR CI [26975703019](https://github.com/m-cahill/forge/actions/runs/26975703019) **green**  
+**M03 PR head:** `7c297ab` (closeout) · PR CI [26975819754](https://github.com/m-cahill/forge/actions/runs/26975819754) **green** (implementation head `1c7dde2`, run [26975703019](https://github.com/m-cahill/forge/actions/runs/26975703019))  
 **M02 PR head (pre-merge):** `cfd39707116a218d2b44920c28479fec701be12b` · PR CI [26973225572](https://github.com/m-cahill/forge/actions/runs/26973225572) **green**  
 **Post-merge CI on `main`:** [26973864069](https://github.com/m-cahill/forge/actions/runs/26973864069) **green** (push on `e78dc97`)
 
