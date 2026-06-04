@@ -1,9 +1,10 @@
 # FORGE — Ultimate Truth
 
 **Project:** FORGE — Kaggle NVIDIA Nemotron Model Reasoning Challenge  
-**Last updated:** 2026-06-04 (M03 merged to `main`; post-merge CI green)  
-**Status:** M00–M03 **merged** to `main`; **next:** M04 preflight (stub only)  
+**Last updated:** 2026-06-04 (M04 active on `forge/M04-control-preflight`)  
+**Status:** M00–M03 **merged** to `main`; **M04 active** — public control reproduction preflight (no training/submission)  
 **Main SHA:** `fe2a7dd2e38f158503a49bb81d9ff4a3573601e6` (M03 squash merge via PR [#4](https://github.com/m-cahill/forge/pull/4))  
+**M04 branch:** `forge/M04-control-preflight` (in progress)  
 **M03 PR head (pre-merge):** `ac661166a4c3b1be63df7a6aaa0d905208baaa79` · PR CI [26975853847](https://github.com/m-cahill/forge/actions/runs/26975853847) **green**  
 **Post-merge CI on `main`:** [26976448338](https://github.com/m-cahill/forge/actions/runs/26976448338) **green** (push on `fe2a7dd`)
 
@@ -101,7 +102,7 @@ FORGE is a solver-guided, artifact-first, audit-governed LoRA competition system
 | M01 | Public control reproduction foundation | `forge/M01-control-baseline` → `main` | **merged** (`d59d97b`) | **green** — post-merge [26935381116](https://github.com/m-cahill/forge/actions/runs/26935381116) | 4.5/5 | [M01_summary](milestones/M01/M01_summary.md) |
 | M02 | Exact local evaluation and artifact discipline | `forge/M02-local-eval` → `main` | **merged** (`e78dc97`) | **green** — post-merge [26973864069](https://github.com/m-cahill/forge/actions/runs/26973864069) | 4.6/5 | [M02_summary](milestones/M02/M02_summary.md) |
 | M03 | Solver and synthetic trace factory | `forge/M03-solver-factory` → `main` | **merged** (`fe2a7dd`) | **green** — post-merge [26976448338](https://github.com/m-cahill/forge/actions/runs/26976448338) | 4.7/5 | [M03_summary](milestones/M03/M03_summary.md) |
-| M04 | Public control adapter reproduction preflight | — | **next** — stub | — | — | [M04_plan](milestones/M04/M04_plan.md) (stub) |
+| M04 | Public control adapter reproduction preflight | `forge/M04-control-preflight` | **active** | pending | — | [M04_plan](milestones/M04/M04_plan.md) |
 | M05 | Merge and compression lab | — | not started | — | — | — |
 | M06 | Final documentation and eligibility | — | not started | — | — | — |
 | M07 | Final submission lock | — | not started | — | — | — |

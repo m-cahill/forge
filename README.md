@@ -6,9 +6,9 @@ Solver-guided, artifact-first LoRA engineering for `NVIDIA-Nemotron-3-Nano-30B`:
 
 ## Current milestone
 
-**M04** — Public control adapter reproduction preflight (planned; stub only).
+**M04** — Public control adapter reproduction preflight (**active** on `forge/M04-control-preflight`).
 
-M00–M03 are merged to `main` (`fe2a7dd`). M03 delivered the verified synthetic trace factory. No Kaggle submission, public score, model training, or reproduced control baseline yet.
+M00–M03 are merged to `main` (`fe2a7dd`). M04 maps the public baseline into FORGE contracts and defines candidate preflight gates — **no training, no Kaggle submission, no reproduced baseline**. Mock preflight manifest is not an adapter.
 
 ## Synthetic dataset (M03)
 
