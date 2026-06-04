@@ -4,7 +4,7 @@
 **Last updated:** 2026-06-04 (M05 closed on branch; PR [#6](https://github.com/m-cahill/forge/pull/6) CI green, not merged)  
 **Status:** M00–M04 **merged** to `main`; **M05 closed** on `forge/M05-control-repro-planning` — merge pending owner permission  
 **Main SHA:** `f54afd0c6f01c8a8d033e2d79ac3dac512224afd` (M04 squash merge via PR [#5](https://github.com/m-cahill/forge/pull/5))  
-**M05 PR head:** `7867e29de8402fc9f92f035c0482ece3688ebf23` · PR CI [26982564940](https://github.com/m-cahill/forge/actions/runs/26982564940) **green**  
+**M05 PR head:** `4864f08aff49941d2ba61e02d82b966fdff755d9` · PR CI [26982659564](https://github.com/m-cahill/forge/actions/runs/26982659564) **green** (impl head `7867e29` · [26982564940](https://github.com/m-cahill/forge/actions/runs/26982564940))  
 **Post-merge CI on `main`:** [26979013700](https://github.com/m-cahill/forge/actions/runs/26979013700) **green** (push on `f54afd0`)
 
 ---
@@ -102,7 +102,7 @@ FORGE is a solver-guided, artifact-first, audit-governed LoRA competition system
 | M02 | Exact local evaluation and artifact discipline | `forge/M02-local-eval` → `main` | **merged** (`e78dc97`) | **green** — post-merge [26973864069](https://github.com/m-cahill/forge/actions/runs/26973864069) | 4.6/5 | [M02_summary](milestones/M02/M02_summary.md) |
 | M03 | Solver and synthetic trace factory | `forge/M03-solver-factory` → `main` | **merged** (`fe2a7dd`) | **green** — post-merge [26976448338](https://github.com/m-cahill/forge/actions/runs/26976448338) | 4.7/5 | [M03_summary](milestones/M03/M03_summary.md) |
 | M04 | Public control adapter reproduction preflight | `forge/M04-control-preflight` → `main` | **merged** (`f54afd0`) | **green** — post-merge [26979013700](https://github.com/m-cahill/forge/actions/runs/26979013700) | 4.6/5 | [M04_summary](milestones/M04/M04_summary.md) |
-| M05 | Controlled public baseline reproduction planning | `forge/M05-control-repro-planning` → `main` | **closed** (PR [#6](https://github.com/m-cahill/forge/pull/6); not merged) | **green** — PR [26982564940](https://github.com/m-cahill/forge/actions/runs/26982564940) | 4.6/5 | [M05_summary](milestones/M05/M05_summary.md) |
+| M05 | Controlled public baseline reproduction planning | `forge/M05-control-repro-planning` → `main` | **closed** (PR [#6](https://github.com/m-cahill/forge/pull/6); not merged) | **green** — PR [26982659564](https://github.com/m-cahill/forge/actions/runs/26982659564) | 4.6/5 | [M05_summary](milestones/M05/M05_summary.md) |
 | M06 | Controlled public baseline reproduction execution gate | — | **next** — stub | — | — | [M06_plan](milestones/M06/M06_plan.md) (stub) |
 | M07 | Final documentation and eligibility | — | not started | — | — | — |
 | M08 | Final submission lock | — | not started | — | — | — |
@@ -415,8 +415,8 @@ Run Ledger **1.0** for `m03_synthetic_smoke_eval` is **synthetic factory self-ch
 
 **Branch:** `forge/M05-control-repro-planning`  
 **PR:** [#6](https://github.com/m-cahill/forge/pull/6) — **open** (not merged)  
-**PR head:** `7867e29de8402fc9f92f035c0482ece3688ebf23`  
-**PR CI (final head):** [26982564940](https://github.com/m-cahill/forge/actions/runs/26982564940) **green**  
+**PR head:** `4864f08aff49941d2ba61e02d82b966fdff755d9`  
+**PR CI (final head):** [26982659564](https://github.com/m-cahill/forge/actions/runs/26982659564) **green**  
 **Local verification:** 147 pytest; ruff/mypy/compileall pass; mock reproduction plan validates
 
 **Artifacts:** [M05_summary](milestones/M05/M05_summary.md) · [M05_audit](milestones/M05/M05_audit.md) (4.6/5) · [M05_run1](milestones/M05/M05_run1.md)

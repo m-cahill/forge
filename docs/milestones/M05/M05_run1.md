@@ -11,13 +11,14 @@
 | Field | Value |
 | ----- | ----- |
 | Workflow name | CI |
-| Run ID | [26982564940](https://github.com/m-cahill/forge/actions/runs/26982564940) |
+| Run ID | [26982659564](https://github.com/m-cahill/forge/actions/runs/26982659564) |
 | Trigger | `pull_request` |
 | Branch | `forge/M05-control-repro-planning` |
-| Commit SHA (PR head) | `7867e29de8402fc9f92f035c0482ece3688ebf23` |
+| Commit SHA (PR head) | `4864f08aff49941d2ba61e02d82b966fdff755d9` (closeout); impl `7867e29` |
 | PR | [#6](https://github.com/m-cahill/forge/pull/6) |
-| Event time (UTC) | 2026-06-04T22:09:01Z → ~2026-06-04T22:09:31Z |
+| Event time (UTC) | 2026-06-04T22:11:14Z → ~2026-06-04T22:11:39Z (final head) |
 | Overall conclusion | **success** |
+| Run ID (impl head) | [26982564940](https://github.com/m-cahill/forge/actions/runs/26982564940) — also green |
 
 ---
 
@@ -35,9 +36,9 @@
 
 | Job / Check | Required? | Purpose | Pass/Fail | Notes |
 | ----------- | --------- | ------- | --------- | ----- |
-| test (3.10) | Yes | Matrix Python 3.10 | Pass | [job](https://github.com/m-cahill/forge/actions/runs/26982564940/job/79624995328) |
-| test (3.11) | Yes | Matrix Python 3.11 | Pass | [job](https://github.com/m-cahill/forge/actions/runs/26982564940/job/79624995327) |
-| test (3.12) | Yes | Matrix Python 3.12 | Pass | [job](https://github.com/m-cahill/forge/actions/runs/26982564940/job/79624995343) |
+| test (3.10) | Yes | Matrix Python 3.10 | Pass | [job](https://github.com/m-cahill/forge/actions/runs/26982659564/job/79625304096) |
+| test (3.11) | Yes | Matrix Python 3.11 | Pass | [job](https://github.com/m-cahill/forge/actions/runs/26982659564/job/79625304163) |
+| test (3.12) | Yes | Matrix Python 3.12 | Pass | [job](https://github.com/m-cahill/forge/actions/runs/26982659564/job/79625304129) |
 
 Each job runs: checkout, setup-python, editable install, Ruff lint/format, MyPy, Pytest.
 
@@ -73,7 +74,7 @@ Each job runs: checkout, setup-python, editable install, Ruff lint/format, MyPy,
 
 ## 6. Verdict
 
-**CI truth signal:** Green on PR #6 head `7867e29`. Safe to close M05 governance artifacts; **merge** requires separate owner permission.
+**CI truth signal:** Green on PR #6 final head `4864f08` (and impl head `7867e29`). Safe to close M05 governance artifacts; **merge** requires separate owner permission.
 
 **Non-claims preserved:** No submission, score, training, inference, reproduced baseline, Kaggle-ready adapter, real adapter package, copied baseline code/data, or training authorization.
 

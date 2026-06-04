@@ -6,8 +6,8 @@
 **Timeframe:** 2026-06-04  
 **Status:** Closed — PR [#6](https://github.com/m-cahill/forge/pull/6) open; CI **green** (not merged)  
 **Branch:** `forge/M05-control-repro-planning`  
-**PR head:** `7867e29de8402fc9f92f035c0482ece3688ebf23`  
-**PR CI:** [26982564940](https://github.com/m-cahill/forge/actions/runs/26982564940) **green**  
+**PR head:** `4864f08aff49941d2ba61e02d82b966fdff755d9`  
+**PR CI:** [26982659564](https://github.com/m-cahill/forge/actions/runs/26982659564) **green**  
 **Baseline:** M04 merged `f54afd0`
 
 ---
@@ -64,7 +64,7 @@ Scope did not change during execution.
 | `pytest -q` | Pass | **147** tests |
 | `compileall src` | Pass | |
 | `validate_reproduction_plan.py` | Pass | Mock preflight plan |
-| PR CI #6 | **Green** | Run 26982564940 |
+| PR CI #6 | **Green** | Run 26982659564 (final head) |
 | Kaggle / training / reproduction | **Not claimed** | |
 
 ---
@@ -121,7 +121,7 @@ No HIGH defects blocking M05 closeout.
 | Criterion | Met |
 | --------- | --- |
 | M05 deliverables §5 | Yes |
-| PR CI green | Yes — 26982564940 |
+| PR CI green | Yes — 26982659564 |
 | Summary + audit + run1 | Yes |
 | Non-claims preserved | Yes |
 | Merge to `main` | **Pending owner permission** |
