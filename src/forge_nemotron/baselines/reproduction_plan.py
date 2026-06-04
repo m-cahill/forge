@@ -1,0 +1,249 @@
+"""Reproduction plan manifest builder and validator.
+
+Defines metadata for a future public baseline reproduction attempt.
+Passing validation does NOT authorize training, submission, or reproduction.
+"""
+
+from __future__ import annotations
+
+import json
+from enum import Enum
+from pathlib import Path
+from typing import Any
+
+DEFAULT_BASELINE_REPO = "https://github.com/tonghuikang/nemotron"
+COPYING_POLICY_NO_CODE = "no_code_copy"
+
+REQUIRED_NON_CLAIMS = frozenset(
+    {
+        "not_trained",
+        "not_submitted",
+        "not_reproduced",
+    }
+)
+
+REQUIRED_TOP_LEVEL_KEYS = frozenset(
+    {
+        "plan_id",
+        "baseline_repo",
+        "baseline_commit",
+        "license_status",
+        "copying_policy",
+        "compute_path",
+        "training_authorized",
+        "kaggle_submission_authorized",
+        "requires_external_credentials",
+        "required_credentials",
+        "data_sources",
+        "expected_artifacts",
+        "blockers",
+        "non_claims",
+    }
+)
+
+LICENSE_POLICIES_ALLOWING_COPY = frozenset(
+    {
+        "permissive_license_observed",
+        "owner_license_clearance",
+    }
+)
+
+
+class ReproductionPlanStatus(str, Enum):
+    """Lifecycle status for a reproduction plan."""
+
+    PREFLIGHT = "preflight"
+    READY_FOR_TRAINING = "ready_for_training"
+    REJECTED = "rejected"
+
+
+def _is_non_empty_string(value: Any) -> bool:
+    return isinstance(value, str) and bool(value.strip())
+
+
+def _is_nullable_string(value: Any) -> bool:
+    return value is None or _is_non_empty_string(value)
+
+
+def build_preflight_reproduction_plan(
+    *,
+    plan_id: str = "public_control_repro_plan_v1",
+    baseline_repo: str = DEFAULT_BASELINE_REPO,
+    notes: str | None = None,
+) -> dict[str, Any]:
+    """Build a minimal M05 preflight reproduction plan (no training authorization)."""
+    plan: dict[str, Any] = {
+        "plan_id": plan_id,
+        "baseline_repo": baseline_repo,
+        "baseline_commit": None,
+        "license_status": "no_license_observed",
+        "copying_policy": COPYING_POLICY_NO_CODE,
+        "compute_path": "local_5090_preflight",
+        "status": ReproductionPlanStatus.PREFLIGHT.value,
+        "training_authorized": False,
+        "kaggle_submission_authorized": False,
+        "requires_external_credentials": True,
+        "required_credentials": ["modal", "tinker"],
+        "data_sources": [],
+        "expected_artifacts": [
+            "dataset_manifest",
+            "training_config_hash",
+            "adapter_sha256",
+            "package_sha256",
+            "local_eval_run_id",
+        ],
+        "blockers": [
+            "submit_ui_zip_constraints_open",
+            "no_training_authorization",
+        ],
+        "non_claims": sorted(REQUIRED_NON_CLAIMS),
+    }
+    if notes is not None:
+        plan["notes"] = notes
+    return plan
+
+
+def validate_reproduction_plan(data: dict[str, Any]) -> list[str]:
+    """Validate reproduction plan dict. Returns errors; empty means valid."""
+    errors: list[str] = []
+
+    if not isinstance(data, dict):
+        return ["reproduction plan must be a JSON object"]
+
+    missing = sorted(REQUIRED_TOP_LEVEL_KEYS - set(data.keys()))
+    if missing:
+        errors.append(f"missing required keys: {', '.join(missing)}")
+        return errors
+
+    for key in ("plan_id", "baseline_repo", "license_status", "copying_policy", "compute_path"):
+        if not _is_non_empty_string(data.get(key)):
+            errors.append(f"{key} must be a non-empty string")
+
+    if not _is_nullable_string(data.get("baseline_commit")):
+        errors.append("baseline_commit must be null or a non-empty string")
+
+    status_raw = data.get("status", ReproductionPlanStatus.PREFLIGHT.value)
+    if status_raw is not None:
+        try:
+            status = ReproductionPlanStatus(status_raw)
+        except ValueError:
+            errors.append(
+                f"status must be one of: {', '.join(s.value for s in ReproductionPlanStatus)}"
+            )
+            return errors
+    else:
+        status = ReproductionPlanStatus.PREFLIGHT
+
+    training_authorized = data.get("training_authorized")
+    if not isinstance(training_authorized, bool):
+        errors.append("training_authorized must be a boolean")
+
+    kaggle_authorized = data.get("kaggle_submission_authorized")
+    if not isinstance(kaggle_authorized, bool):
+        errors.append("kaggle_submission_authorized must be a boolean")
+
+    requires_creds = data.get("requires_external_credentials")
+    if not isinstance(requires_creds, bool):
+        errors.append("requires_external_credentials must be a boolean")
+
+    required_credentials = data.get("required_credentials")
+    if not isinstance(required_credentials, list) or not all(
+        _is_non_empty_string(item) for item in required_credentials
+    ):
+        errors.append("required_credentials must be a list of non-empty strings")
+
+    for list_key in ("data_sources", "expected_artifacts", "blockers"):
+        value = data.get(list_key)
+        if not isinstance(value, list) or not all(_is_non_empty_string(item) for item in value):
+            errors.append(f"{list_key} must be a list of non-empty strings")
+
+    non_claims = data.get("non_claims")
+    if not isinstance(non_claims, list) or not all(
+        _is_non_empty_string(item) for item in non_claims
+    ):
+        errors.append("non_claims must be a list of non-empty strings")
+    elif not REQUIRED_NON_CLAIMS.issubset(set(non_claims)):
+        missing_claims = sorted(REQUIRED_NON_CLAIMS - set(non_claims))
+        errors.append(f"non_claims must include: {', '.join(missing_claims)}")
+
+    if errors:
+        return errors
+
+    errors.extend(_validate_copying_policy(data))
+    errors.extend(_validate_authorization_rules(data, status))
+    return errors
+
+
+def _validate_copying_policy(data: dict[str, Any]) -> list[str]:
+    errors: list[str] = []
+    copying_policy = data.get("copying_policy")
+    license_status = data.get("license_status")
+
+    if copying_policy == COPYING_POLICY_NO_CODE:
+        return errors
+
+    if copying_policy in ("code_copy_allowed", "vendor_allowed"):
+        if license_status not in LICENSE_POLICIES_ALLOWING_COPY:
+            errors.append(
+                "copying_policy allowing copy requires license_status evidence "
+                f"({', '.join(sorted(LICENSE_POLICIES_ALLOWING_COPY))})"
+            )
+    return errors
+
+
+def _validate_authorization_rules(
+    data: dict[str, Any], status: ReproductionPlanStatus
+) -> list[str]:
+    errors: list[str] = []
+
+    training_authorized = data.get("training_authorized")
+    kaggle_authorized = data.get("kaggle_submission_authorized")
+
+    if training_authorized:
+        owner_auth = data.get("owner_training_authorization")
+        if not _is_non_empty_string(owner_auth):
+            errors.append(
+                "training_authorized true requires owner_training_authorization "
+                "(non-empty string record)"
+            )
+
+    if kaggle_authorized:
+        owner_kaggle = data.get("owner_kaggle_submission_authorization")
+        if not _is_non_empty_string(owner_kaggle):
+            errors.append(
+                "kaggle_submission_authorized true requires "
+                "owner_kaggle_submission_authorization (non-empty string record)"
+            )
+
+    if status == ReproductionPlanStatus.READY_FOR_TRAINING:
+        if not training_authorized:
+            errors.append("status ready_for_training requires training_authorized true")
+        if not _is_non_empty_string(data.get("compute_path")):
+            errors.append("status ready_for_training requires compute_path")
+        if not _is_non_empty_string(data.get("owner_training_authorization")):
+            errors.append("status ready_for_training requires owner_training_authorization")
+
+    requires_creds = data.get("requires_external_credentials")
+    required_credentials = data.get("required_credentials")
+    if requires_creds and not required_credentials:
+        errors.append("requires_external_credentials true requires non-empty required_credentials")
+
+    return errors
+
+
+def reproduction_plan_to_json(plan: dict[str, Any], *, indent: int = 2) -> str:
+    """Serialize reproduction plan to JSON string."""
+    return json.dumps(plan, indent=indent, sort_keys=True) + "\n"
+
+
+def parse_reproduction_plan_json(text: str) -> dict[str, Any]:
+    """Parse JSON text into a reproduction plan dict."""
+    loaded = json.loads(text)
+    if not isinstance(loaded, dict):
+        raise ValueError("reproduction plan must be a JSON object")
+    return loaded
+
+
+def load_reproduction_plan(path: Path) -> dict[str, Any]:
+    """Load and parse a reproduction plan file."""
+    return parse_reproduction_plan_json(path.read_text(encoding="utf-8"))
