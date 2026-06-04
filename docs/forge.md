@@ -1,10 +1,10 @@
 # FORGE — Ultimate Truth
 
 **Project:** FORGE — Kaggle NVIDIA Nemotron Model Reasoning Challenge  
-**Last updated:** 2026-06-04 (M04 merged to `main`; post-merge CI green)  
-**Status:** M00–M04 **merged** to `main`; **next:** M05 planning stub (not started)  
+**Last updated:** 2026-06-04 (M05 closed on branch; PR [#6](https://github.com/m-cahill/forge/pull/6) CI green, not merged)  
+**Status:** M00–M04 **merged** to `main`; **M05 closed** on `forge/M05-control-repro-planning` — merge pending owner permission  
 **Main SHA:** `f54afd0c6f01c8a8d033e2d79ac3dac512224afd` (M04 squash merge via PR [#5](https://github.com/m-cahill/forge/pull/5))  
-**M04 PR head (pre-merge):** `e7d8429708cb5328d9f1897781ef1976e2f7d672` · PR CI [26978191986](https://github.com/m-cahill/forge/actions/runs/26978191986) **green**  
+**M05 PR head:** `4864f08aff49941d2ba61e02d82b966fdff755d9` · PR CI [26982659564](https://github.com/m-cahill/forge/actions/runs/26982659564) **green** (impl head `7867e29` · [26982564940](https://github.com/m-cahill/forge/actions/runs/26982564940))  
 **Post-merge CI on `main`:** [26979013700](https://github.com/m-cahill/forge/actions/runs/26979013700) **green** (push on `f54afd0`)
 
 ---
@@ -102,9 +102,10 @@ FORGE is a solver-guided, artifact-first, audit-governed LoRA competition system
 | M02 | Exact local evaluation and artifact discipline | `forge/M02-local-eval` → `main` | **merged** (`e78dc97`) | **green** — post-merge [26973864069](https://github.com/m-cahill/forge/actions/runs/26973864069) | 4.6/5 | [M02_summary](milestones/M02/M02_summary.md) |
 | M03 | Solver and synthetic trace factory | `forge/M03-solver-factory` → `main` | **merged** (`fe2a7dd`) | **green** — post-merge [26976448338](https://github.com/m-cahill/forge/actions/runs/26976448338) | 4.7/5 | [M03_summary](milestones/M03/M03_summary.md) |
 | M04 | Public control adapter reproduction preflight | `forge/M04-control-preflight` → `main` | **merged** (`f54afd0`) | **green** — post-merge [26979013700](https://github.com/m-cahill/forge/actions/runs/26979013700) | 4.6/5 | [M04_summary](milestones/M04/M04_summary.md) |
-| M05 | Controlled public baseline reproduction planning | — | **next** — stub | — | — | [M05_plan](milestones/M05/M05_plan.md) (stub) |
-| M06 | Final documentation and eligibility | — | not started | — | — | — |
-| M07 | Final submission lock | — | not started | — | — | — |
+| M05 | Controlled public baseline reproduction planning | `forge/M05-control-repro-planning` → `main` | **closed** (PR [#6](https://github.com/m-cahill/forge/pull/6); not merged) | **green** — PR [26982659564](https://github.com/m-cahill/forge/actions/runs/26982659564) | 4.6/5 | [M05_summary](milestones/M05/M05_summary.md) |
+| M06 | Controlled public baseline reproduction execution gate | — | **next** — stub | — | — | [M06_plan](milestones/M06/M06_plan.md) (stub) |
+| M07 | Final documentation and eligibility | — | not started | — | — | — |
+| M08 | Final submission lock | — | not started | — | — | — |
 
 ---
 
@@ -405,8 +406,44 @@ Run Ledger **1.0** for `m03_synthetic_smoke_eval` is **synthetic factory self-ch
 ### Next recommendation
 
 1. **Owner:** Record Submit UI `submission.zip` constraints (**OPEN**).  
-2. **Owner:** Authorize M05 planning kickoff per [M04_next_decision](milestones/M04/M04_next_decision.md) — no M05 implementation without explicit go-ahead.  
+2. **Cursor:** M05 implementation on `forge/M05-control-repro-planning` (authorized).  
 3. **Defer:** Training, Kaggle submission, baseline reproduction claims until explicit milestone authorization.
+
+---
+
+## M05 Closeout Record
+
+**Branch:** `forge/M05-control-repro-planning`  
+**PR:** [#6](https://github.com/m-cahill/forge/pull/6) — **open** (not merged)  
+**PR head:** `4864f08aff49941d2ba61e02d82b966fdff755d9`  
+**PR CI (final head):** [26982659564](https://github.com/m-cahill/forge/actions/runs/26982659564) **green**  
+**Local verification:** 147 pytest; ruff/mypy/compileall pass; mock reproduction plan validates
+
+**Artifacts:** [M05_summary](milestones/M05/M05_summary.md) · [M05_audit](milestones/M05/M05_audit.md) (4.6/5) · [M05_run1](milestones/M05/M05_run1.md)
+
+### M05 deliverables
+
+| Deliverable | Status |
+| ----------- | ------ |
+| Controlled reproduction planning docs (6) | Met |
+| `reproduction_plan.py` + 9 tests | Met |
+| `validate_reproduction_plan.py` | Met |
+| Mock reproduction plan evidence | Met — preflight only |
+| `M05_next_decision.md` | Met — M06 execution gate |
+| Submit UI zip constraints | **OPEN** — owner-action (not guessed) |
+| Kaggle submission / score / training / reproduction | **Not claimed** |
+
+### Mock reproduction plan disclaimer
+
+`docs/milestones/M05/evidence/reproduction_plan/public_control_repro_plan.preflight.json` is **preflight-only**. Not training authorization, baseline reproduction, or Kaggle-ready submission.
+
+**Non-claims (M05):** no Kaggle submission, public/private score, training, inference, reproduced baseline, Kaggle-ready adapter, real adapter package, vendored/copied baseline code/data, training authorization.
+
+### Next recommendation
+
+1. **Owner:** Merge PR #6 with express permission.  
+2. **Owner:** Record Submit UI zip constraints (**OPEN**).  
+3. **Owner:** Authorize M06 kickoff + training per [M05_next_decision](milestones/M05/M05_next_decision.md).
 
 ---
 
@@ -439,3 +476,7 @@ Run Ledger **1.0** for `m03_synthetic_smoke_eval` is **synthetic factory self-ch
 | 2026-06-04 | M03 | PR #4 squash-merged to `main` | `fe2a7dd`; post-merge CI 26976448338 green |
 | 2026-06-04 | M04 | Public control preflight on branch; PR #5 CI green | Mapping + candidate manifest; no baseline copy; audit 4.6/5 |
 | 2026-06-04 | M04 | PR #5 squash-merged to `main` | `f54afd0`; post-merge CI 26979013700 green |
+| 2026-06-04 | M05 | M05 kickoff authorized | Branch `forge/M05-control-repro-planning`; planning + reproduction plan contract |
+| 2026-06-04 | M05 | Compute path locked | local_5090 preflight; Modal/Tinker future training (not authorized in M05) |
+| 2026-06-04 | M05 | M05 closed on branch; PR #6 CI green | `7867e29`; reproduction plan contract; audit 4.6/5; merge pending |
+| 2026-06-04 | M05 | M06 stub: execution gate | Per `M05_next_decision.md`; not started |

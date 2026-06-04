@@ -10,6 +10,7 @@ CLI entry points for dataset generation, training, evaluation, packaging, and su
 | `eval_predictions.py` | Local prediction scoring vs JSONL examples (M02) |
 | `make_dataset.py` | Verified synthetic dataset + manifest generation (M03) |
 | `validate_candidate_manifest.py` | Adapter candidate manifest JSON validation (M04) |
+| `validate_reproduction_plan.py` | Reproduction plan manifest JSON validation (M05) |
 
 ### Local evaluation (M02)
 
@@ -57,6 +58,15 @@ python scripts/validate_candidate_manifest.py \
 ```
 
 Mock evidence: `docs/milestones/M04/evidence/control_preflight/` (preflight only — not an adapter).
+
+### Reproduction plan (M05)
+
+```bash
+python scripts/validate_reproduction_plan.py \
+  docs/milestones/M05/evidence/reproduction_plan/public_control_repro_plan.preflight.json
+```
+
+Mock evidence: `docs/milestones/M05/evidence/reproduction_plan/` (preflight only — not training authorization).
 
 ## Planned
 
