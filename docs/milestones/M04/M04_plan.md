@@ -7,7 +7,7 @@
 | **Milestone** | M04 |
 | **Title** | Public Control Adapter Reproduction Preflight |
 | **Branch** | `forge/M04-control-preflight` |
-| **Status** | **active** (implementation) |
+| **Status** | **closed** — PR [#5](https://github.com/m-cahill/forge/pull/5); CI green; merge pending permission |
 | **Precondition** | M03 merged to `main`, post-merge CI green, owner authorized M04 kickoff |
 | **Primary goal** | Prepare FORGE to reproduce or wrap the public control baseline safely, without training or submitting yet |
 
@@ -113,13 +113,13 @@ M00–M03 merged to `main`. FORGE has installable package, CI (Python 3.10–3.1
 
 ## 6. Acceptance criteria (closeout)
 
-- [ ] Branch `forge/M04-control-preflight` from green `main`
-- [ ] All deliverables 4.1–4.9
-- [ ] Mock manifest validates
-- [ ] Submit UI constraints OPEN or recorded (not guessed)
-- [ ] CI green on PR
-- [ ] All non-claims preserved
-- [ ] No public baseline code copied into FORGE
+- [x] Branch `forge/M04-control-preflight` from green `main`
+- [x] All deliverables 4.1–4.9
+- [x] Mock manifest validates
+- [x] Submit UI constraints OPEN or recorded (not guessed) — **OPEN**
+- [x] CI green on PR — [26977971068](https://github.com/m-cahill/forge/actions/runs/26977971068)
+- [x] All non-claims preserved
+- [x] No public baseline code copied into FORGE
 
 ---
 
