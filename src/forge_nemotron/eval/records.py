@@ -8,6 +8,7 @@ from typing import Any
 VALID_SPLITS = frozenset(
     {
         "fixture",
+        "synthetic_smoke",
         "public_train_holdout",
         "synthetic_balanced_holdout",
         "hard_category_holdout",
