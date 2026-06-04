@@ -12,11 +12,11 @@
 | ----- | ----- |
 | Workflow name | CI |
 | Run ID (implementation) | [26973038855](https://github.com/m-cahill/forge/actions/runs/26973038855) |
-| Run ID (final / closeout) | [26973101474](https://github.com/m-cahill/forge/actions/runs/26973101474) |
+| Run ID (final / closeout) | [26973143689](https://github.com/m-cahill/forge/actions/runs/26973143689) |
 | Trigger | `pull_request` |
 | Branch | `forge/M02-local-eval` |
 | Commit SHA (implementation) | `c8dc65be9a930b8b4f11ec0d5dfc56464cf47167` |
-| Commit SHA (PR head, closeout) | `4d014c45b526e2588ae42e74c5d0d79af1ffe9a5` |
+| Commit SHA (PR head, final) | `d1fb83ff789652a4b64d000620d07f2e3e064d5a` |
 | PR | [#3](https://github.com/m-cahill/forge/pull/3) |
 | Event time (UTC) | 2026-06-04T18:59:18Z → ~2026-06-04T18:59:42Z |
 | Overall conclusion | **success** |
@@ -95,7 +95,7 @@ Each job runs identical steps:
 | Did CI prove M02’s stated gates? | **Yes** — lint, format, types, expanded unit tests |
 | Is green trustworthy? | **Yes** — all matrix jobs pass on PR head |
 | Blocking issues? | **None** |
-| Merge recommendation | PR #3 is **CI-green** on head `4d014c4` (run 26973101474); merge only with express owner permission |
+| Merge recommendation | PR #3 is **CI-green** on head `d1fb83f` (run 26973143689); merge only with express owner permission |
 
 ---
 
@@ -103,8 +103,8 @@ Each job runs identical steps:
 
 - Workflow run: https://github.com/m-cahill/forge/actions/runs/26973038855
 - PR checks: https://github.com/m-cahill/forge/pull/3/checks
-- PR head (final): `4d014c45b526e2588ae42e74c5d0d79af1ffe9a5`
-- Final workflow run: https://github.com/m-cahill/forge/actions/runs/26973101474
+- PR head (final): `d1fb83ff789652a4b64d000620d07f2e3e064d5a`
+- Final workflow run: https://github.com/m-cahill/forge/actions/runs/26973143689
 
 ---
 
