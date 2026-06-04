@@ -6,9 +6,9 @@ Solver-guided, artifact-first LoRA engineering for `NVIDIA-Nemotron-3-Nano-30B`:
 
 ## Current milestone
 
-**M02** — Exact local evaluation and artifact discipline (`forge/M02-local-eval`).
+**M03** — Solver and synthetic trace factory (planned; stub only).
 
-M00 and M01 are merged to `main`. M02 is **local-eval only**: fixture scoring, run manifests, and input hashes. No Kaggle submission, public score, model training, or reproduced control baseline yet.
+M00, M01, and M02 are merged to `main`. M02 added local eval CLI, run manifests, and fixture scoring. No Kaggle submission, public score, model training, or reproduced control baseline yet.
 
 ## Local evaluation (M02)
 
