@@ -2,8 +2,8 @@
 
 **Project:** FORGE — Kaggle NVIDIA Nemotron Model Reasoning Challenge  
 **Last updated:** 2026-06-04  
-**Status:** M00 complete — awaiting merge (`forge/M00-anchor-intake`)  
-**Active milestone:** M01 not started (authorized after M00 merge or explicit instruction)
+**Status:** M00 **merged** to `main`; M01 planning on `forge/M01-control-baseline` (implementation not started)  
+**Main SHA:** `27d0fed5b62cd3dbef95f8ba32afc6ef4e96d408`
 
 ---
 
@@ -64,12 +64,12 @@ FORGE is a solver-guided, artifact-first, audit-governed LoRA competition system
 
 ## 4. M00 Closeout Record
 
-**Branch:** `forge/M00-anchor-intake`  
-**Closeout SHA:** `c3d72ab`  
-**PR:** [#1](https://github.com/m-cahill/forge/pull/1) — open, awaiting owner merge approval  
-**PR head SHA:** `c3d72abc66643d96725d9a68ed71b31a00569eed`  
-**CI:** Not configured — no GitHub Actions workflows; **no PR checks ran**  
-**Local verification (M00):** `python -m compileall src` pass; `PYTHONPATH=src` → `import forge_nemotron` pass; `pytest` — exit 5, 0 tests collected
+**Branch:** `forge/M00-anchor-intake` (merged)  
+**PR:** [#1](https://github.com/m-cahill/forge/pull/1) — **merged** 2026-06-04 (squash)  
+**Squash merge commit on `main`:** `27d0fed5b62cd3dbef95f8ba32afc6ef4e96d408`  
+**PR head at merge:** `e9f5ed563a23bade8881ea6fba1ef6b78d6dd4da`  
+**CI:** Not configured — no GitHub Actions workflows; no PR CI; **no post-merge CI**  
+**Post-merge local verification (`main`):** `compileall` pass; `import forge_nemotron` pass; `pytest` exit 5 / 0 tests collected
 
 ### M00 exit criteria
 
@@ -95,8 +95,8 @@ FORGE is a solver-guided, artifact-first, audit-governed LoRA competition system
 
 | Milestone | Title | Branch | Status | CI | Audit Score | Summary |
 | --------- | ----- | ------ | ------ | -- | ----------- | ------- |
-| M00 | Anchor and competition intake | `forge/M00-anchor-intake` | **complete — awaiting merge** | not configured; local verify pass | 4.0/5 | [M00_summary](milestones/M00/M00_summary.md) |
-| M01 | Public control reproduction | `forge/M01-control-baseline` (planned) | not started | — | — | — |
+| M00 | Anchor and competition intake | `forge/M00-anchor-intake` → `main` | **merged** (`27d0fed`) | not configured; local verify pass | 4.0/5 | [M00_summary](milestones/M00/M00_summary.md) |
+| M01 | Control baseline preflight & validation harness | `forge/M01-control-baseline` | planning — not started | — | — | [M01_plan](milestones/M01/M01_plan.md) |
 | M02 | Exact local evaluation | — | not started | — | — | — |
 | M03 | Solver and synthetic trace factory | — | not started | — | — | — |
 | M04 | Adapter sweep | — | not started | — | — | — |
@@ -233,9 +233,11 @@ M01 should inspect and attempt to reproduce or wrap the public Progress Prize co
 
 This is a **recommended control target**, not a reproduced baseline.
 
-**Do not start M01 implementation until M00 is merged or explicitly authorized.**
+M00 is merged. M01 plan is on `forge/M01-control-baseline` — **awaiting owner review** before implementation.
 
-Stub: `docs/milestones/M01/M01_plan.md` · Branch: `forge/M01-control-baseline`
+**CI bootstrap decision (owner):** Option A — minimal CI in M01; Option B — dedicated M01A CI milestone before M01 code. See `docs/milestones/M01/M01_plan.md` § CI strategy.
+
+Stub expanded: `docs/milestones/M01/M01_plan.md`
 
 ---
 
@@ -250,3 +252,5 @@ Stub: `docs/milestones/M01/M01_plan.md` · Branch: `forge/M01-control-baseline`
 | 2026-06-03 | M00 | Notebook workflow repo-first | Commit in repo → reupload Kaggle |
 | 2026-06-04 | M00 | M00 closed with owner-action deferrals | BQ-001/BQ-003 not guessed; audit 4.0/5 |
 | 2026-06-04 | M00 | CI deferred | No `.github/workflows`; local verify only |
+| 2026-06-04 | M00 | PR #1 squash-merged to `main` | `27d0fed`; no post-merge CI |
+| 2026-06-04 | M01 | Kickoff planning branch | `forge/M01-control-baseline`; preflight before reproduction |

@@ -18,3 +18,5 @@ Record notable Cursor/tool actions for M00 (anchor, competition intake, Kaggle s
 | 2026-06-04T02:15:00Z | Cursor | git push | `origin/forge/M00-anchor-intake` |
 | 2026-06-04T02:15:00Z | Cursor | gh pr create | PR #1 https://github.com/m-cahill/forge/pull/1 |
 | 2026-06-04T02:15:00Z | Cursor | gh pr checks | No checks reported; statusCheckRollup empty |
+| 2026-06-04T06:04:00Z | Cursor | gh pr merge 1 --squash | Merged to main `27d0fed` |
+| 2026-06-04T06:04:00Z | Cursor | Post-merge verify on main | compileall/import pass; pytest exit 5; gh run list empty |
