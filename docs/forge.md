@@ -4,7 +4,7 @@
 **Last updated:** 2026-06-04 (M02 closed — PR [#3](https://github.com/m-cahill/forge/pull/3) CI green; merge pending)  
 **Status:** M00 and M01 **merged** to `main`; M02 **closed** on `forge/M02-local-eval` (not merged); **next:** M03 planning  
 **Main SHA:** `ce9dc7f` (includes M01 Kaggle intake) · M01 merge `d59d97b` via PR [#2](https://github.com/m-cahill/forge/pull/2)  
-**M02 PR head:** `c8dc65b` · PR CI [26973038855](https://github.com/m-cahill/forge/actions/runs/26973038855) **green**
+**M02 PR head:** `4d014c4` · PR CI [26973101474](https://github.com/m-cahill/forge/actions/runs/26973101474) **green** (closeout)
 
 ---
 
@@ -98,7 +98,7 @@ FORGE is a solver-guided, artifact-first, audit-governed LoRA competition system
 | --------- | ----- | ------ | ------ | -- | ----------- | ------- |
 | M00 | Anchor and competition intake | `forge/M00-anchor-intake` → `main` | **merged** (`27d0fed`) | not configured; local verify pass | 4.0/5 | [M00_summary](milestones/M00/M00_summary.md) |
 | M01 | Public control reproduction foundation | `forge/M01-control-baseline` → `main` | **merged** (`d59d97b`) | **green** — post-merge [26935381116](https://github.com/m-cahill/forge/actions/runs/26935381116) | 4.5/5 | [M01_summary](milestones/M01/M01_summary.md) |
-| M02 | Exact local evaluation and artifact discipline | `forge/M02-local-eval` → `main` | **closed** (PR [#3](https://github.com/m-cahill/forge/pull/3) open) | **green** — [26973038855](https://github.com/m-cahill/forge/actions/runs/26973038855) | 4.6/5 | [M02_summary](milestones/M02/M02_summary.md) |
+| M02 | Exact local evaluation and artifact discipline | `forge/M02-local-eval` → `main` | **closed** (PR [#3](https://github.com/m-cahill/forge/pull/3) open) | **green** — [26973101474](https://github.com/m-cahill/forge/actions/runs/26973101474) | 4.6/5 | [M02_summary](milestones/M02/M02_summary.md) |
 | M03 | Solver and synthetic trace factory | — | **next** — stub only | — | — | [M03_plan](milestones/M03/M03_plan.md) (stub) |
 | M04 | Adapter sweep | — | not started | — | — | — |
 | M05 | Merge and compression lab | — | not started | — | — | — |
@@ -306,8 +306,8 @@ Kaggle **submission is not authorized** without a validated package, local eval,
 
 **Branch:** `forge/M02-local-eval` (not merged)  
 **PR:** [#3](https://github.com/m-cahill/forge/pull/3) — **open**; CI **green**  
-**PR head:** `c8dc65be9a930b8b4f11ec0d5dfc56464cf47167`  
-**PR CI:** [26973038855](https://github.com/m-cahill/forge/actions/runs/26973038855) (Python 3.10–3.12)  
+**PR head:** `4d014c45b526e2588ae42e74c5d0d79af1ffe9a5`  
+**PR CI:** [26973101474](https://github.com/m-cahill/forge/actions/runs/26973101474) (Python 3.10–3.12; includes closeout docs)  
 **Local verification:** 106 pytest; ruff/mypy/compileall pass; fixture CLI smoke 6/8 = **0.75 (fixture only)**
 
 **Artifacts:** [M02_summary](milestones/M02/M02_summary.md) · [M02_audit](milestones/M02/M02_audit.md) (4.6/5) · [M02_run1](milestones/M02/M02_run1.md) · [fixture evidence](milestones/M02/evidence/fixture_eval/)
