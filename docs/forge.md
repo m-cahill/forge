@@ -1,9 +1,10 @@
 # FORGE — Ultimate Truth
 
 **Project:** FORGE — Kaggle NVIDIA Nemotron Model Reasoning Challenge  
-**Last updated:** 2026-06-04 (M04 merged to `main`; post-merge CI green)  
-**Status:** M00–M04 **merged** to `main`; **next:** M05 planning stub (not started)  
+**Last updated:** 2026-06-04 (M05 active on `forge/M05-control-repro-planning`)  
+**Status:** M00–M04 **merged** to `main`; **M05 active** — controlled reproduction planning (no training/submission)  
 **Main SHA:** `f54afd0c6f01c8a8d033e2d79ac3dac512224afd` (M04 squash merge via PR [#5](https://github.com/m-cahill/forge/pull/5))  
+**M05 branch:** `forge/M05-control-repro-planning`  
 **M04 PR head (pre-merge):** `e7d8429708cb5328d9f1897781ef1976e2f7d672` · PR CI [26978191986](https://github.com/m-cahill/forge/actions/runs/26978191986) **green**  
 **Post-merge CI on `main`:** [26979013700](https://github.com/m-cahill/forge/actions/runs/26979013700) **green** (push on `f54afd0`)
 
@@ -102,7 +103,7 @@ FORGE is a solver-guided, artifact-first, audit-governed LoRA competition system
 | M02 | Exact local evaluation and artifact discipline | `forge/M02-local-eval` → `main` | **merged** (`e78dc97`) | **green** — post-merge [26973864069](https://github.com/m-cahill/forge/actions/runs/26973864069) | 4.6/5 | [M02_summary](milestones/M02/M02_summary.md) |
 | M03 | Solver and synthetic trace factory | `forge/M03-solver-factory` → `main` | **merged** (`fe2a7dd`) | **green** — post-merge [26976448338](https://github.com/m-cahill/forge/actions/runs/26976448338) | 4.7/5 | [M03_summary](milestones/M03/M03_summary.md) |
 | M04 | Public control adapter reproduction preflight | `forge/M04-control-preflight` → `main` | **merged** (`f54afd0`) | **green** — post-merge [26979013700](https://github.com/m-cahill/forge/actions/runs/26979013700) | 4.6/5 | [M04_summary](milestones/M04/M04_summary.md) |
-| M05 | Controlled public baseline reproduction planning | — | **next** — stub | — | — | [M05_plan](milestones/M05/M05_plan.md) (stub) |
+| M05 | Controlled public baseline reproduction planning | `forge/M05-control-repro-planning` | **active** | pending | — | [M05_plan](milestones/M05/M05_plan.md) |
 | M06 | Final documentation and eligibility | — | not started | — | — | — |
 | M07 | Final submission lock | — | not started | — | — | — |
 
