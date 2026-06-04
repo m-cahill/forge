@@ -14,3 +14,7 @@ Record notable Cursor/tool actions for M06 (controlled public baseline reproduct
 | 2026-06-04T23:15:00Z | Cursor | Schema inspection | Derived notes for corpus, problems, generation, train.csv; hashes/row counts only |
 | 2026-06-04T23:20:00Z | Cursor | Reproduction plan contract | `schema_inspection_status`, structured `data_sources`, ready-for-training gates |
 | 2026-06-04T23:25:00Z | Cursor | M06 docs + manifest | Execution gate, checklists, mapping supplement, schema_gate.json |
+| 2026-06-04T23:30:00Z | Cursor | Local verification | 151 pytest; ruff/mypy/compileall; validate schema_gate manifest |
+| 2026-06-04T23:32:00Z | Cursor | git push + PR #7 | https://github.com/m-cahill/forge/pull/7 |
+| 2026-06-04T23:35:00Z | Cursor | CI watch | Run 26985544150 green (3.10–3.12) |
+| 2026-06-04T23:40:00Z | Cursor | M06 closeout | summary, audit, run1; forge.md updated; merge not performed |

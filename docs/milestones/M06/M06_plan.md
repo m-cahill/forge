@@ -7,7 +7,7 @@
 | **Milestone** | M06 |
 | **Title** | Controlled Public Baseline Reproduction Execution Gate |
 | **Branch** | `forge/M06-control-repro-execution-gate` |
-| **Status** | in progress |
+| **Status** | closed — PR [#7](https://github.com/m-cahill/forge/pull/7); merge pending |
 | **Precondition** | M05 merged to `main`; post-merge CI green; owner authorized M06 kickoff |
 | **Gate B** | `M06_SCHEMA_INSPECTION_AUTHORIZED = yes` |
 | **Gate C** | `M06_TRAINING_AUTHORIZED = no` |
@@ -48,17 +48,17 @@ M06 converts M05 planning artifacts into an execution gate: external schema insp
 
 ## 4. Acceptance criteria
 
-- [ ] Branch `forge/M06-control-repro-execution-gate` from green `main`
-- [ ] Execution gate doc + checklists exist
-- [ ] Schema inspection complete with derived notes (Gate B)
-- [ ] Mapping supplement exists
-- [ ] Schema-gate manifest validates
-- [ ] Tests pass; CI green on PR
-- [ ] No raw baseline data/code/credentials committed
-- [ ] No training, inference, submission, reproduction claims
-- [ ] Submit UI constraints OPEN (not guessed)
-- [ ] M06 summary, audit, run1 at closeout
-- [ ] M07 stub seeded per next decision
+- [x] Branch `forge/M06-control-repro-execution-gate` from green `main`
+- [x] Execution gate doc + checklists exist
+- [x] Schema inspection complete with derived notes (Gate B)
+- [x] Mapping supplement exists
+- [x] Schema-gate manifest validates
+- [x] Tests pass; CI green on PR — [26985544150](https://github.com/m-cahill/forge/actions/runs/26985544150)
+- [x] No raw baseline data/code/credentials committed
+- [x] No training, inference, submission, reproduction claims
+- [x] Submit UI constraints OPEN (not guessed)
+- [x] M06 summary, audit, run1 at closeout
+- [x] M07 stub seeded per next decision
 
 ---
 

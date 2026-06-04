@@ -1,10 +1,11 @@
 # FORGE — Ultimate Truth
 
 **Project:** FORGE — Kaggle NVIDIA Nemotron Model Reasoning Challenge  
-**Last updated:** 2026-06-04 (M06 in progress on `forge/M06-control-repro-execution-gate`)  
-**Status:** M00–M05 **merged** to `main`; **M06** execution gate **in progress** (PR pending)  
+**Last updated:** 2026-06-04 (M06 closed on branch; PR [#7](https://github.com/m-cahill/forge/pull/7) CI green; merge pending)  
+**Status:** M00–M05 **merged** to `main`; **M06** closed on `forge/M06-control-repro-execution-gate` — merge pending owner permission  
 **Main SHA:** `34169d062971ac5f754b2e71e5d10c1711c0f612` (M05 squash merge via PR [#6](https://github.com/m-cahill/forge/pull/6))  
-**M06 branch:** `forge/M06-control-repro-execution-gate` — Gate B authorized; Gate C **not** authorized  
+**M06 PR head:** `895a3cb` · PR CI [26985544150](https://github.com/m-cahill/forge/actions/runs/26985544150) **green**  
+**M06 authorization:** Gate B complete (`schema_inspection_status: complete`); Gate C **not** authorized  
 **M05 PR head (pre-merge):** `508f9ac080098b1f35adc58bad14c45eee46ded7` · PR CI [26982740620](https://github.com/m-cahill/forge/actions/runs/26982740620) **green**  
 **Post-merge CI on `main`:** [26983281413](https://github.com/m-cahill/forge/actions/runs/26983281413) **green** (push on `34169d0`)
 
@@ -104,7 +105,7 @@ FORGE is a solver-guided, artifact-first, audit-governed LoRA competition system
 | M03 | Solver and synthetic trace factory | `forge/M03-solver-factory` → `main` | **merged** (`fe2a7dd`) | **green** — post-merge [26976448338](https://github.com/m-cahill/forge/actions/runs/26976448338) | 4.7/5 | [M03_summary](milestones/M03/M03_summary.md) |
 | M04 | Public control adapter reproduction preflight | `forge/M04-control-preflight` → `main` | **merged** (`f54afd0`) | **green** — post-merge [26979013700](https://github.com/m-cahill/forge/actions/runs/26979013700) | 4.6/5 | [M04_summary](milestones/M04/M04_summary.md) |
 | M05 | Controlled public baseline reproduction planning | `forge/M05-control-repro-planning` → `main` | **merged** (`34169d0`) | **green** — post-merge [26983281413](https://github.com/m-cahill/forge/actions/runs/26983281413) | 4.6/5 | [M05_summary](milestones/M05/M05_summary.md) |
-| M06 | Controlled public baseline reproduction execution gate | `forge/M06-control-repro-execution-gate` | **in progress** | PR pending | — | [M06_plan](milestones/M06/M06_plan.md) |
+| M06 | Controlled public baseline reproduction execution gate | `forge/M06-control-repro-execution-gate` | **closed** (PR [#7](https://github.com/m-cahill/forge/pull/7); merge pending) | **green** — [26985544150](https://github.com/m-cahill/forge/actions/runs/26985544150) | 4.6/5 | [M06_summary](milestones/M06/M06_summary.md) |
 | M07 | Controlled public baseline training authorization gate | — | **next** — stub | — | — | [M07_plan](milestones/M07/M07_plan.md) (stub) |
 | M08 | Final submission lock | — | not started | — | — | — |
 
@@ -451,6 +452,56 @@ Run Ledger **1.0** for `m03_synthetic_smoke_eval` is **synthetic factory self-ch
 
 ---
 
+## M06 Closeout Record
+
+**Branch:** `forge/M06-control-repro-execution-gate` (not merged)  
+**PR:** [#7](https://github.com/m-cahill/forge/pull/7) — open; merge pending owner permission  
+**PR head:** `895a3cb`  
+**PR CI (final head):** [26985544150](https://github.com/m-cahill/forge/actions/runs/26985544150) **green** (Python 3.10–3.12)  
+**Local verification:** 151 pytest; ruff/mypy/compileall pass; schema-gate manifest validates (gate only — not training authorization)
+
+**Artifacts:** [M06_summary](milestones/M06/M06_summary.md) · [M06_audit](milestones/M06/M06_audit.md) (4.6/5) · [M06_run1](milestones/M06/M06_run1.md)
+
+### M06 deliverables
+
+| Deliverable | Status |
+| ----------- | ------ |
+| Execution gate doc + compute/credential checklists | Met |
+| Gate B schema inspection (derived notes ×4) | Met — baseline `82bd1880` |
+| Baseline schema mapping supplement | Met |
+| Schema-gate reproduction manifest | Met — validates |
+| Reproduction plan contract extensions | Met — 4 new tests |
+| M06 next decision → M07 training auth gate | Met |
+| Submit UI zip constraints | **OPEN** — owner-action (not guessed) |
+| Kaggle API submission | **TBD** |
+| Training / inference / submission / reproduction | **Not claimed** |
+
+### Schema inspection evidence
+
+| File | Rows | SHA256 (prefix) |
+| ---- | ---- | --------------- |
+| corpus.jsonl | 17963 | `1940a41c…` |
+| problems.jsonl | 9500 | `4b8bd8b6…` |
+| generation.jsonl | 9500 | `58383d4e…` |
+| train.csv | 69029 | `c99877ac…` |
+
+Derived notes: `docs/milestones/M06/external_schema_notes_*.md`. External clone: `C:\coding\nemotron-inspect` (not in repo).
+
+### Schema-gate manifest disclaimer
+
+`public_control_repro_plan.schema_gate.json` (`plan_id: public_control_repro_plan_schema_gate_v1`) is **execution-gate evidence only**. Not training authorization, baseline reproduction, real adapter/package, or Kaggle-ready submission.
+
+**Non-claims (M06):** no Kaggle submission, public/private score, training, inference, reproduced baseline, Kaggle-ready adapter, real adapter package, vendored/copied baseline code/data, committed credentials, raw baseline data in repo.
+
+### Next recommendation
+
+1. **Owner:** Merge PR #7 when ready (express permission required).  
+2. **Owner:** Record Submit UI zip constraints (**OPEN**).  
+3. **Owner:** Authorize M07 training gate (`M06_TRAINING_AUTHORIZED = yes` + manifest fields) before any SFT/inference.  
+4. **Defer:** Training, Kaggle submission, baseline reproduction claims until M07 Gate C satisfied.
+
+---
+
 ## Appendix: Material Decisions
 
 | Date | Milestone | Decision | Rationale |
@@ -485,3 +536,6 @@ Run Ledger **1.0** for `m03_synthetic_smoke_eval` is **synthetic factory self-ch
 | 2026-06-04 | M05 | M05 closed on branch; PR #6 CI green | `7867e29`; reproduction plan contract; audit 4.6/5; merge pending |
 | 2026-06-04 | M05 | M06 stub: execution gate | Per `M05_next_decision.md`; not started |
 | 2026-06-04 | M05 | PR #6 squash-merged to `main` | `34169d0`; post-merge CI 26983281413 green |
+| 2026-06-04 | M06 | M06 kickoff; Gate B schema inspection authorized | Branch `forge/M06-control-repro-execution-gate`; Gate C no |
+| 2026-06-04 | M06 | External schema inspection complete | Baseline `82bd1880`; derived notes only; no raw data in repo |
+| 2026-06-04 | M06 | M06 closed on branch; PR #7 CI green | `895a3cb`; audit 4.6/5; M07 training auth gate stub |
