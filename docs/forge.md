@@ -1,10 +1,11 @@
 # FORGE — Ultimate Truth
 
 **Project:** FORGE — Kaggle NVIDIA Nemotron Model Reasoning Challenge  
-**Last updated:** 2026-06-04 (M02 closed — PR [#3](https://github.com/m-cahill/forge/pull/3) CI green; merge pending)  
-**Status:** M00 and M01 **merged** to `main`; M02 **closed** on `forge/M02-local-eval` (not merged); **next:** M03 planning  
-**Main SHA:** `ce9dc7f` (includes M01 Kaggle intake) · M01 merge `d59d97b` via PR [#2](https://github.com/m-cahill/forge/pull/2)  
-**M02 PR head:** `c2ba5d2` · PR CI [26973185582](https://github.com/m-cahill/forge/actions/runs/26973185582) **green**
+**Last updated:** 2026-06-04 (M02 merged to `main`; post-merge CI green)  
+**Status:** M00, M01, and M02 **merged** to `main`; **next:** M03 planning (stub only)  
+**Main SHA:** `e78dc975c278c73edffb4b920cf72a067c781420` (M02 squash merge via PR [#3](https://github.com/m-cahill/forge/pull/3))  
+**M02 PR head (pre-merge):** `cfd39707116a218d2b44920c28479fec701be12b` · PR CI [26973225572](https://github.com/m-cahill/forge/actions/runs/26973225572) **green**  
+**Post-merge CI on `main`:** [26973864069](https://github.com/m-cahill/forge/actions/runs/26973864069) **green** (push on `e78dc97`)
 
 ---
 
@@ -98,7 +99,7 @@ FORGE is a solver-guided, artifact-first, audit-governed LoRA competition system
 | --------- | ----- | ------ | ------ | -- | ----------- | ------- |
 | M00 | Anchor and competition intake | `forge/M00-anchor-intake` → `main` | **merged** (`27d0fed`) | not configured; local verify pass | 4.0/5 | [M00_summary](milestones/M00/M00_summary.md) |
 | M01 | Public control reproduction foundation | `forge/M01-control-baseline` → `main` | **merged** (`d59d97b`) | **green** — post-merge [26935381116](https://github.com/m-cahill/forge/actions/runs/26935381116) | 4.5/5 | [M01_summary](milestones/M01/M01_summary.md) |
-| M02 | Exact local evaluation and artifact discipline | `forge/M02-local-eval` → `main` | **closed** (PR [#3](https://github.com/m-cahill/forge/pull/3) open) | **green** — [26973185582](https://github.com/m-cahill/forge/actions/runs/26973185582) | 4.6/5 | [M02_summary](milestones/M02/M02_summary.md) |
+| M02 | Exact local evaluation and artifact discipline | `forge/M02-local-eval` → `main` | **merged** (`e78dc97`) | **green** — post-merge [26973864069](https://github.com/m-cahill/forge/actions/runs/26973864069) | 4.6/5 | [M02_summary](milestones/M02/M02_summary.md) |
 | M03 | Solver and synthetic trace factory | — | **next** — stub only | — | — | [M03_plan](milestones/M03/M03_plan.md) (stub) |
 | M04 | Adapter sweep | — | not started | — | — | — |
 | M05 | Merge and compression lab | — | not started | — | — | — |
@@ -296,19 +297,21 @@ Kaggle **submission is not authorized** without a validated package, local eval,
 
 ### Next recommendation
 
-1. **Owner:** Merge PR [#3](https://github.com/m-cahill/forge/pull/3) when ready; record Submit UI `submission.zip` constraints.  
-2. **Cursor (when authorized):** Expand M03 plan; implement solver/trace factory on new branch after M02 merge.  
+1. **Owner:** Record Submit UI `submission.zip` constraints.  
+2. **Cursor (when authorized):** Expand M03 plan; implement solver/trace factory on new branch.  
 3. **Defer:** Kaggle submission until validated package + local eval on real candidates + owner go-ahead.
 
 ---
 
 ## M02 Closeout Record
 
-**Branch:** `forge/M02-local-eval` (not merged)  
-**PR:** [#3](https://github.com/m-cahill/forge/pull/3) — **open**; CI **green**  
-**PR head:** `c2ba5d26072d59ec645426314768a3bfef324820`  
-**PR CI:** [26973185582](https://github.com/m-cahill/forge/actions/runs/26973185582) (Python 3.10–3.12)  
-**Local verification:** 106 pytest; ruff/mypy/compileall pass; fixture CLI smoke 6/8 = **0.75 (fixture only)**
+**Branch:** `forge/M02-local-eval` (merged)  
+**PR:** [#3](https://github.com/m-cahill/forge/pull/3) — **merged** 2026-06-04T19:15:09Z (squash)  
+**Squash merge commit on `main`:** `e78dc975c278c73edffb4b920cf72a067c781420`  
+**PR head (pre-merge):** `cfd39707116a218d2b44920c28479fec701be12b`  
+**PR CI (final head):** [26973225572](https://github.com/m-cahill/forge/actions/runs/26973225572) **green**  
+**Post-merge CI on `main`:** [26973864069](https://github.com/m-cahill/forge/actions/runs/26973864069) **green** (Python 3.10–3.12)  
+**Local verification:** 106 pytest; ruff/mypy/compileall pass; fixture CLI smoke 6/8 = **0.75 (fixture only — not a public/private score)**
 
 **Artifacts:** [M02_summary](milestones/M02/M02_summary.md) · [M02_audit](milestones/M02/M02_audit.md) (4.6/5) · [M02_run1](milestones/M02/M02_run1.md) · [fixture evidence](milestones/M02/evidence/fixture_eval/)
 
@@ -357,3 +360,4 @@ The Run Ledger value **0.75** is from `predictions_mixed.jsonl` against hand-aut
 | 2026-06-04 | M01 | Deadlines owner-reconfirmed | BQ-002 closed; entry Jun 8; final Jun 15 23:59 UTC |
 | 2026-06-04 | M02 | M02 kickoff authorized | Local eval only; fixture holdout active-fixture; warn on extra preds |
 | 2026-06-04 | M02 | M02 closed; PR #3 CI green | Local eval layer; fixture 0.75 not public score; audit 4.6/5 |
+| 2026-06-04 | M02 | PR #3 squash-merged to `main` | `e78dc97`; post-merge CI 26973864069 green |

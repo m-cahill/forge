@@ -7,7 +7,7 @@
 | **Milestone** | M02 |
 | **Title** | Exact Local Evaluation and Artifact Discipline |
 | **Branch** | `forge/M02-local-eval` |
-| **Status** | **closed** — PR [#3](https://github.com/m-cahill/forge/pull/3) CI green; merge pending |
+| **Status** | **merged** — PR [#3](https://github.com/m-cahill/forge/pull/3) → `main` (`e78dc97`) |
 | **Precondition** | M01 merged to `main`; post-merge CI green; owner authorized kickoff 2026-06-04 |
 | **Primary goal** | Make every future candidate locally scoreable, hashable, comparable, and auditable before spending Kaggle submissions |
 

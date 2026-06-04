@@ -4,9 +4,11 @@
 **Phase:** Evaluation and artifact governance (pre–Lane A reproduction)  
 **Milestone:** M02 — Exact Local Evaluation and Artifact Discipline  
 **Timeframe:** 2026-06-04  
-**Status:** Closed — PR [#3](https://github.com/m-cahill/forge/pull/3) open; CI green; awaiting merge permission  
-**Branch:** `forge/M02-local-eval`  
-**PR head (pre-closeout commit):** `c8dc65be9a930b8b4f11ec0d5dfc56464cf47167`  
+**Status:** Closed — PR [#3](https://github.com/m-cahill/forge/pull/3) **merged** to `main` (`e78dc97`)  
+**Branch:** `forge/M02-local-eval` (merged)  
+**PR head (pre-merge):** `cfd39707116a218d2b44920c28479fec701be12b`  
+**Squash merge on `main`:** `e78dc975c278c73edffb4b920cf72a067c781420`  
+**Post-merge CI:** [26973864069](https://github.com/m-cahill/forge/actions/runs/26973864069) green  
 **Baseline:** M01 merged `d59d97b`; M01 Kaggle intake on `main` `ce9dc7f`
 
 ---
@@ -80,7 +82,7 @@ Scope did not change during execution.
 
 - No workflow file changes; existing M01 CI certifies M02 delta.
 - Test count increased 91 → 106 without gate weakening.
-- Post-merge CI on `main` after PR #3 merge not yet verified (awaits merge).
+- Post-merge CI on `main` after PR #3 merge: **green** — [26973864069](https://github.com/m-cahill/forge/actions/runs/26973864069) on `e78dc97`.
 
 ---
 
@@ -142,6 +144,6 @@ Future candidate comparisons must use recorded local eval artifacts with hashes,
 | PR CI green | Yes — run 26973038855 |
 | Summary + audit + run1 | Yes |
 | Non-claims preserved | Yes |
-| Ready for merge (with permission) | Yes |
+| Merged to `main` | Yes — `e78dc97` |
 
-**Next recommendation:** Merge PR #3 with permission; authorize M03 solver factory planning; defer Kaggle submit until package validation + local eval on real candidates.
+**Next recommendation:** Authorize M03 solver factory planning on a new branch; owner records Submit UI zip constraints; defer Kaggle submit until package validation + local eval on real candidates.
