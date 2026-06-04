@@ -2,7 +2,7 @@
 
 **Project:** FORGE — Kaggle NVIDIA Nemotron Model Reasoning Challenge  
 **Last updated:** 2026-06-04  
-**Status:** M00 **merged** to `main`; M01 planning on `forge/M01-control-baseline` (implementation not started)  
+**Status:** M00 **merged** to `main`; M01 **implementation complete** on `forge/M01-control-baseline` (awaiting PR/merge)  
 **Main SHA:** `27d0fed5b62cd3dbef95f8ba32afc6ef4e96d408`
 
 ---
@@ -96,7 +96,7 @@ FORGE is a solver-guided, artifact-first, audit-governed LoRA competition system
 | Milestone | Title | Branch | Status | CI | Audit Score | Summary |
 | --------- | ----- | ------ | ------ | -- | ----------- | ------- |
 | M00 | Anchor and competition intake | `forge/M00-anchor-intake` → `main` | **merged** (`27d0fed`) | not configured; local verify pass | 4.0/5 | [M00_summary](milestones/M00/M00_summary.md) |
-| M01 | Control baseline preflight & validation harness | `forge/M01-control-baseline` | planning — not started | — | — | [M01_plan](milestones/M01/M01_plan.md) |
+| M01 | Public control reproduction foundation | `forge/M01-control-baseline` | **implementation complete** | configured; awaiting PR run | — | [M01_plan](milestones/M01/M01_plan.md) |
 | M02 | Exact local evaluation | — | not started | — | — | — |
 | M03 | Solver and synthetic trace factory | — | not started | — | — | — |
 | M04 | Adapter sweep | — | not started | — | — | — |
@@ -186,7 +186,7 @@ A candidate may advance only when all applicable gates are satisfied:
 
 | Risk | Impact | Mitigation | Owner | Target | Exit Criteria | Status |
 | ---- | ------ | ---------- | ----- | ------ | ------------- | ------ |
-| Invalid submission package | Wastes submissions | Package validator before every upload | — | M01 | Validator implemented and passes | open |
+| Invalid submission package | Wastes submissions | Package validator before every upload | — | M01 | Validator implemented and passes | **resolved** — validator implemented |
 | Public leaderboard overfit | Poor private score | Hard holdouts + anti-forgetting gates | — | M02+ | Per-category gates enforced | open |
 | Documentation ineligibility | Prize loss | Public notebook/write-up in M06 | — | M06 | Notebook and write-up public | open |
 | Daily submission limit unknown | Poor slot allocation | Owner verifies Submit UI | Owner | Pre-M01 submit | BQ-001 closed; value in §1 Competition Snapshot | **owner-action** |
@@ -196,7 +196,7 @@ A candidate may advance only when all applicable gates are satisfied:
 | Catastrophic forgetting | Score regression | Anti-forgetting gates | — | M04+ | Control categories preserved | open |
 | Data leakage / rule violation | Disqualification | Provenance + holdout checks | — | M02+ | Contamination check pass | open |
 | Unreproducible notebook | Prize risk | Notebook cites hashes | — | M06 | Public notebook documented | open |
-| No CI workflow | Regressions undetected | Add CI in M01+ | — | M01+ | Green workflow on PR (DEF-005) | open |
+| No CI workflow | Regressions undetected | Add CI in M01+ | — | M01+ | Green workflow on PR (DEF-005) | **configured** — awaiting PR run |
 
 ---
 
@@ -229,15 +229,46 @@ A candidate may advance only when all applicable gates are satisfied:
 
 ## M01 Recommendation (from M00)
 
-M01 should inspect and attempt to reproduce or wrap the public Progress Prize control baseline from [tonghuikang/nemotron](https://github.com/tonghuikang/nemotron), beginning with boxed-answer metric extraction and package validation before any Kaggle submission.
+M01 implementation is **complete** on `forge/M01-control-baseline`. Awaiting PR and merge.
 
-This is a **recommended control target**, not a reproduced baseline.
+### M01 Deliverables (implemented)
 
-M00 is merged. M01 plan is on `forge/M01-control-baseline` — **awaiting owner review** before implementation.
+| Deliverable | Status | Evidence |
+| ----------- | ------ | -------- |
+| `pyproject.toml` | ✅ Complete | `pip install -e .` works |
+| Package import | ✅ Complete | `import forge_nemotron` works without `PYTHONPATH` |
+| Boxed-answer metric | ✅ Complete | `forge_nemotron.metric.boxed` — 61 tests pass |
+| Package validator | ✅ Complete | `forge_nemotron.packaging.validate_submission` — 27 tests pass |
+| CI workflow | ✅ Configured | `.github/workflows/ci.yml` — awaiting PR run |
+| Public baseline intake | ✅ Complete | `docs/milestones/M01/public_baseline_intake.md` — inspection only |
+| Kaggle debug notebook | ✅ Complete | `notebooks/forge_m01_kaggle_debug_probe.ipynb` — repo only |
+| Local verification | ✅ Pass | ruff, mypy, pytest (91 tests), compileall |
 
-**CI bootstrap decision (owner):** Option A — minimal CI in M01; Option B — dedicated M01A CI milestone before M01 code. See `docs/milestones/M01/M01_plan.md` § CI strategy.
+### M01 Local Verification Summary
 
-Stub expanded: `docs/milestones/M01/M01_plan.md`
+```
+pytest: 91 passed
+ruff check: All checks passed
+ruff format: 12 files formatted
+mypy: Success: no issues found in 10 source files
+compileall: Success
+forge_nemotron import: version 0.1.0
+```
+
+### M01 Non-Claims
+
+- No Kaggle submission made
+- No public score claimed
+- No baseline reproduced (inspection only)
+- No adapter trained
+- No model inference
+
+### Remaining Owner Actions
+
+- BQ-001: Daily submission limit (authenticated Submit UI)
+- BQ-003: Rules/team status (authenticated account page)
+
+These must be resolved before any Kaggle submission.
 
 ---
 
@@ -254,3 +285,5 @@ Stub expanded: `docs/milestones/M01/M01_plan.md`
 | 2026-06-04 | M00 | CI deferred | No `.github/workflows`; local verify only |
 | 2026-06-04 | M00 | PR #1 squash-merged to `main` | `27d0fed`; no post-merge CI |
 | 2026-06-04 | M01 | Kickoff planning branch | `forge/M01-control-baseline`; preflight before reproduction |
+| 2026-06-04 | M01 | CI strategy selected | Option A — minimal CI in M01 (owner authorized) |
+| 2026-06-04 | M01 | Implementation complete | pyproject.toml, boxed metric, package validator, CI workflow, baseline intake, debug notebook |
