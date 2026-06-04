@@ -1,0 +1,23 @@
+{
+  "holdouts": [
+    {
+      "holdout_id": "m02_fixture_holdout",
+      "purpose": "Local eval smoke / fixture validation",
+      "source": "tests/fixtures/eval",
+      "examples_path": "tests/fixtures/eval/examples.jsonl",
+      "size_examples": 8,
+      "examples_sha256": "c7ff8ec140feabcee037ddb16b279d68ac1704998d7e34e3d8290d7dd8162219",
+      "split": "fixture",
+      "status": "active-fixture",
+      "notes": "Evaluation-only fixture data. Not Kaggle private data. Never use for training."
+    }
+  ],
+  "non_claims": [
+    "fixture only",
+    "local evaluation only",
+    "no Kaggle submission",
+    "no public score",
+    "no model inference",
+    "no leaderboard relevance"
+  ]
+}
