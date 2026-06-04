@@ -73,9 +73,12 @@ env/
 # =============================================================================
 # Data artifacts (track manifests, not raw data)
 # =============================================================================
-data/raw/
-data/external/
-data/generated/
+data/raw/*
+!data/raw/.gitkeep
+data/external/*
+!data/external/.gitkeep
+data/generated/*
+!data/generated/.gitkeep
 *.parquet
 *.arrow
 
