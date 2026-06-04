@@ -1,13 +1,12 @@
 # FORGE — Ultimate Truth
 
 **Project:** FORGE — Kaggle NVIDIA Nemotron Model Reasoning Challenge  
-**Last updated:** 2026-06-04 (M06 closed on branch; PR [#7](https://github.com/m-cahill/forge/pull/7) CI green; merge pending)  
-**Status:** M00–M05 **merged** to `main`; **M06** closed on `forge/M06-control-repro-execution-gate` — merge pending owner permission  
-**Main SHA:** `34169d062971ac5f754b2e71e5d10c1711c0f612` (M05 squash merge via PR [#6](https://github.com/m-cahill/forge/pull/6))  
-**M06 PR head:** `895a3cb` · PR CI [26985544150](https://github.com/m-cahill/forge/actions/runs/26985544150) **green**  
-**M06 authorization:** Gate B complete (`schema_inspection_status: complete`); Gate C **not** authorized  
-**M05 PR head (pre-merge):** `508f9ac080098b1f35adc58bad14c45eee46ded7` · PR CI [26982740620](https://github.com/m-cahill/forge/actions/runs/26982740620) **green**  
-**Post-merge CI on `main`:** [26983281413](https://github.com/m-cahill/forge/actions/runs/26983281413) **green** (push on `34169d0`)
+**Last updated:** 2026-06-04 (M06 merged to `main`; post-merge CI green)  
+**Status:** M00–M06 **merged** to `main`; **next:** M07 training authorization gate (stub only)  
+**Main SHA:** `a7de356d8597c7386b30cf8ba1912c02c0894cf7` (M06 squash merge via PR [#7](https://github.com/m-cahill/forge/pull/7))  
+**M06 PR head (pre-merge):** `354f630` · PR CI [26985581070](https://github.com/m-cahill/forge/actions/runs/26985581070) **green**  
+**Post-merge CI on `main`:** [26985969954](https://github.com/m-cahill/forge/actions/runs/26985969954) **green** (push on `a7de356`)  
+**M06 authorization:** Gate B complete; Gate C **not** authorized (training deferred to M07)
 
 ---
 
@@ -105,7 +104,7 @@ FORGE is a solver-guided, artifact-first, audit-governed LoRA competition system
 | M03 | Solver and synthetic trace factory | `forge/M03-solver-factory` → `main` | **merged** (`fe2a7dd`) | **green** — post-merge [26976448338](https://github.com/m-cahill/forge/actions/runs/26976448338) | 4.7/5 | [M03_summary](milestones/M03/M03_summary.md) |
 | M04 | Public control adapter reproduction preflight | `forge/M04-control-preflight` → `main` | **merged** (`f54afd0`) | **green** — post-merge [26979013700](https://github.com/m-cahill/forge/actions/runs/26979013700) | 4.6/5 | [M04_summary](milestones/M04/M04_summary.md) |
 | M05 | Controlled public baseline reproduction planning | `forge/M05-control-repro-planning` → `main` | **merged** (`34169d0`) | **green** — post-merge [26983281413](https://github.com/m-cahill/forge/actions/runs/26983281413) | 4.6/5 | [M05_summary](milestones/M05/M05_summary.md) |
-| M06 | Controlled public baseline reproduction execution gate | `forge/M06-control-repro-execution-gate` | **closed** (PR [#7](https://github.com/m-cahill/forge/pull/7); merge pending) | **green** — [26985544150](https://github.com/m-cahill/forge/actions/runs/26985544150) | 4.6/5 | [M06_summary](milestones/M06/M06_summary.md) |
+| M06 | Controlled public baseline reproduction execution gate | `forge/M06-control-repro-execution-gate` → `main` | **merged** (`a7de356`) | **green** — post-merge [26985969954](https://github.com/m-cahill/forge/actions/runs/26985969954) | 4.6/5 | [M06_summary](milestones/M06/M06_summary.md) |
 | M07 | Controlled public baseline training authorization gate | — | **next** — stub | — | — | [M07_plan](milestones/M07/M07_plan.md) (stub) |
 | M08 | Final submission lock | — | not started | — | — | — |
 
@@ -454,10 +453,12 @@ Run Ledger **1.0** for `m03_synthetic_smoke_eval` is **synthetic factory self-ch
 
 ## M06 Closeout Record
 
-**Branch:** `forge/M06-control-repro-execution-gate` (not merged)  
-**PR:** [#7](https://github.com/m-cahill/forge/pull/7) — open; merge pending owner permission  
-**PR head:** `895a3cb`  
-**PR CI (final head):** [26985544150](https://github.com/m-cahill/forge/actions/runs/26985544150) **green** (Python 3.10–3.12)  
+**Branch:** `forge/M06-control-repro-execution-gate` (merged; branch deleted)  
+**PR:** [#7](https://github.com/m-cahill/forge/pull/7) — **merged** 2026-06-04T23:33:42Z (squash)  
+**Squash merge commit on `main`:** `a7de356d8597c7386b30cf8ba1912c02c0894cf7`  
+**PR head at merge:** `354f630862ecd4866eb99be66e5649c1926a3a38` (impl `895a3cb`, closeout `354f630`)  
+**PR CI (final head):** [26985581070](https://github.com/m-cahill/forge/actions/runs/26985581070) **green** (Python 3.10–3.12)  
+**Post-merge CI on `main`:** [26985969954](https://github.com/m-cahill/forge/actions/runs/26985969954) **green** (Python 3.10–3.12)  
 **Local verification:** 151 pytest; ruff/mypy/compileall pass; schema-gate manifest validates (gate only — not training authorization)
 
 **Artifacts:** [M06_summary](milestones/M06/M06_summary.md) · [M06_audit](milestones/M06/M06_audit.md) (4.6/5) · [M06_run1](milestones/M06/M06_run1.md)
@@ -480,12 +481,15 @@ Run Ledger **1.0** for `m03_synthetic_smoke_eval` is **synthetic factory self-ch
 
 | File | Rows | SHA256 (prefix) |
 | ---- | ---- | --------------- |
-| corpus.jsonl | 17963 | `1940a41c…` |
-| problems.jsonl | 9500 | `4b8bd8b6…` |
-| generation.jsonl | 9500 | `58383d4e…` |
-| train.csv | 69029 | `c99877ac…` |
+| corpus.jsonl | 17963 | `1940a41c68d0f70013e0e448e04dd17c9143403bc1ce991e4603e9ad38b9fcf5` |
+| problems.jsonl | 9500 | `4b8bd8b62905fe156ffc9033f5677286e75a80e907841b0988a4b50cc4b8742e` |
+| generation.jsonl | 9500 | `58383d4ecb831d9a6567a34a9cccb0a48ba78c1511790eb981c011685ccd315d` |
+| train.csv | 69029 | `c99877aca84dc1564ef741a722a74458b06aa616b0b627d493a913063bd536ef` |
 
-Derived notes: `docs/milestones/M06/external_schema_notes_*.md`. External clone: `C:\coding\nemotron-inspect` (not in repo).
+**Baseline commit (inspection):** `82bd1880aa8a8986ad572ccd17ae35b2b5c7da85`  
+**External clone path:** `C:\coding\nemotron-inspect` (outside FORGE tree; not in repo)  
+**Committed to FORGE:** derived notes only — no raw rows, code, tokenizer, checkpoints, adapters, or credentials  
+**Open mapping:** `corpus.segment` partial — SQ-CORPUS-001; `\boxed{}` not observed in inspected samples
 
 ### Schema-gate manifest disclaimer
 
@@ -495,9 +499,9 @@ Derived notes: `docs/milestones/M06/external_schema_notes_*.md`. External clone:
 
 ### Next recommendation
 
-1. **Owner:** Merge PR #7 when ready (express permission required).  
-2. **Owner:** Record Submit UI zip constraints (**OPEN**).  
-3. **Owner:** Authorize M07 training gate (`M06_TRAINING_AUTHORIZED = yes` + manifest fields) before any SFT/inference.  
+1. **Owner:** Record Submit UI `submission.zip` constraints (**OPEN**).  
+2. **Owner:** Authorize M07 training gate (`training_authorized` + `owner_training_authorization` + `credentials_ready` + compute path) before any SFT/inference.  
+3. **Cursor:** Expand M07 plan when owner authorizes kickoff — **do not** start M07 without explicit permission.  
 4. **Defer:** Training, Kaggle submission, baseline reproduction claims until M07 Gate C satisfied.
 
 ---
@@ -538,4 +542,5 @@ Derived notes: `docs/milestones/M06/external_schema_notes_*.md`. External clone:
 | 2026-06-04 | M05 | PR #6 squash-merged to `main` | `34169d0`; post-merge CI 26983281413 green |
 | 2026-06-04 | M06 | M06 kickoff; Gate B schema inspection authorized | Branch `forge/M06-control-repro-execution-gate`; Gate C no |
 | 2026-06-04 | M06 | External schema inspection complete | Baseline `82bd1880`; derived notes only; no raw data in repo |
-| 2026-06-04 | M06 | M06 closed on branch; PR #7 CI green | `895a3cb`; audit 4.6/5; M07 training auth gate stub |
+| 2026-06-04 | M06 | M06 closed on branch; PR #7 CI green | `354f630`; audit 4.6/5; M07 training auth gate stub |
+| 2026-06-04 | M06 | PR #7 squash-merged to `main` | `a7de356`; post-merge CI 26985969954 green; branch deleted |

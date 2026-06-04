@@ -4,10 +4,11 @@
 **Phase:** Lane A — public control reproduction (execution gate)  
 **Milestone:** M06 — Controlled Public Baseline Reproduction Execution Gate  
 **Timeframe:** 2026-06-04  
-**Status:** Closed — PR [#7](https://github.com/m-cahill/forge/pull/7) open; CI **green**; merge pending owner permission  
-**Branch:** `forge/M06-control-repro-execution-gate`  
-**PR head:** `895a3cb`  
-**PR CI:** [26985544150](https://github.com/m-cahill/forge/actions/runs/26985544150) **green**  
+**Status:** Closed — PR [#7](https://github.com/m-cahill/forge/pull/7) **merged** to `main` (`a7de356`) 2026-06-04T23:33:42Z  
+**Branch:** `forge/M06-control-repro-execution-gate` (deleted after merge)  
+**PR head at merge:** `354f630`  
+**PR CI:** [26985581070](https://github.com/m-cahill/forge/actions/runs/26985581070) **green**  
+**Post-merge CI:** [26985969954](https://github.com/m-cahill/forge/actions/runs/26985969954) **green**  
 **Baseline:** M05 merged `34169d0`
 
 ---
@@ -124,6 +125,6 @@ No HIGH defects blocking M06 closeout.
 | Summary + audit + run1 | Yes |
 | Non-claims preserved | Yes |
 | No raw baseline data in repo | Yes |
-| Merge to `main` | Pending owner permission |
+| Merge to `main` | Yes — `a7de356` (2026-06-04T23:33:42Z) |
 
 **Next recommendation:** Owner authorizes M07 Gate C when ready; record Submit UI zip constraints when available.

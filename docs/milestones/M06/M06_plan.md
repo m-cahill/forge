@@ -7,7 +7,7 @@
 | **Milestone** | M06 |
 | **Title** | Controlled Public Baseline Reproduction Execution Gate |
 | **Branch** | `forge/M06-control-repro-execution-gate` |
-| **Status** | closed — PR [#7](https://github.com/m-cahill/forge/pull/7); merge pending |
+| **Status** | **merged** to `main` (`a7de356`) via PR [#7](https://github.com/m-cahill/forge/pull/7) |
 | **Precondition** | M05 merged to `main`; post-merge CI green; owner authorized M06 kickoff |
 | **Gate B** | `M06_SCHEMA_INSPECTION_AUTHORIZED = yes` |
 | **Gate C** | `M06_TRAINING_AUTHORIZED = no` |

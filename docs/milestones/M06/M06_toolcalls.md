@@ -18,3 +18,6 @@ Record notable Cursor/tool actions for M06 (controlled public baseline reproduct
 | 2026-06-04T23:32:00Z | Cursor | git push + PR #7 | https://github.com/m-cahill/forge/pull/7 |
 | 2026-06-04T23:35:00Z | Cursor | CI watch | Run 26985544150 green (3.10–3.12) |
 | 2026-06-04T23:40:00Z | Cursor | M06 closeout | summary, audit, run1; forge.md updated; merge not performed |
+| 2026-06-04T23:33:42Z | Cursor | PR #7 squash-merged | `a7de356` on `main`; branch deleted |
+| 2026-06-04T23:34:30Z | Cursor | Post-merge CI | Run 26985969954 green (3.10–3.12) |
+| 2026-06-04T23:36:00Z | Cursor | Post-merge docs | forge.md, README, M06_summary/plan updated on `main` |
