@@ -13,11 +13,26 @@ Record every Kaggle verification attempt. Do not claim scores, submission succes
 | Entry deadline | June 8, 2026 | Kaggle public page / search | 2026-06-03 | Cursor (owner should reconfirm on site) |
 | Final deadline | June 15, 2026, 11:59 PM UTC | Kaggle public page / search | 2026-06-03 | Cursor (owner should reconfirm on site) |
 | Daily submission limit | **5 per day** (`0 / 5 used` at probe) | Authenticated Submit UI + M01 debug probe | 2026-06-04 | Owner |
-| Rules accepted / team joined | **OWNER ACTION** | Authenticated account/team | — | Pending |
+| Rules accepted / team joined | **Yes** | Authenticated competition page / Rules or Submit UI | 2026-06-04 | Owner |
+| Submit UI accessible | **Yes** | Authenticated Submit UI | 2026-06-04 | Owner |
+| Team name | not recorded | Submit UI / team page | 2026-06-04 | Owner |
+| Additional Submit UI notes | not recorded | Submit UI (warnings, zip constraints) | — | Pending |
 | Base model | NVIDIA-Nemotron-3-Nano-30B | Overview | 2026-06-03 | Cursor |
 | Submission artifact | `submission.zip` (LoRA + `adapter_config.json`) | Overview | 2026-06-03 | Cursor |
 | LoRA rank limit | ≤ 32 | Overview | 2026-06-03 | Cursor |
 | Kaggle API submission supported | **TBD** | Submit UI / docs | — | Pending |
+
+### Rules / team verification (2026-06-04)
+
+| Field | Value |
+| ----- | ----- |
+| Rules accepted / team joined | **Yes** |
+| Verified via | Authenticated Kaggle competition page / Rules or Submit UI |
+| Submit UI accessible | **Yes** |
+| Team name | not recorded |
+| Additional notes | not recorded |
+
+**Non-claims:** This confirms competition eligibility intake only. It does **not** prove submission readiness, package validity, a scored submission, or a public score.
 
 ## Notebook / debug attempts
 
@@ -48,5 +63,5 @@ Record every Kaggle verification attempt. Do not claim scores, submission succes
 - [ ] Reconfirm entry deadline (June 8, 2026) on live Kaggle
 - [ ] Reconfirm final deadline (June 15, 2026 23:59 UTC) on live Kaggle
 - [x] Record daily submission limit from Submit UI — **5 per day** (2026-06-04)
-- [ ] Record rules accepted / team status
+- [x] Record rules accepted / team status — **yes**; Submit UI accessible (2026-06-04)
 - [ ] Note any extra `submission.zip` constraints from UI

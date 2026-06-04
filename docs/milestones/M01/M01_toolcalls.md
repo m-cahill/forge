@@ -29,3 +29,4 @@ Record notable Cursor/tool actions for M01 (control baseline preflight and valid
 | 2026-06-04T06:29:00Z | Cursor | CI green | Run 26934972365; 3.10/3.11/3.12 matrix pass |
 | 2026-06-04T06:32:00Z | Cursor | M01 closeout | summary, audit, run1; M02 stub; forge.md updated |
 | 2026-06-04T07:00:00Z | Cursor | Kaggle probe evidence | BQ-001 closed (5/day); kaggle_setup_evidence; notebook UTC fix |
+| 2026-06-04T07:10:00Z | Cursor | BQ-003 owner evidence | Rules/team yes; Submit UI accessible; forge.md + kaggle_setup_evidence |

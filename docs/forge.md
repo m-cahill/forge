@@ -1,7 +1,7 @@
 # FORGE — Ultimate Truth
 
 **Project:** FORGE — Kaggle NVIDIA Nemotron Model Reasoning Challenge  
-**Last updated:** 2026-06-04 (Kaggle probe evidence; BQ-001 closed)  
+**Last updated:** 2026-06-04 (BQ-001 and BQ-003 closed; Kaggle intake evidence)  
 **Status:** M00 and M01 **merged** to `main`; **active milestone:** M02 planning (not started)  
 **Main SHA:** `d59d97b91252f9236e374292bbba8f9027edcbc1` (M01 squash merge via PR [#2](https://github.com/m-cahill/forge/pull/2))  
 **M01 PR head (pre-merge):** `94d29f289dee778b45e2ec8da707112a75e86bdf` · final PR CI [26935090190](https://github.com/m-cahill/forge/actions/runs/26935090190)
@@ -37,7 +37,7 @@ No milestone may close unless:
 | Entry deadline | **June 8, 2026** | Kaggle public page (owner reconfirm on site) | 2026-06-03 |
 | Final deadline | **June 15, 2026, 11:59 PM UTC** | Kaggle public page (owner reconfirm on site) | 2026-06-03 |
 | Daily submission limit | **5 per day** (0/5 used at probe) | Kaggle Submit UI + M01 debug probe | 2026-06-04 |
-| Rules accepted | **OWNER ACTION** — do not guess | Authenticated account/team status | — |
+| Rules accepted / team joined | **Yes** (Submit UI accessible) | Owner — authenticated competition/Rules UI | 2026-06-04 |
 
 ---
 
@@ -58,7 +58,7 @@ FORGE is a solver-guided, artifact-first, audit-governed LoRA competition system
 | -- | -------- | -------------- | ----- | ------ | ------ |
 | BQ-001 | What is the live daily submission limit? | Controls submission budget | Owner | Pre-M01 submit | **resolved** — 5 per day (Submit UI `0/5 used`; probe 2026-06-04) |
 | BQ-002 | What are the exact entry and final deadlines? | Prevents eligibility failure | Cursor | M00 | **partial** — public dates recorded; owner reconfirm on site |
-| BQ-003 | Has the team accepted rules / joined competition? | Required before submission | Owner | Pre-M01 submit | **owner-action** — authenticated status |
+| BQ-003 | Has the team accepted rules / joined competition? | Required before submission | Owner | Pre-M01 submit | **resolved** — yes; Submit UI accessible (owner 2026-06-04) |
 | BQ-004 | What public baseline/control repo will M01 reproduce first? | Determines M01 scope | Cursor | M01 | **resolved (recommendation)** — `tonghuikang/nemotron`; see § M01 Recommendation |
 
 ---
@@ -191,8 +191,8 @@ A candidate may advance only when all applicable gates are satisfied:
 | Public leaderboard overfit | Poor private score | Hard holdouts + anti-forgetting gates | — | M02+ | Per-category gates enforced | open |
 | Documentation ineligibility | Prize loss | Public notebook/write-up in M06 | — | M06 | Notebook and write-up public | open |
 | Daily submission limit unknown | Poor slot allocation | Owner verifies Submit UI | Owner | Pre-M01 submit | BQ-001 closed; value in §1 Competition Snapshot | **resolved** — 5/day (2026-06-04) |
-| Rules/team not verified | Eligibility failure | Owner verifies competition enrollment | Owner | Pre-M01 submit | BQ-003 closed; evidence row filled | **owner-action** |
-| Authenticated Kaggle facts unavailable to Cursor | Guessed limits / wrong intake | Owner-action blockers only | Owner | Pre-M01 submit | DEF-001 closed; DEF-002 open | **partial** — DEF-001 closed |
+| Rules/team not verified | Eligibility failure | Owner verifies competition enrollment | Owner | Pre-M01 submit | BQ-003 closed; evidence row filled | **resolved** — 2026-06-04 |
+| Authenticated Kaggle facts unavailable to Cursor | Guessed limits / wrong intake | Owner-action blockers only | Owner | Pre-M01 submit | DEF-001, DEF-002 closed | **resolved** — intake recorded 2026-06-04 |
 | Hard-category misidentification | Training time wasted | Control error analysis | — | M01/M02 | Error taxonomy exists | open |
 | Catastrophic forgetting | Score regression | Anti-forgetting gates | — | M04+ | Control categories preserved | open |
 | Data leakage / rule violation | Disqualification | Provenance + holdout checks | — | M02+ | Contamination check pass | open |
@@ -267,18 +267,32 @@ A candidate may advance only when all applicable gates are satisfied:
 
 Evidence: [`docs/kaggle/kaggle_setup_evidence.md`](kaggle/kaggle_setup_evidence.md)
 
+### Kaggle eligibility intake (owner 2026-06-04)
+
+| Field | Value |
+| ----- | ----- |
+| Rules accepted / team joined | **Yes** |
+| Verified via | Authenticated competition page / Rules or Submit UI |
+| Submit UI accessible | **Yes** |
+| Team name | not recorded |
+| Additional UI notes | not recorded (zip constraints / warnings TBD) |
+
+Evidence: [`docs/kaggle/kaggle_setup_evidence.md`](kaggle/kaggle_setup_evidence.md)
+
 ### Owner-action blockers
 
-- **BQ-001:** **Resolved** — 5 submissions per day (owner Submit UI + probe)
-- **BQ-003:** **Open** — rules accepted / team joined not yet recorded
+- **BQ-001:** **Resolved** — 5 submissions per day
+- **BQ-003:** **Resolved** — rules accepted; team joined; Submit UI accessible
+- **BQ-002:** **Partial** — reconfirm entry/final deadlines on live site
+- **Submit UI zip constraints:** **Open** — not yet recorded
 
-Do not submit to Kaggle until BQ-003 is resolved with evidence.
+Kaggle **submission is not authorized** without a validated package, local eval, and explicit owner go-ahead. Eligibility ≠ submission readiness.
 
 ### Next recommendation
 
-1. **Owner:** Record BQ-003 (rules/team), reconfirm deadlines, Submit UI zip constraints.  
+1. **Owner:** Reconfirm deadlines (BQ-002); record any `submission.zip` constraints from Submit UI.  
 2. **Cursor (when authorized):** Expand M02 plan and implement on `forge/M02-local-eval`.  
-3. **Defer:** Public baseline training until M02 eval discipline is in place; GPU notebook runs for training TBD.
+3. **Defer:** Public baseline training until M02 eval discipline is in place.
 
 ---
 
@@ -301,3 +315,4 @@ Do not submit to Kaggle until BQ-003 is resolved with evidence.
 | 2026-06-04 | M01 | M01 closed (not merged) | Summary/audit/run1; M02 stub seeded |
 | 2026-06-04 | M01 | PR #2 squash-merged to `main` | `d59d97b`; post-merge CI 26935381116 green |
 | 2026-06-04 | M01 | Kaggle interactive debug probe | BQ-001 closed (5/day); probe SHA256 recorded; BQ-003 still open |
+| 2026-06-04 | M01 | Rules/team eligibility verified | BQ-003 closed; Submit UI accessible; team name not recorded |
