@@ -8,7 +8,7 @@ Solver-guided, artifact-first LoRA engineering for `NVIDIA-Nemotron-3-Nano-30B`:
 
 **M11** — Credential and cost closure continuation (stub; see `docs/milestones/M11/M11_plan.md`).
 
-M10 complete on branch — PR [#11](https://github.com/m-cahill/forge/pull/11) CI **green**; merge pending. Probe: RTX 5090 visible; `torch.cuda` **false** (`visible_no_torch_cuda`). Training **NO-GO**.
+M00–M10 merged to `main` (`dc45813`). Post-merge CI **green** [27032692673](https://github.com/m-cahill/forge/actions/runs/27032692673). M10 probe: RTX 5090 visible; `torch.cuda` **false** (`visible_no_torch_cuda`). Training **NO-GO**.
 
 ```bash
 python scripts/validate_reproduction_plan.py \

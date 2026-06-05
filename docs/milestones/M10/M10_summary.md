@@ -4,9 +4,11 @@
 **Phase:** Lane A — compute readiness (local hardware probe)  
 **Milestone:** M10 — Local 5090 Feasibility Probe  
 **Timeframe:** 2026-06-05  
-**Status:** Closed on branch — PR [#11](https://github.com/m-cahill/forge/pull/11) CI **green** [27027762042](https://github.com/m-cahill/forge/actions/runs/27027762042); **merge pending** owner permission  
-**Branch:** `forge/M10-local-5090-feasibility-probe`  
-**PR head:** `84529d1`  
+**Status:** Closed — PR [#11](https://github.com/m-cahill/forge/pull/11) **merged** to `main` (`dc45813`) 2026-06-05T18:26:01Z  
+**Branch:** `forge/M10-local-5090-feasibility-probe` (deleted after merge)  
+**PR head at merge:** `e079f87`  
+**PR CI:** [27027813185](https://github.com/m-cahill/forge/actions/runs/27027813185) **green**  
+**Post-merge CI:** [27032692673](https://github.com/m-cahill/forge/actions/runs/27032692673) **green**  
 **Baseline:** M09 merged `5a4300b`
 
 ---

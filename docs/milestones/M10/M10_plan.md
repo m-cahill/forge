@@ -7,7 +7,7 @@
 | **Milestone** | M10 |
 | **Title** | Local 5090 Feasibility Probe |
 | **Branch** | `forge/M10-local-5090-feasibility-probe` |
-| **Status** | **complete** — PR [#11](https://github.com/m-cahill/forge/pull/11) CI green; merge pending |
+| **Status** | **merged** — PR [#11](https://github.com/m-cahill/forge/pull/11) squash-merged to `main` (`dc45813`) |
 | **Precondition** | M09 merged to `main`; post-merge CI green; owner authorized M10 kickoff |
 | **Primary goal** | Run a safe no-training local hardware/environment probe and record whether local compute is viable for future preflight, tiny feasibility, or controlled training milestones |
 
@@ -124,7 +124,7 @@ Update `docs/forge.md` Environment and Compute Ledger with probe status, GPU, CU
 - [x] Tests/CI green on PR — [27027762042](https://github.com/m-cahill/forge/actions/runs/27027762042)
 - [x] No training, inference, submission, adapters, credentials, baseline copy
 - [x] No overclaiming training readiness
-- [ ] Merge to `main` — **pending owner permission**
+- [x] Merge to `main` — `dc45813`; post-merge CI [27032692673](https://github.com/m-cahill/forge/actions/runs/27032692673) **green**
 
 ---
 
