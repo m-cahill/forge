@@ -17,4 +17,8 @@ Record notable Cursor/tool actions for M08 (compute and credential readiness clo
 | 2026-06-05T02:20:00Z | Cursor | Phase C probe script | `probe_local_5090.py`, `gpu_probe.py`, unit tests |
 | 2026-06-05T02:25:00Z | Cursor | Phase D manifest + validator | readiness JSON; `reproduction_plan.py` extensions |
 | 2026-06-05T02:30:00Z | Cursor | pytest; ruff; mypy; validate_reproduction_plan | 163 tests pass; readiness manifest OK |
-| 2026-06-05T02:35:00Z | Cursor | Phase E M08_next_decision; forge.md | governance updates |
+| 2026-06-05T02:35:00Z | Cursor | Phase E M08_next_decision; forge.md | governance updates — commit `5138594` |
+| 2026-06-05T03:00:00Z | Cursor | Pre-push hygiene + local verify | clean tree; ruff/mypy/pytest/compileall/validate OK |
+| 2026-06-05T03:01:00Z | Cursor | git push; gh pr create | PR [#9](https://github.com/m-cahill/forge/pull/9) |
+| 2026-06-05T03:02:00Z | Cursor | gh run watch 26988802789 | CI **green** (3.10–3.12) |
+| 2026-06-05T03:10:00Z | Cursor | M08 closeout | summary, audit, run1, forge.md, M09 stub |

@@ -7,7 +7,7 @@
 | **Milestone** | M08 |
 | **Title** | Compute and Credential Readiness Closure |
 | **Branch** | `forge/M08-compute-credential-readiness` |
-| **Status** | **active** |
+| **Status** | **closed on branch** — PR [#9](https://github.com/m-cahill/forge/pull/9); merge pending |
 | **Precondition** | M07 merged to `main`; post-merge CI green; owner authorized M08 kickoff |
 | **Primary goal** | Resolve or explicitly defer compute, credential, and Submit UI blockers that prevent Gate C training authorization |
 
@@ -104,13 +104,13 @@ M08 is a **readiness closure milestone**, not a training milestone.
 
 ## 6. Acceptance criteria
 
-- [ ] Branch `forge/M08-compute-credential-readiness` from green `main`
-- [ ] All deliverables in §4 exist
-- [ ] Readiness manifest validates
-- [ ] Submit UI constraints OPEN or evidenced (not guessed)
-- [ ] No training/inference/submission/credentials/adapters
-- [ ] CI green on PR
-- [ ] `M08_next_decision.md` recommends primary M09 path
+- [x] Branch `forge/M08-compute-credential-readiness` from green `main`
+- [x] All deliverables in §4 exist
+- [x] Readiness manifest validates
+- [x] Submit UI constraints OPEN or evidenced (not guessed) — **OPEN** preserved
+- [x] No training/inference/submission/credentials/adapters
+- [x] CI green on PR — [26988802789](https://github.com/m-cahill/forge/actions/runs/26988802789)
+- [x] `M08_next_decision.md` recommends primary M09 path — Modal/Tinker setup gate
 
 ---
 
