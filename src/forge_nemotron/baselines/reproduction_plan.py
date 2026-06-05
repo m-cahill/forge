@@ -127,7 +127,7 @@ def validate_reproduction_plan(data: dict[str, Any]) -> list[str]:
         errors.append(f"missing required keys: {', '.join(missing)}")
         return errors
 
-    for key in ("plan_id", "baseline_repo", "license_status", "copying_policy", "compute_path"):
+    for key in ("plan_id", "baseline_repo", "license_status", "copying_policy"):
         if not _is_non_empty_string(data.get(key)):
             errors.append(f"{key} must be a non-empty string")
 
@@ -189,6 +189,14 @@ def validate_reproduction_plan(data: dict[str, Any]) -> list[str]:
     if credentials_ready is not None and not isinstance(credentials_ready, bool):
         errors.append("credentials_ready must be a boolean when present")
 
+    cost_accepted = data.get("cost_accepted")
+    if cost_accepted is not None and not isinstance(cost_accepted, bool):
+        errors.append("cost_accepted must be a boolean when present")
+
+    ready_for_training = data.get("ready_for_training")
+    if ready_for_training is not None and not isinstance(ready_for_training, bool):
+        errors.append("ready_for_training must be a boolean when present")
+
     non_claims = data.get("non_claims")
     if not isinstance(non_claims, list) or not all(
         _is_non_empty_string(item) for item in non_claims
@@ -201,8 +209,46 @@ def validate_reproduction_plan(data: dict[str, Any]) -> list[str]:
     if errors:
         return errors
 
+    errors.extend(_validate_compute_path_field(data, status, ready_for_training))
+    errors.extend(
+        _validate_ready_for_training_field(data, status, training_authorized, ready_for_training)
+    )
     errors.extend(_validate_copying_policy(data))
     errors.extend(_validate_authorization_rules(data, status))
+    return errors
+
+
+def _validate_compute_path_field(
+    data: dict[str, Any],
+    status: ReproductionPlanStatus,
+    ready_for_training: Any,
+) -> list[str]:
+    errors: list[str] = []
+    compute_path = data.get("compute_path")
+    needs_path = status == ReproductionPlanStatus.READY_FOR_TRAINING or ready_for_training is True
+    if needs_path:
+        if not _is_non_empty_string(compute_path):
+            errors.append("compute_path must be a non-empty string when ready for training")
+    elif not _is_nullable_string(compute_path):
+        errors.append("compute_path must be null or a non-empty string")
+    return errors
+
+
+def _validate_ready_for_training_field(
+    data: dict[str, Any],
+    status: ReproductionPlanStatus,
+    training_authorized: Any,
+    ready_for_training: Any,
+) -> list[str]:
+    errors: list[str] = []
+    if ready_for_training is None:
+        return errors
+    if ready_for_training and training_authorized is False:
+        errors.append("ready_for_training true requires training_authorized true")
+    if ready_for_training and status != ReproductionPlanStatus.READY_FOR_TRAINING:
+        errors.append("ready_for_training true requires status ready_for_training")
+    if status == ReproductionPlanStatus.READY_FOR_TRAINING and ready_for_training is not True:
+        errors.append("status ready_for_training requires ready_for_training true")
     return errors
 
 
@@ -251,11 +297,16 @@ def _validate_ready_for_training_gates(data: dict[str, Any]) -> list[str]:
     credentials_ready = data.get("credentials_ready")
     credentials_waived = data.get("credentials_waived")
     if credentials_waived is True:
-        return errors
-    if credentials_ready is not True:
+        pass
+    elif credentials_ready is not True:
         errors.append(
             "status ready_for_training requires credentials_ready true or credentials_waived true"
         )
+
+    cost_accepted = data.get("cost_accepted")
+    cost_waived = data.get("cost_waived")
+    if cost_waived is not True and cost_accepted is not True:
+        errors.append("status ready_for_training requires cost_accepted true or cost_waived true")
     return errors
 
 
@@ -304,7 +355,7 @@ def _validate_authorization_rules(
         if not training_authorized:
             errors.append("status ready_for_training requires training_authorized true")
         if not _is_non_empty_string(data.get("compute_path")):
-            errors.append("status ready_for_training requires compute_path")
+            errors.append("status ready_for_training requires non-null compute_path")
         if not _is_non_empty_string(data.get("owner_training_authorization")):
             errors.append("status ready_for_training requires owner_training_authorization")
         errors.extend(_validate_ready_for_training_gates(data))
