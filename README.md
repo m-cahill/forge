@@ -8,7 +8,7 @@ Solver-guided, artifact-first LoRA engineering for `NVIDIA-Nemotron-3-Nano-30B`:
 
 **M09** — Modal/Tinker setup gate (stub; see `docs/milestones/M09/M09_plan.md`).
 
-M00–M07 merged to `main` (`06ada17`). M08 closed on branch — PR [#9](https://github.com/m-cahill/forge/pull/9) (merge pending). `M08_TRAINING_AUTHORIZED = no`; probe script created but **not run**; readiness manifest validates.
+M00–M08 merged to `main` (`ac7c5f2`). `M08_TRAINING_AUTHORIZED = no`; probe script created but **not run**; readiness manifest validates. **Next:** M09 stub only.
 
 ```bash
 python scripts/validate_reproduction_plan.py \

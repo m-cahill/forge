@@ -7,7 +7,7 @@
 | **Milestone** | M08 |
 | **Title** | Compute and Credential Readiness Closure |
 | **Branch** | `forge/M08-compute-credential-readiness` |
-| **Status** | **closed on branch** — PR [#9](https://github.com/m-cahill/forge/pull/9); merge pending |
+| **Status** | **merged** to `main` (`ac7c5f2`) via PR [#9](https://github.com/m-cahill/forge/pull/9) |
 | **Precondition** | M07 merged to `main`; post-merge CI green; owner authorized M08 kickoff |
 | **Primary goal** | Resolve or explicitly defer compute, credential, and Submit UI blockers that prevent Gate C training authorization |
 

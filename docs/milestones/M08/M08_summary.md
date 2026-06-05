@@ -4,10 +4,11 @@
 **Phase:** Lane A — public control reproduction (readiness closure)  
 **Milestone:** M08 — Compute and Credential Readiness Closure  
 **Timeframe:** 2026-06-05  
-**Status:** Closed on branch — PR [#9](https://github.com/m-cahill/forge/pull/9) open (merge pending owner permission)  
-**Branch:** `forge/M08-compute-credential-readiness`  
-**PR head (closeout):** `dc4830c` (implementation through `5138594`)  
-**PR CI:** [26988802789](https://github.com/m-cahill/forge/actions/runs/26988802789), [26988839036](https://github.com/m-cahill/forge/actions/runs/26988839036) **green**  
+**Status:** Closed — PR [#9](https://github.com/m-cahill/forge/pull/9) **merged** to `main` (`ac7c5f2`) 2026-06-05T01:22:07Z  
+**Branch:** `forge/M08-compute-credential-readiness` (deleted after merge)  
+**PR head at merge:** `448692b`  
+**PR CI:** [26988858986](https://github.com/m-cahill/forge/actions/runs/26988858986) **green**  
+**Post-merge CI:** [26989604207](https://github.com/m-cahill/forge/actions/runs/26989604207) **green**  
 **Baseline:** M07 merged `06ada17`
 
 ---
@@ -131,6 +132,6 @@ No HIGH defects blocking M08 closeout.
 | Summary + audit + run1 | Yes |
 | Non-claims preserved | Yes |
 | No probe output / credentials / adapters in repo | Yes |
-| Merge to `main` | Pending owner permission |
+| Merge to `main` | Yes — `ac7c5f2` (2026-06-05T01:22:07Z) |
 
-**Next recommendation:** Merge PR #9 when authorized; kick off M09 credential/cost closure; owner records Submit UI constraints and Gate C when ready for training.
+**Next recommendation:** Kick off M09 Modal/Tinker setup gate when authorized; owner records Submit UI constraints, credential/cost evidence, and Gate C when ready for training.

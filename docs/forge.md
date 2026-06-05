@@ -1,11 +1,12 @@
 # FORGE — Ultimate Truth
 
 **Project:** FORGE — Kaggle NVIDIA Nemotron Model Reasoning Challenge  
-**Last updated:** 2026-06-05 (M08 closed on branch; PR [#9](https://github.com/m-cahill/forge/pull/9) open — merge pending)  
-**Status:** M00–M07 **merged** to `main`; M08 **closed on branch** — PR [#9](https://github.com/m-cahill/forge/pull/9) awaiting merge permission  
-**Main SHA:** `06ada1738c914ab23343a20f0c8864d58440256b` (M07 squash merge via PR [#8](https://github.com/m-cahill/forge/pull/8))  
-**M08 PR head:** `dc4830c` · PR CI [26988839036](https://github.com/m-cahill/forge/actions/runs/26988839036) **green** (impl [26988802789](https://github.com/m-cahill/forge/actions/runs/26988802789))  
-**M07 authorization:** `M07_TRAINING_AUTHORIZED = no` · **M08:** `M08_TRAINING_AUTHORIZED = no` — training **NO-GO**
+**Last updated:** 2026-06-05 (M08 merged to `main`; post-merge CI green)  
+**Status:** M00–M08 **merged** to `main`; **next:** M09 Modal/Tinker setup gate (stub only)  
+**Main SHA:** `ac7c5f249ca39181d4e167193e6d7c70e5e5a198` (M08 squash merge via PR [#9](https://github.com/m-cahill/forge/pull/9))  
+**M08 PR head (pre-merge):** `448692b` · PR CI [26988858986](https://github.com/m-cahill/forge/actions/runs/26988858986) **green**  
+**Post-merge CI on `main`:** [26989604207](https://github.com/m-cahill/forge/actions/runs/26989604207) **green** (push on `ac7c5f2`)  
+**M08 authorization:** `M08_LOCAL_5090_PROBE_AUTHORIZED = no` (probe **not** run) · `M08_TRAINING_AUTHORIZED = no` — training **NO-GO**
 
 ---
 
@@ -105,7 +106,7 @@ FORGE is a solver-guided, artifact-first, audit-governed LoRA competition system
 | M05 | Controlled public baseline reproduction planning | `forge/M05-control-repro-planning` → `main` | **merged** (`34169d0`) | **green** — post-merge [26983281413](https://github.com/m-cahill/forge/actions/runs/26983281413) | 4.6/5 | [M05_summary](milestones/M05/M05_summary.md) |
 | M06 | Controlled public baseline reproduction execution gate | `forge/M06-control-repro-execution-gate` → `main` | **merged** (`a7de356`) | **green** — post-merge [26985969954](https://github.com/m-cahill/forge/actions/runs/26985969954) | 4.6/5 | [M06_summary](milestones/M06/M06_summary.md) |
 | M07 | Controlled public baseline training authorization gate | `forge/M07-training-authorization-gate` → `main` | **merged** (`06ada17`) | **green** — post-merge [26988100314](https://github.com/m-cahill/forge/actions/runs/26988100314) | 4.6/5 | [M07_summary](milestones/M07/M07_summary.md) |
-| M08 | Compute and credential readiness closure | `forge/M08-compute-credential-readiness` → `main` | **closed on branch** — PR [#9](https://github.com/m-cahill/forge/pull/9) | **green** — [26988839036](https://github.com/m-cahill/forge/actions/runs/26988839036) | 4.6/5 | [M08_summary](milestones/M08/M08_summary.md) |
+| M08 | Compute and credential readiness closure | `forge/M08-compute-credential-readiness` → `main` | **merged** (`ac7c5f2`) | **green** — post-merge [26989604207](https://github.com/m-cahill/forge/actions/runs/26989604207) | 4.6/5 | [M08_summary](milestones/M08/M08_summary.md) |
 | M09 | Modal/Tinker setup gate | — | **next** — stub only | — | — | [M09_plan](milestones/M09/M09_plan.md) (stub) |
 
 ---
@@ -558,11 +559,13 @@ Run Ledger **1.0** for `m03_synthetic_smoke_eval` is **synthetic factory self-ch
 
 ## M08 Closeout Record (compute/credential readiness)
 
-**Branch:** `forge/M08-compute-credential-readiness` (open; merge pending)  
-**PR:** [#9](https://github.com/m-cahill/forge/pull/9) — **open** (not merged)  
-**PR head:** `dc4830c`  
-**PR CI:** [26988839036](https://github.com/m-cahill/forge/actions/runs/26988839036) **green** (Python 3.10–3.12); impl run [26988802789](https://github.com/m-cahill/forge/actions/runs/26988802789)  
-**Local verification:** 163 pytest; ruff/mypy/compileall pass; readiness manifest validates; probe `--help` only
+**Branch:** `forge/M08-compute-credential-readiness` (merged; branch deleted)  
+**PR:** [#9](https://github.com/m-cahill/forge/pull/9) — **merged** 2026-06-05T01:22:07Z (squash)  
+**Squash merge commit on `main`:** `ac7c5f249ca39181d4e167193e6d7c70e5e5a198`  
+**PR head at merge:** `448692b`  
+**PR CI (final head):** [26988858986](https://github.com/m-cahill/forge/actions/runs/26988858986) **green** (Python 3.10–3.12)  
+**Post-merge CI on `main`:** [26989604207](https://github.com/m-cahill/forge/actions/runs/26989604207) **green** (Python 3.10–3.12)  
+**Local verification:** 163 pytest; ruff/mypy/compileall pass; readiness manifest validates; probe `--help` only (probe **not** executed)
 
 **Artifacts:** [M08_summary](milestones/M08/M08_summary.md) · [M08_audit](milestones/M08/M08_audit.md) (4.6/5) · [M08_run1](milestones/M08/M08_run1.md)
 
@@ -593,11 +596,22 @@ Run Ledger **1.0** for `m03_synthetic_smoke_eval` is **synthetic factory self-ch
 - SQ-CORPUS-001: **open**
 - Gate C training authorization: **not provided**
 
+### Authorization state (post-merge)
+
+| Field | Value |
+| ----- | ----- |
+| `M08_LOCAL_5090_PROBE_AUTHORIZED` | **no** |
+| Local 5090 probe executed | **no** |
+| `M08_TRAINING_AUTHORIZED` | **no** |
+| `credentials_ready` | **false** |
+| `cost_accepted` | **false** / TBD |
+| Probe script | exists; CUDA/driver/VRAM **TBD** |
+
 ### Next recommendation
 
-1. **Owner:** Merge PR #9 when ready; supply Modal/Tinker/cost evidence; record Submit UI constraints.  
-2. **Cursor:** M09 Modal/Tinker setup gate per [M08_next_decision](milestones/M08/M08_next_decision.md) when authorized.  
-3. **Defer:** Training, Kaggle submission, baseline reproduction until Gate C and readiness gates satisfied.
+1. **Owner:** Supply Modal/Tinker/cost evidence; record Submit UI constraints; authorize M09 kickoff when ready.  
+2. **Cursor:** M09 Modal/Tinker setup gate per [M08_next_decision](milestones/M08/M08_next_decision.md) when authorized — **not started**.  
+3. **Defer:** Training, Kaggle submission, baseline reproduction, local probe execution until separately authorized.
 
 ---
 
@@ -641,4 +655,5 @@ Run Ledger **1.0** for `m03_synthetic_smoke_eval` is **synthetic factory self-ch
 | 2026-06-04 | M06 | PR #7 squash-merged to `main` | `a7de356`; post-merge CI 26985969954 green; branch deleted |
 | 2026-06-05 | M07 | M07 training auth gate on branch; PR #8 CI green | Path A blocked; manifest validates; audit 4.6/5 |
 | 2026-06-05 | M07 | PR #8 squash-merged to `main` | `06ada17`; post-merge CI 26988100314 green; branch deleted |
-| 2026-06-05 | M08 | M08 readiness closure on branch; PR #9 CI green | Readiness manifest; probe script not run; audit 4.6/5; merge pending |
+| 2026-06-05 | M08 | M08 readiness closure on branch; PR #9 CI green | Readiness manifest; probe script not run; audit 4.6/5 |
+| 2026-06-05 | M08 | PR #9 squash-merged to `main` | `ac7c5f2`; post-merge CI 26989604207 green; branch deleted |
