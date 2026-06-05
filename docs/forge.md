@@ -1,12 +1,13 @@
 # FORGE — Ultimate Truth
 
 **Project:** FORGE — Kaggle NVIDIA Nemotron Model Reasoning Challenge  
-**Last updated:** 2026-06-05 (M10 merged to `main`; post-merge CI green)  
-**Status:** M00–M10 **merged** to `main`; **next:** M11 credential/cost closure (stub only)  
-**Main SHA:** `dc45813` (M10 squash merge via PR [#11](https://github.com/m-cahill/forge/pull/11))  
+**Last updated:** 2026-06-06 (M11 active on `forge/M11-credential-cost-closure`)  
+**Status:** M00–M10 **merged** to `main`; **M11 active** — credential/cost closure  
+**Main SHA:** `9cd7fd8` (post-M10 forge update)  
 **M10 PR head (pre-merge):** `e079f87` · PR CI [27027813185](https://github.com/m-cahill/forge/actions/runs/27027813185) **green**  
-**Post-merge CI on `main`:** [27032692673](https://github.com/m-cahill/forge/actions/runs/27032692673) **green** (push on `dc45813`)  
-**M10 authorization:** `M10_LOCAL_5090_PROBE_AUTHORIZED = yes` (probe executed) · `M10_TRAINING_AUTHORIZED = no` — training **NO-GO**  
+**Post-merge CI on `main`:** [27032692673](https://github.com/m-cahill/forge/actions/runs/27032692673) **green**  
+**M11 authorization:** kickoff **yes** · `M11_LOCAL_CUDA_SETUP_AUTHORIZED = no` · `M11_TRAINING_AUTHORIZED = no`  
+**M11 owner preference:** `prefer_local_cuda` (M12 routing only — not Gate D)  
 **M10 probe classification:** `visible_no_torch_cuda` — GPU visible; PyTorch CPU-only; **not** training readiness
 
 ---
@@ -120,7 +121,7 @@ FORGE is a solver-guided, artifact-first, audit-governed LoRA competition system
 | M08 | Compute and credential readiness closure | `forge/M08-compute-credential-readiness` → `main` | **merged** (`ac7c5f2`) | **green** — post-merge [26989604207](https://github.com/m-cahill/forge/actions/runs/26989604207) | 4.6/5 | [M08_summary](milestones/M08/M08_summary.md) |
 | M09 | Modal/Tinker setup gate | `forge/M09-modal-tinker-setup-gate` → `main` | **merged** (`5a4300b`) | **green** — post-merge [26991673323](https://github.com/m-cahill/forge/actions/runs/26991673323) | 4.6/5 | [M09_summary](milestones/M09/M09_summary.md) |
 | M10 | Local 5090 feasibility probe | `forge/M10-local-5090-feasibility-probe` → `main` | **merged** (`dc45813`) | **green** — post-merge [27032692673](https://github.com/m-cahill/forge/actions/runs/27032692673) | 4.6/5 | [M10_summary](milestones/M10/M10_summary.md) |
-| M11 | Credential and cost closure continuation | — | **next** — stub only | — | — | [M11_plan](milestones/M11/M11_plan.md) (stub) |
+| M11 | Credential and cost closure continuation | `forge/M11-credential-cost-closure` | **active** | pending PR | — | [M11_plan](milestones/M11/M11_plan.md) |
 
 ---
 

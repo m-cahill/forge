@@ -6,6 +6,8 @@ Record notable Cursor/tool actions for M11 (credential and cost closure continua
 
 ## Entries
 
-| Time UTC | Actor | Action | Evidence / Notes |
-| -------- | ----- | ------ | ---------------- |
-| 2026-06-05T16:50:00Z | Cursor | M11 stub seeded | At M10 closeout per `M10_next_decision.md` |
+| Time UTC | Actor | Tool / Action | Purpose | Files / Target | Status |
+| -------- | ----- | ------------- | ------- | -------------- | ------ |
+| 2026-06-05T16:50:00Z | Cursor | stub seed | M11 stub at M10 closeout | `M11_plan.md`, `M11_toolcalls.md` | complete |
+| 2026-06-06T02:00:00Z | Cursor | git checkout -b | Phase A branch from green main | `forge/M11-credential-cost-closure` | complete |
+| 2026-06-06T02:00:00Z | Cursor | write / edit | Phase A plan, forge, README | `docs/milestones/M11/`, `docs/forge.md`, `README.md` | in progress |
