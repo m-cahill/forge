@@ -6,9 +6,9 @@ Solver-guided, artifact-first LoRA engineering for `NVIDIA-Nemotron-3-Nano-30B`:
 
 ## Current milestone
 
-**M09** — Modal/Tinker setup gate on branch `forge/M09-modal-tinker-setup-gate` (see `docs/milestones/M09/M09_plan.md`).
+**M10** — Credential and cost closure continuation (stub; see `docs/milestones/M10/M10_plan.md`).
 
-M00–M08 merged to `main` (`ac7c5f2`). `M09_TRAINING_AUTHORIZED = no`; `M09_LOCAL_5090_PROBE_AUTHORIZED = no`; Modal/Tinker/cost **TBD**; Submit UI constraints **OPEN**.
+M00–M08 merged to `main` (`ac7c5f2`). M09 closed on branch — PR [#10](https://github.com/m-cahill/forge/pull/10) CI **green** [26990264400](https://github.com/m-cahill/forge/actions/runs/26990264400); merge pending. `M09_TRAINING_AUTHORIZED = no`; Modal/Tinker/cost **TBD**.
 
 ```bash
 python scripts/validate_reproduction_plan.py \

@@ -7,7 +7,7 @@
 | **Milestone** | M09 |
 | **Title** | Modal/Tinker Setup Gate |
 | **Branch** | `forge/M09-modal-tinker-setup-gate` |
-| **Status** | **active** — implementation on branch |
+| **Status** | **closed on branch** — PR [#10](https://github.com/m-cahill/forge/pull/10) open; merge pending owner permission |
 | **Precondition** | M08 merged to `main`; post-merge CI green; owner authorized M09 kickoff |
 | **Primary goal** | Determine whether Modal/Tinker (or approved equivalent) is ready for a future controlled public baseline training attempt without storing secrets, training, inference, adapter files, or Kaggle submissions |
 
