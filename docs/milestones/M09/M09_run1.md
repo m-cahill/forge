@@ -14,8 +14,11 @@
 | Run ID | [26990264400](https://github.com/m-cahill/forge/actions/runs/26990264400) |
 | Trigger | `pull_request` |
 | Branch | `forge/M09-modal-tinker-setup-gate` |
-| Commit SHA (PR head) | `434a7de` |
+| Commit SHA (implementation) | `434a7de` |
+| Commit SHA (PR head at closeout) | `861fc71` |
 | PR | [#10](https://github.com/m-cahill/forge/pull/10) |
+| CI run (implementation) | [26990264400](https://github.com/m-cahill/forge/actions/runs/26990264400) **success** |
+| CI run (closeout) | [26990298009](https://github.com/m-cahill/forge/actions/runs/26990298009) **success** |
 | Overall conclusion | **success** |
 
 ---

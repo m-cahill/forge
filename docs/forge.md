@@ -4,7 +4,7 @@
 **Last updated:** 2026-06-05 (M09 closed on branch; PR #10 CI green; merge pending)  
 **Status:** M00–M08 **merged** to `main`; M09 **closed on branch** — PR [#10](https://github.com/m-cahill/forge/pull/10) open (`434a7de`); **next:** M10 stub  
 **Main SHA:** `ac7c5f249ca39181d4e167193e6d7c70e5e5a198` (M08 squash merge via PR [#9](https://github.com/m-cahill/forge/pull/9))  
-**M09 PR CI:** [26990264400](https://github.com/m-cahill/forge/actions/runs/26990264400) **green** (PR head `434a7de`)  
+**M09 PR head:** `861fc71` · **PR CI (final):** [26990298009](https://github.com/m-cahill/forge/actions/runs/26990298009) **green**  
 **M08 PR head (pre-merge):** `448692b` · PR CI [26988858986](https://github.com/m-cahill/forge/actions/runs/26988858986) **green**  
 **Post-merge CI on `main`:** [26989604207](https://github.com/m-cahill/forge/actions/runs/26989604207) **green** (push on `ac7c5f2`)  
 **M08 authorization:** `M08_LOCAL_5090_PROBE_AUTHORIZED = no` (probe **not** run) · `M08_TRAINING_AUTHORIZED = no` — training **NO-GO**  
@@ -622,8 +622,9 @@ Run Ledger **1.0** for `m03_synthetic_smoke_eval` is **synthetic factory self-ch
 
 **Branch:** `forge/M09-modal-tinker-setup-gate` (open; merge pending)  
 **PR:** [#10](https://github.com/m-cahill/forge/pull/10) — **open**  
-**PR head:** `434a7de`  
-**PR CI (final head):** [26990264400](https://github.com/m-cahill/forge/actions/runs/26990264400) **green** (Python 3.10–3.12)  
+**PR head (closeout):** `861fc71`  
+**PR CI (implementation):** [26990264400](https://github.com/m-cahill/forge/actions/runs/26990264400) **green**  
+**PR CI (closeout / final):** [26990298009](https://github.com/m-cahill/forge/actions/runs/26990298009) **green** (Python 3.10–3.12)  
 **Local verification:** 166 pytest; ruff/mypy/compileall pass; modal_tinker_gate manifest validates; probe **not** executed
 
 **Artifacts:** [M09_summary](milestones/M09/M09_summary.md) · [M09_audit](milestones/M09/M09_audit.md) (4.6/5) · [M09_run1](milestones/M09/M09_run1.md)
