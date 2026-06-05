@@ -1,14 +1,14 @@
 # FORGE — Ultimate Truth
 
 **Project:** FORGE — Kaggle NVIDIA Nemotron Model Reasoning Challenge  
-**Last updated:** 2026-06-06 (M11 merged to `main`; post-merge CI green)  
-**Status:** M00–M11 **merged** to `main`; **next:** M12 local CUDA PyTorch (stub only)  
-**Main SHA:** `dd95d0c` (M11 squash merge via PR [#12](https://github.com/m-cahill/forge/pull/12))  
-**M11 PR head (pre-merge):** `af25801` · PR CI [27037642340](https://github.com/m-cahill/forge/actions/runs/27037642340) **green**  
-**Post-merge CI on `main`:** [27038312607](https://github.com/m-cahill/forge/actions/runs/27038312607) **green** (push on `dd95d0c`)  
-**M11 authorization:** kickoff **yes** · `M11_LOCAL_CUDA_SETUP_AUTHORIZED = no` · `M11_TRAINING_AUTHORIZED = no`  
-**M11 owner preference:** `prefer_local_cuda` → M12 Local CUDA PyTorch Environment Enablement (stub)  
-**M10 probe classification:** `visible_no_torch_cuda` — GPU visible; PyTorch CPU-only; **not** training readiness
+**Last updated:** 2026-06-05 (M12 closed on branch; PR #13 CI green)  
+**Status:** M00–M11 **merged** to `main`; **M12 closed** on `forge/M12-local-cuda-pytorch-enablement` — PR [#13](https://github.com/m-cahill/forge/pull/13) open (merge pending)  
+**Main SHA:** `c4176a9` (post-M11 governance on `main`)  
+**M12 PR head:** `21c60e4` · PR CI [27043336258](https://github.com/m-cahill/forge/actions/runs/27043336258) **green**  
+**M12 authorization:** `M12_LOCAL_CUDA_SETUP_AUTHORIZED = yes` · `M12_TRAINING_AUTHORIZED = no` · `M12_INFERENCE_AUTHORIZED = no` · `KAGGLE_SUBMISSION_AUTHORIZED = no`  
+**M12 CUDA classification:** `cuda_ready_probe_only` in `.venv_cuda` (torch 2.11.0+cu128) — **not** training readiness  
+**M11 owner preference:** `prefer_local_cuda`  
+**Next:** M13 Local Training Feasibility Dry Run (stub only)
 
 ---
 
@@ -122,7 +122,8 @@ FORGE is a solver-guided, artifact-first, audit-governed LoRA competition system
 | M09 | Modal/Tinker setup gate | `forge/M09-modal-tinker-setup-gate` → `main` | **merged** (`5a4300b`) | **green** — post-merge [26991673323](https://github.com/m-cahill/forge/actions/runs/26991673323) | 4.6/5 | [M09_summary](milestones/M09/M09_summary.md) |
 | M10 | Local 5090 feasibility probe | `forge/M10-local-5090-feasibility-probe` → `main` | **merged** (`dc45813`) | **green** — post-merge [27032692673](https://github.com/m-cahill/forge/actions/runs/27032692673) | 4.6/5 | [M10_summary](milestones/M10/M10_summary.md) |
 | M11 | Credential and cost closure continuation | `forge/M11-credential-cost-closure` → `main` | **merged** (`dd95d0c`) | **green** — post-merge [27038312607](https://github.com/m-cahill/forge/actions/runs/27038312607) | 4.6/5 | [M11_summary](milestones/M11/M11_summary.md) |
-| M12 | Local CUDA PyTorch environment enablement | — | **next** — stub only | — | — | [M12_plan](milestones/M12/M12_plan.md) (stub) |
+| M12 | Local CUDA PyTorch environment enablement | `forge/M12-local-cuda-pytorch-enablement` → `main` | **closed** on branch — PR [#13](https://github.com/m-cahill/forge/pull/13) open | **green** — [27043336258](https://github.com/m-cahill/forge/actions/runs/27043336258) | 4.6/5 | [M12_summary](milestones/M12/M12_summary.md) |
+| M13 | Local training feasibility dry run | — | **next** — stub only | — | — | [M13_plan](milestones/M13/M13_plan.md) (stub) |
 
 ---
 
@@ -239,7 +240,8 @@ A candidate may advance only when all applicable gates are satisfied:
 
 | Environment ID | Hardware | OS | Python/CUDA | Purpose | Status | Notes |
 | -------------- | -------- | -- | ----------- | ------- | ------ | ----- |
-| local_5090 | NVIDIA GeForce RTX 5090 | Windows 10.0.26200 | Py3.11.9; driver 591.86; torch 2.2.2+cpu (**CUDA false**) | Local eval, QLoRA tests, generation | **probed** — `visible_no_torch_cuda` | [M10 probe](milestones/M10/evidence/local_5090_probe/local_5090_probe.json) 2026-06-05; ~32607 MiB VRAM; **not** training-ready |
+| local_5090 (main env) | NVIDIA GeForce RTX 5090 | Windows 10.0.26200 | Py3.11.9; driver 591.86; torch 2.2.2+cpu (**CUDA false**) | Project verification / CI | **probed** — `visible_no_torch_cuda` | [M10 probe](milestones/M10/evidence/local_5090_probe/local_5090_probe.json) 2026-06-05 |
+| local_5090_cuda (`.venv_cuda`) | NVIDIA GeForce RTX 5090 | Windows 10.0.26200 | Py3.11.9; driver 591.86; torch 2.11.0+cu128; CUDA 12.8 (**CUDA true**) | Isolated CUDA probe only | **`cuda_ready_probe_only`** | [M12 evidence](milestones/M12/evidence/local_cuda_env/cuda_torch_probe.json) 2026-06-05; ~32607 MiB; tiny smoke pass; **not** training-ready |
 | kaggle_notebook | Kaggle Notebook (CPU at probe) | Linux 6.6 / Py3.12 | torch 2.10+cpu; no CUDA | M01 debug probe | probed 2026-06-04 | Interactive; no GPU; ~19.5 GB free; see kaggle_setup_evidence |
 
 ---
@@ -821,6 +823,77 @@ Run Ledger **1.0** for `m03_synthetic_smoke_eval` is **synthetic factory self-ch
 
 ---
 
+## M12 Closeout Record (Local CUDA PyTorch Environment Enablement)
+
+**Branch:** `forge/M12-local-cuda-pytorch-enablement`  
+**PR:** [#13](https://github.com/m-cahill/forge/pull/13) — **open** (merge pending owner permission)  
+**PR head:** `21c60e4a779bd17f7afae17112bdb5b485910723`  
+**PR CI (final head):** [27043336258](https://github.com/m-cahill/forge/actions/runs/27043336258) **green** (Python 3.10–3.12)  
+**Local verification:** 183 pytest; ruff/mypy/compileall pass; local_cuda_env manifest validates; `.venv_cuda` CUDA recheck pass
+
+**Artifacts:** [M12_summary](milestones/M12/M12_summary.md) · [M12_audit](milestones/M12/M12_audit.md) (4.6/5) · [M12_run1](milestones/M12/M12_run1.md)
+
+### Authorization state
+
+| Field | Value |
+| ----- | ----- |
+| `M12_LOCAL_CUDA_SETUP_AUTHORIZED` | **yes** |
+| `M12_TRAINING_AUTHORIZED` | **no** |
+| `M12_INFERENCE_AUTHORIZED` | **no** |
+| `KAGGLE_SUBMISSION_AUTHORIZED` | **no** |
+
+### CUDA environment evidence (isolated `.venv_cuda`)
+
+| Field | Value |
+| ----- | ----- |
+| Python | 3.11.9 |
+| PyTorch | 2.11.0+cu128 |
+| PyTorch CUDA build | 12.8 |
+| `torch.cuda.is_available()` | **true** |
+| GPU | NVIDIA GeForce RTX 5090 |
+| VRAM (MiB) | 32607 |
+| Driver | 591.86 |
+| Tiny CUDA smoke | **passed** |
+| Classification | **`cuda_ready_probe_only`** |
+| Evidence | [`cuda_torch_probe.json`](milestones/M12/evidence/local_cuda_env/cuda_torch_probe.json) |
+| Install source | [PyTorch selector](https://pytorch.org/get-started/locally/) — Windows, Pip, CUDA 12.8 |
+
+### M12 deliverables
+
+| Deliverable | Status |
+| ----------- | ------ |
+| CUDA environment setup plan | Met |
+| `verify_cuda_torch.py` + helpers | Met — +9 tests |
+| Isolated `.venv_cuda` (gitignored) | Met — not committed |
+| CUDA PyTorch install | Met — success |
+| Environment evidence + report | Met |
+| `public_control_repro_plan.local_cuda_env.json` | Met — validates |
+| `M12_next_decision.md` → M13 | Met |
+| Training / inference / submission | **Not performed** |
+
+### Readiness manifest
+
+[`public_control_repro_plan.local_cuda_env.json`](milestones/M12/evidence/readiness/public_control_repro_plan.local_cuda_env.json) — `local_5090_probe_status: cuda_ready_probe_only`, `compute_path: local_5090`, `training_authorized: false`, `ready_for_training: false`. **Not** training authorization.
+
+### Open blockers (post-M12)
+
+- Gate C training authorization: **not provided**
+- Training feasibility dry run: **not executed**
+- Submit UI `submission.zip` constraints: **OPEN**
+- Kaggle API submission: **TBD**
+- Modal/Tinker/cloud credentials: **TBD**
+- Cost acceptance: **TBD**
+- SQ-CORPUS-001: **open**
+- Main project env PyTorch CUDA: **unavailable** (CPU-only by design)
+
+### Next recommendation
+
+**M13 — Local Training Feasibility Dry Run** per [M12_next_decision](milestones/M12/M12_next_decision.md). Requires separate owner kickoff. **Do not start M13** without authorization.
+
+**Non-claims (M12):** `cuda_ready_probe_only` is not training readiness. No training, inference, model loading, Kaggle submission, public/private score, reproduced baseline, adapters, credentials, or committed `.venv_cuda`.
+
+---
+
 ## Appendix: Material Decisions
 
 | Date | Milestone | Decision | Rationale |
@@ -868,3 +941,4 @@ Run Ledger **1.0** for `m03_synthetic_smoke_eval` is **synthetic factory self-ch
 | 2026-06-05 | M10 | M10 local 5090 probe on branch; PR #11 CI green | RTX 5090 visible; torch CPU-only; `visible_no_torch_cuda`; audit 4.6/5 |
 | 2026-06-05 | M11 | PR #12 squash-merged to `main` | `dd95d0c`; post-merge CI 27038312607 green; branch deleted |
 | 2026-06-06 | M11 | M11 credential/cost closure implemented on branch | TBD preserved; prefer_local_cuda; audit 4.6/5; M12 stub seeded |
+| 2026-06-05 | M12 | M12 local CUDA PyTorch on branch; PR #13 CI green | `.venv_cuda` torch 2.11.0+cu128; `cuda_ready_probe_only`; audit 4.6/5; M13 stub seeded |

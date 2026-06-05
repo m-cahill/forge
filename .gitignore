@@ -35,6 +35,9 @@ wheels/
 # Virtual environments
 # =============================================================================
 .venv/
+.venv_cuda/
+.venv-cuda/
+cuda_env/
 venv/
 ENV/
 env/
