@@ -235,7 +235,7 @@ A candidate may advance only when all applicable gates are satisfied:
 
 | Environment ID | Hardware | OS | Python/CUDA | Purpose | Status | Notes |
 | -------------- | -------- | -- | ----------- | ------- | ------ | ----- |
-| local_5090 | RTX 5090 Blackwell | TBD | TBD | Local eval, QLoRA tests, generation | available | Verify CUDA stack |
+| local_5090 | NVIDIA GeForce RTX 5090 | Windows 10.0.26200 | Py3.11.9; driver 591.86; torch 2.2.2+cpu (**CUDA false**) | Local eval, QLoRA tests, generation | **probed** — `visible_no_torch_cuda` | [M10 probe](milestones/M10/evidence/local_5090_probe/local_5090_probe.json) 2026-06-05; ~32607 MiB VRAM; **not** training-ready |
 | kaggle_notebook | Kaggle Notebook (CPU at probe) | Linux 6.6 / Py3.12 | torch 2.10+cpu; no CUDA | M01 debug probe | probed 2026-06-04 | Interactive; no GPU; ~19.5 GB free; see kaggle_setup_evidence |
 
 ---
@@ -691,7 +691,7 @@ Run Ledger **1.0** for `m03_synthetic_smoke_eval` is **synthetic factory self-ch
 ## M10 Active Record (Local 5090 Feasibility Probe)
 
 **Branch:** `forge/M10-local-5090-feasibility-probe`  
-**Status:** **active** — Phase A in progress  
+**Status:** **active** — probe complete; governance closeout pending  
 **Supersedes:** M09-seeded M10 stub “Credential and Cost Closure”
 
 ### Authorization state
@@ -703,13 +703,32 @@ Run Ledger **1.0** for `m03_synthetic_smoke_eval` is **synthetic factory self-ch
 | `M10_INFERENCE_AUTHORIZED` | **no** |
 | `KAGGLE_SUBMISSION_AUTHORIZED` | **no** |
 
+### Probe summary (2026-06-05)
+
+| Field | Value |
+| ----- | ----- |
+| `nvidia-smi` | available |
+| GPU | NVIDIA GeForce RTX 5090 |
+| VRAM (MiB) | 32607 |
+| Driver | 591.86 |
+| PyTorch | 2.2.2+cpu |
+| `torch.cuda.is_available()` | **false** |
+| Classification | **`visible_no_torch_cuda`** |
+| Evidence | [`local_5090_probe.json`](milestones/M10/evidence/local_5090_probe/local_5090_probe.json) |
+| Report | [`local_5090_probe_report.md`](milestones/M10/local_5090_probe_report.md) |
+| Readiness manifest | [`public_control_repro_plan.local_5090_probe.json`](milestones/M10/evidence/readiness/public_control_repro_plan.local_5090_probe.json) |
+
 ### Cross-references
 
-- M08 compute readiness and M09 external compute path docs remain historical; M10 probe evidence will supersede `local_5090` TBD fields here when complete.
+- M08 compute readiness and M09 external compute path docs remain historical; M10 probe evidence supersedes their `local_5090` TBD fields for this host.
 - Submit UI `submission.zip` constraints: **OPEN**
 - Kaggle API submission: **TBD**
 
-**Non-claims (M10):** no training, inference, Kaggle submission, public/private score, reproduced baseline, adapters, credentials, or baseline code/data copy.
+### Next recommendation
+
+**M11 — Credential and Cost Closure Continuation** (primary). Secondary: local CUDA stack fix + feasibility dry run if owner prefers local path. See [M10_next_decision](milestones/M10/M10_next_decision.md).
+
+**Non-claims (M10):** no training, inference, Kaggle submission, public/private score, reproduced baseline, adapters, credentials, or baseline code/data copy. Visible GPU is **not** training readiness.
 
 ---
 

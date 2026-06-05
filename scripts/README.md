@@ -11,7 +11,7 @@ CLI entry points for dataset generation, training, evaluation, packaging, and su
 | `make_dataset.py` | Verified synthetic dataset + manifest generation (M03) |
 | `validate_candidate_manifest.py` | Adapter candidate manifest JSON validation (M04) |
 | `validate_reproduction_plan.py` | Reproduction plan manifest JSON validation (M05) |
-| `probe_local_5090.py` | Safe local GPU/CUDA probe — no model load (M08; run only when owner authorizes) |
+| `probe_local_5090.py` | Safe local GPU/CUDA probe — no model load (M08/M10; run only when owner authorizes) |
 
 ### Local evaluation (M02)
 
