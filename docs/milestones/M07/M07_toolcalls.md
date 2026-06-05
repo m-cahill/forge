@@ -21,3 +21,4 @@ Record notable Cursor/tool actions for M07 (controlled public baseline training 
 | 2026-06-05T00:32:00Z | Cursor | Phase E commit pending | forge.md, README, M07_plan |
 | 2026-06-05T01:00:00Z | Cursor | PR closeout — git status, local verify, push, gh pr | PR [#8](https://github.com/m-cahill/forge/pull/8); CI [26986703969](https://github.com/m-cahill/forge/actions/runs/26986703969) green |
 | 2026-06-05T01:15:00Z | Cursor | M07 closeout — summary, audit, run1, M08 stub, forge.md | closeout commit pending push |
+| 2026-06-05T02:00:00Z | Cursor | M07 merge authorized — gh pr merge 8 | squash `06ada17`; post-merge CI [26988100314](https://github.com/m-cahill/forge/actions/runs/26988100314) green |

@@ -4,10 +4,11 @@
 **Phase:** Lane A — public control reproduction (training authorization gate)  
 **Milestone:** M07 — Controlled Public Baseline Training Authorization Gate  
 **Timeframe:** 2026-06-05  
-**Status:** Closed on branch — PR [#8](https://github.com/m-cahill/forge/pull/8) open; merge pending owner permission  
-**Branch:** `forge/M07-training-authorization-gate`  
-**PR head:** `1ec70eb`  
-**PR CI:** [26986736831](https://github.com/m-cahill/forge/actions/runs/26986736831) **green** (final); [26986703969](https://github.com/m-cahill/forge/actions/runs/26986703969) (initial)  
+**Status:** Closed — PR [#8](https://github.com/m-cahill/forge/pull/8) **merged** to `main` (`06ada17`) 2026-06-05T00:35:34Z  
+**Branch:** `forge/M07-training-authorization-gate` (deleted after merge)  
+**PR head at merge:** `90cdab7`  
+**PR CI:** [26986758980](https://github.com/m-cahill/forge/actions/runs/26986758980) **green**  
+**Post-merge CI:** [26988100314](https://github.com/m-cahill/forge/actions/runs/26988100314) **green**  
 **Baseline:** M06 merged `a7de356`
 
 ---
@@ -128,6 +129,6 @@ No HIGH defects blocking M07 closeout.
 | Summary + audit + run1 | Yes |
 | Non-claims preserved | Yes |
 | No raw baseline data in repo | Yes |
-| Merge to `main` | Pending owner permission |
+| Merge to `main` | Yes — `06ada17` (2026-06-05T00:35:34Z) |
 
-**Next recommendation:** Merge PR #8 when authorized; kick off M08 compute/credential closure; owner records Submit UI constraints and Gate C when ready for training.
+**Next recommendation:** Kick off M08 compute/credential closure when authorized; owner records Submit UI constraints and Gate C when ready for training.

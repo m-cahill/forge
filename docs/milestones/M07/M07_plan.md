@@ -7,7 +7,7 @@
 | **Milestone** | M07 |
 | **Title** | Controlled Public Baseline Training Authorization Gate |
 | **Branch** | `forge/M07-training-authorization-gate` |
-| **Status** | **closed on branch** — PR [#8](https://github.com/m-cahill/forge/pull/8) CI green; merge pending |
+| **Status** | **merged** to `main` (`06ada17`) via PR [#8](https://github.com/m-cahill/forge/pull/8) |
 | **Precondition** | M06 merged to `main`, post-merge CI green, owner authorized M07 kickoff |
 | **Gate C** | `M07_TRAINING_AUTHORIZED = no` (Path A — blocked manifest) |
 

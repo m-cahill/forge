@@ -1,13 +1,12 @@
 # FORGE — Ultimate Truth
 
 **Project:** FORGE — Kaggle NVIDIA Nemotron Model Reasoning Challenge  
-**Last updated:** 2026-06-05 (M07 closed on branch; PR [#8](https://github.com/m-cahill/forge/pull/8) open)  
-**Status:** M00–M06 **merged** to `main`; **M07 closed on branch** — PR CI green; merge pending permission  
-**Main SHA:** `a7de356d8597c7386b30cf8ba1912c02c0894cf7` (M06 squash merge via PR [#7](https://github.com/m-cahill/forge/pull/7))  
-**M07 PR head:** `1ec70eb` · PR CI [26986736831](https://github.com/m-cahill/forge/actions/runs/26986736831) **green** (closeout); prior [26986703969](https://github.com/m-cahill/forge/actions/runs/26986703969)  
-**M06 post-merge CI:** [26985969954](https://github.com/m-cahill/forge/actions/runs/26985969954) **green**  
-**M07 authorization:** `M07_TRAINING_AUTHORIZED = no` — training **blocked**; gate docs **GO**  
-**Next:** M08 compute/credential readiness (stub); merge PR #8 when authorized
+**Last updated:** 2026-06-05 (M07 merged to `main`; post-merge CI green)  
+**Status:** M00–M07 **merged** to `main`; **next:** M08 compute/credential readiness (stub only)  
+**Main SHA:** `06ada1738c914ab23343a20f0c8864d58440256b` (M07 squash merge via PR [#8](https://github.com/m-cahill/forge/pull/8))  
+**M07 PR head (pre-merge):** `90cdab7` · PR CI [26986758980](https://github.com/m-cahill/forge/actions/runs/26986758980) **green**  
+**Post-merge CI on `main`:** [26988100314](https://github.com/m-cahill/forge/actions/runs/26988100314) **green** (push on `06ada17`)  
+**M07 authorization:** `M07_TRAINING_AUTHORIZED = no` — training **NO-GO**; gate documentation **GO**
 
 ---
 
@@ -106,8 +105,8 @@ FORGE is a solver-guided, artifact-first, audit-governed LoRA competition system
 | M04 | Public control adapter reproduction preflight | `forge/M04-control-preflight` → `main` | **merged** (`f54afd0`) | **green** — post-merge [26979013700](https://github.com/m-cahill/forge/actions/runs/26979013700) | 4.6/5 | [M04_summary](milestones/M04/M04_summary.md) |
 | M05 | Controlled public baseline reproduction planning | `forge/M05-control-repro-planning` → `main` | **merged** (`34169d0`) | **green** — post-merge [26983281413](https://github.com/m-cahill/forge/actions/runs/26983281413) | 4.6/5 | [M05_summary](milestones/M05/M05_summary.md) |
 | M06 | Controlled public baseline reproduction execution gate | `forge/M06-control-repro-execution-gate` → `main` | **merged** (`a7de356`) | **green** — post-merge [26985969954](https://github.com/m-cahill/forge/actions/runs/26985969954) | 4.6/5 | [M06_summary](milestones/M06/M06_summary.md) |
-| M07 | Controlled public baseline training authorization gate | `forge/M07-training-authorization-gate` | **closed on branch** — PR [#8](https://github.com/m-cahill/forge/pull/8) CI green | — | 4.6/5 (draft) | [M07_summary](milestones/M07/M07_summary.md) |
-| M08 | Compute and credential readiness closure | — | **next** — stub | — | — | [M08_plan](milestones/M08/M08_plan.md) (stub) |
+| M07 | Controlled public baseline training authorization gate | `forge/M07-training-authorization-gate` → `main` | **merged** (`06ada17`) | **green** — post-merge [26988100314](https://github.com/m-cahill/forge/actions/runs/26988100314) | 4.6/5 | [M07_summary](milestones/M07/M07_summary.md) |
+| M08 | Compute and credential readiness closure | — | **next** — stub only | — | — | [M08_plan](milestones/M08/M08_plan.md) (stub) |
 
 ---
 
@@ -509,10 +508,12 @@ Run Ledger **1.0** for `m03_synthetic_smoke_eval` is **synthetic factory self-ch
 
 ## M07 Closeout Record (training authorization gate)
 
-**Branch:** `forge/M07-training-authorization-gate`  
-**PR:** [#8](https://github.com/m-cahill/forge/pull/8) — **open** (merge pending owner permission)  
-**PR head:** `1ec70eb`  
-**PR CI:** [26986736831](https://github.com/m-cahill/forge/actions/runs/26986736831) **green** (Python 3.10–3.12); initial [26986703969](https://github.com/m-cahill/forge/actions/runs/26986703969)  
+**Branch:** `forge/M07-training-authorization-gate` (merged; branch deleted)  
+**PR:** [#8](https://github.com/m-cahill/forge/pull/8) — **merged** 2026-06-05T00:35:34Z (squash)  
+**Squash merge commit on `main`:** `06ada1738c914ab23343a20f0c8864d58440256b`  
+**PR head at merge:** `90cdab7dd85b1eabcb12495868c40d71595218b5`  
+**PR CI (final head):** [26986758980](https://github.com/m-cahill/forge/actions/runs/26986758980) **green** (Python 3.10–3.12)  
+**Post-merge CI on `main`:** [26988100314](https://github.com/m-cahill/forge/actions/runs/26988100314) **green** (Python 3.10–3.12)  
 **Path:** A — `M07_TRAINING_AUTHORIZED = no`  
 **Local verification:** 154 pytest; ruff/mypy/compileall pass; training_blocked manifest validates
 
@@ -538,11 +539,20 @@ Run Ledger **1.0** for `m03_synthetic_smoke_eval` is **synthetic factory self-ch
 
 **Non-claims (M07):** no training, inference, Kaggle submission, public/private score, reproduced baseline, Kaggle-ready adapter, real adapter package, copied baseline code/data, committed credentials.
 
+### Open blockers (post-merge)
+
+- Submit UI `submission.zip` constraints: **OPEN** (owner-action)
+- Kaggle API submission: **TBD**
+- Modal/Tinker credentials: **TBD** (`credentials_ready: false`)
+- local_5090 CUDA/VRAM: **TBD**
+- SQ-CORPUS-001 (`corpus.segment`): **partial / open**
+- Gate C training authorization: **not provided**
+
 ### Next recommendation
 
-1. **Owner:** Merge PR #8 when authorized.  
-2. **Owner:** Record Submit UI zip constraints; provide Gate C when ready for training.  
-3. **Cursor:** M08 compute/credential readiness per [M07_next_decision](milestones/M07/M07_next_decision.md) when authorized.
+1. **Owner:** Record Submit UI zip constraints; provide Gate C when ready for training.  
+2. **Cursor:** M08 compute/credential readiness per [M07_next_decision](milestones/M07/M07_next_decision.md) when authorized — **do not** start without kickoff.  
+3. **Defer:** Training, Kaggle submission, baseline reproduction until Gate C and readiness gates satisfied.
 
 ---
 
@@ -584,4 +594,5 @@ Run Ledger **1.0** for `m03_synthetic_smoke_eval` is **synthetic factory self-ch
 | 2026-06-04 | M06 | External schema inspection complete | Baseline `82bd1880`; derived notes only; no raw data in repo |
 | 2026-06-04 | M06 | M06 closed on branch; PR #7 CI green | `354f630`; audit 4.6/5; M07 training auth gate stub |
 | 2026-06-04 | M06 | PR #7 squash-merged to `main` | `a7de356`; post-merge CI 26985969954 green; branch deleted |
-| 2026-06-05 | M07 | M07 training auth gate on branch; PR #8 CI green | Path A blocked; manifest validates; audit 4.6/5; merge pending |
+| 2026-06-05 | M07 | M07 training auth gate on branch; PR #8 CI green | Path A blocked; manifest validates; audit 4.6/5 |
+| 2026-06-05 | M07 | PR #8 squash-merged to `main` | `06ada17`; post-merge CI 26988100314 green; branch deleted |
