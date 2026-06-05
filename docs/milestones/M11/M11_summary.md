@@ -4,11 +4,11 @@
 **Phase:** Lane A — compute/credential readiness  
 **Milestone:** M11 — Credential and Cost Closure Continuation  
 **Timeframe:** 2026-06-06  
-**Status:** Closed on branch — PR [#12](https://github.com/m-cahill/forge/pull/12) open; CI **green**; merge pending owner permission  
-**Branch:** `forge/M11-credential-cost-closure`  
-**PR head:** `20b8413`  
-**PR CI:** [27037572995](https://github.com/m-cahill/forge/actions/runs/27037572995) **green**  
-**Baseline:** M10 merged `dc45813` / forge update `9cd7fd8`
+**Status:** Closed — PR [#12](https://github.com/m-cahill/forge/pull/12) **merged** to `main` (`dd95d0c`) 2026-06-05T20:26:20Z  
+**Branch:** `forge/M11-credential-cost-closure` (deleted after merge)  
+**PR head at merge:** `af25801`  
+**PR CI:** [27037642340](https://github.com/m-cahill/forge/actions/runs/27037642340) **green**  
+**Post-merge CI:** [27038312607](https://github.com/m-cahill/forge/actions/runs/27038312607) **green**
 
 ---
 
