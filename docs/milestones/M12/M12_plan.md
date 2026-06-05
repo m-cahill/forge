@@ -5,7 +5,7 @@
 **Milestone:** M12  
 **Title:** Local CUDA PyTorch Environment Enablement  
 **Branch:** `forge/M12-local-cuda-pytorch-enablement`  
-**Status:** closed on branch — PR [#13](https://github.com/m-cahill/forge/pull/13) open; merge pending  
+**Status:** merged to `main` (`78605a1`) via PR [#13](https://github.com/m-cahill/forge/pull/13)  
 **Precondition:** M11 merged to `main`, post-merge CI green, owner authorizes M12 kickoff with local CUDA setup permission.  
 **Primary goal:** Create and verify an isolated local CUDA-enabled PyTorch environment for the RTX 5090 host, without training, inference, model loading, adapter creation, or Kaggle submission.
 

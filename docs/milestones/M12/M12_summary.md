@@ -4,10 +4,11 @@
 **Phase:** Lane A — compute readiness  
 **Milestone:** M12 — Local CUDA PyTorch Environment Enablement  
 **Timeframe:** 2026-06-05  
-**Status:** Closed on branch — PR [#13](https://github.com/m-cahill/forge/pull/13) open (merge pending owner permission)  
-**Branch:** `forge/M12-local-cuda-pytorch-enablement`  
-**PR head:** `21c60e4`  
-**PR CI:** [27043336258](https://github.com/m-cahill/forge/actions/runs/27043336258) **green**
+**Status:** Closed — PR [#13](https://github.com/m-cahill/forge/pull/13) **merged** to `main` (`78605a1`) 2026-06-05T22:43:53Z  
+**Branch:** `forge/M12-local-cuda-pytorch-enablement` (deleted after merge)  
+**PR head at merge:** `f531202`  
+**PR CI:** [27043585782](https://github.com/m-cahill/forge/actions/runs/27043585782) **green**  
+**Post-merge CI:** [27043969691](https://github.com/m-cahill/forge/actions/runs/27043969691) **green**
 
 ---
 
