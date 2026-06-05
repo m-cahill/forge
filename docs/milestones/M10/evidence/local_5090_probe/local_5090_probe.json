@@ -1,0 +1,28 @@
+{
+  "machine": "local_5090",
+  "notes": "Environment probe only; no model load, training, or inference.",
+  "nvidia_smi": {
+    "available": true,
+    "gpus": [
+      {
+        "driver_version": "591.86",
+        "gpu_name": "NVIDIA GeForce RTX 5090",
+        "vram_total": "32607"
+      }
+    ],
+    "raw_stdout": "NVIDIA GeForce RTX 5090, 32607, 591.86"
+  },
+  "platform": {
+    "machine": "AMD64",
+    "python": "3.11.9",
+    "release": "10",
+    "system": "Windows",
+    "version": "10.0.26200"
+  },
+  "probe_date_utc": "2026-06-05T16:43:13.811420+00:00",
+  "torch": {
+    "cuda_available": false,
+    "torch_installed": true,
+    "torch_version": "2.2.2+cpu"
+  }
+}
