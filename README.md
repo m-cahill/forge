@@ -6,9 +6,16 @@ Solver-guided, artifact-first LoRA engineering for `NVIDIA-Nemotron-3-Nano-30B`:
 
 ## Current milestone
 
-**M08** — Compute and credential readiness closure (stub; see `docs/milestones/M08/M08_plan.md`).
+**M09** — Modal/Tinker setup gate (stub; see `docs/milestones/M09/M09_plan.md`).
 
-M00–M07 merged to `main` (`06ada17`). M07 added training authorization gates + **blocked** training-gate manifest (`M07_TRAINING_AUTHORIZED = no`) — **no training, inference, submission, or reproduced baseline**.
+M00–M07 merged to `main` (`06ada17`). M08 closed on branch — PR [#9](https://github.com/m-cahill/forge/pull/9) (merge pending). `M08_TRAINING_AUTHORIZED = no`; probe script created but **not run**; readiness manifest validates.
+
+```bash
+python scripts/validate_reproduction_plan.py \
+  docs/milestones/M08/evidence/readiness/public_control_repro_plan.readiness.json
+```
+
+M07 training-blocked manifest (still valid):
 
 ```bash
 python scripts/validate_reproduction_plan.py \

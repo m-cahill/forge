@@ -25,6 +25,11 @@ TRAINING_BLOCKED_PATH = (
     / "docs/milestones/M07/evidence/training_gate"
     / "public_control_repro_plan.training_blocked.json"
 )
+READINESS_PATH = (
+    Path(__file__).resolve().parents[2]
+    / "docs/milestones/M08/evidence/readiness"
+    / "public_control_repro_plan.readiness.json"
+)
 
 
 @pytest.fixture
@@ -84,6 +89,8 @@ class TestReadyForTraining:
         plan["compute_path"] = "modal_tinker"
         plan["schema_inspection_status"] = "complete"
         plan["credentials_ready"] = True
+        plan["cost_accepted"] = True
+        plan["ready_for_training"] = True
         assert validate_reproduction_plan(plan) == []
 
 
@@ -133,6 +140,8 @@ class TestSchemaGateManifest:
         plan["compute_path"] = "modal_tinker"
         plan["schema_inspection_status"] = "complete"
         plan["credentials_ready"] = True
+        plan["cost_accepted"] = True
+        plan["ready_for_training"] = True
         assert validate_reproduction_plan(plan) == []
 
     def test_ready_for_training_requires_compute_path(self, preflight_plan: dict) -> None:
@@ -153,7 +162,29 @@ class TestSchemaGateManifest:
         plan["owner_training_authorization"] = "owner-m07-gate"
         plan["compute_path"] = "modal_tinker"
         plan["credentials_ready"] = True
+        plan["cost_accepted"] = True
+        plan["ready_for_training"] = True
         plan["schema_inspection_waiver"] = True
+        assert validate_reproduction_plan(plan) == []
+
+    def test_ready_for_training_requires_cost_accepted(self, preflight_plan: dict) -> None:
+        plan = copy.deepcopy(preflight_plan)
+        plan["status"] = "ready_for_training"
+        plan["training_authorized"] = True
+        plan["owner_training_authorization"] = "owner-m07-gate"
+        plan["compute_path"] = "modal_tinker"
+        plan["schema_inspection_status"] = "complete"
+        plan["credentials_ready"] = True
+        plan["ready_for_training"] = True
+        plan["cost_accepted"] = False
+        errors = validate_reproduction_plan(plan)
+        assert any("cost_accepted" in e for e in errors)
+
+    def test_null_compute_path_allowed_when_not_ready(self, preflight_plan: dict) -> None:
+        plan = copy.deepcopy(preflight_plan)
+        plan["compute_path"] = None
+        plan["ready_for_training"] = False
+        plan["cost_accepted"] = False
         assert validate_reproduction_plan(plan) == []
 
 
@@ -167,3 +198,15 @@ class TestTrainingGateManifest:
         assert data["status"] != "ready_for_training"
         assert data["schema_inspection_status"] == "complete"
         assert "training_not_authorized" in data["blockers"]
+
+
+class TestReadinessManifest:
+    def test_readiness_manifest_file_valid(self) -> None:
+        data = json.loads(READINESS_PATH.read_text(encoding="utf-8"))
+        assert validate_reproduction_plan(data) == []
+        assert data["plan_id"] == "public_control_repro_plan_readiness_v1"
+        assert data["compute_path"] is None
+        assert data["cost_accepted"] is False
+        assert data["credentials_ready"] is False
+        assert data["ready_for_training"] is False
+        assert "sq_corpus_001_open" in data["blockers"]
