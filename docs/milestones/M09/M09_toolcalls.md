@@ -6,7 +6,7 @@ Record notable Cursor/tool actions for M09 (Modal/Tinker setup gate).
 
 ## Recovery
 
-Last action: M09 kickoff — branch created from green `main`; Phase A docs in progress.
+Last action: M09 implementation complete on branch — 4 commits; 166 pytest pass; manifest validates. **Next:** PR to `main` or closeout when authorized.
 
 ## Entries
 
@@ -18,3 +18,4 @@ Last action: M09 kickoff — branch created from green `main`; Phase A docs in p
 | 2026-06-05T02:35:00Z | Write | Phase B — readiness docs | `docs/milestones/M09/*.md` | done |
 | 2026-06-05T02:36:00Z | Write | Phase C — manifest + validator | `evidence/readiness/`, `reproduction_plan.py`, tests | done |
 | 2026-06-05T02:37:00Z | Shell | Verify manifest, pytest, ruff, mypy | M09 manifest + unit tests | done |
+| 2026-06-05T02:40:00Z | Shell | Phase commits A–D | 4 commits on branch | done |
