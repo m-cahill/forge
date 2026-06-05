@@ -11,6 +11,7 @@ CLI entry points for dataset generation, training, evaluation, packaging, and su
 | `make_dataset.py` | Verified synthetic dataset + manifest generation (M03) |
 | `validate_candidate_manifest.py` | Adapter candidate manifest JSON validation (M04) |
 | `validate_reproduction_plan.py` | Reproduction plan manifest JSON validation (M05) |
+| `probe_local_5090.py` | Safe local GPU/CUDA probe — no model load (M08; run only when owner authorizes) |
 
 ### Local evaluation (M02)
 
@@ -67,6 +68,24 @@ python scripts/validate_reproduction_plan.py \
 ```
 
 Mock evidence: `docs/milestones/M05/evidence/reproduction_plan/` (preflight only — not training authorization).
+
+M08 readiness manifest:
+
+```bash
+python scripts/validate_reproduction_plan.py \
+  docs/milestones/M08/evidence/readiness/public_control_repro_plan.readiness.json
+```
+
+### Local 5090 probe (M08)
+
+Requires owner phrase `M08_LOCAL_5090_PROBE_AUTHORIZED = yes` before running on hardware.
+
+```bash
+python scripts/probe_local_5090.py --help
+python scripts/probe_local_5090.py --out /tmp/forge_m08_local_5090_probe.json
+```
+
+Safe on CPU-only machines (reports missing GPU tools). Does not load models, train, or infer.
 
 ## Planned
 
