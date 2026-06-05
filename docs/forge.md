@@ -1,14 +1,13 @@
 # FORGE — Ultimate Truth
 
 **Project:** FORGE — Kaggle NVIDIA Nemotron Model Reasoning Challenge  
-**Last updated:** 2026-06-06 (M11 merged to `main`; post-merge CI green)  
-**Status:** M00–M11 **merged** to `main`; **next:** M12 local CUDA PyTorch (stub only)  
-**Main SHA:** `dd95d0c` (M11 squash merge via PR [#12](https://github.com/m-cahill/forge/pull/12))  
-**M11 PR head (pre-merge):** `af25801` · PR CI [27037642340](https://github.com/m-cahill/forge/actions/runs/27037642340) **green**  
-**Post-merge CI on `main`:** [27038312607](https://github.com/m-cahill/forge/actions/runs/27038312607) **green** (push on `dd95d0c`)  
-**M11 authorization:** kickoff **yes** · `M11_LOCAL_CUDA_SETUP_AUTHORIZED = no` · `M11_TRAINING_AUTHORIZED = no`  
-**M11 owner preference:** `prefer_local_cuda` → M12 Local CUDA PyTorch Environment Enablement (stub)  
-**M10 probe classification:** `visible_no_torch_cuda` — GPU visible; PyTorch CPU-only; **not** training readiness
+**Last updated:** 2026-06-05 (M12 Phase A active)  
+**Status:** M00–M11 **merged** to `main`; **M12 active** on `forge/M12-local-cuda-pytorch-enablement`  
+**Main SHA:** `c4176a9` (post-M11 governance on `main`)  
+**M11 merge:** `dd95d0c` via PR [#12](https://github.com/m-cahill/forge/pull/12) · post-merge CI [27038312607](https://github.com/m-cahill/forge/actions/runs/27038312607) **green**  
+**M12 authorization:** `M12_LOCAL_CUDA_SETUP_AUTHORIZED = yes` · `M12_TRAINING_AUTHORIZED = no` · `M12_INFERENCE_AUTHORIZED = no` · `KAGGLE_SUBMISSION_AUTHORIZED = no`  
+**M11 owner preference:** `prefer_local_cuda`  
+**M10 probe classification (baseline):** `visible_no_torch_cuda` — GPU visible; PyTorch CPU-only in main env; **not** training readiness
 
 ---
 
@@ -122,7 +121,7 @@ FORGE is a solver-guided, artifact-first, audit-governed LoRA competition system
 | M09 | Modal/Tinker setup gate | `forge/M09-modal-tinker-setup-gate` → `main` | **merged** (`5a4300b`) | **green** — post-merge [26991673323](https://github.com/m-cahill/forge/actions/runs/26991673323) | 4.6/5 | [M09_summary](milestones/M09/M09_summary.md) |
 | M10 | Local 5090 feasibility probe | `forge/M10-local-5090-feasibility-probe` → `main` | **merged** (`dc45813`) | **green** — post-merge [27032692673](https://github.com/m-cahill/forge/actions/runs/27032692673) | 4.6/5 | [M10_summary](milestones/M10/M10_summary.md) |
 | M11 | Credential and cost closure continuation | `forge/M11-credential-cost-closure` → `main` | **merged** (`dd95d0c`) | **green** — post-merge [27038312607](https://github.com/m-cahill/forge/actions/runs/27038312607) | 4.6/5 | [M11_summary](milestones/M11/M11_summary.md) |
-| M12 | Local CUDA PyTorch environment enablement | — | **next** — stub only | — | — | [M12_plan](milestones/M12/M12_plan.md) (stub) |
+| M12 | Local CUDA PyTorch environment enablement | `forge/M12-local-cuda-pytorch-enablement` | **active** — Phase A | pending | — | [M12_plan](milestones/M12/M12_plan.md) |
 
 ---
 
