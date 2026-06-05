@@ -7,7 +7,7 @@
 | **Milestone** | M10 |
 | **Title** | Local 5090 Feasibility Probe |
 | **Branch** | `forge/M10-local-5090-feasibility-probe` |
-| **Status** | **active** |
+| **Status** | **complete** — PR [#11](https://github.com/m-cahill/forge/pull/11) CI green; merge pending |
 | **Precondition** | M09 merged to `main`; post-merge CI green; owner authorized M10 kickoff |
 | **Primary goal** | Run a safe no-training local hardware/environment probe and record whether local compute is viable for future preflight, tiny feasibility, or controlled training milestones |
 
@@ -115,15 +115,16 @@ Update `docs/forge.md` Environment and Compute Ledger with probe status, GPU, CU
 
 ## 6. Acceptance criteria
 
-- [ ] Branch from green `main`
-- [ ] M10 plan expanded; toolcalls active
-- [ ] Probe run with owner authorization
-- [ ] Probe JSON + README + report exist
-- [ ] Readiness manifest validates
-- [ ] M10_next_decision exists
-- [ ] Tests/CI green on PR
-- [ ] No training, inference, submission, adapters, credentials, baseline copy
-- [ ] No overclaiming training readiness
+- [x] Branch from green `main`
+- [x] M10 plan expanded; toolcalls active
+- [x] Probe run with owner authorization
+- [x] Probe JSON + README + report exist
+- [x] Readiness manifest validates
+- [x] M10_next_decision exists
+- [x] Tests/CI green on PR — [27027762042](https://github.com/m-cahill/forge/actions/runs/27027762042)
+- [x] No training, inference, submission, adapters, credentials, baseline copy
+- [x] No overclaiming training readiness
+- [ ] Merge to `main` — **pending owner permission**
 
 ---
 

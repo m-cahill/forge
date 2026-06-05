@@ -1,9 +1,10 @@
 # FORGE — Ultimate Truth
 
 **Project:** FORGE — Kaggle NVIDIA Nemotron Model Reasoning Challenge  
-**Last updated:** 2026-06-05 (M10 active — Local 5090 Feasibility Probe)  
-**Status:** M00–M09 **merged** to `main`; **active:** M10 Local 5090 Feasibility Probe on `forge/M10-local-5090-feasibility-probe`  
-**Main SHA:** `4fad43c` (post-M09 forge ledger update)  
+**Last updated:** 2026-06-05 (M10 closeout — PR #11 CI green; merge pending)  
+**Status:** M00–M09 **merged** to `main`; M10 **complete on branch** — PR [#11](https://github.com/m-cahill/forge/pull/11) CI **green** [27027762042](https://github.com/m-cahill/forge/actions/runs/27027762042); **next:** M11 credential/cost closure (stub)  
+**Main SHA:** `4fad43c` (awaiting M10 merge)  
+**M10 PR head:** `84529d1` on `forge/M10-local-5090-feasibility-probe`  
 **M09 squash merge:** `5a4300b` via PR [#10](https://github.com/m-cahill/forge/pull/10) · post-merge CI [26991673323](https://github.com/m-cahill/forge/actions/runs/26991673323) **green**  
 **M10 authorization:** `M10_LOCAL_5090_PROBE_AUTHORIZED = yes` · `M10_TRAINING_AUTHORIZED = no` · `M10_INFERENCE_AUTHORIZED = no` · `KAGGLE_SUBMISSION_AUTHORIZED = no`  
 **M08/M09 historical:** local probe **not** run under M08/M09; superseded by M10 probe when complete
@@ -118,7 +119,8 @@ FORGE is a solver-guided, artifact-first, audit-governed LoRA competition system
 | M07 | Controlled public baseline training authorization gate | `forge/M07-training-authorization-gate` → `main` | **merged** (`06ada17`) | **green** — post-merge [26988100314](https://github.com/m-cahill/forge/actions/runs/26988100314) | 4.6/5 | [M07_summary](milestones/M07/M07_summary.md) |
 | M08 | Compute and credential readiness closure | `forge/M08-compute-credential-readiness` → `main` | **merged** (`ac7c5f2`) | **green** — post-merge [26989604207](https://github.com/m-cahill/forge/actions/runs/26989604207) | 4.6/5 | [M08_summary](milestones/M08/M08_summary.md) |
 | M09 | Modal/Tinker setup gate | `forge/M09-modal-tinker-setup-gate` → `main` | **merged** (`5a4300b`) | **green** — post-merge [26991673323](https://github.com/m-cahill/forge/actions/runs/26991673323) | 4.6/5 | [M09_summary](milestones/M09/M09_summary.md) |
-| M10 | Local 5090 feasibility probe | `forge/M10-local-5090-feasibility-probe` | **active** | pending | — | [M10_plan](milestones/M10/M10_plan.md) |
+| M10 | Local 5090 feasibility probe | `forge/M10-local-5090-feasibility-probe` → `main` | **complete** — PR [#11](https://github.com/m-cahill/forge/pull/11) CI green; merge pending | **green** [27027762042](https://github.com/m-cahill/forge/actions/runs/27027762042) | 4.6/5 | [M10_summary](milestones/M10/M10_summary.md) |
+| M11 | Credential and cost closure continuation | — | **next** — stub only | — | — | [M11_plan](milestones/M11/M11_plan.md) (stub) |
 
 ---
 
@@ -688,10 +690,13 @@ Run Ledger **1.0** for `m03_synthetic_smoke_eval` is **synthetic factory self-ch
 
 ---
 
-## M10 Active Record (Local 5090 Feasibility Probe)
+## M10 Closeout Record (Local 5090 Feasibility Probe)
 
 **Branch:** `forge/M10-local-5090-feasibility-probe`  
-**Status:** **active** — probe complete; governance closeout pending  
+**PR:** [#11](https://github.com/m-cahill/forge/pull/11) — **open**; merge pending owner permission  
+**PR head:** `84529d1`  
+**PR CI:** [27027762042](https://github.com/m-cahill/forge/actions/runs/27027762042) **green** (Python 3.10–3.12)  
+**Local verification:** 171 pytest; ruff/mypy/compileall pass; probe executed; manifest validates  
 **Supersedes:** M09-seeded M10 stub “Credential and Cost Closure”
 
 ### Authorization state
@@ -724,9 +729,23 @@ Run Ledger **1.0** for `m03_synthetic_smoke_eval` is **synthetic factory self-ch
 - Submit UI `submission.zip` constraints: **OPEN**
 - Kaggle API submission: **TBD**
 
+### M10 deliverables
+
+| Deliverable | Status |
+| ----------- | ------ |
+| Local 5090 probe executed | Met — `visible_no_torch_cuda` |
+| Probe JSON + README + report | Met |
+| `public_control_repro_plan.local_5090_probe.json` | Met — validates |
+| Validator extensions (+5 tests) | Met |
+| Competition rules archive | Met |
+| M10_next_decision → M11 | Met — credential/cost closure primary |
+| Training / submission / reproduction | **Not claimed** |
+
+**Artifacts:** [M10_summary](milestones/M10/M10_summary.md) · [M10_audit](milestones/M10/M10_audit.md) (4.6/5) · [M10_run1](milestones/M10/M10_run1.md)
+
 ### Next recommendation
 
-**M11 — Credential and Cost Closure Continuation** (primary). Secondary: local CUDA stack fix + feasibility dry run if owner prefers local path. See [M10_next_decision](milestones/M10/M10_next_decision.md).
+**M11 — Credential and Cost Closure Continuation** per [M10_next_decision](milestones/M10/M10_next_decision.md). **Do not merge** PR #11 or start M11 without owner permission.
 
 **Non-claims (M10):** no training, inference, Kaggle submission, public/private score, reproduced baseline, adapters, credentials, or baseline code/data copy. Visible GPU is **not** training readiness.
 
@@ -776,3 +795,4 @@ Run Ledger **1.0** for `m03_synthetic_smoke_eval` is **synthetic factory self-ch
 | 2026-06-05 | M08 | PR #9 squash-merged to `main` | `ac7c5f2`; post-merge CI 26989604207 green; branch deleted |
 | 2026-06-05 | M09 | M09 Modal/Tinker setup gate on branch; PR #10 CI green | `9be2687`; 166 tests; audit 4.6/5 |
 | 2026-06-05 | M09 | PR #10 squash-merged to `main` | `5a4300b`; post-merge CI 26991673323 green; branch deleted |
+| 2026-06-05 | M10 | M10 local 5090 probe on branch; PR #11 CI green | RTX 5090 visible; torch CPU-only; `visible_no_torch_cuda`; audit 4.6/5; merge pending |

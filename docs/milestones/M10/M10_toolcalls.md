@@ -21,3 +21,6 @@ Record notable Cursor/tool actions for M10 — Local 5090 Feasibility Probe.
 | 2026-06-05T12:00:00Z | Cursor | M10 kickoff — Phase A | Branch `forge/M10-local-5090-feasibility-probe`; replace stub plan; update forge/README; commit `competition_rules.md` |
 | 2026-06-05T12:05:00Z | Cursor | Phase A commit | `c91ccc8` — docs(milestones): expand M10 local 5090 feasibility probe |
 | 2026-06-05T12:06:00Z | Cursor | Phase B — run probe | `python scripts/probe_local_5090.py --out docs/milestones/M10/evidence/local_5090_probe/local_5090_probe.json` |
+| 2026-06-05T12:10:00Z | Cursor | Phase B–D commits | `8fd2f4c`, `4c74ba5`, `84529d1` |
+| 2026-06-05T16:44:00Z | Cursor | PR #11 opened | CI [27027762042](https://github.com/m-cahill/forge/actions/runs/27027762042) **green** |
+| 2026-06-05T16:50:00Z | Cursor | M10 closeout | summary, audit, run1; M11 stub seeded |
