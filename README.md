@@ -6,9 +6,14 @@ Solver-guided, artifact-first LoRA engineering for `NVIDIA-Nemotron-3-Nano-30B`:
 
 ## Current milestone
 
-**M12** — Local CUDA PyTorch environment enablement (**active** on `forge/M12-local-cuda-pytorch-enablement`; see `docs/milestones/M12/M12_plan.md`).
+**M12** — Local CUDA PyTorch environment enablement (**implemented** on `forge/M12-local-cuda-pytorch-enablement`; see `docs/milestones/M12/M12_plan.md`).
 
-M00–M11 merged to `main`. Post-merge CI **green** [27038312607](https://github.com/m-cahill/forge/actions/runs/27038312607). `M12_LOCAL_CUDA_SETUP_AUTHORIZED = yes`; training/inference/submission **not authorized**. Modal/Tinker/cost/API **TBD**; Submit UI **OPEN**; local CUDA target: isolated `.venv_cuda` (M10 baseline: `visible_no_torch_cuda`).
+M00–M11 merged to `main`. Isolated `.venv_cuda`: torch 2.11.0+cu128, `torch.cuda.is_available()` **true**, classification **`cuda_ready_probe_only`** (not training-ready). Training/inference/submission **not authorized**. Modal/Tinker/cost/API **TBD**; Submit UI **OPEN**.
+
+```bash
+python scripts/validate_reproduction_plan.py \
+  docs/milestones/M12/evidence/readiness/public_control_repro_plan.local_cuda_env.json
+```
 
 ```bash
 python scripts/validate_reproduction_plan.py \

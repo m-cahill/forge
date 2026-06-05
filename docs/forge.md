@@ -1,13 +1,14 @@
 # FORGE — Ultimate Truth
 
 **Project:** FORGE — Kaggle NVIDIA Nemotron Model Reasoning Challenge  
-**Last updated:** 2026-06-05 (M12 Phase A active)  
-**Status:** M00–M11 **merged** to `main`; **M12 active** on `forge/M12-local-cuda-pytorch-enablement`  
+**Last updated:** 2026-06-05 (M12 Phases A–D complete on branch)  
+**Status:** M00–M11 **merged** to `main`; **M12 implemented** on `forge/M12-local-cuda-pytorch-enablement` (PR pending)  
 **Main SHA:** `c4176a9` (post-M11 governance on `main`)  
 **M11 merge:** `dd95d0c` via PR [#12](https://github.com/m-cahill/forge/pull/12) · post-merge CI [27038312607](https://github.com/m-cahill/forge/actions/runs/27038312607) **green**  
 **M12 authorization:** `M12_LOCAL_CUDA_SETUP_AUTHORIZED = yes` · `M12_TRAINING_AUTHORIZED = no` · `M12_INFERENCE_AUTHORIZED = no` · `KAGGLE_SUBMISSION_AUTHORIZED = no`  
+**M12 CUDA classification:** `cuda_ready_probe_only` in `.venv_cuda` — **not** training readiness  
 **M11 owner preference:** `prefer_local_cuda`  
-**M10 probe classification (baseline):** `visible_no_torch_cuda` — GPU visible; PyTorch CPU-only in main env; **not** training readiness
+**M10 probe classification (main env baseline):** `visible_no_torch_cuda` — GPU visible; PyTorch CPU-only in main env
 
 ---
 
@@ -121,7 +122,7 @@ FORGE is a solver-guided, artifact-first, audit-governed LoRA competition system
 | M09 | Modal/Tinker setup gate | `forge/M09-modal-tinker-setup-gate` → `main` | **merged** (`5a4300b`) | **green** — post-merge [26991673323](https://github.com/m-cahill/forge/actions/runs/26991673323) | 4.6/5 | [M09_summary](milestones/M09/M09_summary.md) |
 | M10 | Local 5090 feasibility probe | `forge/M10-local-5090-feasibility-probe` → `main` | **merged** (`dc45813`) | **green** — post-merge [27032692673](https://github.com/m-cahill/forge/actions/runs/27032692673) | 4.6/5 | [M10_summary](milestones/M10/M10_summary.md) |
 | M11 | Credential and cost closure continuation | `forge/M11-credential-cost-closure` → `main` | **merged** (`dd95d0c`) | **green** — post-merge [27038312607](https://github.com/m-cahill/forge/actions/runs/27038312607) | 4.6/5 | [M11_summary](milestones/M11/M11_summary.md) |
-| M12 | Local CUDA PyTorch environment enablement | `forge/M12-local-cuda-pytorch-enablement` | **active** — Phase A | pending | — | [M12_plan](milestones/M12/M12_plan.md) |
+| M12 | Local CUDA PyTorch environment enablement | `forge/M12-local-cuda-pytorch-enablement` | **implemented** — PR pending | pending | — | [M12_plan](milestones/M12/M12_plan.md) |
 
 ---
 
@@ -238,7 +239,8 @@ A candidate may advance only when all applicable gates are satisfied:
 
 | Environment ID | Hardware | OS | Python/CUDA | Purpose | Status | Notes |
 | -------------- | -------- | -- | ----------- | ------- | ------ | ----- |
-| local_5090 | NVIDIA GeForce RTX 5090 | Windows 10.0.26200 | Py3.11.9; driver 591.86; torch 2.2.2+cpu (**CUDA false**) | Local eval, QLoRA tests, generation | **probed** — `visible_no_torch_cuda` | [M10 probe](milestones/M10/evidence/local_5090_probe/local_5090_probe.json) 2026-06-05; ~32607 MiB VRAM; **not** training-ready |
+| local_5090 (main env) | NVIDIA GeForce RTX 5090 | Windows 10.0.26200 | Py3.11.9; driver 591.86; torch 2.2.2+cpu (**CUDA false**) | Project verification / CI | **probed** — `visible_no_torch_cuda` | [M10 probe](milestones/M10/evidence/local_5090_probe/local_5090_probe.json) 2026-06-05 |
+| local_5090_cuda (`.venv_cuda`) | NVIDIA GeForce RTX 5090 | Windows 10.0.26200 | Py3.11.9; driver 591.86; torch 2.11.0+cu128; CUDA 12.8 (**CUDA true**) | Isolated CUDA probe only | **`cuda_ready_probe_only`** | [M12 evidence](milestones/M12/evidence/local_cuda_env/cuda_torch_probe.json) 2026-06-05; ~32607 MiB; tiny smoke pass; **not** training-ready |
 | kaggle_notebook | Kaggle Notebook (CPU at probe) | Linux 6.6 / Py3.12 | torch 2.10+cpu; no CUDA | M01 debug probe | probed 2026-06-04 | Interactive; no GPU; ~19.5 GB free; see kaggle_setup_evidence |
 
 ---
