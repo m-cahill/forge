@@ -13,4 +13,8 @@ Record notable Cursor/tool actions for M08 (compute and credential readiness clo
 | 2026-06-05T02:01:00Z | Cursor | git checkout main; git pull; git status | Clean tree; on `main` |
 | 2026-06-05T02:02:00Z | Cursor | git checkout -b forge/M08-compute-credential-readiness | Phase A branch created |
 | 2026-06-05T02:03:00Z | Cursor | Expand M08_plan.md; update forge.md; README | Phase A committed `5bd4838` |
-| 2026-06-05T02:10:00Z | Cursor | Phase B readiness docs | compute/credential/cost/submit/SQ/matrix |
+| 2026-06-05T02:10:00Z | Cursor | Phase B readiness docs | compute/credential/cost/submit/SQ/matrix — commit `b26cc8d` |
+| 2026-06-05T02:20:00Z | Cursor | Phase C probe script | `probe_local_5090.py`, `gpu_probe.py`, unit tests |
+| 2026-06-05T02:25:00Z | Cursor | Phase D manifest + validator | readiness JSON; `reproduction_plan.py` extensions |
+| 2026-06-05T02:30:00Z | Cursor | pytest; ruff; mypy; validate_reproduction_plan | 163 tests pass; readiness manifest OK |
+| 2026-06-05T02:35:00Z | Cursor | Phase E M08_next_decision; forge.md | governance updates |

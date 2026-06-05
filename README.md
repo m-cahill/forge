@@ -12,6 +12,13 @@ M00–M07 merged to `main` (`06ada17`). M07: `M07_TRAINING_AUTHORIZED = no` — 
 
 ```bash
 python scripts/validate_reproduction_plan.py \
+  docs/milestones/M08/evidence/readiness/public_control_repro_plan.readiness.json
+```
+
+M07 training-blocked manifest (still valid):
+
+```bash
+python scripts/validate_reproduction_plan.py \
   docs/milestones/M07/evidence/training_gate/public_control_repro_plan.training_blocked.json
 ```
 

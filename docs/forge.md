@@ -556,6 +556,39 @@ Run Ledger **1.0** for `m03_synthetic_smoke_eval` is **synthetic factory self-ch
 
 ---
 
+## M08 Active Record (compute/credential readiness)
+
+**Branch:** `forge/M08-compute-credential-readiness`  
+**Authorization:** M08 kickoff **yes**; `M08_LOCAL_5090_PROBE_AUTHORIZED = no`; `M08_TRAINING_AUTHORIZED = no`
+
+### Readiness status (owner evidence not supplied)
+
+| Blocker | Status |
+| ------- | ------ |
+| Submit UI `submission.zip` constraints | **OPEN** |
+| Kaggle API submission | **TBD** |
+| Modal / Tinker credentials | **TBD** |
+| Cloud GPU fallback | **TBD** |
+| Cost acceptance | **TBD** (`cost_accepted: false`) |
+| `credentials_ready` | **false** |
+| local_5090 CUDA/VRAM | **TBD** — probe script exists; not run |
+| SQ-CORPUS-001 | **open** |
+| Gate C training authorization | **not provided** |
+
+### M08 artifacts (in progress)
+
+- [M08_plan](milestones/M08/M08_plan.md) · [readiness matrix](milestones/M08/readiness_matrix.md) · [M08_next_decision](milestones/M08/M08_next_decision.md)
+- Readiness manifest: [`public_control_repro_plan.readiness.json`](milestones/M08/evidence/readiness/public_control_repro_plan.readiness.json)
+- Probe script: `scripts/probe_local_5090.py` (not executed in M08)
+
+**Non-claims (M08):** no training, inference, Kaggle submission, hardware probe evidence, credential storage, or reproduced baseline.
+
+### Next recommendation (post-M08 implementation)
+
+See [M08_next_decision](milestones/M08/M08_next_decision.md) — primary **M09 Modal/Tinker setup gate** until owner supplies credential/cost evidence.
+
+---
+
 ## Appendix: Material Decisions
 
 | Date | Milestone | Decision | Rationale |
