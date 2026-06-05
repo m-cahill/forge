@@ -12,6 +12,7 @@ CLI entry points for dataset generation, training, evaluation, packaging, and su
 | `validate_candidate_manifest.py` | Adapter candidate manifest JSON validation (M04) |
 | `validate_reproduction_plan.py` | Reproduction plan manifest JSON validation (M05) |
 | `probe_local_5090.py` | Safe local GPU/CUDA probe — no model load (M08/M10; run only when owner authorizes) |
+| `verify_cuda_torch.py` | CUDA PyTorch verification + optional tiny tensor smoke (M12; use in `.venv_cuda`) |
 
 ### Local evaluation (M02)
 
@@ -86,6 +87,20 @@ python scripts/probe_local_5090.py --out /tmp/forge_m08_local_5090_probe.json
 ```
 
 Safe on CPU-only machines (reports missing GPU tools). Does not load models, train, or infer.
+
+### CUDA PyTorch verification (M12)
+
+Run inside isolated `.venv_cuda` after CUDA-enabled PyTorch install:
+
+```bash
+python scripts/verify_cuda_torch.py --help
+python scripts/verify_cuda_torch.py \
+  --environment-path .venv_cuda \
+  --out docs/milestones/M12/evidence/local_cuda_env/cuda_torch_probe.json \
+  --tiny-smoke
+```
+
+Safe on CPU-only machines. Does not load models, train, or infer.
 
 ## Planned
 
