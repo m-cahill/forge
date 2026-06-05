@@ -20,3 +20,6 @@ Record notable Cursor/tool actions for M12 (local CUDA PyTorch environment enabl
 | 2026-06-05T20:53:00Z | Cursor | verify_cuda_torch.py | CUDA probe + tiny smoke → `cuda_ready_probe_only` | `cuda_torch_probe.json` | done |
 | 2026-06-05T21:15:00Z | Cursor | write | Phase C/D evidence + manifest + next decision | `docs/milestones/M12/` | done |
 | 2026-06-05T21:16:00Z | Cursor | pytest / validate | Full suite 183 pass; manifest OK | repo | done |
+| 2026-06-05T22:26:00Z | Cursor | git push / gh pr create | PR [#13](https://github.com/m-cahill/forge/pull/13) | branch | done |
+| 2026-06-05T22:30:00Z | Cursor | gh pr checks | PR CI [27043336258](https://github.com/m-cahill/forge/actions/runs/27043336258) green | CI | done |
+| 2026-06-05T22:35:00Z | Cursor | closeout docs | summary, audit, run1, M13 stub, forge.md | `docs/milestones/M12/`, `M13/` | done |
