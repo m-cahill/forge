@@ -77,8 +77,11 @@ OPTIONAL_CREDENTIAL_STATUS_KEYS = frozenset(
         "tinker_account_status",
         "tinker_credential_status",
         "cloud_gpu_credential_status",
+        "kaggle_api_status",
     }
 )
+
+SUBMIT_UI_CONSTRAINTS_STATUS_VALUES = frozenset({"open", "recorded", "blocked"})
 
 LOCAL_5090_PROBE_STATUS_VALUES = frozenset(
     {
@@ -245,6 +248,7 @@ def validate_reproduction_plan(data: dict[str, Any]) -> list[str]:
     errors.extend(_validate_local_5090_probe_status(data))
     errors.extend(_validate_copying_policy(data))
     errors.extend(_validate_credential_readiness_notes(data))
+    errors.extend(_validate_submit_ui_constraints_status(data))
     errors.extend(_validate_authorization_rules(data, status))
     return errors
 
@@ -374,8 +378,20 @@ def _validate_ready_for_training_gates(data: dict[str, Any]) -> list[str]:
     return errors
 
 
+def _validate_submit_ui_constraints_status(data: dict[str, Any]) -> list[str]:
+    """Validate optional Submit UI constraint status (M11+)."""
+    errors: list[str] = []
+    value = data.get("submit_ui_constraints_status")
+    if value is None:
+        return errors
+    if not isinstance(value, str) or value not in SUBMIT_UI_CONSTRAINTS_STATUS_VALUES:
+        allowed = ", ".join(sorted(SUBMIT_UI_CONSTRAINTS_STATUS_VALUES))
+        errors.append(f"submit_ui_constraints_status must be one of: {allowed}")
+    return errors
+
+
 def _validate_credential_readiness_notes(data: dict[str, Any]) -> list[str]:
-    """Validate optional Modal/Tinker/cloud credential status fields (M09+)."""
+    """Validate optional Modal/Tinker/cloud/Kaggle credential status fields (M09+)."""
     errors: list[str] = []
     for key in OPTIONAL_CREDENTIAL_STATUS_KEYS:
         value = data.get(key)

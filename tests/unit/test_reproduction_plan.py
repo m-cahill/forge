@@ -40,6 +40,11 @@ LOCAL_5090_PROBE_PATH = (
     / "docs/milestones/M10/evidence/readiness"
     / "public_control_repro_plan.local_5090_probe.json"
 )
+CREDENTIAL_COST_GATE_PATH = (
+    Path(__file__).resolve().parents[2]
+    / "docs/milestones/M11/evidence/readiness"
+    / "public_control_repro_plan.credential_cost_gate.json"
+)
 
 
 @pytest.fixture
@@ -291,3 +296,28 @@ class TestLocal5090ProbeManifest:
         plan["ready_for_training"] = False
         plan["training_authorized"] = False
         assert validate_reproduction_plan(plan) == []
+
+
+class TestCredentialCostGateManifest:
+    def test_credential_cost_gate_manifest_file_valid(self) -> None:
+        data = json.loads(CREDENTIAL_COST_GATE_PATH.read_text(encoding="utf-8"))
+        assert validate_reproduction_plan(data) == []
+        assert data["plan_id"] == "public_control_repro_plan_credential_cost_gate_v1"
+        assert data["credentials_ready"] is False
+        assert data["cost_accepted"] is False
+        assert data["kaggle_api_status"] == "tbd"
+        assert data["submit_ui_constraints_status"] == "open"
+        assert data["local_5090_probe_status"] == "visible_no_torch_cuda"
+        assert "credentials_not_ready" in data["blockers"]
+
+    def test_invalid_kaggle_api_status_rejected(self, preflight_plan: dict) -> None:
+        bad = copy.deepcopy(preflight_plan)
+        bad["kaggle_api_status"] = "unknown"
+        errors = validate_reproduction_plan(bad)
+        assert any("kaggle_api_status" in e for e in errors)
+
+    def test_invalid_submit_ui_constraints_status_rejected(self, preflight_plan: dict) -> None:
+        bad = copy.deepcopy(preflight_plan)
+        bad["submit_ui_constraints_status"] = "unknown"
+        errors = validate_reproduction_plan(bad)
+        assert any("submit_ui_constraints_status" in e for e in errors)
