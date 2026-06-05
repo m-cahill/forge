@@ -1,12 +1,13 @@
 # FORGE — Ultimate Truth
 
 **Project:** FORGE — Kaggle NVIDIA Nemotron Model Reasoning Challenge  
-**Last updated:** 2026-06-05 (M08 merged to `main`; post-merge CI green)  
-**Status:** M00–M08 **merged** to `main`; **next:** M09 Modal/Tinker setup gate (stub only)  
+**Last updated:** 2026-06-05 (M09 active on branch)  
+**Status:** M00–M08 **merged** to `main`; **active:** M09 Modal/Tinker setup gate on `forge/M09-modal-tinker-setup-gate`  
 **Main SHA:** `ac7c5f249ca39181d4e167193e6d7c70e5e5a198` (M08 squash merge via PR [#9](https://github.com/m-cahill/forge/pull/9))  
 **M08 PR head (pre-merge):** `448692b` · PR CI [26988858986](https://github.com/m-cahill/forge/actions/runs/26988858986) **green**  
 **Post-merge CI on `main`:** [26989604207](https://github.com/m-cahill/forge/actions/runs/26989604207) **green** (push on `ac7c5f2`)  
-**M08 authorization:** `M08_LOCAL_5090_PROBE_AUTHORIZED = no` (probe **not** run) · `M08_TRAINING_AUTHORIZED = no` — training **NO-GO**
+**M08 authorization:** `M08_LOCAL_5090_PROBE_AUTHORIZED = no` (probe **not** run) · `M08_TRAINING_AUTHORIZED = no` — training **NO-GO**  
+**M09 authorization:** `M09_LOCAL_5090_PROBE_AUTHORIZED = no` · `M09_TRAINING_AUTHORIZED = no` — training **NO-GO**; Modal/Tinker/cost **TBD**
 
 ---
 
@@ -107,7 +108,7 @@ FORGE is a solver-guided, artifact-first, audit-governed LoRA competition system
 | M06 | Controlled public baseline reproduction execution gate | `forge/M06-control-repro-execution-gate` → `main` | **merged** (`a7de356`) | **green** — post-merge [26985969954](https://github.com/m-cahill/forge/actions/runs/26985969954) | 4.6/5 | [M06_summary](milestones/M06/M06_summary.md) |
 | M07 | Controlled public baseline training authorization gate | `forge/M07-training-authorization-gate` → `main` | **merged** (`06ada17`) | **green** — post-merge [26988100314](https://github.com/m-cahill/forge/actions/runs/26988100314) | 4.6/5 | [M07_summary](milestones/M07/M07_summary.md) |
 | M08 | Compute and credential readiness closure | `forge/M08-compute-credential-readiness` → `main` | **merged** (`ac7c5f2`) | **green** — post-merge [26989604207](https://github.com/m-cahill/forge/actions/runs/26989604207) | 4.6/5 | [M08_summary](milestones/M08/M08_summary.md) |
-| M09 | Modal/Tinker setup gate | — | **next** — stub only | — | — | [M09_plan](milestones/M09/M09_plan.md) (stub) |
+| M09 | Modal/Tinker setup gate | `forge/M09-modal-tinker-setup-gate` | **active** | pending PR | — | [M09_plan](milestones/M09/M09_plan.md) |
 
 ---
 
