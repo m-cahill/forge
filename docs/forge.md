@@ -1,13 +1,12 @@
 # FORGE — Ultimate Truth
 
 **Project:** FORGE — Kaggle NVIDIA Nemotron Model Reasoning Challenge  
-**Last updated:** 2026-06-06 (M11 active on `forge/M11-credential-cost-closure`)  
-**Status:** M00–M10 **merged** to `main`; **M11 active** — credential/cost closure  
+**Last updated:** 2026-06-06 (M11 closed on branch; PR [#12](https://github.com/m-cahill/forge/pull/12) CI green; merge pending)  
+**Status:** M00–M10 **merged** to `main`; **M11 complete on branch** — merge pending owner permission; **next:** M12 local CUDA PyTorch (stub)  
 **Main SHA:** `9cd7fd8` (post-M10 forge update)  
-**M10 PR head (pre-merge):** `e079f87` · PR CI [27027813185](https://github.com/m-cahill/forge/actions/runs/27027813185) **green**  
-**Post-merge CI on `main`:** [27032692673](https://github.com/m-cahill/forge/actions/runs/27032692673) **green**  
+**M11 PR head:** `20b8413` · PR CI [27037572995](https://github.com/m-cahill/forge/actions/runs/27037572995) **green**  
 **M11 authorization:** kickoff **yes** · `M11_LOCAL_CUDA_SETUP_AUTHORIZED = no` · `M11_TRAINING_AUTHORIZED = no`  
-**M11 owner preference:** `prefer_local_cuda` (M12 routing only — not Gate D)  
+**M11 owner preference:** `prefer_local_cuda` → M12 Local CUDA PyTorch Environment Enablement (stub)  
 **M10 probe classification:** `visible_no_torch_cuda` — GPU visible; PyTorch CPU-only; **not** training readiness
 
 ---
@@ -121,7 +120,8 @@ FORGE is a solver-guided, artifact-first, audit-governed LoRA competition system
 | M08 | Compute and credential readiness closure | `forge/M08-compute-credential-readiness` → `main` | **merged** (`ac7c5f2`) | **green** — post-merge [26989604207](https://github.com/m-cahill/forge/actions/runs/26989604207) | 4.6/5 | [M08_summary](milestones/M08/M08_summary.md) |
 | M09 | Modal/Tinker setup gate | `forge/M09-modal-tinker-setup-gate` → `main` | **merged** (`5a4300b`) | **green** — post-merge [26991673323](https://github.com/m-cahill/forge/actions/runs/26991673323) | 4.6/5 | [M09_summary](milestones/M09/M09_summary.md) |
 | M10 | Local 5090 feasibility probe | `forge/M10-local-5090-feasibility-probe` → `main` | **merged** (`dc45813`) | **green** — post-merge [27032692673](https://github.com/m-cahill/forge/actions/runs/27032692673) | 4.6/5 | [M10_summary](milestones/M10/M10_summary.md) |
-| M11 | Credential and cost closure continuation | `forge/M11-credential-cost-closure` | **active** | pending PR | — | [M11_plan](milestones/M11/M11_plan.md) |
+| M11 | Credential and cost closure continuation | `forge/M11-credential-cost-closure` | **closed on branch** — PR [#12](https://github.com/m-cahill/forge/pull/12) | **green** — [27037572995](https://github.com/m-cahill/forge/actions/runs/27037572995) | 4.6/5 | [M11_summary](milestones/M11/M11_summary.md) |
+| M12 | Local CUDA PyTorch environment enablement | — | **next** — stub only | — | — | [M12_plan](milestones/M12/M12_plan.md) (stub) |
 
 ---
 
@@ -764,6 +764,60 @@ Run Ledger **1.0** for `m03_synthetic_smoke_eval` is **synthetic factory self-ch
 
 ---
 
+## M11 Closeout Record (Credential and Cost Closure Continuation)
+
+**Branch:** `forge/M11-credential-cost-closure`  
+**PR:** [#12](https://github.com/m-cahill/forge/pull/12) — **open**; merge pending owner permission  
+**PR head:** `20b8413`  
+**PR CI (final head):** [27037572995](https://github.com/m-cahill/forge/actions/runs/27037572995) **green** (Python 3.10–3.12)  
+**Local verification:** 174 pytest; ruff/mypy/compileall pass; credential_cost_gate manifest validates
+
+**Artifacts:** [M11_summary](milestones/M11/M11_summary.md) · [M11_audit](milestones/M11/M11_audit.md) (4.6/5) · [M11_run1](milestones/M11/M11_run1.md)
+
+### Authorization state
+
+| Field | Value |
+| ----- | ----- |
+| M11 kickoff | **yes** |
+| `M11_LOCAL_CUDA_SETUP_AUTHORIZED` | **no** |
+| `M11_TRAINING_AUTHORIZED` | **no** |
+| Owner preference | **prefer_local_cuda** |
+
+### M11 deliverables
+
+| Deliverable | Status |
+| ----------- | ------ |
+| Owner readiness intake | Met — TBD/OPEN preserved |
+| Modal/Tinker/cost/Kaggle/Submit UI docs | Met |
+| Local CUDA path decision | Met — blocked; no CUDA install |
+| External compute matrix | Met |
+| `public_control_repro_plan.credential_cost_gate.json` | Met — validates |
+| Validator extensions (+3 tests) | Met |
+| M11_next_decision → M12 | Met — Local CUDA PyTorch Enablement |
+| CUDA install / training / submission | **Not performed** |
+
+### Readiness manifest
+
+[`public_control_repro_plan.credential_cost_gate.json`](milestones/M11/evidence/readiness/public_control_repro_plan.credential_cost_gate.json) — `credentials_ready: false`, `cost_accepted: false`, `kaggle_api_status: tbd`, `submit_ui_constraints_status: open`, `local_5090_probe_status: visible_no_torch_cuda`. **Not** training authorization.
+
+### Open blockers (post-M11)
+
+- Submit UI `submission.zip` constraints: **OPEN**
+- Kaggle API submission: **TBD**
+- Modal/Tinker/cloud credentials: **TBD**
+- Cost acceptance: **TBD**
+- CUDA-enabled PyTorch: **unavailable** in active environment
+- SQ-CORPUS-001: **open**
+- Gate C training authorization: **not provided**
+
+### Next recommendation
+
+**M12 — Local CUDA PyTorch Environment Enablement** per [M11_next_decision](milestones/M11/M11_next_decision.md). Requires `M12_LOCAL_CUDA_SETUP_AUTHORIZED = yes`. **Do not start M12** without owner kickoff.
+
+**Non-claims (M11):** no training, inference, Kaggle submission, public/private score, CUDA PyTorch install, reproduced baseline, adapters, credentials, or baseline code/data copy.
+
+---
+
 ## Appendix: Material Decisions
 
 | Date | Milestone | Decision | Rationale |
@@ -809,4 +863,4 @@ Run Ledger **1.0** for `m03_synthetic_smoke_eval` is **synthetic factory self-ch
 | 2026-06-05 | M09 | M09 Modal/Tinker setup gate on branch; PR #10 CI green | `9be2687`; 166 tests; audit 4.6/5 |
 | 2026-06-05 | M09 | PR #10 squash-merged to `main` | `5a4300b`; post-merge CI 26991673323 green; branch deleted |
 | 2026-06-05 | M10 | M10 local 5090 probe on branch; PR #11 CI green | RTX 5090 visible; torch CPU-only; `visible_no_torch_cuda`; audit 4.6/5 |
-| 2026-06-05 | M10 | PR #11 squash-merged to `main` | `dc45813`; post-merge CI 27032692673 green; branch deleted |
+| 2026-06-06 | M11 | M11 credential/cost closure on branch; PR #12 CI green | TBD preserved; prefer_local_cuda; M12 CUDA stub; audit 4.6/5; merge pending |

@@ -7,7 +7,7 @@
 | **Milestone** | M11 |
 | **Title** | Credential and Cost Closure Continuation |
 | **Branch** | `forge/M11-credential-cost-closure` |
-| **Status** | **active** — implementation in progress |
+| **Status** | **closed on branch** — PR [#12](https://github.com/m-cahill/forge/pull/12) CI green; merge pending |
 | **Precondition** | M10 merged to `main`; post-merge CI green; owner authorized M11 kickoff |
 | **Primary goal** | Convert credential, cost, external compute, Kaggle API, and Submit UI blockers from TBD/OPEN into evidence-backed statuses without recording secrets, training, inference, adapter artifacts, or Kaggle submissions |
 
