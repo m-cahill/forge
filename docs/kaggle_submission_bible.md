@@ -2,10 +2,10 @@
 
 **Project:** FORGE — Kaggle NVIDIA Nemotron Model Reasoning Challenge  
 **Authority:** Subordinate to Kaggle rules/UI and [`docs/forge.md`](forge.md); operational companion for submission, notebook, evidence, and debugging.  
-**Last updated:** 2026-06-03  
-**Status:** M00 initial version
+**Last updated:** 2026-06-05  
+**Status:** M10 rules archive cross-reference
 
-Related: [`docs/kaggle/kaggle_setup_runbook.md`](kaggle/kaggle_setup_runbook.md), [`docs/kaggle/kaggle_setup_evidence.md`](kaggle/kaggle_setup_evidence.md), [`docs/kaggle/notebook_debug_standard.md`](kaggle/notebook_debug_standard.md)
+Related: [`docs/competition_rules.md`](competition_rules.md), [`docs/kaggle/kaggle_setup_runbook.md`](kaggle/kaggle_setup_runbook.md), [`docs/kaggle/kaggle_setup_evidence.md`](kaggle/kaggle_setup_evidence.md), [`docs/kaggle/notebook_debug_standard.md`](kaggle/notebook_debug_standard.md)
 
 > **Not PANTANAL:** Other projects may use `submission.csv`. FORGE requires **`submission.zip`** with a LoRA adapter. Do not copy CSV/BirdCLEF rules here.
 
@@ -13,7 +13,7 @@ Related: [`docs/kaggle/kaggle_setup_runbook.md`](kaggle/kaggle_setup_runbook.md)
 
 ## 1. Authority and source hierarchy
 
-1. Kaggle competition rules, overview, evaluation, data, and Submit UI.
+1. Kaggle competition rules, overview, evaluation, data, and Submit UI ([`docs/competition_rules.md`](competition_rules.md) archived copy).
 2. [`docs/forge.md`](forge.md) — Ultimate Truth.
 3. This bible.
 4. Milestone evidence under `docs/milestones/`.
@@ -34,9 +34,15 @@ Related: [`docs/kaggle/kaggle_setup_runbook.md`](kaggle/kaggle_setup_runbook.md)
 | Inference | Deterministic (vLLM) | No sampling diversity at eval |
 | Entry deadline | **June 8, 2026** | Public; owner reconfirm on Kaggle |
 | Final deadline | **June 15, 2026, 11:59 PM UTC** | Public; owner reconfirm on Kaggle |
-| Daily submission limit | **OWNER ACTION** | Authenticated Submit UI only |
-| Rules / team status | **OWNER ACTION** | Authenticated account |
-| Prize eligibility | Public notebook + write-up | Track in `docs/forge.md` |
+| Daily submission limit | **5 per day** | Rules §2.2.a; Submit UI verified 2026-06-04 |
+| Final submissions | **Up to 2** for judging | Rules §2.2.b |
+| Team size | **Max 5** | Rules §2.1 |
+| Rules / team status | **Yes** (owner 2026-06-04) | Authenticated account |
+| Prize eligibility | Public Kaggle notebook + solution write-up | Rules §8.c; track in `docs/forge.md` |
+| Winner obligations | Training + inference code, methodology, compute env | Rules §8.a |
+| Data license | CC BY 4.0 (NVIDIA Research attribution) | Rules §4.a |
+| External data/tools | Allowed if reasonably accessible / minimal cost | Rules §6 |
+| Submit UI zip constraints | **OPEN** | Owner-action; not recorded |
 
 ---
 

@@ -1,14 +1,12 @@
 # FORGE — Ultimate Truth
 
 **Project:** FORGE — Kaggle NVIDIA Nemotron Model Reasoning Challenge  
-**Last updated:** 2026-06-05 (M09 merged to `main`; post-merge CI green)  
-**Status:** M00–M09 **merged** to `main`; **next:** M10 credential/cost closure (stub only)  
-**Main SHA:** `5a4300bb1f7b873750089c773e8c0e789f15f870` (M09 squash merge via PR [#10](https://github.com/m-cahill/forge/pull/10))  
-**M09 PR head (pre-merge):** `9be2687` · PR CI [26990319778](https://github.com/m-cahill/forge/actions/runs/26990319778) **green**  
-**Post-merge CI on `main`:** [26991673323](https://github.com/m-cahill/forge/actions/runs/26991673323) **green** (push on `5a4300b`)  
-**M08 squash merge:** `ac7c5f2` via PR [#9](https://github.com/m-cahill/forge/pull/9)  
-**M08 authorization:** `M08_LOCAL_5090_PROBE_AUTHORIZED = no` (probe **not** run) · `M08_TRAINING_AUTHORIZED = no` — training **NO-GO**  
-**M09 authorization:** `M09_LOCAL_5090_PROBE_AUTHORIZED = no` · `M09_TRAINING_AUTHORIZED = no` — training **NO-GO**; Modal/Tinker/cost **TBD**
+**Last updated:** 2026-06-05 (M10 active — Local 5090 Feasibility Probe)  
+**Status:** M00–M09 **merged** to `main`; **active:** M10 Local 5090 Feasibility Probe on `forge/M10-local-5090-feasibility-probe`  
+**Main SHA:** `4fad43c` (post-M09 forge ledger update)  
+**M09 squash merge:** `5a4300b` via PR [#10](https://github.com/m-cahill/forge/pull/10) · post-merge CI [26991673323](https://github.com/m-cahill/forge/actions/runs/26991673323) **green**  
+**M10 authorization:** `M10_LOCAL_5090_PROBE_AUTHORIZED = yes` · `M10_TRAINING_AUTHORIZED = no` · `M10_INFERENCE_AUTHORIZED = no` · `KAGGLE_SUBMISSION_AUTHORIZED = no`  
+**M08/M09 historical:** local probe **not** run under M08/M09; superseded by M10 probe when complete
 
 ---
 
@@ -42,6 +40,16 @@ No milestone may close unless:
 | Final submission deadline | **June 15, 2026, 11:59 PM UTC** | Owner — live Kaggle competition page (logged in) | 2026-06-04 |
 | Daily submission limit | **5 per day** (0/5 used at probe) | Kaggle Submit UI + M01 debug probe | 2026-06-04 |
 | Rules accepted / team joined | **Yes** (Submit UI accessible) | Owner — authenticated competition/Rules UI | 2026-06-04 |
+| Official rules archive | [`docs/competition_rules.md`](competition_rules.md) | Owner-provided rules text | 2026-06-05 |
+| Team size limit | **5** | Competition rules §2.1 | 2026-06-05 |
+| Final submissions for judging | **Up to 2** | Competition rules §2.2.b | 2026-06-05 |
+| Data license | **CC BY 4.0** (NVIDIA Research attribution) | Competition rules §4.a | 2026-06-05 |
+| Prize documentation | Public Kaggle notebook + solution write-up required | Competition rules §8.c | 2026-06-05 |
+| Winner code obligations | Training code, inference code, methodology, compute environment | Competition rules §8.a | 2026-06-05 |
+| External data/tools | Allowed if reasonably accessible / minimal cost and compliant | Competition rules §6 | 2026-06-05 |
+| Private code sharing | Prohibited outside team (public sharing on Kaggle permitted) | Competition rules §3.10 | 2026-06-05 |
+| Multiple Kaggle accounts | Prohibited | Competition rules (intro) | 2026-06-05 |
+| Submit UI zip constraints | **OPEN** — not recorded | Owner-action | — |
 
 ---
 
@@ -110,7 +118,7 @@ FORGE is a solver-guided, artifact-first, audit-governed LoRA competition system
 | M07 | Controlled public baseline training authorization gate | `forge/M07-training-authorization-gate` → `main` | **merged** (`06ada17`) | **green** — post-merge [26988100314](https://github.com/m-cahill/forge/actions/runs/26988100314) | 4.6/5 | [M07_summary](milestones/M07/M07_summary.md) |
 | M08 | Compute and credential readiness closure | `forge/M08-compute-credential-readiness` → `main` | **merged** (`ac7c5f2`) | **green** — post-merge [26989604207](https://github.com/m-cahill/forge/actions/runs/26989604207) | 4.6/5 | [M08_summary](milestones/M08/M08_summary.md) |
 | M09 | Modal/Tinker setup gate | `forge/M09-modal-tinker-setup-gate` → `main` | **merged** (`5a4300b`) | **green** — post-merge [26991673323](https://github.com/m-cahill/forge/actions/runs/26991673323) | 4.6/5 | [M09_summary](milestones/M09/M09_summary.md) |
-| M10 | Credential and cost closure continuation | — | **next** — stub only | — | — | [M10_plan](milestones/M10/M10_plan.md) (stub) |
+| M10 | Local 5090 feasibility probe | `forge/M10-local-5090-feasibility-probe` | **active** | pending | — | [M10_plan](milestones/M10/M10_plan.md) |
 
 ---
 
@@ -677,6 +685,31 @@ Run Ledger **1.0** for `m03_synthetic_smoke_eval` is **synthetic factory self-ch
 1. **Owner:** Supply Modal/Tinker/cost status (no secrets); record Submit UI constraints.  
 2. **Cursor:** M10 credential/cost closure per [M09_next_decision](milestones/M09/M09_next_decision.md) when authorized — **not started**.  
 3. **Defer:** Training, Kaggle submission, baseline reproduction, local probe until separately authorized.
+
+---
+
+## M10 Active Record (Local 5090 Feasibility Probe)
+
+**Branch:** `forge/M10-local-5090-feasibility-probe`  
+**Status:** **active** — Phase A in progress  
+**Supersedes:** M09-seeded M10 stub “Credential and Cost Closure”
+
+### Authorization state
+
+| Field | Value |
+| ----- | ----- |
+| `M10_LOCAL_5090_PROBE_AUTHORIZED` | **yes** |
+| `M10_TRAINING_AUTHORIZED` | **no** |
+| `M10_INFERENCE_AUTHORIZED` | **no** |
+| `KAGGLE_SUBMISSION_AUTHORIZED` | **no** |
+
+### Cross-references
+
+- M08 compute readiness and M09 external compute path docs remain historical; M10 probe evidence will supersede `local_5090` TBD fields here when complete.
+- Submit UI `submission.zip` constraints: **OPEN**
+- Kaggle API submission: **TBD**
+
+**Non-claims (M10):** no training, inference, Kaggle submission, public/private score, reproduced baseline, adapters, credentials, or baseline code/data copy.
 
 ---
 

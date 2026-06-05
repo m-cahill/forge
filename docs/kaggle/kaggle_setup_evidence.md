@@ -1,9 +1,26 @@
 # Kaggle Setup Evidence — FORGE
 
 **Authority:** Subordinate to [`docs/forge.md`](../forge.md).  
-**Last updated:** 2026-06-04 (M04: Submit UI zip constraints remain OPEN)
+**Last updated:** 2026-06-05 (M10: official rules archived; Submit UI zip constraints remain OPEN)
 
 Record every Kaggle verification attempt. Do not claim scores, submission success, or package validity without a row here (or linked milestone evidence).
+
+## Official competition rules (M10)
+
+Archived at [`docs/competition_rules.md`](../competition_rules.md) (owner-provided, 2026-06-05). Rules-derived facts recorded in [`docs/forge.md`](../forge.md) §1 Competition Snapshot.
+
+| Rule area | FORGE record |
+| --------- | ------------ |
+| Daily submissions | **5 per day** (also verified Submit UI 2026-06-04) |
+| Final submissions | Up to **2** selected for judging |
+| Team size | Max **5** |
+| Prize eligibility | Public Kaggle notebook + solution write-up required |
+| Winner obligations | Training code, inference code, methodology, compute environment details |
+| Competition data | CC BY 4.0; NVIDIA Research attribution |
+| External data/tools | Allowed if reasonably accessible / minimal cost and compliant |
+| Private code sharing | Not allowed outside team |
+| Multiple Kaggle accounts | Prohibited |
+| Submit UI zip constraints | **OPEN** — not recorded in authenticated UI |
 
 ## Competition intake (M00+)
 
