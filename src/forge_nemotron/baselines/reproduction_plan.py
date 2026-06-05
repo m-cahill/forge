@@ -68,6 +68,18 @@ class SchemaInspectionStatus(str, Enum):
 
 DATA_SOURCE_OBJECT_KEYS = frozenset({"name", "sha256", "row_count", "notes_path"})
 
+CREDENTIAL_READINESS_STATUS_VALUES = frozenset({"ready", "blocked", "tbd"})
+
+OPTIONAL_CREDENTIAL_STATUS_KEYS = frozenset(
+    {
+        "modal_account_status",
+        "modal_credential_status",
+        "tinker_account_status",
+        "tinker_credential_status",
+        "cloud_gpu_credential_status",
+    }
+)
+
 
 def _is_non_empty_string(value: Any) -> bool:
     return isinstance(value, str) and bool(value.strip())
@@ -214,6 +226,7 @@ def validate_reproduction_plan(data: dict[str, Any]) -> list[str]:
         _validate_ready_for_training_field(data, status, training_authorized, ready_for_training)
     )
     errors.extend(_validate_copying_policy(data))
+    errors.extend(_validate_credential_readiness_notes(data))
     errors.extend(_validate_authorization_rules(data, status))
     return errors
 
@@ -307,6 +320,36 @@ def _validate_ready_for_training_gates(data: dict[str, Any]) -> list[str]:
     cost_waived = data.get("cost_waived")
     if cost_waived is not True and cost_accepted is not True:
         errors.append("status ready_for_training requires cost_accepted true or cost_waived true")
+    return errors
+
+
+def _validate_credential_readiness_notes(data: dict[str, Any]) -> list[str]:
+    """Validate optional Modal/Tinker/cloud credential status fields (M09+)."""
+    errors: list[str] = []
+    for key in OPTIONAL_CREDENTIAL_STATUS_KEYS:
+        value = data.get(key)
+        if value is None:
+            continue
+        if not isinstance(value, str) or value not in CREDENTIAL_READINESS_STATUS_VALUES:
+            allowed = ", ".join(sorted(CREDENTIAL_READINESS_STATUS_VALUES))
+            errors.append(f"{key} must be one of: {allowed}")
+
+    credentials_ready = data.get("credentials_ready")
+    if credentials_ready is not True:
+        return errors
+
+    for key in (
+        "modal_account_status",
+        "modal_credential_status",
+        "tinker_account_status",
+        "tinker_credential_status",
+    ):
+        value = data.get(key)
+        if value is None:
+            continue
+        if value != "ready":
+            errors.append(f"credentials_ready true requires {key} ready when present")
+
     return errors
 
 

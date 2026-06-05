@@ -30,6 +30,11 @@ READINESS_PATH = (
     / "docs/milestones/M08/evidence/readiness"
     / "public_control_repro_plan.readiness.json"
 )
+MODAL_TINKER_GATE_PATH = (
+    Path(__file__).resolve().parents[2]
+    / "docs/milestones/M09/evidence/readiness"
+    / "public_control_repro_plan.modal_tinker_gate.json"
+)
 
 
 @pytest.fixture
@@ -210,3 +215,31 @@ class TestReadinessManifest:
         assert data["credentials_ready"] is False
         assert data["ready_for_training"] is False
         assert "sq_corpus_001_open" in data["blockers"]
+
+
+class TestModalTinkerGateManifest:
+    def test_modal_tinker_gate_manifest_file_valid(self) -> None:
+        data = json.loads(MODAL_TINKER_GATE_PATH.read_text(encoding="utf-8"))
+        assert validate_reproduction_plan(data) == []
+        assert data["plan_id"] == "public_control_repro_plan_modal_tinker_gate_v1"
+        assert data["credentials_ready"] is False
+        assert data["cost_accepted"] is False
+        assert data["modal_account_status"] == "tbd"
+        assert data["tinker_account_status"] == "tbd"
+        assert "modal_status_tbd" in data["blockers"]
+
+    def test_invalid_modal_status_rejected(self, preflight_plan: dict) -> None:
+        bad = copy.deepcopy(preflight_plan)
+        bad["modal_account_status"] = "unknown"
+        errors = validate_reproduction_plan(bad)
+        assert any("modal_account_status" in e for e in errors)
+
+    def test_credentials_ready_with_tbd_modal_rejected(self, preflight_plan: dict) -> None:
+        bad = copy.deepcopy(preflight_plan)
+        bad["credentials_ready"] = True
+        bad["modal_account_status"] = "tbd"
+        bad["modal_credential_status"] = "tbd"
+        bad["tinker_account_status"] = "tbd"
+        bad["tinker_credential_status"] = "tbd"
+        errors = validate_reproduction_plan(bad)
+        assert any("credentials_ready true requires" in e for e in errors)

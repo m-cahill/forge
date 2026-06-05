@@ -1,12 +1,14 @@
 # FORGE — Ultimate Truth
 
 **Project:** FORGE — Kaggle NVIDIA Nemotron Model Reasoning Challenge  
-**Last updated:** 2026-06-05 (M08 merged to `main`; post-merge CI green)  
-**Status:** M00–M08 **merged** to `main`; **next:** M09 Modal/Tinker setup gate (stub only)  
+**Last updated:** 2026-06-05 (M09 closed on branch; PR #10 CI green; merge pending)  
+**Status:** M00–M08 **merged** to `main`; M09 **closed on branch** — PR [#10](https://github.com/m-cahill/forge/pull/10) open (`434a7de`); **next:** M10 stub  
 **Main SHA:** `ac7c5f249ca39181d4e167193e6d7c70e5e5a198` (M08 squash merge via PR [#9](https://github.com/m-cahill/forge/pull/9))  
+**M09 PR head:** `861fc71` · **PR CI (final):** [26990298009](https://github.com/m-cahill/forge/actions/runs/26990298009) **green**  
 **M08 PR head (pre-merge):** `448692b` · PR CI [26988858986](https://github.com/m-cahill/forge/actions/runs/26988858986) **green**  
 **Post-merge CI on `main`:** [26989604207](https://github.com/m-cahill/forge/actions/runs/26989604207) **green** (push on `ac7c5f2`)  
-**M08 authorization:** `M08_LOCAL_5090_PROBE_AUTHORIZED = no` (probe **not** run) · `M08_TRAINING_AUTHORIZED = no` — training **NO-GO**
+**M08 authorization:** `M08_LOCAL_5090_PROBE_AUTHORIZED = no` (probe **not** run) · `M08_TRAINING_AUTHORIZED = no` — training **NO-GO**  
+**M09 authorization:** `M09_LOCAL_5090_PROBE_AUTHORIZED = no` · `M09_TRAINING_AUTHORIZED = no` — training **NO-GO**; Modal/Tinker/cost **TBD**
 
 ---
 
@@ -107,7 +109,8 @@ FORGE is a solver-guided, artifact-first, audit-governed LoRA competition system
 | M06 | Controlled public baseline reproduction execution gate | `forge/M06-control-repro-execution-gate` → `main` | **merged** (`a7de356`) | **green** — post-merge [26985969954](https://github.com/m-cahill/forge/actions/runs/26985969954) | 4.6/5 | [M06_summary](milestones/M06/M06_summary.md) |
 | M07 | Controlled public baseline training authorization gate | `forge/M07-training-authorization-gate` → `main` | **merged** (`06ada17`) | **green** — post-merge [26988100314](https://github.com/m-cahill/forge/actions/runs/26988100314) | 4.6/5 | [M07_summary](milestones/M07/M07_summary.md) |
 | M08 | Compute and credential readiness closure | `forge/M08-compute-credential-readiness` → `main` | **merged** (`ac7c5f2`) | **green** — post-merge [26989604207](https://github.com/m-cahill/forge/actions/runs/26989604207) | 4.6/5 | [M08_summary](milestones/M08/M08_summary.md) |
-| M09 | Modal/Tinker setup gate | — | **next** — stub only | — | — | [M09_plan](milestones/M09/M09_plan.md) (stub) |
+| M09 | Modal/Tinker setup gate | `forge/M09-modal-tinker-setup-gate` | **closed** — PR [#10](https://github.com/m-cahill/forge/pull/10) open | **green** — [26990264400](https://github.com/m-cahill/forge/actions/runs/26990264400) | 4.6/5 | [M09_summary](milestones/M09/M09_summary.md) |
+| M10 | Credential and cost closure continuation | — | **next** — stub only | — | — | [M10_plan](milestones/M10/M10_plan.md) (stub) |
 
 ---
 
@@ -615,6 +618,68 @@ Run Ledger **1.0** for `m03_synthetic_smoke_eval` is **synthetic factory self-ch
 
 ---
 
+## M09 Closeout Record (Modal/Tinker setup gate)
+
+**Branch:** `forge/M09-modal-tinker-setup-gate` (open; merge pending)  
+**PR:** [#10](https://github.com/m-cahill/forge/pull/10) — **open**  
+**PR head (closeout):** `861fc71`  
+**PR CI (implementation):** [26990264400](https://github.com/m-cahill/forge/actions/runs/26990264400) **green**  
+**PR CI (closeout / final):** [26990298009](https://github.com/m-cahill/forge/actions/runs/26990298009) **green** (Python 3.10–3.12)  
+**Local verification:** 166 pytest; ruff/mypy/compileall pass; modal_tinker_gate manifest validates; probe **not** executed
+
+**Artifacts:** [M09_summary](milestones/M09/M09_summary.md) · [M09_audit](milestones/M09/M09_audit.md) (4.6/5) · [M09_run1](milestones/M09/M09_run1.md)
+
+### M09 deliverables
+
+| Deliverable | Status |
+| ----------- | ------ |
+| Modal/Tinker readiness evidence | Met — **TBD** (no owner evidence) |
+| External compute path decision | Met |
+| Credential storage policy check | Met |
+| Kaggle API / Submit UI status | Met — OPEN/TBD preserved |
+| Local 5090 probe blocked | Met — probe **not** run |
+| SQ-CORPUS-001 status | Met — open; prefer `train.csv` |
+| `public_control_repro_plan.modal_tinker_gate.json` | Met — validates |
+| Validator extensions (+3 tests) | Met |
+| M09 next decision → M10 | Met — credential/cost closure |
+| Training / probe / submission / reproduction | **Not claimed** |
+
+### Modal/Tinker gate manifest
+
+[`public_control_repro_plan.modal_tinker_gate.json`](milestones/M09/evidence/readiness/public_control_repro_plan.modal_tinker_gate.json) — `training_authorized: false`, `ready_for_training: false`, `credentials_ready: false`, `cost_accepted: false`, `modal_account_status: tbd`, `tinker_account_status: tbd`, `compute_path: null`. **Not** training authorization or credential functionality evidence.
+
+**Non-claims (M09):** no local 5090 probe executed, training, inference, Kaggle submission, public/private score, reproduced baseline, Kaggle-ready adapter, real adapter package, copied baseline code/data, committed credentials.
+
+### Open blockers (post-M09 branch)
+
+- Submit UI `submission.zip` constraints: **OPEN**
+- Kaggle API submission: **TBD**
+- Modal/Tinker/cloud credentials: **TBD** (`credentials_ready: false`)
+- Cost acceptance: **TBD** (`cost_accepted: false`)
+- local_5090 CUDA/VRAM: **TBD** (probe not run)
+- SQ-CORPUS-001: **open**
+- Gate C training authorization: **not provided**
+
+### Authorization state (M09 branch)
+
+| Field | Value |
+| ----- | ----- |
+| `M09_LOCAL_5090_PROBE_AUTHORIZED` | **no** |
+| Local 5090 probe executed | **no** |
+| `M09_TRAINING_AUTHORIZED` | **no** |
+| `credentials_ready` | **false** |
+| `cost_accepted` | **false** |
+| Modal/Tinker status | **TBD** |
+
+### Next recommendation
+
+1. **Owner:** Merge PR #10 when authorized; supply Modal/Tinker/cost status (no secrets).  
+2. **Owner:** Record Submit UI constraints when available.  
+3. **Cursor:** M10 credential/cost closure per [M09_next_decision](milestones/M09/M09_next_decision.md) when authorized — **not started**.  
+4. **Defer:** Training, Kaggle submission, baseline reproduction, local probe until separately authorized.
+
+---
+
 ## Appendix: Material Decisions
 
 | Date | Milestone | Decision | Rationale |
@@ -657,3 +722,4 @@ Run Ledger **1.0** for `m03_synthetic_smoke_eval` is **synthetic factory self-ch
 | 2026-06-05 | M07 | PR #8 squash-merged to `main` | `06ada17`; post-merge CI 26988100314 green; branch deleted |
 | 2026-06-05 | M08 | M08 readiness closure on branch; PR #9 CI green | Readiness manifest; probe script not run; audit 4.6/5 |
 | 2026-06-05 | M08 | PR #9 squash-merged to `main` | `ac7c5f2`; post-merge CI 26989604207 green; branch deleted |
+| 2026-06-05 | M09 | M09 Modal/Tinker setup gate on branch; PR #10 CI green | `434a7de`; 166 tests; audit 4.6/5; merge pending |
