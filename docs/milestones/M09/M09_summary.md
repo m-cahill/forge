@@ -4,10 +4,11 @@
 **Phase:** Lane A — public control reproduction (external compute setup gate)  
 **Milestone:** M09 — Modal/Tinker Setup Gate  
 **Timeframe:** 2026-06-05  
-**Status:** Closed on branch — PR [#10](https://github.com/m-cahill/forge/pull/10) open; merge pending owner permission  
-**Branch:** `forge/M09-modal-tinker-setup-gate`  
-**PR head:** `434a7de`  
-**PR CI:** [26990264400](https://github.com/m-cahill/forge/actions/runs/26990264400) **green**  
+**Status:** Closed — PR [#10](https://github.com/m-cahill/forge/pull/10) **merged** to `main` (`5a4300b`) 2026-06-05T02:28:19Z  
+**Branch:** `forge/M09-modal-tinker-setup-gate` (deleted after merge)  
+**PR head at merge:** `9be2687`  
+**PR CI:** [26990319778](https://github.com/m-cahill/forge/actions/runs/26990319778) **green**  
+**Post-merge CI:** [26991673323](https://github.com/m-cahill/forge/actions/runs/26991673323) **green**  
 **Baseline:** M08 merged `ac7c5f2`
 
 ---
@@ -133,6 +134,6 @@ No HIGH defects blocking M09 closeout.
 | Summary + audit + run1 | Yes |
 | Non-claims preserved | Yes |
 | No probe output / credentials / adapters in repo | Yes |
-| Merge to `main` | Pending owner permission |
+| Merge to `main` | Yes — `5a4300b` (2026-06-05T02:28:19Z) |
 
-**Next recommendation:** Merge PR #10 when authorized; owner supplies Modal/Tinker/cost status (no secrets); M10 credential/cost closure per `M09_next_decision.md`.
+**Next recommendation:** Owner supplies Modal/Tinker/cost status (no secrets); M10 credential/cost closure per `M09_next_decision.md` when authorized.

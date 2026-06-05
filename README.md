@@ -8,7 +8,7 @@ Solver-guided, artifact-first LoRA engineering for `NVIDIA-Nemotron-3-Nano-30B`:
 
 **M10** — Credential and cost closure continuation (stub; see `docs/milestones/M10/M10_plan.md`).
 
-M00–M08 merged to `main` (`ac7c5f2`). M09 closed on branch — PR [#10](https://github.com/m-cahill/forge/pull/10) CI **green** [26990264400](https://github.com/m-cahill/forge/actions/runs/26990264400); merge pending. `M09_TRAINING_AUTHORIZED = no`; Modal/Tinker/cost **TBD**.
+M00–M09 merged to `main` (`5a4300b`). Post-merge CI **green** [26991673323](https://github.com/m-cahill/forge/actions/runs/26991673323). `M09_TRAINING_AUTHORIZED = no`; Modal/Tinker/cost **TBD**; Submit UI **OPEN**.
 
 ```bash
 python scripts/validate_reproduction_plan.py \
