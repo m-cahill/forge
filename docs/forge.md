@@ -1,8 +1,8 @@
 # FORGE — Ultimate Truth
 
 **Project:** FORGE — Kaggle NVIDIA Nemotron Model Reasoning Challenge  
-**Last updated:** 2026-06-05 (M07 merged to `main`; post-merge CI green)  
-**Status:** M00–M07 **merged** to `main`; **next:** M08 compute/credential readiness (stub only)  
+**Last updated:** 2026-06-05 (M08 active on branch `forge/M08-compute-credential-readiness`)  
+**Status:** M00–M07 **merged** to `main`; **active:** M08 compute/credential readiness closure  
 **Main SHA:** `06ada1738c914ab23343a20f0c8864d58440256b` (M07 squash merge via PR [#8](https://github.com/m-cahill/forge/pull/8))  
 **M07 PR head (pre-merge):** `90cdab7` · PR CI [26986758980](https://github.com/m-cahill/forge/actions/runs/26986758980) **green**  
 **Post-merge CI on `main`:** [26988100314](https://github.com/m-cahill/forge/actions/runs/26988100314) **green** (push on `06ada17`)  
@@ -106,7 +106,7 @@ FORGE is a solver-guided, artifact-first, audit-governed LoRA competition system
 | M05 | Controlled public baseline reproduction planning | `forge/M05-control-repro-planning` → `main` | **merged** (`34169d0`) | **green** — post-merge [26983281413](https://github.com/m-cahill/forge/actions/runs/26983281413) | 4.6/5 | [M05_summary](milestones/M05/M05_summary.md) |
 | M06 | Controlled public baseline reproduction execution gate | `forge/M06-control-repro-execution-gate` → `main` | **merged** (`a7de356`) | **green** — post-merge [26985969954](https://github.com/m-cahill/forge/actions/runs/26985969954) | 4.6/5 | [M06_summary](milestones/M06/M06_summary.md) |
 | M07 | Controlled public baseline training authorization gate | `forge/M07-training-authorization-gate` → `main` | **merged** (`06ada17`) | **green** — post-merge [26988100314](https://github.com/m-cahill/forge/actions/runs/26988100314) | 4.6/5 | [M07_summary](milestones/M07/M07_summary.md) |
-| M08 | Compute and credential readiness closure | — | **next** — stub only | — | — | [M08_plan](milestones/M08/M08_plan.md) (stub) |
+| M08 | Compute and credential readiness closure | `forge/M08-compute-credential-readiness` | **active** | pending | — | [M08_plan](milestones/M08/M08_plan.md) |
 
 ---
 
