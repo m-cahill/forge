@@ -80,6 +80,15 @@ Record the exact `python --version` from `.venv_cuda\Scripts\python.exe` in evid
 
 **If install fails:** record failure in `cuda_torch_probe.json`, classify as `blocked_install_failed`, and do not claim CUDA readiness.
 
+### Installed versions (M12 evidence, 2026-06-05)
+
+| Package | Version |
+| ------- | ------- |
+| torch | 2.11.0+cu128 |
+| torchvision | 0.26.0+cu128 |
+| torchaudio | 2.11.0+cu128 |
+| Python | 3.11.9 |
+
 ---
 
 ## 6. Verification commands

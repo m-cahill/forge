@@ -1,0 +1,25 @@
+{
+  "classification": "cuda_ready_probe_only",
+  "cuda_device_count": 1,
+  "cuda_version_nvidia_smi": "13.1",
+  "driver_version": "591.86",
+  "environment_path": ".venv_cuda",
+  "errors": [],
+  "gpu_name": "NVIDIA GeForce RTX 5090",
+  "host_os": "Windows 10 (AMD64)",
+  "notes": "Environment probe only; no model load, training, inference, adapters, or Kaggle submission.",
+  "python_executable": "C:\\coding\\forge\\.venv_cuda\\Scripts\\python.exe",
+  "python_version": "3.11.9",
+  "pytorch_cuda_build_version": "12.8",
+  "pytorch_version": "2.11.0+cu128",
+  "timestamp_utc": "2026-06-05T20:53:12.089845+00:00",
+  "tiny_cuda_smoke": {
+    "error": null,
+    "passed": true,
+    "ran": true,
+    "result": 3.0
+  },
+  "torch_cuda_is_available": true,
+  "vram_total_mib": "32607",
+  "warnings": []
+}
