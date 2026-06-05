@@ -80,6 +80,23 @@ OPTIONAL_CREDENTIAL_STATUS_KEYS = frozenset(
     }
 )
 
+LOCAL_5090_PROBE_STATUS_VALUES = frozenset(
+    {
+        "not_visible",
+        "visible_no_torch_cuda",
+        "cuda_ready_probe_only",
+        "feasibility_candidate",
+        "blocked",
+    }
+)
+
+CUDA_READY_LOCAL_PROBE_STATUSES = frozenset(
+    {
+        "cuda_ready_probe_only",
+        "feasibility_candidate",
+    }
+)
+
 
 def _is_non_empty_string(value: Any) -> bool:
     return isinstance(value, str) and bool(value.strip())
@@ -225,9 +242,43 @@ def validate_reproduction_plan(data: dict[str, Any]) -> list[str]:
     errors.extend(
         _validate_ready_for_training_field(data, status, training_authorized, ready_for_training)
     )
+    errors.extend(_validate_local_5090_probe_status(data))
     errors.extend(_validate_copying_policy(data))
     errors.extend(_validate_credential_readiness_notes(data))
     errors.extend(_validate_authorization_rules(data, status))
+    return errors
+
+
+def _validate_local_5090_probe_status(data: dict[str, Any]) -> list[str]:
+    """Validate optional local 5090 probe status and compute_path consistency (M10+)."""
+    errors: list[str] = []
+    probe_status = data.get("local_5090_probe_status")
+    if probe_status is None:
+        return errors
+    if not isinstance(probe_status, str) or probe_status not in LOCAL_5090_PROBE_STATUS_VALUES:
+        allowed = ", ".join(sorted(LOCAL_5090_PROBE_STATUS_VALUES))
+        errors.append(f"local_5090_probe_status must be one of: {allowed}")
+        return errors
+
+    compute_path = data.get("compute_path")
+    training_authorized = data.get("training_authorized")
+    ready_for_training = data.get("ready_for_training")
+
+    if probe_status in CUDA_READY_LOCAL_PROBE_STATUSES:
+        if compute_path != "local_5090":
+            errors.append("local_5090_probe_status cuda_ready requires compute_path local_5090")
+    elif probe_status in ("not_visible", "visible_no_torch_cuda", "blocked"):
+        if compute_path == "local_5090":
+            errors.append("compute_path local_5090 requires cuda-ready local_5090_probe_status")
+
+    if ready_for_training is True and probe_status not in CUDA_READY_LOCAL_PROBE_STATUSES:
+        errors.append(
+            "ready_for_training true requires cuda-ready local_5090_probe_status when present"
+        )
+
+    if training_authorized is False and ready_for_training is True:
+        pass  # covered elsewhere
+
     return errors
 
 

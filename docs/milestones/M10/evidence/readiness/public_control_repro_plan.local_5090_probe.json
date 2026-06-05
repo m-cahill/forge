@@ -1,0 +1,74 @@
+{
+  "baseline_commit": "82bd1880aa8a8986ad572ccd17ae35b2b5c7da85",
+  "baseline_repo": "https://github.com/tonghuikang/nemotron",
+  "blockers": [
+    "cost_not_accepted",
+    "local_5090_torch_cuda_unavailable",
+    "modal_status_tbd",
+    "no_training_feasibility_run",
+    "sq_corpus_001_open",
+    "submit_ui_constraints_open",
+    "tinker_status_tbd",
+    "training_not_authorized"
+  ],
+  "cloud_gpu_credential_status": "tbd",
+  "compute_path": null,
+  "copying_policy": "no_code_copy",
+  "cost_accepted": false,
+  "credentials_ready": false,
+  "data_sources": [
+    {
+      "name": "corpus.jsonl",
+      "notes_path": "docs/milestones/M06/external_schema_notes_corpus.md",
+      "row_count": 17963,
+      "sha256": "1940a41c68d0f70013e0e448e04dd17c9143403bc1ce991e4603e9ad38b9fcf5"
+    },
+    {
+      "name": "problems.jsonl",
+      "notes_path": "docs/milestones/M06/external_schema_notes_problems.md",
+      "row_count": 9500,
+      "sha256": "4b8bd8b62905fe156ffc9033f5677286e75a80e907841b0988a4b50cc4b8742e"
+    },
+    {
+      "name": "generation.jsonl",
+      "notes_path": "docs/milestones/M06/external_schema_notes_generation.md",
+      "row_count": 9500,
+      "sha256": "58383d4ecb831d9a6567a34a9cccb0a48ba78c1511790eb981c011685ccd315d"
+    },
+    {
+      "name": "train.csv",
+      "notes_path": "docs/milestones/M06/external_schema_notes_train_csv.md",
+      "row_count": 69029,
+      "sha256": "c99877aca84dc1564ef741a722a74458b06aa616b0b627d493a913063bd536ef"
+    }
+  ],
+  "expected_artifacts": [
+    "dataset_manifest",
+    "training_config_hash",
+    "adapter_sha256",
+    "package_sha256",
+    "local_eval_run_id"
+  ],
+  "kaggle_submission_authorized": false,
+  "license_status": "no_license_observed",
+  "local_5090_probe_status": "visible_no_torch_cuda",
+  "modal_account_status": "tbd",
+  "modal_credential_status": "tbd",
+  "non_claims": [
+    "not_reproduced",
+    "not_submitted",
+    "not_trained"
+  ],
+  "plan_id": "public_control_repro_plan_local_5090_probe_v1",
+  "ready_for_training": false,
+  "required_credentials": [
+    "modal",
+    "tinker"
+  ],
+  "requires_external_credentials": true,
+  "schema_inspection_status": "complete",
+  "status": "preflight",
+  "tinker_account_status": "tbd",
+  "tinker_credential_status": "tbd",
+  "training_authorized": false
+}

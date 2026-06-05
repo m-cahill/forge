@@ -35,6 +35,11 @@ MODAL_TINKER_GATE_PATH = (
     / "docs/milestones/M09/evidence/readiness"
     / "public_control_repro_plan.modal_tinker_gate.json"
 )
+LOCAL_5090_PROBE_PATH = (
+    Path(__file__).resolve().parents[2]
+    / "docs/milestones/M10/evidence/readiness"
+    / "public_control_repro_plan.local_5090_probe.json"
+)
 
 
 @pytest.fixture
@@ -243,3 +248,46 @@ class TestModalTinkerGateManifest:
         bad["tinker_credential_status"] = "tbd"
         errors = validate_reproduction_plan(bad)
         assert any("credentials_ready true requires" in e for e in errors)
+
+
+class TestLocal5090ProbeManifest:
+    def test_local_5090_probe_manifest_file_valid(self) -> None:
+        data = json.loads(LOCAL_5090_PROBE_PATH.read_text(encoding="utf-8"))
+        assert validate_reproduction_plan(data) == []
+        assert data["plan_id"] == "public_control_repro_plan_local_5090_probe_v1"
+        assert data["local_5090_probe_status"] == "visible_no_torch_cuda"
+        assert data["compute_path"] is None
+        assert data["training_authorized"] is False
+        assert data["ready_for_training"] is False
+        assert "local_5090_torch_cuda_unavailable" in data["blockers"]
+
+    def test_invalid_local_5090_probe_status_rejected(self, preflight_plan: dict) -> None:
+        bad = copy.deepcopy(preflight_plan)
+        bad["local_5090_probe_status"] = "unknown"
+        errors = validate_reproduction_plan(bad)
+        assert any("local_5090_probe_status" in e for e in errors)
+
+    def test_cuda_ready_probe_requires_local_compute_path(self, preflight_plan: dict) -> None:
+        bad = copy.deepcopy(preflight_plan)
+        bad["local_5090_probe_status"] = "cuda_ready_probe_only"
+        bad["compute_path"] = None
+        errors = validate_reproduction_plan(bad)
+        assert any("compute_path local_5090" in e for e in errors)
+
+    def test_visible_no_torch_cuda_with_local_compute_path_rejected(
+        self, preflight_plan: dict
+    ) -> None:
+        bad = copy.deepcopy(preflight_plan)
+        bad["local_5090_probe_status"] = "visible_no_torch_cuda"
+        bad["compute_path"] = "local_5090"
+        errors = validate_reproduction_plan(bad)
+        assert any("cuda-ready local_5090_probe_status" in e for e in errors)
+
+    def test_ready_for_training_false_with_training_authorized_false(
+        self, preflight_plan: dict
+    ) -> None:
+        plan = copy.deepcopy(preflight_plan)
+        plan["local_5090_probe_status"] = "visible_no_torch_cuda"
+        plan["ready_for_training"] = False
+        plan["training_authorized"] = False
+        assert validate_reproduction_plan(plan) == []

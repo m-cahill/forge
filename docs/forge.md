@@ -1,14 +1,13 @@
 # FORGE — Ultimate Truth
 
 **Project:** FORGE — Kaggle NVIDIA Nemotron Model Reasoning Challenge  
-**Last updated:** 2026-06-05 (M09 merged to `main`; post-merge CI green)  
-**Status:** M00–M09 **merged** to `main`; **next:** M10 credential/cost closure (stub only)  
-**Main SHA:** `5a4300bb1f7b873750089c773e8c0e789f15f870` (M09 squash merge via PR [#10](https://github.com/m-cahill/forge/pull/10))  
-**M09 PR head (pre-merge):** `9be2687` · PR CI [26990319778](https://github.com/m-cahill/forge/actions/runs/26990319778) **green**  
-**Post-merge CI on `main`:** [26991673323](https://github.com/m-cahill/forge/actions/runs/26991673323) **green** (push on `5a4300b`)  
-**M08 squash merge:** `ac7c5f2` via PR [#9](https://github.com/m-cahill/forge/pull/9)  
-**M08 authorization:** `M08_LOCAL_5090_PROBE_AUTHORIZED = no` (probe **not** run) · `M08_TRAINING_AUTHORIZED = no` — training **NO-GO**  
-**M09 authorization:** `M09_LOCAL_5090_PROBE_AUTHORIZED = no` · `M09_TRAINING_AUTHORIZED = no` — training **NO-GO**; Modal/Tinker/cost **TBD**
+**Last updated:** 2026-06-05 (M10 closeout — PR #11 CI green; merge pending)  
+**Status:** M00–M09 **merged** to `main`; M10 **complete on branch** — PR [#11](https://github.com/m-cahill/forge/pull/11) CI **green** [27027762042](https://github.com/m-cahill/forge/actions/runs/27027762042); **next:** M11 credential/cost closure (stub)  
+**Main SHA:** `4fad43c` (awaiting M10 merge)  
+**M10 PR head:** `84529d1` on `forge/M10-local-5090-feasibility-probe`  
+**M09 squash merge:** `5a4300b` via PR [#10](https://github.com/m-cahill/forge/pull/10) · post-merge CI [26991673323](https://github.com/m-cahill/forge/actions/runs/26991673323) **green**  
+**M10 authorization:** `M10_LOCAL_5090_PROBE_AUTHORIZED = yes` · `M10_TRAINING_AUTHORIZED = no` · `M10_INFERENCE_AUTHORIZED = no` · `KAGGLE_SUBMISSION_AUTHORIZED = no`  
+**M08/M09 historical:** local probe **not** run under M08/M09; superseded by M10 probe when complete
 
 ---
 
@@ -42,6 +41,16 @@ No milestone may close unless:
 | Final submission deadline | **June 15, 2026, 11:59 PM UTC** | Owner — live Kaggle competition page (logged in) | 2026-06-04 |
 | Daily submission limit | **5 per day** (0/5 used at probe) | Kaggle Submit UI + M01 debug probe | 2026-06-04 |
 | Rules accepted / team joined | **Yes** (Submit UI accessible) | Owner — authenticated competition/Rules UI | 2026-06-04 |
+| Official rules archive | [`docs/competition_rules.md`](competition_rules.md) | Owner-provided rules text | 2026-06-05 |
+| Team size limit | **5** | Competition rules §2.1 | 2026-06-05 |
+| Final submissions for judging | **Up to 2** | Competition rules §2.2.b | 2026-06-05 |
+| Data license | **CC BY 4.0** (NVIDIA Research attribution) | Competition rules §4.a | 2026-06-05 |
+| Prize documentation | Public Kaggle notebook + solution write-up required | Competition rules §8.c | 2026-06-05 |
+| Winner code obligations | Training code, inference code, methodology, compute environment | Competition rules §8.a | 2026-06-05 |
+| External data/tools | Allowed if reasonably accessible / minimal cost and compliant | Competition rules §6 | 2026-06-05 |
+| Private code sharing | Prohibited outside team (public sharing on Kaggle permitted) | Competition rules §3.10 | 2026-06-05 |
+| Multiple Kaggle accounts | Prohibited | Competition rules (intro) | 2026-06-05 |
+| Submit UI zip constraints | **OPEN** — not recorded | Owner-action | — |
 
 ---
 
@@ -110,7 +119,8 @@ FORGE is a solver-guided, artifact-first, audit-governed LoRA competition system
 | M07 | Controlled public baseline training authorization gate | `forge/M07-training-authorization-gate` → `main` | **merged** (`06ada17`) | **green** — post-merge [26988100314](https://github.com/m-cahill/forge/actions/runs/26988100314) | 4.6/5 | [M07_summary](milestones/M07/M07_summary.md) |
 | M08 | Compute and credential readiness closure | `forge/M08-compute-credential-readiness` → `main` | **merged** (`ac7c5f2`) | **green** — post-merge [26989604207](https://github.com/m-cahill/forge/actions/runs/26989604207) | 4.6/5 | [M08_summary](milestones/M08/M08_summary.md) |
 | M09 | Modal/Tinker setup gate | `forge/M09-modal-tinker-setup-gate` → `main` | **merged** (`5a4300b`) | **green** — post-merge [26991673323](https://github.com/m-cahill/forge/actions/runs/26991673323) | 4.6/5 | [M09_summary](milestones/M09/M09_summary.md) |
-| M10 | Credential and cost closure continuation | — | **next** — stub only | — | — | [M10_plan](milestones/M10/M10_plan.md) (stub) |
+| M10 | Local 5090 feasibility probe | `forge/M10-local-5090-feasibility-probe` → `main` | **complete** — PR [#11](https://github.com/m-cahill/forge/pull/11) CI green; merge pending | **green** [27027762042](https://github.com/m-cahill/forge/actions/runs/27027762042) | 4.6/5 | [M10_summary](milestones/M10/M10_summary.md) |
+| M11 | Credential and cost closure continuation | — | **next** — stub only | — | — | [M11_plan](milestones/M11/M11_plan.md) (stub) |
 
 ---
 
@@ -227,7 +237,7 @@ A candidate may advance only when all applicable gates are satisfied:
 
 | Environment ID | Hardware | OS | Python/CUDA | Purpose | Status | Notes |
 | -------------- | -------- | -- | ----------- | ------- | ------ | ----- |
-| local_5090 | RTX 5090 Blackwell | TBD | TBD | Local eval, QLoRA tests, generation | available | Verify CUDA stack |
+| local_5090 | NVIDIA GeForce RTX 5090 | Windows 10.0.26200 | Py3.11.9; driver 591.86; torch 2.2.2+cpu (**CUDA false**) | Local eval, QLoRA tests, generation | **probed** — `visible_no_torch_cuda` | [M10 probe](milestones/M10/evidence/local_5090_probe/local_5090_probe.json) 2026-06-05; ~32607 MiB VRAM; **not** training-ready |
 | kaggle_notebook | Kaggle Notebook (CPU at probe) | Linux 6.6 / Py3.12 | torch 2.10+cpu; no CUDA | M01 debug probe | probed 2026-06-04 | Interactive; no GPU; ~19.5 GB free; see kaggle_setup_evidence |
 
 ---
@@ -680,6 +690,67 @@ Run Ledger **1.0** for `m03_synthetic_smoke_eval` is **synthetic factory self-ch
 
 ---
 
+## M10 Closeout Record (Local 5090 Feasibility Probe)
+
+**Branch:** `forge/M10-local-5090-feasibility-probe`  
+**PR:** [#11](https://github.com/m-cahill/forge/pull/11) — **open**; merge pending owner permission  
+**PR head:** `84529d1`  
+**PR CI:** [27027762042](https://github.com/m-cahill/forge/actions/runs/27027762042) **green** (Python 3.10–3.12)  
+**Local verification:** 171 pytest; ruff/mypy/compileall pass; probe executed; manifest validates  
+**Supersedes:** M09-seeded M10 stub “Credential and Cost Closure”
+
+### Authorization state
+
+| Field | Value |
+| ----- | ----- |
+| `M10_LOCAL_5090_PROBE_AUTHORIZED` | **yes** |
+| `M10_TRAINING_AUTHORIZED` | **no** |
+| `M10_INFERENCE_AUTHORIZED` | **no** |
+| `KAGGLE_SUBMISSION_AUTHORIZED` | **no** |
+
+### Probe summary (2026-06-05)
+
+| Field | Value |
+| ----- | ----- |
+| `nvidia-smi` | available |
+| GPU | NVIDIA GeForce RTX 5090 |
+| VRAM (MiB) | 32607 |
+| Driver | 591.86 |
+| PyTorch | 2.2.2+cpu |
+| `torch.cuda.is_available()` | **false** |
+| Classification | **`visible_no_torch_cuda`** |
+| Evidence | [`local_5090_probe.json`](milestones/M10/evidence/local_5090_probe/local_5090_probe.json) |
+| Report | [`local_5090_probe_report.md`](milestones/M10/local_5090_probe_report.md) |
+| Readiness manifest | [`public_control_repro_plan.local_5090_probe.json`](milestones/M10/evidence/readiness/public_control_repro_plan.local_5090_probe.json) |
+
+### Cross-references
+
+- M08 compute readiness and M09 external compute path docs remain historical; M10 probe evidence supersedes their `local_5090` TBD fields for this host.
+- Submit UI `submission.zip` constraints: **OPEN**
+- Kaggle API submission: **TBD**
+
+### M10 deliverables
+
+| Deliverable | Status |
+| ----------- | ------ |
+| Local 5090 probe executed | Met — `visible_no_torch_cuda` |
+| Probe JSON + README + report | Met |
+| `public_control_repro_plan.local_5090_probe.json` | Met — validates |
+| Validator extensions (+5 tests) | Met |
+| Competition rules archive | Met |
+| M10_next_decision → M11 | Met — credential/cost closure primary |
+| Training / submission / reproduction | **Not claimed** |
+
+**Artifacts:** [M10_summary](milestones/M10/M10_summary.md) · [M10_audit](milestones/M10/M10_audit.md) (4.6/5) · [M10_run1](milestones/M10/M10_run1.md)
+
+### Next recommendation
+
+**M11 — Credential and Cost Closure Continuation** per [M10_next_decision](milestones/M10/M10_next_decision.md). **Do not merge** PR #11 or start M11 without owner permission.
+
+**Non-claims (M10):** no training, inference, Kaggle submission, public/private score, reproduced baseline, adapters, credentials, or baseline code/data copy. Visible GPU is **not** training readiness.
+
+---
+
 ## Appendix: Material Decisions
 
 | Date | Milestone | Decision | Rationale |
@@ -724,3 +795,4 @@ Run Ledger **1.0** for `m03_synthetic_smoke_eval` is **synthetic factory self-ch
 | 2026-06-05 | M08 | PR #9 squash-merged to `main` | `ac7c5f2`; post-merge CI 26989604207 green; branch deleted |
 | 2026-06-05 | M09 | M09 Modal/Tinker setup gate on branch; PR #10 CI green | `9be2687`; 166 tests; audit 4.6/5 |
 | 2026-06-05 | M09 | PR #10 squash-merged to `main` | `5a4300b`; post-merge CI 26991673323 green; branch deleted |
+| 2026-06-05 | M10 | M10 local 5090 probe on branch; PR #11 CI green | RTX 5090 visible; torch CPU-only; `visible_no_torch_cuda`; audit 4.6/5; merge pending |
