@@ -6,8 +6,8 @@
 **Timeframe:** 2026-06-05  
 **Status:** Closed on branch — PR [#9](https://github.com/m-cahill/forge/pull/9) open (merge pending owner permission)  
 **Branch:** `forge/M08-compute-credential-readiness`  
-**PR head (implementation):** `5138594`  
-**PR CI:** [26988802789](https://github.com/m-cahill/forge/actions/runs/26988802789) **green**  
+**PR head (closeout):** `dc4830c` (implementation through `5138594`)  
+**PR CI:** [26988802789](https://github.com/m-cahill/forge/actions/runs/26988802789), [26988839036](https://github.com/m-cahill/forge/actions/runs/26988839036) **green**  
 **Baseline:** M07 merged `06ada17`
 
 ---

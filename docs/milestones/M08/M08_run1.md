@@ -14,8 +14,11 @@
 | Run ID | [26988802789](https://github.com/m-cahill/forge/actions/runs/26988802789) |
 | Trigger | `pull_request` |
 | Branch | `forge/M08-compute-credential-readiness` |
-| Commit SHA (PR head) | `5138594` (`5138594966fe47fd6c08041c4c0279c0150c3336`) |
+| Commit SHA (implementation) | `5138594` |
+| Commit SHA (PR head at closeout) | `dc4830c` |
 | PR | [#9](https://github.com/m-cahill/forge/pull/9) |
+| CI run (implementation) | [26988802789](https://github.com/m-cahill/forge/actions/runs/26988802789) **success** |
+| CI run (closeout) | [26988839036](https://github.com/m-cahill/forge/actions/runs/26988839036) **success** |
 | Overall conclusion | **success** |
 
 ---
