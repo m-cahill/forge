@@ -40,6 +40,11 @@ LOCAL_5090_PROBE_PATH = (
     / "docs/milestones/M10/evidence/readiness"
     / "public_control_repro_plan.local_5090_probe.json"
 )
+LOCAL_TRAINING_FEASIBILITY_PATH = (
+    Path(__file__).resolve().parents[2]
+    / "docs/milestones/M13/evidence/readiness"
+    / "public_control_repro_plan.local_training_feasibility.json"
+)
 CREDENTIAL_COST_GATE_PATH = (
     Path(__file__).resolve().parents[2]
     / "docs/milestones/M11/evidence/readiness"
@@ -321,3 +326,35 @@ class TestCredentialCostGateManifest:
         bad["submit_ui_constraints_status"] = "unknown"
         errors = validate_reproduction_plan(bad)
         assert any("submit_ui_constraints_status" in e for e in errors)
+
+
+class TestLocalTrainingFeasibilityManifest:
+    def test_local_training_feasibility_manifest_file_valid(self) -> None:
+        data = json.loads(LOCAL_TRAINING_FEASIBILITY_PATH.read_text(encoding="utf-8"))
+        assert validate_reproduction_plan(data) == []
+        assert data["plan_id"] == "public_control_repro_plan_local_training_feasibility_v1"
+        assert data["local_training_feasibility_status"] == "cuda_training_feasibility_pass"
+        assert data["training_authorized"] is False
+        assert data["ready_for_training"] is False
+        assert "full_training_not_authorized" in data["blockers"]
+
+    def test_invalid_local_training_feasibility_status_rejected(self, preflight_plan: dict) -> None:
+        bad = copy.deepcopy(preflight_plan)
+        bad["local_training_feasibility_status"] = "unknown"
+        errors = validate_reproduction_plan(bad)
+        assert any("local_training_feasibility_status" in e for e in errors)
+
+    def test_feasibility_pass_does_not_imply_ready_for_training(self, preflight_plan: dict) -> None:
+        bad = copy.deepcopy(preflight_plan)
+        bad["local_training_feasibility_status"] = "cuda_training_feasibility_pass"
+        bad["local_5090_probe_status"] = "cuda_ready_probe_only"
+        bad["compute_path"] = "local_5090"
+        bad["ready_for_training"] = True
+        bad["status"] = "ready_for_training"
+        bad["training_authorized"] = True
+        bad["owner_training_authorization"] = "test"
+        bad["schema_inspection_status"] = "complete"
+        bad["credentials_ready"] = True
+        bad["cost_accepted"] = True
+        errors = validate_reproduction_plan(bad)
+        assert any("local_training_feasibility_status pass does not imply" in e for e in errors)
