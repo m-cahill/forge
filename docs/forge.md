@@ -1,15 +1,13 @@
 # FORGE — Ultimate Truth
 
 **Project:** FORGE — Kaggle NVIDIA Nemotron Model Reasoning Challenge  
-**Last updated:** 2026-06-05 (M12 merged to `main`; post-merge CI green)  
-**Status:** M00–M12 **merged** to `main`; **next:** M13 local training feasibility dry run (stub only)  
+**Last updated:** 2026-06-06 (M13 active — local training feasibility dry run)  
+**Status:** M00–M12 **merged** to `main`; **M13 active** on `forge/M13-local-training-feasibility-dry-run`  
 **Main SHA:** `78605a1` (M12 squash merge via PR [#13](https://github.com/m-cahill/forge/pull/13))  
-**M12 PR head (pre-merge):** `f531202` · PR CI [27043585782](https://github.com/m-cahill/forge/actions/runs/27043585782) **green**  
-**Post-merge CI on `main`:** [27043969691](https://github.com/m-cahill/forge/actions/runs/27043969691) **green** (push on `78605a1`)  
-**M12 authorization:** `M12_LOCAL_CUDA_SETUP_AUTHORIZED = yes` · `M12_TRAINING_AUTHORIZED = no` · `M12_INFERENCE_AUTHORIZED = no` · `KAGGLE_SUBMISSION_AUTHORIZED = no`  
+**M13 authorization:** `M13_LOCAL_TRAINING_FEASIBILITY_AUTHORIZED = yes` · `M13_FULL_BASELINE_TRAINING_AUTHORIZED = no` · `M13_INFERENCE_AUTHORIZED = no` · `KAGGLE_SUBMISSION_AUTHORIZED = no`  
 **M12 CUDA classification:** `cuda_ready_probe_only` in `.venv_cuda` (torch 2.11.0+cu128) — **not** training readiness  
-**M11 owner preference:** `prefer_local_cuda`  
-**Next:** M13 Local Training Feasibility Dry Run (stub only)
+**M13 scope:** tiny toy CUDA training-like feasibility loop only — **not** baseline/adapter training  
+**Next:** M13 evidence + readiness manifest; then M14 per `M13_next_decision.md`
 
 ---
 
