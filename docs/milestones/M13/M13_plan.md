@@ -7,7 +7,7 @@
 | **Milestone** | M13 |
 | **Title** | Local Training Feasibility Dry Run |
 | **Branch** | `forge/M13-local-training-feasibility-dry-run` |
-| **Status** | active |
+| **Status** | closed on branch — PR open |
 | **Precondition** | M12 merged to `main`, post-merge CI green, owner authorizes M13 kickoff |
 | **Primary goal** | Verify local RTX 5090 CUDA environment can run a tiny controlled training-like workload without OOM, CUDA instability, environment breakage, or governance drift |
 

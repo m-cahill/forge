@@ -6,9 +6,9 @@ Solver-guided, artifact-first LoRA engineering for `NVIDIA-Nemotron-3-Nano-30B`:
 
 ## Current milestone
 
-**M13** — Local training feasibility dry run (**active** on `forge/M13-local-training-feasibility-dry-run`; see `docs/milestones/M13/M13_plan.md`).
+**M13** — Local training feasibility dry run (**closed on branch**; PR [#14](https://github.com/m-cahill/forge/pull/14) CI **green** [27048718537](https://github.com/m-cahill/forge/actions/runs/27048718537); merge pending). **Next:** M14 adapter feasibility stub.
 
-M00–M12 merged to `main` (`78605a1`). Post-merge CI **green** [27043969691](https://github.com/m-cahill/forge/actions/runs/27043969691). Isolated `.venv_cuda`: `cuda_ready_probe_only` (**not** training-ready). M13 runs a **tiny toy CUDA training-like feasibility loop only** — not baseline or adapter training. Training/inference/submission **not authorized**.
+M00–M12 merged to `main` (`78605a1`). M13 classified `cuda_training_feasibility_pass` in `.venv_cuda` — **not** baseline/adapter training readiness. Training/inference/submission **not authorized**.
 
 ```bash
 python scripts/validate_reproduction_plan.py \
