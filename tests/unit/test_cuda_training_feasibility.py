@@ -2,6 +2,10 @@
 
 from __future__ import annotations
 
+import importlib.util
+
+import pytest
+
 from forge_nemotron.readiness.cuda_training_feasibility import (
     FEASIBILITY_CLASSIFICATION_VALUES,
     build_feasibility_report,
@@ -72,6 +76,10 @@ class TestSnapshotCudaMemory:
         assert stats["memory_reserved_bytes"] is None
 
 
+@pytest.mark.skipif(
+    importlib.util.find_spec("torch") is None,
+    reason="torch not installed in CI/main env",
+)
 class TestTinyMlpLoop:
     def test_cpu_loop_completes_three_steps(self) -> None:
         result = run_training_feasibility_loop(device="cpu", steps=3, seed=0)
@@ -84,6 +92,10 @@ class TestTinyMlpLoop:
         assert len(list(model.parameters())) == 4
 
 
+@pytest.mark.skipif(
+    importlib.util.find_spec("torch") is None,
+    reason="torch not installed in CI/main env",
+)
 class TestBuildFeasibilityReport:
     def test_cuda_unavailable_without_cpu_ok(self) -> None:
         report = build_feasibility_report(device="cuda", steps=1, seed=0, cpu_ok=False)
@@ -102,3 +114,12 @@ class TestBuildFeasibilityReport:
         report = build_feasibility_report(device="cpu", steps=1, seed=0)
         assert "not_baseline_training" in report["non_claims"]
         assert "feasibility loop only" in report["notes"]
+
+
+class TestBuildFeasibilityReportWithoutTorch:
+    def test_no_torch_returns_failed_classification(self) -> None:
+        if importlib.util.find_spec("torch") is not None:
+            pytest.skip("torch is installed in this environment")
+        report = build_feasibility_report(device="cpu", steps=1, seed=0)
+        assert report["result"]["classification"] == "cuda_training_feasibility_failed"
+        assert "not_baseline_training" in report["non_claims"]
