@@ -1,12 +1,13 @@
 # FORGE — Ultimate Truth
 
 **Project:** FORGE — Kaggle NVIDIA Nemotron Model Reasoning Challenge  
-**Last updated:** 2026-06-06 (M13 closed on branch; PR #14 CI green; merge pending)  
-**Status:** M00–M12 **merged** to `main`; **M13 closed** on `forge/M13-local-training-feasibility-dry-run` — PR [#14](https://github.com/m-cahill/forge/pull/14) CI **green** [27048718537](https://github.com/m-cahill/forge/actions/runs/27048718537); merge pending owner permission  
-**Main SHA:** `78605a1` (M12) · **M13 PR head:** `9326041`  
+**Last updated:** 2026-06-06 (M13 merged to `main`; post-merge CI green)  
+**Status:** M00–M13 **merged** to `main`; **next:** M14 local adapter feasibility dry run (stub only)  
+**Main SHA:** `16f19e0` (M13 squash merge via PR [#14](https://github.com/m-cahill/forge/pull/14))  
+**M13 PR head (pre-merge):** `2eaeecc` · PR CI [27049407476](https://github.com/m-cahill/forge/actions/runs/27049407476) **green**  
+**Post-merge CI on `main`:** [27050035266](https://github.com/m-cahill/forge/actions/runs/27050035266) **green** (push on `16f19e0`)  
 **M13 authorization:** `M13_LOCAL_TRAINING_FEASIBILITY_AUTHORIZED = yes` · `M13_FULL_BASELINE_TRAINING_AUTHORIZED = no` · `M13_INFERENCE_AUTHORIZED = no` · `KAGGLE_SUBMISSION_AUTHORIZED = no`  
-**M13 classification:** `cuda_training_feasibility_pass` in `.venv_cuda` — **not** baseline/adapter training readiness  
-**M12 CUDA classification:** `cuda_ready_probe_only` in `.venv_cuda` (torch 2.11.0+cu128)  
+**M13 classification:** `cuda_training_feasibility_pass` in `.venv_cuda` — **not** baseline/adapter/Nemotron training readiness  
 **Next:** M14 Local Adapter Feasibility Dry Run (stub only) per [M13_next_decision](milestones/M13/M13_next_decision.md)
 
 ---
@@ -122,7 +123,7 @@ FORGE is a solver-guided, artifact-first, audit-governed LoRA competition system
 | M10 | Local 5090 feasibility probe | `forge/M10-local-5090-feasibility-probe` → `main` | **merged** (`dc45813`) | **green** — post-merge [27032692673](https://github.com/m-cahill/forge/actions/runs/27032692673) | 4.6/5 | [M10_summary](milestones/M10/M10_summary.md) |
 | M11 | Credential and cost closure continuation | `forge/M11-credential-cost-closure` → `main` | **merged** (`dd95d0c`) | **green** — post-merge [27038312607](https://github.com/m-cahill/forge/actions/runs/27038312607) | 4.6/5 | [M11_summary](milestones/M11/M11_summary.md) |
 | M12 | Local CUDA PyTorch environment enablement | `forge/M12-local-cuda-pytorch-enablement` → `main` | **merged** (`78605a1`) | **green** — post-merge [27043969691](https://github.com/m-cahill/forge/actions/runs/27043969691) | 4.6/5 | [M12_summary](milestones/M12/M12_summary.md) |
-| M13 | Local training feasibility dry run | `forge/M13-local-training-feasibility-dry-run` | **closed on branch** — PR [#14](https://github.com/m-cahill/forge/pull/14) CI **green** [27048718537](https://github.com/m-cahill/forge/actions/runs/27048718537) | **green** | 4.6/5 | [M13_summary](milestones/M13/M13_summary.md) |
+| M13 | Local training feasibility dry run | `forge/M13-local-training-feasibility-dry-run` → `main` | **merged** (`16f19e0`) | **green** — post-merge [27050035266](https://github.com/m-cahill/forge/actions/runs/27050035266) | 4.6/5 | [M13_summary](milestones/M13/M13_summary.md) |
 | M14 | Local adapter feasibility dry run | — | **next** — stub only | — | — | [M14_plan](milestones/M14/M14_plan.md) (stub) |
 
 ---
@@ -898,10 +899,12 @@ Run Ledger **1.0** for `m03_synthetic_smoke_eval` is **synthetic factory self-ch
 
 ## M13 Closeout Record (Local Training Feasibility Dry Run)
 
-**Branch:** `forge/M13-local-training-feasibility-dry-run` (open; merge pending)  
-**PR:** [#14](https://github.com/m-cahill/forge/pull/14) — CI **green** [27048718537](https://github.com/m-cahill/forge/actions/runs/27048718537)  
-**PR head:** `9326041`  
-**Baseline:** M12 merge `78605a1` on `main`
+**Branch:** `forge/M13-local-training-feasibility-dry-run` (merged; branch deleted)  
+**PR:** [#14](https://github.com/m-cahill/forge/pull/14) — **merged** 2026-06-06T02:26:17Z (squash)  
+**Squash merge commit on `main`:** `16f19e078789264af3697b9ddc762d9e318e9114`  
+**PR head at merge:** `2eaeecce225d792d9d87ace58524f2a6dd04f312`  
+**PR CI (final head):** [27049407476](https://github.com/m-cahill/forge/actions/runs/27049407476) **green**  
+**Post-merge CI on `main`:** [27050035266](https://github.com/m-cahill/forge/actions/runs/27050035266) **green**
 
 **Artifacts:** [M13_summary](milestones/M13/M13_summary.md) · [M13_audit](milestones/M13/M13_audit.md) (4.6/5) · [M13_run1](milestones/M13/M13_run1.md)
 
@@ -1004,3 +1007,4 @@ Run Ledger **1.0** for `m03_synthetic_smoke_eval` is **synthetic factory self-ch
 | 2026-06-06 | M11 | M11 credential/cost closure implemented on branch | TBD preserved; prefer_local_cuda; audit 4.6/5; M12 stub seeded |
 | 2026-06-05 | M12 | M12 local CUDA PyTorch on branch; PR #13 CI green | `.venv_cuda` torch 2.11.0+cu128; `cuda_ready_probe_only`; audit 4.6/5; M13 stub seeded |
 | 2026-06-06 | M13 | M13 local CUDA training feasibility on branch; PR #14 CI green | `cuda_training_feasibility_pass`; toy MLP only; audit 4.6/5; M14 stub seeded |
+| 2026-06-06 | M13 | PR #14 squash-merged to `main` | `16f19e0`; post-merge CI 27050035266 green; branch deleted |

@@ -4,9 +4,11 @@
 **Phase:** Lane A — compute readiness  
 **Milestone:** M13 — Local Training Feasibility Dry Run  
 **Timeframe:** 2026-06-06  
-**Status:** Closed on branch — PR [#14](https://github.com/m-cahill/forge/pull/14) open; CI **green** [27048718537](https://github.com/m-cahill/forge/actions/runs/27048718537); merge pending owner permission  
-**Branch:** `forge/M13-local-training-feasibility-dry-run`  
-**PR head:** `9326041`
+**Status:** Closed — PR [#14](https://github.com/m-cahill/forge/pull/14) **merged** to `main` (`16f19e0`) 2026-06-06T02:26:17Z  
+**Branch:** `forge/M13-local-training-feasibility-dry-run` (deleted after merge)  
+**PR head at merge:** `2eaeecc`  
+**PR CI:** [27049407476](https://github.com/m-cahill/forge/actions/runs/27049407476) **green**  
+**Post-merge CI:** [27050035266](https://github.com/m-cahill/forge/actions/runs/27050035266) **green**
 
 ---
 
