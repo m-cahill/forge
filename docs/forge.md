@@ -1,15 +1,13 @@
 # FORGE — Ultimate Truth
 
 **Project:** FORGE — Kaggle NVIDIA Nemotron Model Reasoning Challenge  
-**Last updated:** 2026-06-05 (M12 merged to `main`; post-merge CI green)  
-**Status:** M00–M12 **merged** to `main`; **next:** M13 local training feasibility dry run (stub only)  
-**Main SHA:** `78605a1` (M12 squash merge via PR [#13](https://github.com/m-cahill/forge/pull/13))  
-**M12 PR head (pre-merge):** `f531202` · PR CI [27043585782](https://github.com/m-cahill/forge/actions/runs/27043585782) **green**  
-**Post-merge CI on `main`:** [27043969691](https://github.com/m-cahill/forge/actions/runs/27043969691) **green** (push on `78605a1`)  
-**M12 authorization:** `M12_LOCAL_CUDA_SETUP_AUTHORIZED = yes` · `M12_TRAINING_AUTHORIZED = no` · `M12_INFERENCE_AUTHORIZED = no` · `KAGGLE_SUBMISSION_AUTHORIZED = no`  
-**M12 CUDA classification:** `cuda_ready_probe_only` in `.venv_cuda` (torch 2.11.0+cu128) — **not** training readiness  
-**M11 owner preference:** `prefer_local_cuda`  
-**Next:** M13 Local Training Feasibility Dry Run (stub only)
+**Last updated:** 2026-06-06 (M13 closed on branch; PR #14 CI green; merge pending)  
+**Status:** M00–M12 **merged** to `main`; **M13 closed** on `forge/M13-local-training-feasibility-dry-run` — PR [#14](https://github.com/m-cahill/forge/pull/14) CI **green** [27048718537](https://github.com/m-cahill/forge/actions/runs/27048718537); merge pending owner permission  
+**Main SHA:** `78605a1` (M12) · **M13 PR head:** `9326041`  
+**M13 authorization:** `M13_LOCAL_TRAINING_FEASIBILITY_AUTHORIZED = yes` · `M13_FULL_BASELINE_TRAINING_AUTHORIZED = no` · `M13_INFERENCE_AUTHORIZED = no` · `KAGGLE_SUBMISSION_AUTHORIZED = no`  
+**M13 classification:** `cuda_training_feasibility_pass` in `.venv_cuda` — **not** baseline/adapter training readiness  
+**M12 CUDA classification:** `cuda_ready_probe_only` in `.venv_cuda` (torch 2.11.0+cu128)  
+**Next:** M14 Local Adapter Feasibility Dry Run (stub only) per [M13_next_decision](milestones/M13/M13_next_decision.md)
 
 ---
 
@@ -124,7 +122,8 @@ FORGE is a solver-guided, artifact-first, audit-governed LoRA competition system
 | M10 | Local 5090 feasibility probe | `forge/M10-local-5090-feasibility-probe` → `main` | **merged** (`dc45813`) | **green** — post-merge [27032692673](https://github.com/m-cahill/forge/actions/runs/27032692673) | 4.6/5 | [M10_summary](milestones/M10/M10_summary.md) |
 | M11 | Credential and cost closure continuation | `forge/M11-credential-cost-closure` → `main` | **merged** (`dd95d0c`) | **green** — post-merge [27038312607](https://github.com/m-cahill/forge/actions/runs/27038312607) | 4.6/5 | [M11_summary](milestones/M11/M11_summary.md) |
 | M12 | Local CUDA PyTorch environment enablement | `forge/M12-local-cuda-pytorch-enablement` → `main` | **merged** (`78605a1`) | **green** — post-merge [27043969691](https://github.com/m-cahill/forge/actions/runs/27043969691) | 4.6/5 | [M12_summary](milestones/M12/M12_summary.md) |
-| M13 | Local training feasibility dry run | — | **next** — stub only | — | — | [M13_plan](milestones/M13/M13_plan.md) (stub) |
+| M13 | Local training feasibility dry run | `forge/M13-local-training-feasibility-dry-run` | **closed on branch** — PR [#14](https://github.com/m-cahill/forge/pull/14) CI **green** [27048718537](https://github.com/m-cahill/forge/actions/runs/27048718537) | **green** | 4.6/5 | [M13_summary](milestones/M13/M13_summary.md) |
+| M14 | Local adapter feasibility dry run | — | **next** — stub only | — | — | [M14_plan](milestones/M14/M14_plan.md) (stub) |
 
 ---
 
@@ -242,7 +241,7 @@ A candidate may advance only when all applicable gates are satisfied:
 | Environment ID | Hardware | OS | Python/CUDA | Purpose | Status | Notes |
 | -------------- | -------- | -- | ----------- | ------- | ------ | ----- |
 | local_5090 (main env) | NVIDIA GeForce RTX 5090 | Windows 10.0.26200 | Py3.11.9; driver 591.86; torch 2.2.2+cpu (**CUDA false**) | Project verification / CI | **probed** — `visible_no_torch_cuda` | [M10 probe](milestones/M10/evidence/local_5090_probe/local_5090_probe.json) 2026-06-05 |
-| local_5090_cuda (`.venv_cuda`) | NVIDIA GeForce RTX 5090 | Windows 10.0.26200 | Py3.11.9; driver 591.86; torch 2.11.0+cu128; CUDA 12.8 (**CUDA true**) | Isolated CUDA probe only | **`cuda_ready_probe_only`** | [M12 evidence](milestones/M12/evidence/local_cuda_env/cuda_torch_probe.json) 2026-06-05; ~32607 MiB; tiny smoke pass; **not** training-ready |
+| local_5090_cuda (`.venv_cuda`) | NVIDIA GeForce RTX 5090 | Windows 10.0.26200 | Py3.11.9; driver 591.86; torch 2.11.0+cu128; CUDA 12.8 (**CUDA true**) | Isolated CUDA probe + toy training feasibility | **`cuda_training_feasibility_pass`** | [M12 probe](milestones/M12/evidence/local_cuda_env/cuda_torch_probe.json); [M13 feasibility](milestones/M13/evidence/local_training_feasibility/feasibility_run.json) 2026-06-06; peak ~18 MiB toy MLP; **not** baseline/adapter training-ready |
 | kaggle_notebook | Kaggle Notebook (CPU at probe) | Linux 6.6 / Py3.12 | torch 2.10+cpu; no CUDA | M01 debug probe | probed 2026-06-04 | Interactive; no GPU; ~19.5 GB free; see kaggle_setup_evidence |
 
 ---
@@ -891,9 +890,68 @@ Run Ledger **1.0** for `m03_synthetic_smoke_eval` is **synthetic factory self-ch
 
 ### Next recommendation
 
-**M13 — Local Training Feasibility Dry Run** per [M12_next_decision](milestones/M12/M12_next_decision.md). Requires separate owner kickoff. **Do not start M13** without authorization.
+**M14 — Local Adapter Feasibility Dry Run** per [M13_next_decision](milestones/M13/M13_next_decision.md). Requires separate owner kickoff. **Do not start M14** without authorization.
 
 **Non-claims (M12):** `cuda_ready_probe_only` is not training readiness. No training, inference, model loading, Kaggle submission, public/private score, reproduced baseline, adapters, credentials, or committed `.venv_cuda`.
+
+---
+
+## M13 Closeout Record (Local Training Feasibility Dry Run)
+
+**Branch:** `forge/M13-local-training-feasibility-dry-run` (open; merge pending)  
+**PR:** [#14](https://github.com/m-cahill/forge/pull/14) — CI **green** [27048718537](https://github.com/m-cahill/forge/actions/runs/27048718537)  
+**PR head:** `9326041`  
+**Baseline:** M12 merge `78605a1` on `main`
+
+**Artifacts:** [M13_summary](milestones/M13/M13_summary.md) · [M13_audit](milestones/M13/M13_audit.md) (4.6/5) · [M13_run1](milestones/M13/M13_run1.md)
+
+### M13 authorization (preserved)
+
+| Flag | Value |
+| ---- | ----- |
+| `M13_LOCAL_TRAINING_FEASIBILITY_AUTHORIZED` | **yes** |
+| `M13_FULL_BASELINE_TRAINING_AUTHORIZED` | **no** |
+| `M13_INFERENCE_AUTHORIZED` | **no** |
+| `KAGGLE_SUBMISSION_AUTHORIZED` | **no** |
+
+### M13 CUDA feasibility result
+
+| Field | Value |
+| ----- | ----- |
+| Classification | **`cuda_training_feasibility_pass`** |
+| Workload | FORGE-owned toy MLP; synthetic tensors; 3 steps |
+| Peak CUDA allocated | ~18.2 MiB |
+| Model artifacts | **none** |
+| Evidence | [`feasibility_run.json`](milestones/M13/evidence/local_training_feasibility/feasibility_run.json) |
+
+### M13 deliverables
+
+| Deliverable | Status |
+| ----------- | ------ |
+| Expanded `M13_plan.md` | Met |
+| Feasibility design doc | Met |
+| `run_cuda_training_feasibility.py` | Met |
+| Local CUDA dry run | Met — pass |
+| Evidence + report | Met |
+| Readiness manifest | Met — validates |
+| `M13_next_decision.md` → M14 | Met |
+| M14 stub seeded | Met |
+
+[`public_control_repro_plan.local_training_feasibility.json`](milestones/M13/evidence/readiness/public_control_repro_plan.local_training_feasibility.json) — `local_training_feasibility_status: cuda_training_feasibility_pass`, `training_authorized: false`, `ready_for_training: false`. **Not** training authorization.
+
+### Open blockers (post-M13)
+
+- Gate C / full training authorization: **not provided**
+- Adapter feasibility dry run: **not executed**
+- Submit UI zip constraints: **OPEN**
+- Kaggle API, Modal/Tinker, cost: **TBD**
+- SQ-CORPUS-001: **open**
+
+### Next recommendation
+
+**M14 — Local Adapter Feasibility Dry Run** per [M13_next_decision](milestones/M13/M13_next_decision.md). Requires separate owner kickoff.
+
+**Non-claims (M13):** `cuda_training_feasibility_pass` is not baseline or adapter training readiness. No real model training, inference, model loading, Kaggle submission, public/private score, reproduced baseline, adapters, credentials, or committed weights.
 
 ---
 
@@ -945,3 +1003,4 @@ Run Ledger **1.0** for `m03_synthetic_smoke_eval` is **synthetic factory self-ch
 | 2026-06-05 | M11 | PR #12 squash-merged to `main` | `dd95d0c`; post-merge CI 27038312607 green; branch deleted |
 | 2026-06-06 | M11 | M11 credential/cost closure implemented on branch | TBD preserved; prefer_local_cuda; audit 4.6/5; M12 stub seeded |
 | 2026-06-05 | M12 | M12 local CUDA PyTorch on branch; PR #13 CI green | `.venv_cuda` torch 2.11.0+cu128; `cuda_ready_probe_only`; audit 4.6/5; M13 stub seeded |
+| 2026-06-06 | M13 | M13 local CUDA training feasibility on branch; PR #14 CI green | `cuda_training_feasibility_pass`; toy MLP only; audit 4.6/5; M14 stub seeded |

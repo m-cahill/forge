@@ -100,6 +100,16 @@ CUDA_READY_LOCAL_PROBE_STATUSES = frozenset(
     }
 )
 
+LOCAL_TRAINING_FEASIBILITY_STATUS_VALUES = frozenset(
+    {
+        "not_run",
+        "cuda_training_feasibility_pass",
+        "cuda_training_feasibility_failed",
+        "cuda_unavailable",
+        "blocked",
+    }
+)
+
 
 def _is_non_empty_string(value: Any) -> bool:
     return isinstance(value, str) and bool(value.strip())
@@ -246,6 +256,7 @@ def validate_reproduction_plan(data: dict[str, Any]) -> list[str]:
         _validate_ready_for_training_field(data, status, training_authorized, ready_for_training)
     )
     errors.extend(_validate_local_5090_probe_status(data))
+    errors.extend(_validate_local_training_feasibility_status(data))
     errors.extend(_validate_copying_policy(data))
     errors.extend(_validate_credential_readiness_notes(data))
     errors.extend(_validate_submit_ui_constraints_status(data))
@@ -282,6 +293,52 @@ def _validate_local_5090_probe_status(data: dict[str, Any]) -> list[str]:
 
     if training_authorized is False and ready_for_training is True:
         pass  # covered elsewhere
+
+    return errors
+
+
+def _validate_local_training_feasibility_status(data: dict[str, Any]) -> list[str]:
+    """Validate optional local training feasibility status (M13+)."""
+    errors: list[str] = []
+    feasibility_status = data.get("local_training_feasibility_status")
+    if feasibility_status is None:
+        return errors
+    if (
+        not isinstance(feasibility_status, str)
+        or feasibility_status not in LOCAL_TRAINING_FEASIBILITY_STATUS_VALUES
+    ):
+        allowed = ", ".join(sorted(LOCAL_TRAINING_FEASIBILITY_STATUS_VALUES))
+        errors.append(f"local_training_feasibility_status must be one of: {allowed}")
+        return errors
+
+    ready_for_training = data.get("ready_for_training")
+    training_authorized = data.get("training_authorized")
+    compute_path = data.get("compute_path")
+    probe_status = data.get("local_5090_probe_status")
+
+    if feasibility_status == "cuda_training_feasibility_pass":
+        if compute_path != "local_5090":
+            errors.append("local_training_feasibility_status pass requires compute_path local_5090")
+        if probe_status not in CUDA_READY_LOCAL_PROBE_STATUSES:
+            errors.append(
+                "local_training_feasibility_status pass requires cuda-ready local_5090_probe_status"
+            )
+        if ready_for_training is True:
+            errors.append(
+                "local_training_feasibility_status pass does not imply ready_for_training true"
+            )
+
+    if feasibility_status == "cuda_training_feasibility_failed" and ready_for_training is True:
+        errors.append(
+            "local_training_feasibility_status failed incompatible with ready_for_training true"
+        )
+
+    if (
+        feasibility_status in ("cuda_training_feasibility_pass", "cuda_training_feasibility_failed")
+        and training_authorized is True
+        and ready_for_training is not True
+    ):
+        pass  # training_authorized without ready_for_training is allowed
 
     return errors
 

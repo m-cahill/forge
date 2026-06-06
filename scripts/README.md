@@ -13,6 +13,7 @@ CLI entry points for dataset generation, training, evaluation, packaging, and su
 | `validate_reproduction_plan.py` | Reproduction plan manifest JSON validation (M05) |
 | `probe_local_5090.py` | Safe local GPU/CUDA probe — no model load (M08/M10; run only when owner authorizes) |
 | `verify_cuda_torch.py` | CUDA PyTorch verification + optional tiny tensor smoke (M12; use in `.venv_cuda`) |
+| `run_cuda_training_feasibility.py` | Tiny CUDA training feasibility dry run — toy MLP, synthetic data only (M13; use in `.venv_cuda`) |
 
 ### Local evaluation (M02)
 
@@ -101,6 +102,18 @@ python scripts/verify_cuda_torch.py \
 ```
 
 Safe on CPU-only machines. Does not load models, train, or infer.
+
+### CUDA training feasibility dry run (M13)
+
+```powershell
+.venv_cuda\Scripts\python scripts\run_cuda_training_feasibility.py `
+  --out docs\milestones\M13\evidence\local_training_feasibility\feasibility_run.json `
+  --steps 3 `
+  --device cuda `
+  --environment-path .venv_cuda
+```
+
+Tiny FORGE-owned MLP on synthetic random tensors only. Does **not** load Nemotron, baseline checkpoints, or Hugging Face models. Does **not** save weights, adapters, or checkpoints. Fails cleanly on CPU-only unless `--cpu-ok` is passed (local debug only).
 
 ## Planned
 

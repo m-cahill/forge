@@ -1,0 +1,92 @@
+{
+  "authorization": {
+    "KAGGLE_SUBMISSION_AUTHORIZED": "no",
+    "M13_FULL_BASELINE_TRAINING_AUTHORIZED": "no",
+    "M13_INFERENCE_AUTHORIZED": "no",
+    "M13_LOCAL_TRAINING_FEASIBILITY_AUTHORIZED": "yes"
+  },
+  "command": "scripts/run_cuda_training_feasibility.py --device cuda --steps 3 --seed 0",
+  "cuda": {
+    "cpu_ok": false,
+    "cuda_device_count": 1,
+    "device_requested": "cuda",
+    "device_used": "cuda",
+    "gpu_name": "NVIDIA GeForce RTX 5090",
+    "pytorch_cuda_build_version": "12.8",
+    "pytorch_version": "2.11.0+cu128",
+    "torch_cuda_is_available": true,
+    "vram_total_mib": 32606
+  },
+  "environment": {
+    "environment_path": ".venv_cuda",
+    "host_os": "Windows 10 (AMD64)",
+    "python_executable": "C:\\coding\\forge\\.venv_cuda\\Scripts\\python.exe",
+    "python_version": "3.11.9"
+  },
+  "memory": {
+    "after": {
+      "memory_allocated_bytes": 18087936,
+      "memory_reserved_bytes": 23068672
+    },
+    "before": {
+      "memory_allocated_bytes": 0,
+      "memory_reserved_bytes": 0
+    },
+    "peak": {
+      "peak_memory_allocated_bytes": 18225664,
+      "peak_memory_reserved_bytes": 23068672
+    }
+  },
+  "non_claims": [
+    "not_baseline_training",
+    "not_adapter_training",
+    "not_inference",
+    "not_model_loading",
+    "not_kaggle_submission",
+    "not_training_readiness"
+  ],
+  "notes": "Tiny toy CUDA training-like feasibility loop only; not real model training, baseline training, or adapter training.",
+  "result": {
+    "classification": "cuda_training_feasibility_pass",
+    "error": null,
+    "success": true,
+    "traceback": null
+  },
+  "telemetry": {
+    "final_loss": 1.053148865699768,
+    "step_records": [
+      {
+        "elapsed_ms": 113.811,
+        "loss": 1.0283679962158203,
+        "step": 1
+      },
+      {
+        "elapsed_ms": 0.955,
+        "loss": 1.1205477714538574,
+        "step": 2
+      },
+      {
+        "elapsed_ms": 0.587,
+        "loss": 1.053148865699768,
+        "step": 3
+      }
+    ],
+    "steps_completed": 3
+  },
+  "timestamp_utc": "2026-06-06T00:40:46.314914+00:00",
+  "workload": {
+    "batch_size": 32,
+    "dtype": "float32",
+    "hidden_dim": 128,
+    "input_dim": 64,
+    "kind": "tiny_mlp_synthetic",
+    "learning_rate": 0.001,
+    "optimizer": "SGD",
+    "output_dim": 32,
+    "seed": 0,
+    "steps_requested": 3,
+    "uses_baseline_code": false,
+    "uses_competition_data": false,
+    "writes_model_artifacts": false
+  }
+}
